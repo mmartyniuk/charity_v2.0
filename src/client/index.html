@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide { display: none!important; }
+    </style>
+    <title ng-bind="title">Благодійний портал</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/">
+
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/styles.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top fw700">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img alt="SoftServe" class="logo" src="images/logo.png">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Потреби</a></li>
+                        <li><a href="#">Пропозиції</a></li>
+                        <li><a href="#">Додати Потребу</a></li>
+                        <li><a href="#">Додати Пропозицію</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <hr class="divider hidden-lg hidden-md hidden-sm">
+                        </li>
+                        <li><a href="../navbar/">Про нас</a></li>
+                        <li><a href="../navbar-static-top/">Мій кабінет</a></li>
+                        <li><a href="#">Вийти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div ng-view></div>
+    <footer>
+        <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.
+                    <a href="#">Контакти</a>
+                    <a href="#">Site Map</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms Of Use</a>
+                </p>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+    <script src="/src/client/app/app.module.js"></script>
+    <script src="/src/client/app/admin/admin.module.js"></script>
+    <script src="/src/client/app/auth/auth.module.js"></script>
+    <script src="/src/client/app/blocks/exception/exception.module.js"></script>
+    <script src="/src/client/app/blocks/logger/logger.module.js"></script>
+    <script src="/src/client/app/blocks/router/router.module.js"></script>
+    <script src="/src/client/app/core/core.module.js"></script>
+    <script src="/src/client/app/main/main.module.js"></script>
+    <script src="/src/client/app/needs/needs.module.js"></script>
+    <script src="/src/client/app/offers/offers.module.js"></script>
+    <script src="/src/client/app/admin/admin.controller.js"></script>
+    <script src="/src/client/app/admin/admin.route.js"></script>
+    <script src="/src/client/app/app.config.js"></script>
+    <script src="/src/client/app/auth/api.service.js"></script>
+    <script src="/src/client/app/auth/config.js"></script>
+    <script src="/src/client/app/auth/login.controller.js"></script>
+    <script src="/src/client/app/auth/register.js"></script>
+    <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="/src/client/app/blocks/exception/exception.js"></script>
+    <script src="/src/client/app/blocks/logger/logger.js"></script>
+    <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/core/config.js"></script>
+    <script src="/src/client/app/core/constants.js"></script>
+    <script src="/src/client/app/core/core.route.js"></script>
+    <script src="/src/client/app/core/dataservice.js"></script>
+    <script src="/src/client/app/directives.js"></script>
+    <script src="/src/client/app/main/config.js"></script>
+    <script src="/src/client/app/main/index.js"></script>
+    <script src="/src/client/app/main/messages.js"></script>
+    <script src="/src/client/app/main/profile.js"></script>
+    <script src="/src/client/app/needs/acceptedNeed.js"></script>
+    <script src="/src/client/app/needs/config.js"></script>
+    <script src="/src/client/app/needs/created_need.js"></script>
+    <script src="/src/client/app/needs/created_project.js"></script>
+    <script src="/src/client/app/needs/needs.js"></script>
+    <script src="/src/client/app/needs/new_need_register.js"></script>
+    <script src="/src/client/app/needs/new_need_step_1.js"></script>
+    <script src="/src/client/app/needs/new_project.js"></script>
+    <script src="/src/client/app/offers/acceptedOffers.js"></script>
+    <script src="/src/client/app/offers/config.js"></script>
+    <script src="/src/client/app/offers/created_offer.js"></script>
+    <script src="/src/client/app/offers/new_offer_register.js"></script>
+    <script src="/src/client/app/offers/new_offer_step1.js"></script>
+    <script src="/src/client/app/offers/offers.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+</html>
