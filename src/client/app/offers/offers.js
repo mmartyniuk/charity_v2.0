@@ -3,14 +3,14 @@
 
     angular
         .module('app.offers')
-        .controller('Offers', AboutController);
+        .controller('OffersController', OffersController);
 
-    AboutController.$inject = ['$location'];
+    OffersController.$inject = ['$location'];
 
-    function AboutController($location) {
+    function OffersController($location) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'Offers';
+        vm.title = 'OffersController';
 
         activate();
 

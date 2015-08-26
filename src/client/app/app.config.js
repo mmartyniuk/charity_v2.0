@@ -3,17 +3,69 @@
 
     angular
         .module('app')
-        .config(config);
+        .run(appRun);
 
-    config.$inject = ['$routeProvider', '$locationProvider', 'GlobalConfig'];
-
-    function config($routeProvider, $locationProvider, GlobalConfig) {
-        $routeProvider
-            .when('/', { templateUrl: GlobalConfig.appPath + '/main/index.html', controller: 'IndexController', controllerAs: 'vm' })
-            .when('/needs', { templateUrl: GlobalConfig.appPath + '/needs/needs.html', controller: 'NeedsController', controllerAs: 'vm' })
-            .when('/offers', { templateUrl: GlobalConfig.appPath + '/offers/offers.html', controller: 'OffersController', controllerAs: 'vm' })
-            .otherwise({ redirectTo: '/' });
-
-        $locationProvider.html5Mode(true);
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        var otherwise = '/404';
+        routerHelper.configureStates(getStates(), otherwise);
     }
+
+    function getStates() {
+        return [
+            {
+                state: 'index',
+                config: {
+                    url: '/index',
+                    templateUrl: 'app/main/index.html',
+                    controller: 'IndexController',
+                    controllerAs: 'vm',
+                    title: 'Index'
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin' - tbd
+                    }*/
+                }
+            },
+            {
+                state: 'needs',
+                config: {
+                    url: '/needs',
+                    templateUrl: 'app/needs/needs.html',
+                    controller: 'NeedsController',
+                    controllerAs: 'vm',
+                    title: 'Needs',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: 'offers',
+                config: {
+                    url: '/offers',
+                    templateUrl: 'app/offers/offers.html',
+                    controller: 'OffersController',
+                    controllerAs: 'vm',
+                    title: 'Offers',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: '404',
+                config: {
+                    url: '/404',
+                    templateUrl: 'app/core/404.html',
+                    title: '404'
+                }
+            }
+    
+        ];
+    }
+    
 })();

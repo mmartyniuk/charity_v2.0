@@ -3,16 +3,44 @@
 
     angular
         .module('app.auth')
-        .config(config);
+        .run(appRun);
 
-    config.$inject = ['$routeProvider', '$locationProvider', 'GlobalConfig'];
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
 
-    function config($routeProvider, $locationProvider, GlobalConfig) {
-        $routeProvider
-            .when('/login', { templateUrl: GlobalConfig.appPath + '/auth/login.html', controller: 'LoginController', controllerAs: 'vm' })
-            .when('/register', { templateUrl: GlobalConfig.appPath + '/auth/register.html', controller: 'RegisterController', controllerAs: 'vm' })
-            .otherwise({ redirectTo: '/' });
-
-        $locationProvider.html5Mode(true);
+    function getStates() {
+        return [
+            {
+                state: 'login',
+                config: {
+                    url: '/login',
+                    templateUrl: 'app/auth/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'vm',
+                    title: 'Login'
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin' - tbd
+                    }*/
+                }
+            },
+            {
+                state: 'register',
+                config: {
+                    url: '/register',
+                    templateUrl: 'app/auth/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'vm',
+                    title: 'Register',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            }
+        ];
     }
 })();

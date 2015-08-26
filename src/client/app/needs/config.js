@@ -3,20 +3,101 @@
 
     angular
         .module('app.needs')
-        .config(config);
+        .run(appRun);
 
-    config.$inject = ['$routeProvider', '$locationProvider', 'GlobalConfig'];
-
-    function config($routeProvider, $locationProvider, GlobalConfig) {
-        $routeProvider
-            .when('/needs/acceptedneed', { templateUrl: GlobalConfig.appPath + '/needs/acceptedNeed.html', controller: 'AcceptedNeedController', controllerAs: 'vm' })
-            .when('/needs/createdneed', { templateUrl: GlobalConfig.appPath + '/needs/created_need.html', controller: 'CreatedNeedController', controllerAs: 'vm' })
-            .when('/needs/createdproject', { templateUrl: GlobalConfig.appPath + '/needs/created_project.html', controller: 'CreatedProjectController', controllerAs: 'vm' })
-            .when('/needs/newneedregister', { templateUrl: GlobalConfig.appPath + '/needs/new_need_register.html', controller: 'NewNeedRegisterController', controllerAs: 'vm' })
-            .when('/needs/newneedstep1', { templateUrl: GlobalConfig.appPath + '/needs/new_need_step1.html', controller: 'NewNeedStep1Controller', controllerAs: 'vm' })
-            .when('/needs/newproject', { templateUrl: GlobalConfig.appPath + '/needs/new_project.html', controller: 'NewProjectController', controllerAs: 'vm' })
-            .otherwise({ redirectTo: '/' });
-
-        $locationProvider.html5Mode(true);
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
     }
+
+    function getStates() {
+        return [
+            {
+                state: 'acceptedneed',
+                config: {
+                    url: '/needs/acceptedneed',
+                    templateUrl: 'app/needs/acceptedNeed.html',
+                    controller: 'AcceptedNeedController',
+                    controllerAs: 'vm',
+                    title: 'AcceptedNeed'
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin' - tbd
+                    }*/
+                }
+            },
+            {
+                state: 'createdneed',
+                config: {
+                    url: '/needs/createdneed',
+                    templateUrl: 'app/needs/created_need.html',
+                    controller: 'CreatedNeedController',
+                    controllerAs: 'vm',
+                    title: 'CreatedNeed',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: 'createdproject',
+                config: {
+                    url: '/needs/createdproject',
+                    templateUrl: 'app/needs/createdproject.html',
+                    controller: 'CreatedProjectController',
+                    controllerAs: 'vm',
+                    title: 'CreatedProject',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: 'newneedregister',
+                config: {
+                    url: '/needs/newneedregister',
+                    templateUrl: 'app/needs/new_need_register.html',
+                    controller: 'NewNeedRegisterController',
+                    controllerAs: 'vm',
+                    title: 'NewNeedRegister',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: 'newneedstep1',
+                config: {
+                    url: '/needs/newneedstep1',
+                    templateUrl: 'app/needs/new_need_step1.html',
+                    controller: 'NewNeedStep1Controller',
+                    controllerAs: 'vm',
+                    title: 'NewNeedStep1',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            },
+            {
+                state: 'newproject',
+                config: {
+                    url: '/needs/new_project.html',
+                    templateUrl: 'app/needs/new_project.html',
+                    controller: 'NewProjectController',
+                    controllerAs: 'vm',
+                    title: 'NewProject',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            }
+        ];
+    }
+
 })();

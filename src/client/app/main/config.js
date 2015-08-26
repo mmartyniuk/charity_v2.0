@@ -3,16 +3,45 @@
 
     angular
         .module('app.main')
-        .config(config);
+        .run(appRun);
 
-    config.$inject = ['$routeProvider', '$locationProvider', 'GlobalConfig'];
-
-    function config($routeProvider, $locationProvider, GlobalConfig) {
-        $routeProvider
-            .when('/index/messages', { templateUrl: GlobalConfig.appPath + '/main/messages.html', controller: 'MessagesController', controllerAs: 'vm' })
-            .when('/index/profile', { templateUrl: GlobalConfig.appPath + '/main/profile.html', controller: 'PublishAppController', controllerAs: 'vm' })
-            .otherwise({ redirectTo: '/' });
-
-        $locationProvider.html5Mode(true);
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
     }
+
+    function getStates() {
+        return [
+            {
+                state: 'messages',
+                config: {
+                    url: '/index/messages',
+                    templateUrl: 'app/main/messages.html',
+                    controller: 'MessagesController',
+                    controllerAs: 'vm',
+                    title: 'Messages'
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin' - tbd
+                    }*/
+                }
+            },
+            {
+                state: 'profile',
+                config: {
+                    url: '/index/profile',
+                    templateUrl: 'app/main/profile.html',
+                    controller: 'ProfileController',
+                    controllerAs: 'vm',
+                    title: 'profile',
+                    /*settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }*/
+                }
+            }
+        ];
+    }
+    
 })();
