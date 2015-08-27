@@ -46,11 +46,11 @@
                         <div class="needInfo">
                             <div>
                                 <div class="activeNeed">{{vm.userName}}</div>
-                                <div class ="offer-info" ng-hide="vm.editorEnabled">
+                                <div class="offer-info" ng-hide="vm.editorEnabled">
                                     {{vm.offerText}}
                                 </div>
                                 <div ng-show="vm.editorEnabled">
-                                    <textarea  class="form-control" rows="5" ng-model="vm.editableOffer" ng-show="vm.editorEnabled"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="vm.editableOffer" ng-show="vm.editorEnabled"></textarea>
                                     <button ng-click="vm.save()">Зберегти?</button>
                                     чи
                                     <button ng-click="vm.disableEditor()">Скасувати?</button>
