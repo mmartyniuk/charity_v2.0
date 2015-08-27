@@ -5,35 +5,35 @@
         .module('app.offers')
         .controller('OffersController', OffersController);
 
-    OffersController.$inject = ['$scope', '$location'];
+    OffersController.$inject = ['$location'];
 
-    function OffersController($scope, $location) {
+    function OffersController($location) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'OffersController';
+        vm.enableEditor = enableEditor;
+        vm.disableEditor = disableEditor;
+        vm.save = save;
 
         activate();
 
         function activate() {
-          $scope.offerText = "";
-          $scope.editorEnabled = false;
+          vm.offerText = "";
+          vm.editorEnabled = false;
           
-          $scope.enableEditor = function() {
-            $scope.editorEnabled = true;
-            $scope.editableOffer = $scope.offerText;
-          };
+        };
+        function enableEditor() { 
+            vm.editorEnabled = true;
+            vm.editableOffer = vm.offerText;
+        };
+
+        function disableEditor() {
+            vm.editorEnabled = false;
+        };
           
-          $scope.disableEditor = function() {
-            $scope.editorEnabled = false;
-          };
-          
-          $scope.save = function() {
-            $scope.offerText = $scope.editableOffer;
-            $scope.disableEditor();
-          };
+        function save() {
+            vm.offerText = vm.editableOffer;
+            vm.disableEditor();
         };
     };
 })();
-
-
- 
