@@ -1,17 +1,17 @@
 <section>
   <div class="container">
       <h2 class="text-left text-heading">Нова потреба</h2>
-      <form class="form-horizontal">
+      <form class="form-horizontal" name="NewNeed">
           <div class="form-group">
               <label class="control-label col-sm-1" for="title">Назва</label>
               <div class="col-sm-6">
-                  <input type="text" class="form-control" name="heading" id="title" placeholder="Назва потреби">
+                  <input type="text" class="form-control" name="needTitle" ng-model="need.title" placeholder="Назва потреби" required>
               </div>
           </div>
           <div class="form-group">
               <label class="control-label col-sm-1">Категорія</label>
               <div class="col-sm-6">
-                  <input type="text" class="form-control" id="category_name" placeholder="Оберіть категорію" data-toggle="modal" data-target="#categoriesModal">
+                  <input type="text" class="form-control" id="category_name" ng-model="need.category" placeholder="Оберіть категорію" data-toggle="modal" data-target="#categoriesModal" value="">
               </div>
           </div>
           <!-- Modal -->
@@ -25,54 +25,54 @@
                       <div class="modal-body">
                           <div class="category">
                               <!-- Main categories -->
-                              <ul class="list-unstyled" role="tablist">
+                              <ul class="list-unstyled" role="tablist" id="categories">
                                   <li>
-                                      <a href="#">Одяг</a>
+                                      <a href="#" sub-category-call>Одяг</a>
                                   </li>
                                   <li>
-                                      <a href="#">Взуття</a>
+                                      <a href="#" sub-category-call>Взуття</a>
                                   </li>
                                   <li>
-                                      <a href="#">Аксесуари</a>
+                                      <a href="#" sub-category-call>Аксесуари</a>
                                   </li>
                                   <li>
-                                      <a href="#">Канцтовари</a>
+                                      <a href="#" sub-category-call>Канцтовари</a>
                                   </li>
                                   <li>
-                                      <a href="#">Книги</a>
+                                      <a href="#" sub-category-call>Книги</a>
                                   </li>
                                   <li>
-                                      <a href="#">Побутова техніка</a>
+                                      <a href="#" sub-category-call>Побутова техніка</a>
                                   </li>
                                   <li>
-                                      <a href="#">Електроніка</a>
+                                      <a href="#" sub-category-call>Електроніка</a>
                                   </li>
                                   <li>
-                                      <a href="#">Побут</a>
+                                      <a href="#" sub-category-call>Побут</a>
                                   </li>
                                   <li>
-                                      <a href="#">Засоби гігієни</a>
+                                      <a href="#" sub-category-call>Засоби гігієни</a>
                                   </li>
                                   <li>
-                                      <a href="#">Іграшки</a>
+                                      <a href="#" sub-category-call>Іграшки</a>
                                   </li>
                                   <li>
-                                      <a href="#">Продукти</a>
+                                      <a href="#" sub-category-call>Продукти</a>
                                   </li>
                                   <li>
-                                      <a href="#">Медикаменти</a>
+                                      <a href="#" sub-category-call>Медикаменти</a>
                                   </li>
                                   <li>
-                                      <a href="#">Спорт</a>
+                                      <a href="#" sub-category-call>Спорт</a>
                                   </li>
                                   <li>
-                                      <a href="#">Інструменти</a>
+                                      <a href="#" sub-category-call>Інструменти</a>
                                   </li>
                                   <li>
-                                      <a href="#">Матеріали</a>
+                                      <a href="#" sub-category-call>Матеріали</a>
                                   </li>
                                   <li>
-                                      <a href="#">Послуги</a>
+                                      <a href="#" sub-category-call>Послуги</a>
                                   </li>
                               </ul>
                           </div>

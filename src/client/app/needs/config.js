@@ -73,7 +73,7 @@
                 state: 'newneedstep1',
                 config: {
                     url: '/needs/newneedstep1',
-                    templateUrl: 'app/needs/new_need_step1.html',
+                    templateUrl: 'app/needs/new_need_step_1.html',
                     controller: 'NewNeedStep1Controller',
                     controllerAs: 'vm',
                     title: 'NewNeedStep1',
