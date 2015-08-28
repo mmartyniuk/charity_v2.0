@@ -1,0 +1,160 @@
+<section>
+  <div class="container">
+      <div class="col-md-offset-1">
+          <h2 class="text-left">Нова пропозиція</h2>
+      </div>
+      <form class="form-horizontal">
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="title" >Назва</label>
+              <div class="col-sm-6">
+                  <!-- here should be pre-filled data from previous page -->
+                  <input type="text" class="form-control" name="heading" id="title" placeholder="Светр для дитячого будинку" ng-model="vm.editableOfferTittle" ng-show="vm.editorEnabled">
+                  {{vm.offerTittle}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Категорія</label>
+              <div class="col-sm-6">
+                  <!-- here should be pre-filled data from previous page -->
+                  <ol class="breadcrumb">
+                      <li>
+                          <a href="#">Одяг</a>
+                      </li>
+                      <li>
+                          <a href="#">Дитячий одяг</a>
+                      </li>
+                      <li>Светри</li>
+                  </ol>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                  <hr>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Опис пропозиції</label>
+              <div class="row">
+              <div class="col-sm-6">
+                  <div ng-show="vm.editorEnabled">
+                      <textarea class="form-control" rows="5" ng-model="vm.editableOffer" ng-show="vm.editorEnabled"></textarea>
+                    </div>
+                     {{vm.offerText}}
+              </div>
+          </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Фото:</label>
+              <div class="col-sm-6">
+                  <input type="file" id="exampleInputFile">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Розмір:</label>
+              <div class="col-sm-2">
+                  <select class="form-control" ng-model="vm.editableOfferSize" ng-show="vm.editorEnabled">
+                      <option>S</option>
+                      <option>M</option>
+                      <option>L</option>
+                      <option>XL</option>
+                  </select>
+              </div>
+              {{vm.offerSize}}
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                  <hr>
+              </div>
+          </div>
+          <div class="form-group row" >
+              <label class="control-label col-sm-2">Регіон:</label>
+              <div class="col-sm-3">
+                  <select class="form-control" ng-model="vm.editableRegion" ng-show="vm.editorEnabled">
+                      <option>Волинська обл.</option>
+                      <option>Вінницька обл.</option>
+                      <option>Дніпропетровська обл.</option>
+                      <option>Донецька обл.</option>
+                      <option>Житомирська област</option>
+                      <option>Закарпатська обл.</option>
+                      <option>Запорізька обл.</option>
+                      <option>Івано-Франківська обл.</option>
+                      <option>Київська обл.</option>
+                      <option>Кіровоградська обл.</option>
+                      <option>Луганська обл.</option>
+                      <option>Львівська обл.</option>
+                      <option>Миколаївська обл.</option>
+                      <option>Одеська обл.</option>
+                      <option>Полтавська обл.</option>
+                      <option>Рівненська обл.</option>
+                      <option>Сумська обл.</option>
+                      <option>Тернопільська обл.</option>
+                      <option>Харківська обл.</option>
+                      <option>Херсонська обл.</option>
+                      <option>Хмельницька обл.</option>
+                      <option>Черкаська обл.</option>
+                      <option>Чернівецька обл.</option>
+                      <option>Чернігівська обл.</option>
+                      <option>Автономна Республіка Крим</option>
+                  </select>
+                  {{vm.offerRegion}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Місто:</label>
+              <div class="col-sm-2">
+                  <!-- here should be pre-filled data depending on previous select field -->
+                  <select class="form-control" ng-model="vm.editableOfferCity" ng-show="vm.editorEnabled">
+                      <option>Київ</option>
+                      <option>Суми</option>
+                      <option>Львів</option>
+                      <option>Рівне</option>
+                  </select>
+                  {{vm.offerCity}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Адреса:</label>
+              <div class="col-sm-2">
+                  <input type="text" class="form-control" id="str" placeholder="вул. Шевченка" ng-model="vm.editableOfferAdress" ng-show="vm.editorEnabled">
+                  {{vm.offerAdress}}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                  <hr>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Актуальність</label>
+              <div class="col-sm-3">
+                  <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01" ng-model="vm.editableTopicality" ng-show="vm.editorEnabled"> <!-- tbd, working only in Chrome -->
+                  {{vm.offerTopicality}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Зручний час</label>
+              <div class="col-sm-3">
+                  <input type="text" class="form-control" id="s_time" placeholder="Пн-Пт, 10:00 - 19:00;" ng-model="vm.editableOfferTime" ng-show="vm.editorEnabled">
+                  {{vm.offerTime}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Зможу доставити:</label>
+              <div class="col-sm-6">
+                  <label class="radio-inline"  ng-model="vm.editableRegion" ng-show="vm.editorEnabled">
+                      <input type="radio" name="canGet" id="yes" value="option1">Так
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="canGet" id="no" value="option2">Ні
+                  </label>
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-md-3 col-md-offset-6">
+                 <button ng-click="vm.save()">Зберегти?</button>
+                     <button ng-click="vm.disableEditor()">Скасувати?</button>
+              </div>
+          </div>
+      </form>
+  </div>
+</section>
