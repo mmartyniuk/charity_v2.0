@@ -5,15 +5,15 @@
         .module('app.needs')
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
-    NewNeedRegisterController.$inject = ['$location'];
+NewNeedRegisterController.$inject = ['$location'];
 
-    function NewNeedRegisterController($location) {
-        /* jshint validthis:true */
-        var vm = this;
-        vm.title = 'NewNeedRegisterController';
+function NewNeedRegisterController($location) {
+    /* jshint validthis:true */
+    var vm = this;
+    vm.title = 'NewNeedRegisterController';
 
-        activate();
+    activate();
 
-        function activate() { }
-    }
+    function activate() { }
+}
 })();

@@ -3,7 +3,7 @@
       <h2 class="text-left text-heading">Нова потреба</h2>
       <form class="form-horizontal" name="NewNeed">
           <div class="form-group">
-              <label class="control-label col-sm-1" for="title">Назва</label>
+              <label class="control-label col-sm-1">Назва</label>
               <div class="col-sm-6">
                   <input type="text" class="form-control" name="needTitle" ng-model="need.title" placeholder="Назва потреби" required>
               </div>
@@ -26,70 +26,25 @@
                           <div class="category">
                               <!-- Main categories -->
                               <ul class="list-unstyled" role="tablist" id="categories">
-                                  <li>
-                                      <a href="#" sub-category-call>Одяг</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Взуття</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Аксесуари</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Канцтовари</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Книги</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Побутова техніка</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Електроніка</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Побут</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Засоби гігієни</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Іграшки</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Продукти</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Медикаменти</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Спорт</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Інструменти</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Матеріали</a>
-                                  </li>
-                                  <li>
-                                      <a href="#" sub-category-call>Послуги</a>
+                                  <li ng-repeat="category in vm.categories" ng-if="category.parent_id=='0'">
+                                      <a href="#" category-call ng-model="category.id">{{category.name}}</a>
                                   </li>
                               </ul>
+                              <div class="hidden subcategory" id="sub">
+                                  <ul class="list-unstyled" role="tablist" id="subcategories">
+                                      <li ng-repeat="sub in vm.categories">
+                                          <a href="#">{{sub.name}}</a>
+                                      </li>
+                                  </ul>
+                              </div>
                           </div>
-                          <div class="hidden subcategory">
-                              <!-- Sub-categories, hidden, should be displayed after main category is selected -->
+                          <!-- <div class="hidden subcategory" id="sub">
                               <ul class="list-unstyled" role="tablist">
                                   <li>
-                                      <a href="#">Дитячий одяг</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Жіночий одяг</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Чоловічий одяг</a>
+                                      <a href="#" sub-category-call></a>
                                   </li>
                               </ul>
-                          </div>
+                          </div> -->
                           <div class="hidden subcategory_child">
                               <!-- Sub-categories, hidden, should be displayed after main category is selected -->
                               <ul class="list-unstyled" role="tablist">

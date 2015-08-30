@@ -3,18 +3,25 @@
 
     angular
         .module('app.needs')
-        .directive('subCategoryCall', subCategoryCall);
+        .directive('categoryCall', categoryCall);
 
-    function subCategoryCall(){
+    function categoryCall(){
         var directive = {
-            restrict: 'A',
-            link: link
+            restrict: 'EA',
+            link: link,
+            scope: {
+                max: '='
+            },
+            controllerAs: 'vm',
+            require: 'ngModel'
         };
         return directive;
 
-        function link(scope, el, attr){
-            el.bind('click', function(e){
-                console.log('test');
+        function link(scope, element, attr, ngModel){
+            element.bind('click', function(e){
+                document.getElementById('sub').classList.remove("hidden");
+                var subCategoryIndex = ngModel.$viewValue;
+                console.log(subCategoryIndex);
             })
         }
     }

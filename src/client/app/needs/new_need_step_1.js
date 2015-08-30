@@ -3,11 +3,11 @@
 
     angular
         .module('app.needs')
-        .controller('NewNeedStep1Controller', NewNeedStep1Controller)
+        .controller('NewNeedStep1Controller', NewNeedStep1Controller);
 
-    NewNeedStep1Controller.$inject = ['$location','$http','$scope', 'CreateNeedFactory', 'subCategoryCall'];
+    NewNeedStep1Controller.$inject = ['$location','$http','$scope', 'CreateNeedFactory'];
 
-    function NewNeedStep1Controller($location, $http, $scope, CreateNeedFactory, subCategoryCall) {
+    function NewNeedStep1Controller($location, $http, $scope, CreateNeedFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NewNeedStep1Controller';
@@ -15,7 +15,7 @@
         activate();
 
         function activate() {
-            CreateNeedFactory.getCategories();
+            vm.categories = CreateNeedFactory.getCategories();
         }
     }
 
