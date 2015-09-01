@@ -1,84 +1,52 @@
 <section>
   <div class="container">
       <h2 class="text-left text-heading">Нова потреба</h2>
-      <form class="form-horizontal" name="NewNeed">
+      <form class="form-horizontal" name="NewNeed" ng-submit="vm.submitNeed(vm.need.title, vm.need.category)">
           <div class="form-group">
               <label class="control-label col-sm-1">Назва</label>
               <div class="col-sm-6">
-                  <input type="text" class="form-control" name="needTitle" ng-model="need.title" placeholder="Назва потреби" required>
+                  <input type="text" class="form-control" name="needTitle" ng-model="vm.need.title" placeholder="Назва потреби" required>
               </div>
           </div>
           <div class="form-group">
               <label class="control-label col-sm-1">Категорія</label>
               <div class="col-sm-6">
-                  <input type="text" class="form-control" id="category_name" ng-model="need.category" placeholder="Оберіть категорію" data-toggle="modal" data-target="#categoriesModal" value="">
+                  <input type="text" class="form-control" id="category_name" ng-model="vm.need.category" placeholder="Оберіть категорію" ng-click="vm.open()" required>
               </div>
           </div>
-          <!-- Modal -->
-          <div class="modal fade" id="categoriesModal" role="dialog">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Оберіть категорію:</h4>
-                      </div>
-                      <div class="modal-body">
-                          <div class="category">
-                              <!-- Main categories -->
-                              <ul class="list-unstyled" role="tablist" id="categories">
-                                  <li ng-repeat="category in vm.categories" ng-if="category.parent_id=='0'">
-                                      <a href="#" category-call ng-model="category.id">{{category.name}}</a>
-                                  </li>
-                              </ul>
-                              <div class="hidden subcategory" id="sub">
-                                  <ul class="list-unstyled" role="tablist" id="subcategories">
-                                      <li ng-repeat="sub in vm.categories">
-                                          <a href="#">{{sub.name}}</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- <div class="hidden subcategory" id="sub">
-                              <ul class="list-unstyled" role="tablist">
-                                  <li>
-                                      <a href="#" sub-category-call></a>
-                                  </li>
-                              </ul>
-                          </div> -->
-                          <div class="hidden subcategory_child">
-                              <!-- Sub-categories, hidden, should be displayed after main category is selected -->
-                              <ul class="list-unstyled" role="tablist">
-                                  <li>
-                                      <a href="#">Верхній одяг</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Светри</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Штани</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Футболки</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Білизна</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Для немовлят</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Інше</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-warning" data-dismiss="modal">Назад</button>
-                          <button type="button" class="btn btn-primary">Підтвердити</button>
-                      </div>
+          <!-- Modal categories -->
+          <script type="text/ng-template" id="needs-modal.html">
+              <div class="modal-header">
+                  <button type="button" class="close" ng-click="vm.cancel()">&times;</button>
+                  <h4 class="modal-title">Оберіть категорію:</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="category">
+                      <!-- Main categories -->
+                      <ul class="list-unstyled" role="tablist" id="categories">
+                          <li ng-repeat="category in vm.categories" ng-if="category.parent_id=='0'">
+                              <a href="" ng-click="vm.setCurrentCategory(category.id)">{{category.name}}</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="hidden subcategory" id="sub">
+                      <ul class="list-unstyled" role="tablist" id="subcategories">
+                          <li ng-repeat="sub in vm.categories" ng-if="sub.parent_id==vm.currentCategory">
+                              <a href="" ng-click="vm.setCurrentSubCategory(sub.id, sub.name)">{{sub.name}}</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="hidden subcategory_child" id="subchild">
+                      <ul class="list-unstyled" role="tablist">
+                          <li ng-repeat="subchild in vm.categories" ng-if="subchild.parent_id==vm.currentSubCategory">
+                              <a href="#" ng-click="vm.setCurrentSubSubCategory(subchild.name)">{{subchild.name}}</a>
+                          </li>
+                      </ul>
                   </div>
               </div>
-          </div>
+              <div class="modal-footer">
+              </div>
+          </script>
           <div class="form-group">
               <button type="button" class="btn btn-warning">Назад</button>
               <button type="submit" class="btn btn-primary">Далі</button>

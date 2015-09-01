@@ -45,6 +45,21 @@
                         "name":"Туфлі",
                         "id": 7,
                         "parent_id": 2
+                    },
+                    {
+                        "name":"Дитячі шкарпетки",
+                        "id": 8,
+                        "parent_id": 4
+                    },
+                    {
+                        "name":"Дитячі светри",
+                        "id": 9,
+                        "parent_id": 4
+                    },
+                    {
+                        "name":"Дитячі штани",
+                        "id": 10,
+                        "parent_id": 4
                     }
                 ];
                 return categories;

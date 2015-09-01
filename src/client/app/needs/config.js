@@ -63,10 +63,7 @@
                     controller: 'NewNeedRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedRegister',
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
+                    params: {prefilled: null}
                 }
             },
             {

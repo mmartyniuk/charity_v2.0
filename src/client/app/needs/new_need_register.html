@@ -3,13 +3,11 @@
         <div class="col-md-offset-1">
             <h2 class="text-left">Нова потреба</h2>
         </div>
-        <form class="form-horizontal">
+        <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
-                <label class="control-label col-sm-2" for="title">Назва</label>
-                <div class="col-sm-6">
+                <label class="control-label col-sm-2">Назва</label>
                     <!-- here should be pre-filled data from previous page -->
-                    <input type="text" class="form-control" name="heading" id="title" placeholder="Светр для дитячого будинку">
-                </div>
+                <h3>{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Категорія</label>
@@ -22,7 +20,7 @@
                         <li>
                             <a href="#">Дитячий одяг</a>
                         </li>
-                        <li>Светри</li>
+                        <li>{{vm.need.category}}</li>
                     </ol>
                 </div>
             </div>
@@ -34,13 +32,23 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Опис потреби</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" rows="4" placeholder="Опишіть вашу потребу"></textarea>
+                    <textarea class="form-control" rows="4" placeholder="Опишіть вашу потребу" ng-model="vm.need.description"></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <div class="col-sm-6">
-                    <input type="file" id="exampleInputFile">
+                <div class="col-sm-6" flow-init>
+                    <div flow-init="{target: '/home'}">
+                        <span class="btn btn-primary" flow-btn>Виберіть файл(и)</span>
+                        <table>
+                            <tr ng-repeat="file in $flow.files">
+                                <td>{{$index+1}} </td>
+                                <td>{{file.name}}</td>
+                                <!-- <td>{{file.msg}}</td>-->
+                            </tr>
+                        </table>
+                        <span class="btn btn-primary" ng-click="vm.InsertItems($flow)">Завантажити</span>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
