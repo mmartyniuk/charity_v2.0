@@ -57,10 +57,10 @@
                 }
             },
             {
-                state: 'editOffer',
+                state: ' /offers/edit/{id}',
                 config: {
                     url: '/editOffer',
-                    templateUrl: 'app/offers/edit_Offer.html',
+                    templateUrl: 'app/offers/edit_offer.html',
                     controller: 'OffersController',
                     controllerAs: 'vm',
                     title: 'editOffer',

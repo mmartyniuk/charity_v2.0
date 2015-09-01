@@ -1,160 +1,129 @@
+<!-- New offer, second step, register -->
 <section>
   <div class="container">
-      <div class="col-md-offset-1">
-          <h2 class="text-left">Нова пропозиція</h2>
+    <div>
+      <h2 class="text-left">Нова пропозиція</h2>
+      <div>
+        <h2 class="text-left">Нова потреба</h2>
       </div>
-      <form class="form-horizontal">
-          <div class="form-group row">
-              <label class="control-label col-sm-2" for="title" >Назва</label>
-              <div class="col-sm-6">
-                  <!-- here should be pre-filled data from previous page -->
-                  <input type="text" class="form-control" name="heading" id="title" placeholder="Светр для дитячого будинку" ng-model="vm.editableOfferTittle" ng-show="vm.editorEnabled">
-                  {{vm.offerTittle}}
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <form editable-form name="editableForm" onaftersave="saveUser()">
+            <div class="form-group row">
+              <label class="control-label col-sm-2">Назва</label>
+              <div class="col-sm-10">
+                <div>
+                  <span editable-text="vm.updatedOffer.name" e-name="name" onbeforesave="checkName($data)" e-required ng-model="vm.updatedOffer.name">{{ vm.updatedOffer.name || 'empty' }}</span>
+                </div>
               </div>
-          </div>
-          <div class="form-group row">
-              <label class="control-label col-sm-2">Категорія</label>
-              <div class="col-sm-6">
-                  <!-- here should be pre-filled data from previous page -->
-                  <ol class="breadcrumb">
-                      <li>
-                          <a href="#">Одяг</a>
-                      </li>
-                      <li>
-                          <a href="#">Дитячий одяг</a>
-                      </li>
-                      <li>Светри</li>
-                  </ol>
+            </div>
+            <div>
+              <!-- here should be pre-filled data from previous page -->
+              <ol class="breadcrumb">
+                <li>
+                  <a href="#">Одяг</a>
+                </li>
+                <li>
+                  <a href="#">Дитячий одяг</a>
+                </li>
+                <li>Светри</li>
+              </ol>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="control-label col-sm-2">Опис потреби</label>
+              <div class="col-sm-10">
+                <div>
+                  <a href="#" editable-textarea=" vm.offerText" e-rows="7" e-cols="40">
+                  <pre>{{  vm.offerText || 'no description' }}</pre>
+                </a>
               </div>
-          </div>
-          <div class="row">
-              <div class="col-sm-8">
-                  <hr>
-              </div>
-          </div>
-          <div class="form-group row">
-              <label class="control-label col-sm-2">Опис пропозиції</label>
-              <div class="row">
-              <div class="col-sm-6">
-                  <div ng-show="vm.editorEnabled">
-                      <textarea class="form-control" rows="5" ng-model="vm.editableOffer" ng-show="vm.editorEnabled"></textarea>
-                    </div>
-                     {{vm.offerText}}
-              </div>
-          </div>
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Фото:</label>
-              <div class="col-sm-6">
-                  <input type="file" id="exampleInputFile">
-              </div>
+            <label class="control-label col-sm-2">Фото:</label>
+            <div class="col-sm-10">
+              <input type="file" id="exampleInputFile">
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Розмір:</label>
-              <div class="col-sm-2">
-                  <select class="form-control" ng-model="vm.editableOfferSize" ng-show="vm.editorEnabled">
-                      <option>S</option>
-                      <option>M</option>
-                      <option>L</option>
-                      <option>XL</option>
-                  </select>
-              </div>
-              {{vm.offerSize}}
-          </div>
-          <div class="row">
-              <div class="col-sm-8">
-                  <hr>
-              </div>
-          </div>
-          <div class="form-group row" >
-              <label class="control-label col-sm-2">Регіон:</label>
-              <div class="col-sm-3">
-                  <select class="form-control" ng-model="vm.editableRegion" ng-show="vm.editorEnabled">
-                      <option>Волинська обл.</option>
-                      <option>Вінницька обл.</option>
-                      <option>Дніпропетровська обл.</option>
-                      <option>Донецька обл.</option>
-                      <option>Житомирська област</option>
-                      <option>Закарпатська обл.</option>
-                      <option>Запорізька обл.</option>
-                      <option>Івано-Франківська обл.</option>
-                      <option>Київська обл.</option>
-                      <option>Кіровоградська обл.</option>
-                      <option>Луганська обл.</option>
-                      <option>Львівська обл.</option>
-                      <option>Миколаївська обл.</option>
-                      <option>Одеська обл.</option>
-                      <option>Полтавська обл.</option>
-                      <option>Рівненська обл.</option>
-                      <option>Сумська обл.</option>
-                      <option>Тернопільська обл.</option>
-                      <option>Харківська обл.</option>
-                      <option>Херсонська обл.</option>
-                      <option>Хмельницька обл.</option>
-                      <option>Черкаська обл.</option>
-                      <option>Чернівецька обл.</option>
-                      <option>Чернігівська обл.</option>
-                      <option>Автономна Республіка Крим</option>
-                  </select>
-                  {{vm.offerRegion}}
-              </div>
+            <label class="control-label col-sm-2">Виберіть розмір:</label>
+            <div class="col-sm-10">
+              <span editable-select="vm.size.name" e-name="name" e-ng-options="s.value as s.text for s in vm.size">
+                {{ vm.size.name || 'XL' }}
+              </span>
+            </div>
+            <hr>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Місто:</label>
-              <div class="col-sm-2">
-                  <!-- here should be pre-filled data depending on previous select field -->
-                  <select class="form-control" ng-model="vm.editableOfferCity" ng-show="vm.editorEnabled">
-                      <option>Київ</option>
-                      <option>Суми</option>
-                      <option>Львів</option>
-                      <option>Рівне</option>
-                  </select>
-                  {{vm.offerCity}}
-              </div>
+            <label class="control-label col-sm-2">Виберіть область:</label>
+            <div class="col-sm-10">
+              <span editable-select="vm.regions.name" e-name="name" e-ng-options="s.value as s.text for s in vm.regions">
+                {{ vm.regions.name  || 'empty'}}
+              </span>
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Адреса:</label>
-              <div class="col-sm-2">
-                  <input type="text" class="form-control" id="str" placeholder="вул. Шевченка" ng-model="vm.editableOfferAdress" ng-show="vm.editorEnabled">
-                  {{vm.offerAdress}}
-              </div>
+            <label class="control-label col-sm-2">Виберіть місто:</label>
+            <div class="col-sm-10">
+              <span editable-select="vm.city.name" e-name="name" e-ng-options="s.value as s.text for s in vm.city">
+                {{ vm.city.name || 'empty' }}
+              </span>
+            </div>
           </div>
-          <div class="row">
-              <div class="col-sm-8">
-                  <hr>
-              </div>
+          <hr>
+          <div class="form-group row">
+            <label class="control-label col-sm-2">Адреса:</label>
+            <div class="col-sm-3">
+              <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.user.street || 'вул. Тараса Шевченка' }}</span>
+            </div>
+            <div class="col-sm-3">
+              <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house || 'Номер будинку' }}</span>
+            </div>
+            <div class="col-sm-3">
+              <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat || 'Номер квартири' }}</span>
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Актуальність</label>
-              <div class="col-sm-3">
-                  <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01" ng-model="vm.editableTopicality" ng-show="vm.editorEnabled"> <!-- tbd, working only in Chrome -->
-                  {{vm.offerTopicality}}
-              </div>
+            <label class="control-label col-sm-2">Актуальність</label>
+            <div class="col-sm-3">
+              <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01"> <!-- tbd, working only in Chrome -->
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Зручний час</label>
-              <div class="col-sm-3">
-                  <input type="text" class="form-control" id="s_time" placeholder="Пн-Пт, 10:00 - 19:00;" ng-model="vm.editableOfferTime" ng-show="vm.editorEnabled">
-                  {{vm.offerTime}}
-              </div>
+            <label class="control-label col-sm-2">Зручний час</label>
+            <div class="col-sm-3">
+              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)">{{ vm.user.time || 'Пн-Пт, 10:00 - 19:00;' }}</span>
+            </div>
           </div>
           <div class="form-group row">
-              <label class="control-label col-sm-2">Зможу доставити:</label>
-              <div class="col-sm-6">
-                  <label class="radio-inline"  ng-model="vm.editableRegion" ng-show="vm.editorEnabled">
-                      <input type="radio" name="canGet" id="yes" value="option1">Так
-                  </label>
-                  <label class="radio-inline">
-                      <input type="radio" name="canGet" id="no" value="option2">Ні
-                  </label>
-              </div>
+            <label class="control-label col-sm-2">Зможу забрати:</label>
+            <div class="col-sm-6">
+              <span editable-radiolist="vm.user.status" e-ng-options="s.value as s.text for s in vm.statuses">
+                {{ vm.showStatus() }}
+              </span>
+            </div>
           </div>
-          <div class="form-group row">
-              <div class="col-md-3 col-md-offset-6">
-                 <button ng-click="vm.save()">Зберегти?</button>
-                     <button ng-click="vm.disableEditor()">Скасувати?</button>
+          <div>
+            <!-- button to show form -->
+            <div class="form-group row pull-right">
+              <div class="col-sm-12 ">
+                <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                Edit
+                </button>
+                <!-- buttons to submit / cancel form -->
+                <span ng-show="editableForm.$visible">
+                  <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                  Зберегти
+                  </button>
+                  <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                  Скасувати
+                  </button>
+                </span>
               </div>
+            </form>
           </div>
-      </form>
-  </div>
-</section>
+        </form>
+      </div>
+    </section>
+    <!-- New need, the end of section -->

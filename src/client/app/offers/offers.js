@@ -1,56 +1,63 @@
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('app.offers')
         .controller('OffersController', OffersController);
 
-    OffersController.$inject = ['$location'];
+    OffersController.$inject = ['$location', '$filter'];
 
-    function OffersController($location) {
-        /* jshint validthis:true */
+    /* @ngInject */
+    function OffersController($location, $filter) {
         var vm = this;
         vm.title = 'OffersController';
-        vm.enableEditor = enableEditor;
-        vm.disableEditor = disableEditor;
-        vm.save = save;
+        vm.showStatus = showStatus;
+/*        vm.saveUpdatedOffer = saveUpdatedOffer;*/
+        vm.offer = {
+            name: 'Test Offer'
+          };
+        vm.regions = [
+         {value: "test11", text: 'test1111111'},
+         {value: "test", text: 'test'},
+         {value: "test", text: 'test'},
+         {value: "test", text: 'test'},
+        ];
 
-        activate();
+        vm.city = [
+         {value: "test11", text: 'test1111111'},
+         {value: "test", text: 'test'},
+         {value: "test", text: 'test'},
+         {value: "test", text: 'test'},
+        ];
+        vm.size = [
+         {value: "S", text: 'S'},
+         {value: "M", text: 'M'},
+         {value: "L", text: 'L'},
+         {value: "XL", text: 'XL'},
+        ];
+        vm.user = {
+        status: 2
+      }; 
+
+      vm.statuses = [
+        {value: 1, text: 'Так'},
+        {value: 2, text: 'Ні'}
+      ]; 
+       vm.user = {
+    dob: new Date(1984, 4, 15)
+  };
+  vm.updatedOffer = {
+/*
+to be done here should be http response from server to prefill fields inputs*/
+  name: "test213213"
+ }
+       activate();
 
         function activate() {
-          vm.offerText = "";
-          vm.editorEnabled = true;
-          
         };
-        function enableEditor() { 
-            vm.editorEnabled = true;
-            vm.editableOffer = vm.offerText;
-            vm.editableOfferTittle = vm.offerTittle;
-            vm.editableOfferSize = vm.offerSize;
-            vm.editableRegion = vm.offerRegion;
-            vm.editableOfferCity = vm.offerCity;
-            vm.editableOfferAdress = vm.offerAdress;
-            vm.editableTopicality = vm.offerTopicality;
-            vm.editableOfferTime = vm.offerTime;
-            vm.editableOfferDelivery = vm.offerDelivery;
-        };
-
-        function disableEditor() {
-            vm.editorEnabled = false;
-        };
-          
-        function save() {
-            vm.offerText = vm.editableOffer;
-            vm.offerTittle =  vm.editableOfferTittle;
-            vm.offerSize = vm.editableOfferSize;
-            vm.offerRegion = vm.editableRegion;
-            vm.offerCity = vm.editableOfferCity;
-            vm.offerAdress = vm.editableOfferAdress;
-            vm.offerTopicality = vm.editableTopicality;
-            vm.offerTime = vm.editableOfferTime;
-            vm.offerDelivery = vm.editableOfferDelivery;
-
-            vm.disableEditor();
-        };
-    };
+      function showStatus() {
+        var selected = $filter('filter')(vm.statuses, {value: vm.user.status});
+        return (vm.user.status && selected.length) ? selected[0].text : 'Not set';
+      };
+    }
 })();
