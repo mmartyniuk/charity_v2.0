@@ -70,32 +70,8 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Виберіть область:</label>
                 <div class="col-sm-3">
-                    <select class="form-control">
-                        <option>Волинська обл.</option>
-                        <option>Вінницька обл.</option>
-                        <option>Дніпропетровська обл.</option>
-                        <option>Донецька обл.</option>
-                        <option>Житомирська област</option>
-                        <option>Закарпатська обл.</option>
-                        <option>Запорізька обл.</option>
-                        <option>Івано-Франківська обл.</option>
-                        <option>Київська обл.</option>
-                        <option>Кіровоградська обл.</option>
-                        <option>Луганська обл.</option>
-                        <option>Львівська обл.</option>
-                        <option>Миколаївська обл.</option>
-                        <option>Одеська обл.</option>
-                        <option>Полтавська обл.</option>
-                        <option>Рівненська обл.</option>
-                        <option>Сумська обл.</option>
-                        <option>Тернопільська обл.</option>
-                        <option>Харківська обл.</option>
-                        <option>Херсонська обл.</option>
-                        <option>Хмельницька обл.</option>
-                        <option>Черкаська обл.</option>
-                        <option>Чернівецька обл.</option>
-                        <option>Чернігівська обл.</option>
-                        <option>Автономна Республіка Крим</option>
+                    <select class="form-control" ng-repeat="region in vm.regions">
+                        <option>{{region.name}}</option>
                     </select>
                 </div>
             </div>
@@ -129,10 +105,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Актуальність</label>
-                <div class="col-sm-3">
-                    <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01"> <!-- tbd, working only in Chrome -->
-                </div>
+                <date-picker date="vm.dt"></date-picker>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Зручний час</label>

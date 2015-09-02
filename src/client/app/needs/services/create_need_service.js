@@ -63,6 +63,24 @@
                     }
                 ];
                 return categories;
+            },
+            getRegions: function() {
+                //tbd when there will be api to call, till that time hardcoded the
+                // vm.categories array to verify if factory is properly working
+                /*$http.get("/api/categories").success(function(data) {
+                 vm.categories = data;
+                 })*/
+                var regions = [
+                    {
+                        "name":"Київська обл.",
+                        "id": 1
+                    },
+                    {
+                        "name":"Івано-Франківська обл.",
+                        "id": 2
+                    }
+                ];
+                return regions;
             }
         }
     }
