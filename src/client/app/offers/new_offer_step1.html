@@ -1,16 +1,17 @@
+<!-- New offer, first step -->
 <section>
     <div class="container">
         <h2 class="text-left text-heading">Нова пропозиція</h2>
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="control-label col-sm-1" for="title">Назва</label>
-                <div class="col-sm-6">
+                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1" for="title">Назва</label>
+                <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
                     <input type="text" class="form-control" name="heading" id="title" placeholder="Назва пропозиції">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1">Категорія</label>
-                <div class="col-sm-6">
+                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1">Категорія</label>
+                <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
                     <input type="text" class="form-control" id="category_name" placeholder="Оберіть категорію" data-toggle="modal" data-target="#categoriesModal">
                 </div>
             </div>
@@ -64,17 +65,20 @@
                                     <li><a href="#">Інше</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>  
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Назад</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-warning">Назад</button>
-                <button type="submit" class="btn btn-primary">Далі</button>
+            <div class="btn-group row pull-right">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-default">Назад</button>
+                    <button type="submit" class="btn btn-primary col-sm-offset-1">Далі</button>
+                </div>
             </div>
         </form>
     </div>
 </section>
+<!-- New need, the end of section -->
