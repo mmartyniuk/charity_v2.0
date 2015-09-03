@@ -46,8 +46,8 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Виберіть розмір:</label>
             <div class="col-sm-10">
-              <span editable-select="vm.user.size" e-name="name" e-ng-options="s.value as s.text for s in vm.size" ng-class="form-control">
-              {{ vm.size.name || 'XL' }}
+              <span editable-select="vm.user.size" e-name="name" e-ng-options="s.value as s.text for s in vm.size" ng-class="form-control" ng-model="vm.user.size">
+              {{ vm.user.size || 'XL' }}
               </span>
             </div>
             <br>
@@ -56,16 +56,16 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Виберіть область:</label>
             <div class="col-sm-10">
-              <span editable-select="vm.user.regions" e-name="name" e-ng-options="s.value as s.text for s in vm.regions">
-              {{ vm.regions.name  || 'empty'}}
+              <span editable-select="vm.user.regions" e-name="name" e-ng-options="s.value as s.text for s in vm.regions" ng-model="vm.user.regions">
+              {{ vm.user.regions  || 'empty'}}
               </span>
             </div>
           </div>
           <div class="form-group row">
             <label class="control-label col-sm-2">Виберіть місто:</label>
             <div class="col-sm-10">
-              <span editable-select="vm.user.city" e-name="name" e-ng-options="s.value as s.text for s in vm.city">
-              {{ vm.city.name || 'empty' }}
+              <span editable-select="vm.user.city" e-name="name" e-ng-options="s.value as s.text for s in vm.city" ng-model="vm.user.city">
+              {{ vm.user.city || 'empty' }}
               </span>
             </div>
           </div>
@@ -91,7 +91,7 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Зручний час</label>
             <div class="col-sm-3">
-              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)">{{ vm.user.time || 'Пн-Пт, 10:00 - 19:00;' }}</span>
+              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time || 'Пн-Пт, 10:00 - 19:00;' }}</span>
             </div>
           </div>
           <div class="form-group row">
