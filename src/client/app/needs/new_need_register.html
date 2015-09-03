@@ -6,7 +6,7 @@
         <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
                 <label class="control-label col-sm-2">Назва</label>
-                    <!-- here should be pre-filled data from previous page -->
+                        <!-- here should be pre-filled data from previous page -->
                 <h3>{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <div class="col-sm-6" flow-init>
+                <div class="col-sm-6" flow-init flow-name="vm.need.images">
                     <div flow-init="{target: '/home'}">
                         <span class="btn btn-primary" flow-btn>Виберіть файл(и)</span>
                         <table>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
                 <div class="col-sm-2">
                     <select class="form-control">
@@ -61,7 +61,7 @@
                         <option>XL</option>
                     </select>
                 </div>
-            </div>
+            </div>           this should be discussed, there shouldn't be same sizes for all types of needs (such as difference between clothes sizes and shoes)-->
             <div class="row">
                 <div class="col-sm-8">
                     <hr>
@@ -70,8 +70,7 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Виберіть область:</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-repeat="region in vm.regions">
-                        <option>{{region.name}}</option>
+                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setCity(region.id, region.name);">
                     </select>
                 </div>
             </div>
@@ -79,24 +78,19 @@
                 <label class="control-label col-sm-2">Виберіть місто:</label>
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
-                    <select class="form-control">
-                        <option>Київ</option>
-                        <option>Суми</option>
-                        <option>Львів</option>
-                        <option>Рівне</option>
-                    </select>
+                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" disabled></select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Адреса:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="street" id="str" placeholder="вул. Тараса Шевченка">
+                    <input type="text" class="form-control" name="street" id="str" ng-model="vm.need.street" placeholder="вул. Тараса Шевченка">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="house" id="house_nmb" placeholder="Номер будинку">
+                    <input type="text" class="form-control" name="house" id="house_nmb" ng-model="vm.need.houseNumber" placeholder="Номер будинку">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="flat" id="flat_nmb" placeholder="Номер квартири">
+                    <input type="text" class="form-control" name="flat" id="flat_nmb" ng-model="vm.need.flatNumber" placeholder="Номер квартири">
                 </div>
             </div>
             <div class="row">
@@ -110,17 +104,17 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Зручний час</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="s_time" placeholder="Пн-Пт, 10:00 - 19:00;">
+                    <input type="text" class="form-control" id="s_time" ng-model="vm.need.suitTime" placeholder="Пн-Пт, 10:00 - 19:00;">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Зможу забрати:</label>
                 <div class="col-sm-6">
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" id="yes" value="option1">Так
+                        <input type="radio" name="canGet" id="getByYourselfYes" value="option1">Так
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" id="no" value="option2">Ні
+                        <input type="radio" name="canGet" value="option2" checked>Ні
                     </label>
                 </div>
             </div>
