@@ -1,0 +1,7 @@
+<div class="form-group row">
+	<label class="control-label col-sm-2">Зможу забрати:</label>
+	<div class="col-sm-6">
+		<span editable-radiolist="vm.user.status" e-ng-options="s.value as s.text for s in vm.statuses">
+			{{ vm.showStatus() }}
+	</div>
+</div>

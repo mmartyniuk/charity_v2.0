@@ -15,15 +15,15 @@
         vm.saveUser = saveUser;
         /*Memo: Cities with Regions are hardcoded we will get them from backend in future */
         vm.regions = [{
-            value: " Івано-Франківська область",
-            text: ' Івано-Франківська область'
+            value: "Івано-Франківська область",
+            text: 'Івано-Франківська область'
         }, {
             value: "Київська область‎",
             text: 'Київська область‎'
         }, ];
 
         vm.city = [{
-            value: " Івано-Франківськ",
+            value: "Івано-Франківськ",
             text: ' Івано-Франківськ'
         }, {
             value: "Київ",
