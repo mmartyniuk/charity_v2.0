@@ -37,19 +37,7 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <div class="col-sm-6" flow-init flow-name="vm.need.images">
-                    <div flow-init="{target: '/home'}">
-                        <span class="btn btn-primary" flow-btn>Виберіть файл(и)</span>
-                        <table>
-                            <tr ng-repeat="file in $flow.files">
-                                <td>{{$index+1}} </td>
-                                <td>{{file.name}}</td>
-                                <!-- <td>{{file.msg}}</td>-->
-                            </tr>
-                        </table>
-                        <span class="btn btn-primary" ng-click="vm.InsertItems($flow)">Завантажити</span>
-                    </div>
-                </div>
+                <file-upload-directive upload="vm.upload"></file-upload-directive>
             </div>
             <!-- <div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
@@ -78,7 +66,7 @@
                 <label class="control-label col-sm-2">Виберіть місто:</label>
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
-                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" disabled></select>
+                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(region)"></select>
                 </div>
             </div>
             <div class="form-group row">

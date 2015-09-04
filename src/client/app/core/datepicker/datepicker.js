@@ -27,7 +27,7 @@
         };
         vm.toggleMin();
 
-        vm.open  = function($event) {
+        vm.open = function($event) {
             vm.status.opened = true;
         };
 

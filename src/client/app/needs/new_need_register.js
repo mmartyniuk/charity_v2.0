@@ -14,24 +14,19 @@
         vm.need = {}; //need data from form will be stored here
         //vm.need.title = $state.params.prefilled.title;  //---> commented for testing
         //vm.need.category = $state.params.prefilled.category;  //---> commented for testing
-        vm.need.title = 'наdsfsзва';
-        vm.need.category = 'категорія';
-        vm.need.images = {};
+        vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
+        vm.need.category = 'Дитячі куртки'; // ---> static data for testing
         activate();
 
-        vm.InsertItems = function(e) {
-            e.upload();
-        };
         vm.submitNeed = function(){
             vm.need.actualDate = vm.dt.getDate() + '/' + vm.dt.getMonth() + 1 + '/' + vm.dt.getFullYear();
             vm.need.get = canGet();
-            console.log(vm.need.images);
+            vm.need.images = vm.upload;
         };
         vm.setCity = function(id, name){
             vm.need.region = name;
             vm.currentRegion = id;
             vm.cities = CreateNeedFactory.getCities(id);
-            document.getElementById('cities').removeAttribute("disabled");
         };
         function canGet(){
             if (document.getElementById('getByYourselfYes').checked) {
@@ -40,7 +35,6 @@
                 return false;
             }
         }
-
         function activate() {
             vm.regions = CreateNeedFactory.getRegions();
         }

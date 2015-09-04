@@ -25,18 +25,18 @@
                       <!-- Main categories -->
                       <ul class="list-unstyled" role="tablist" id="categories">
                           <li ng-repeat="category in vm.categories" ng-if="category.parent_id=='0'">
-                              <a href="" ng-click="vm.setCurrentCategory(category.id)">{{category.name}}</a>
+                              <a href="" ng-click="vm.setCurrentCategory(category.id)" ng-init="vm.setTemp = false">{{category.name}}</a>
                           </li>
                       </ul>
                   </div>
-                  <div class="hidden subcategory" id="sub">
+                  <div class="ng-hide subcategory" id="sub" ng-show="vm.currentCategory">
                       <ul class="list-unstyled" role="tablist" id="subcategories">
                           <li ng-repeat="sub in vm.categories" ng-if="sub.parent_id==vm.currentCategory">
                               <a href="" ng-click="vm.setCurrentSubCategory(sub.id, sub.name)">{{sub.name}}</a>
                           </li>
                       </ul>
                   </div>
-                  <div class="hidden subcategory_child" id="subchild">
+                  <div class="ng-hide subcategory_child" id="subchild" ng-show="vm.setTemp">
                       <ul class="list-unstyled" role="tablist">
                           <li ng-repeat="subchild in vm.categories" ng-if="subchild.parent_id==vm.currentSubCategory">
                               <a href="#" ng-click="vm.setCurrentSubSubCategory(subchild.name)">{{subchild.name}}</a>
