@@ -14,20 +14,6 @@
     function getStates() {
         return [
             {
-                state: 'messages',
-                config: {
-                    url: '/index/messages',
-                    templateUrl: 'app/main/messages.html',
-                    controller: 'MessagesController',
-                    controllerAs: 'vm',
-                    title: 'Messages'
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
-                }
-            },
-            {
                 state: 'profile',
                 config: {
                     url: '/index/profile',
@@ -39,6 +25,16 @@
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
                     }*/
+                }
+            },
+            {
+                state: 'about_us',
+                config: {
+                    url: '/index/about_us',
+                    templateUrl: 'app/main/about_us.html',
+                    controller: 'AboutUSController',
+                    controllerAs: 'vm',
+                    title: 'about us'
                 }
             }
         ];

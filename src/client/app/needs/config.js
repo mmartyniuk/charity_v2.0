@@ -14,20 +14,6 @@
     function getStates() {
         return [
             {
-                state: 'acceptedneed',
-                config: {
-                    url: '/needs/acceptedneed',
-                    templateUrl: 'app/needs/acceptedNeed.html',
-                    controller: 'AcceptedNeedController',
-                    controllerAs: 'vm',
-                    title: 'AcceptedNeed'
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
-                }
-            },
-            {
                 state: 'createdneed',
                 config: {
                     url: '/needs/createdneed',

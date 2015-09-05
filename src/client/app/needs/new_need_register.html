@@ -1,6 +1,7 @@
+<!-- New need, second step, register -->
 <section>
     <div class="container">
-        <div class="col-md-offset-1">
+        <div>
             <h2 class="text-left">Нова потреба</h2>
         </div>
         <form class="form-horizontal" ng-submit="vm.submitNeed();">
@@ -11,7 +12,7 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Категорія</label>
-                <div class="col-sm-6">
+                <div class="col-sm-10">
                     <!-- here should be pre-filled data from previous page -->
                     <ol class="breadcrumb">
                         <li>
@@ -25,7 +26,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <hr>
                 </div>
             </div>
@@ -51,7 +52,7 @@
                 </div>
             </div>           this should be discussed, there shouldn't be same sizes for all types of needs (such as difference between clothes sizes and shoes)-->
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <hr>
                 </div>
             </div>
@@ -82,7 +83,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <hr>
                 </div>
             </div>
@@ -106,12 +107,13 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-md-3 col-md-offset-6">
-                    <a href="#" class="btn btn-default">Відмінити</a>
+            <div class="form-group row pull-right">
+                <div class="col-sm-12 ">
+                    <button type="reset" class="btn btn-default">Відмінити</button>
                     <button type="submit" class="btn btn-primary">Опублікувати</button>
                 </div>
             </div>
         </form>
     </div>
 </section>
+<!-- New need, the end of section -->
