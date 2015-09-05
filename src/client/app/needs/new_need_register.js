@@ -23,7 +23,6 @@
             vm.need.actualDate = vm.dt.getDate() + '/' + vm.dt.getMonth() + 1 + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
             vm.need.images = vm.upload;
-            console.log(vm.need.get);
             //this will be shown when there will be entries on server to post this data
             /*$http({
                 url: 'send-need-url',
