@@ -7,8 +7,9 @@
 
     ModalInstanceCtrl.$inject = ['$scope','$modalInstance', 'data'];
 
-    function ModalInstanceCtrl($scope,$modalInstance, data) {
+    function ModalInstanceCtrl($scope, $modalInstance, data) {
 
+        //return selected value to correct parrent scope
         data.ok = function (value) {
             $modalInstance.close();
             data.selected = value;

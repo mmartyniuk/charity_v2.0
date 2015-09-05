@@ -14,8 +14,11 @@
         activate();
 
         vm.need = {}; //all data from this form will be stored here
+
+        //set option for modal animation
         vm.animationsEnabled = true;
 
+        //open function for modal
         vm.open = function () {
             var init = $modal.open({
                 animation: vm.animationsEnabled,
@@ -24,29 +27,25 @@
                 scope: $scope,
                 resolve: {
                     data: function () {
-                        return vm; // deep copy
+                        return vm; // post scope to modal window
                     }
                 }
             });
+            //setting category when modal is closed
             init.result.then(function () {
                 vm.need.category = vm.selected;
+                vm.currentCategory = null, vm.currentSubCategory = null;
             });
         };
         vm.toggleAnimation = function () {
             vm.animationsEnabled = !vm.animationsEnabled;
         };
+        //function to identify current category and set child category
         vm.setCurrentCategory = function(id){
             vm.currentCategory = id;
-            vm.checkChild = function(){
-                if(vm.subExist){
-                    return !vm.subExist;
-                }
-            }
-            //document.getElementById('sub').classList.remove("hidden");
-            //if (!(document.getElementById('subchild').classList.contains("hidden"))){
-             //document.getElementById('subchild').classList.add("hidden");
-            //}
+            vm.checkChild = false;
         };
+        //function to identify current category and set child category
         vm.setCurrentSubCategory = function(id, name){
             vm.currentSubCategory = id;
             var temp = [];
@@ -55,21 +54,23 @@
                     this.push(key + ': ' + value);
                 }
             }, temp);
-            if(temp.length !== 0) {
-                vm.setTemp = true;
-            }else{
+            if(!temp.length) {
                 vm.ok(name);
+            }else{
+                vm.checkChild = true;
             }
         };
         vm.setCurrentSubSubCategory = function(name){
             vm.ok(name);
         };
+        //using state object here to post submitted data to next page
         vm.submitNeed = function(title, category){
             // some ui validation should be applied here, tbd in future
             vm.need.title = title;
             vm.need.category = category;
             $state.go('newneedregister', {prefilled: vm.need});
         };
+        //getting categories object from service
         function activate() {
             vm.categories = CreateNeedFactory.getCategories();
         }

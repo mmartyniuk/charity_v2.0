@@ -99,10 +99,10 @@
                 <label class="control-label col-sm-2">Зможу забрати:</label>
                 <div class="col-sm-6">
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" id="getByYourselfYes" value="option1">Так
+                        <input type="radio" name="canGet" value="option1" ng-model="vm.getChecked" ng-value="true">Так
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" value="option2" checked>Ні
+                        <input type="radio" name="canGet" value="option2" ng-model="vm.getChecked" ng-value="false" checked>Ні
                     </label>
                 </div>
             </div>
