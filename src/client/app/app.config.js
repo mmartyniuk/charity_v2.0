@@ -56,20 +56,7 @@
                     }*/
                 }
             },
-            {
-             state: '/offers/edit/',
-                config: {
-                    url: '/offers/edit/{id}',
-                    templateUrl: 'app/offers/edit_offer.html',
-                    controller: 'OffersController',
-                    controllerAs: 'vm',
-                    title: 'editOffer',
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
-                }
-            },
+
             {
                 state: '404',
                 config: {

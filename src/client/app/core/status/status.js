@@ -12,19 +12,8 @@
         var vm = this;
         vm.title = 'statusCtrl';
         vm.showStatus = showStatus;
-        
-        vm.user = {
-            status: 0
-        };
 
-        vm.statuses = [{
-            value: 1,
-            text: 'Так'
-        }, {
-            value: 2,
-            text: 'Ні'
-        }];
-    
+        /*console.log('status in directive', vm.status, vm.statuses);*/
 
         activate();
 
@@ -32,9 +21,9 @@
 
         function showStatus() {
             var selected = $filter('filter')(vm.statuses, {
-                value: vm.user.status
+                value: vm.status
             });
-            return (vm.user.status && selected.length) ? selected[0].text : 'Невідомо';
+            return (vm.status && selected.length) ? selected[0].text : 'Невідомо';
         };
     }
 })();

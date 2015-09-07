@@ -32,7 +32,7 @@
             <div class="col-sm-10">
               <div>
                 <a href="#" editable-textarea="vm.user.offerText" e-rows="7" e-cols="90" ng-model="vm.user.offerText">
-                  <pre>{{ vm.user.offerText || 'no description' }}</pre>
+                  <pre>{{ vm.user.offerText }}</pre>
                 </a>
               </div>
             </div>
@@ -47,7 +47,7 @@
             <label class="control-label col-sm-2">Виберіть розмір:</label>
             <div class="col-sm-10">
               <span editable-select="vm.user.size" e-name="name" e-ng-options="s.value as s.text for s in vm.size" ng-class="form-control" ng-model="vm.user.size">
-              {{ vm.user.size || 'XL' }}
+              {{ vm.user.size }}
               </span>
             </div>
             <br>
@@ -57,7 +57,7 @@
             <label class="control-label col-sm-2">Виберіть область:</label>
             <div class="col-sm-10">
               <span editable-select="vm.user.regions" e-name="name" e-ng-options="s.value as s.text for s in vm.regions" ng-model="vm.user.regions">
-              {{ vm.user.regions  || 'empty'}}
+              {{ vm.user.regions }}
               </span>
             </div>
           </div>
@@ -65,7 +65,7 @@
             <label class="control-label col-sm-2">Виберіть місто:</label>
             <div class="col-sm-10">
               <span editable-select="vm.user.city" e-name="name" e-ng-options="s.value as s.text for s in vm.city" ng-model="vm.user.city">
-              {{ vm.user.city || 'empty' }}
+              {{ vm.user.city }}
               </span>
             </div>
           </div>
@@ -73,13 +73,13 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Адреса:</label>
             <div class="col-sm-3">
-              <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.user.street || 'вул. Тараса Шевченка' }}</span>
+              <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.user.street }}</span>
             </div>
             <div class="col-sm-3">
-              <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house || 'Номер будинку' }}</span>
+              <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house }}</span>
             </div>
             <div class="col-sm-3">
-              <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat || 'Номер квартири' }}</span>
+              <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat }}</span>
             </div>
           </div>
           <div class="form-group row">
@@ -91,17 +91,10 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Зручний час</label>
             <div class="col-sm-3">
-              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time || 'Пн-Пт, 10:00 - 19:00;' }}</span>
+              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time }}</span>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Зможу забрати:</label>
-            <div class="col-sm-6">
-              <span editable-radiolist="vm.user.status" e-ng-options="s.value as s.text for s in vm.statuses">
-              {{ vm.showStatus() }}
-              </span>
-            </div>
-          </div>
+          <status status="vm.user.status" statuses="vm.userStatuses"></status>
           <div>
             <!-- button to show form -->
             <div class="form-group row pull-right">
@@ -111,12 +104,12 @@
                 </button>
                 <!-- buttons to submit / cancel form -->
                 <span ng-show="editableForm.$visible">
-                <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-                Зберегти
-                </button>
-                <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-                Скасувати
-                </button>
+                  <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                  Зберегти
+                  </button>
+                  <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                  Скасувати
+                  </button>
                 </span>
               </div>
             </div>

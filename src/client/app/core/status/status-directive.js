@@ -6,7 +6,10 @@ function statusDirective() {
     return {
         restrict: 'E',
         templateUrl: '/app/core/status/view/status.html',
-        scope: true,
+        scope: {
+          status: '=',
+          statuses: '='
+        },
         controller: 'statusCtrl',
         controllerAs: 'vm',
         bindToController: true
