@@ -3,9 +3,9 @@
 
     angular
         .module('app.core')
-        .controller('fileUploadCtrl', fileUploadCtrl)
+        .controller('FileUploadController', FileUploadController)
 
-    function fileUploadCtrl() {
+    function FileUploadController() {
         var vm = this;
         vm.upload = {};
         vm.InsertItems = function(e) {

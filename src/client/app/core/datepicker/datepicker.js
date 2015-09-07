@@ -3,9 +3,9 @@
 
     angular
         .module('app.core')
-        .controller('datePickerCtrl', datePickerCtrl)
+        .controller('DatePickerController', DatePickerController)
 
-    function datePickerCtrl() {
+    function DatePickerController() {
         var vm = this;
 
         vm.today = function() {

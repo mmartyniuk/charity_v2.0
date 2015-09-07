@@ -57,7 +57,7 @@
                 config: {
                     url: '/needs/newneedstep1',
                     templateUrl: 'app/needs/new_need_step_1.html',
-                    controller: 'NewNeedStep1Controller',
+                    controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedStep1',
                     /*settings: {

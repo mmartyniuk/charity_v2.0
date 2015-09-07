@@ -9,7 +9,7 @@ function fileUploadDirective() {
         scope: {
             upload: '=upload'
         },
-        controller: 'fileUploadCtrl',
+        controller: 'FileUploadController',
         controllerAs: 'vm',
         bindToController: true
     }

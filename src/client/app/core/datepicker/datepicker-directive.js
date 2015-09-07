@@ -9,7 +9,7 @@ function datepickerDirective() {
         scope: {
             date: '=date'
         },
-        controller: 'datePickerCtrl',
+        controller: 'DatePickerController',
         controllerAs: 'vm',
         bindToController: true
     }

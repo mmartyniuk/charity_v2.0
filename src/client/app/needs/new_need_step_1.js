@@ -3,14 +3,14 @@
 
     angular
         .module('app.needs')
-        .controller('NewNeedStep1Controller', NewNeedStep1Controller);
+        .controller('NewNeedBeforeRegisterController', NewNeedBeforeRegisterController);
 
-    NewNeedStep1Controller.$inject = ['$scope','CreateNeedFactory','$modal', '$state'];
+    NewNeedBeforeRegisterController.$inject = ['$scope','CreateNeedFactory','$modal', '$state'];
 
-    function NewNeedStep1Controller($scope, CreateNeedFactory, $modal, $state) {
+    function NewNeedBeforeRegisterController($scope, CreateNeedFactory, $modal, $state) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'NewNeedStep1Controller';
+        vm.title = 'NewNeedBeforeRegisterController';
         activate();
 
         vm.need = {}; //all data from this form will be stored here
@@ -23,7 +23,7 @@
             var init = $modal.open({
                 animation: vm.animationsEnabled,
                 templateUrl: 'needs-modal.html',
-                controller: 'ModalInstanceCtrl',
+                controller: 'ModalInstanceController',
                 scope: $scope,
                 resolve: {
                     data: function () {
@@ -66,8 +66,6 @@
         //using state object here to post submitted data to next page
         vm.submitNeed = function(title, category){
             // some ui validation should be applied here, tbd in future
-            vm.need.title = title;
-            vm.need.category = category;
             $state.go('newneedregister', {prefilled: vm.need});
         };
         //getting categories object from service

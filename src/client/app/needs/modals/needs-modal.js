@@ -3,11 +3,11 @@
 
     angular
         .module('app.needs')
-        .controller('ModalInstanceCtrl', ModalInstanceCtrl);
+        .controller('ModalInstanceController', ModalInstanceController);
 
-    ModalInstanceCtrl.$inject = ['$scope','$modalInstance', 'data'];
+    ModalInstanceController.$inject = ['$scope','$modalInstance', 'data'];
 
-    function ModalInstanceCtrl($scope, $modalInstance, data) {
+    function ModalInstanceController($scope, $modalInstance, data) {
 
         //return selected value to correct parrent scope
         data.ok = function (value) {
