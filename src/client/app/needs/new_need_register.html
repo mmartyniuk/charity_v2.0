@@ -4,13 +4,11 @@
         <div>
             <h2 class="text-left">Нова потреба</h2>
         </div>
-        <form class="form-horizontal">
+        <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
-                <label class="control-label col-sm-2" for="title">Назва</label>
-                <div class="col-sm-10">
-                    <!-- here should be pre-filled data from previous page -->
-                    <input type="text" class="form-control" name="heading" id="title" placeholder="Светр для дитячого будинку">
-                </div>
+                <label class="control-label col-sm-2">Назва</label>
+                        <!-- here should be pre-filled data from previous page -->
+                <h3>{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Категорія</label>
@@ -23,7 +21,7 @@
                         <li>
                             <a href="#">Дитячий одяг</a>
                         </li>
-                        <li>Светри</li>
+                        <li>{{vm.need.category}}</li>
                     </ol>
                 </div>
             </div>
@@ -34,17 +32,15 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Опис потреби</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" rows="4" placeholder="Опишіть вашу потребу"></textarea>
+                <div class="col-sm-6">
+                    <textarea class="form-control" rows="4" placeholder="Опишіть вашу потребу" ng-model="vm.need.description"></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <div class="col-sm-10">
-                    <input type="file" id="exampleInputFile">
-                </div>
+                <file-upload-directive upload="vm.upload"></file-upload-directive>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
                 <div class="col-sm-2">
                     <select class="form-control">
@@ -54,7 +50,7 @@
                         <option>XL</option>
                     </select>
                 </div>
-            </div>
+            </div>           this should be discussed, there shouldn't be same sizes for all types of needs (such as difference between clothes sizes and shoes)-->
             <div class="row">
                 <div class="col-sm-12">
                     <hr>
@@ -63,32 +59,7 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Виберіть область:</label>
                 <div class="col-sm-3">
-                    <select class="form-control">
-                        <option>Волинська обл.</option>
-                        <option>Вінницька обл.</option>
-                        <option>Дніпропетровська обл.</option>
-                        <option>Донецька обл.</option>
-                        <option>Житомирська област</option>
-                        <option>Закарпатська обл.</option>
-                        <option>Запорізька обл.</option>
-                        <option>Івано-Франківська обл.</option>
-                        <option>Київська обл.</option>
-                        <option>Кіровоградська обл.</option>
-                        <option>Луганська обл.</option>
-                        <option>Львівська обл.</option>
-                        <option>Миколаївська обл.</option>
-                        <option>Одеська обл.</option>
-                        <option>Полтавська обл.</option>
-                        <option>Рівненська обл.</option>
-                        <option>Сумська обл.</option>
-                        <option>Тернопільська обл.</option>
-                        <option>Харківська обл.</option>
-                        <option>Херсонська обл.</option>
-                        <option>Хмельницька обл.</option>
-                        <option>Черкаська обл.</option>
-                        <option>Чернівецька обл.</option>
-                        <option>Чернігівська обл.</option>
-                        <option>Автономна Республіка Крим</option>
+                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setCity(region.id, region.name);">
                     </select>
                 </div>
             </div>
@@ -96,24 +67,19 @@
                 <label class="control-label col-sm-2">Виберіть місто:</label>
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
-                    <select class="form-control">
-                        <option>Київ</option>
-                        <option>Суми</option>
-                        <option>Львів</option>
-                        <option>Рівне</option>
-                    </select>
+                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(region)"></select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Адреса:</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control marginBottom" name="street" id="str" placeholder="вул. Тараса Шевченка">
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="street" id="str" ng-model="vm.need.street" placeholder="вул. Тараса Шевченка">
                 </div>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control marginBottom" name="house" id="house_nmb" placeholder="Номер будинку">
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="house" id="house_nmb" ng-model="vm.need.houseNumber" placeholder="Номер будинку">
                 </div>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control marginBottom" name="flat" id="flat_nmb" placeholder="Номер квартири">
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="flat" id="flat_nmb" ng-model="vm.need.flatNumber" placeholder="Номер квартири">
                 </div>
             </div>
             <div class="row">
@@ -122,25 +88,22 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Актуальність</label>
-                <div class="col-sm-3">
-                    <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01"> <!-- tbd, working only in Chrome -->
-                </div>
+                <date-picker date="vm.dt"></date-picker>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Зручний час</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="s_time" placeholder="Пн-Пт, 10:00 - 19:00;">
+                    <input type="text" class="form-control" id="s_time" ng-model="vm.need.suitableTime" placeholder="Пн-Пт, 10:00 - 19:00;">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Зможу забрати:</label>
                 <div class="col-sm-6">
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" id="yes" value="option1">Так
+                        <input type="radio" name="canGet" value="option1" ng-model="vm.getChecked" ng-value="true">Так
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" id="no" value="option2">Ні
+                        <input type="radio" name="canGet" value="option2" ng-model="vm.getChecked" ng-value="false" checked>Ні
                     </label>
                 </div>
             </div>
