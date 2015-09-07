@@ -1,4 +1,3 @@
-<!-- New offer, first step -->
 <section>
     <div class="container">
         <h2 class="text-left text-heading">Нова пропозиція</h2>
@@ -65,7 +64,7 @@
                                     <li><a href="#">Інше</a></li>
                                 </ul>
                             </div>
-                        </div>  
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Назад</button>
                         </div>
@@ -74,11 +73,24 @@
             </div>
             <div class="btn-group row pull-right">
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-default">Назад</button>
-                    <button type="submit" class="btn btn-primary col-sm-offset-1">Далі</button>
+                    <button type="button" class="btn btn-default" id="myButton0">Назад</button>
+
+                    <button type="button" class="btn btn-primary col-sm-offset-1" id="myButton">Далі</button>
+                    <script type="text/javascript">
+                            var btn = document.getElementById('myButton');
+                            btn.addEventListener('click', function() {
+                              document.location.href = 'new_offer_register.html';
+                            });
+                    </script>
+                    <script type="text/javascript">
+                                var btn = document.getElementById('myButton0');
+                                btn.addEventListener('click', function() {
+                                  document.location.href = 'index.html';
+                                });
+                    </script>
+
                 </div>
             </div>
         </form>
     </div>
 </section>
-<!-- New need, the end of section -->
