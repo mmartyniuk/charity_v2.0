@@ -82,6 +82,20 @@
                         content: '<i class="fa fa-lock"></i> Admin'
                     }*/
                 }
+            },
+            {
+                state: 'searchcompletedneeds',
+                config: {
+                    url: '/needs/searchcompletedneeds',
+                    templateUrl: 'app/needs/search_completed_needs.html',
+                    controller: 'SearchCompletedNeedsController',
+                    controllerAs: 'vm',
+                    title: 'SearchCompletedNeeds',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
             }
         ];
     }
