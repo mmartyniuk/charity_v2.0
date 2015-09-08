@@ -6,7 +6,9 @@ function stateChangeDirective() {
     return {
         restrict: 'E',
         templateUrl: '/app/core/offersIds/view/stateChange.html',
-        scope: true,
+        scope: {
+            state: '='
+        },
         controller: 'stateChangeCtrl',
         controllerAs: 'vm',
         bindToController: true

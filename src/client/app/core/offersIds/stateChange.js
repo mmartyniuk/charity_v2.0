@@ -14,6 +14,7 @@
         vm.offers = {
             name: "test name"
         };
+        vm.id = "({id: 1})";
 
         activate();
 

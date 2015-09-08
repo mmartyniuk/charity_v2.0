@@ -7,8 +7,8 @@ function statusDirective() {
         restrict: 'E',
         templateUrl: '/app/core/status/view/status.html',
         scope: {
-          status: '=',
-          statuses: '='
+          status: '=',   /*default value*/
+          statuses: '='  /*possible values*/
         },
         controller: 'statusCtrl',
         controllerAs: 'vm',
