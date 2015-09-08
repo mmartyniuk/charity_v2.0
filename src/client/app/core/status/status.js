@@ -5,10 +5,10 @@
         .module('app.core')
         .controller('statusCtrl', statusCtrl);
 
-    statusCtrl.$inject = ['$location', '$filter', '$http'];
+    statusCtrl.$inject = ['$filter'];
 
     /* @ngInject */
-    function statusCtrl($location, $filter, $http) {
+    function statusCtrl($filter) {
         var vm = this;
         vm.title = 'statusCtrl';
         vm.showStatus = showStatus;

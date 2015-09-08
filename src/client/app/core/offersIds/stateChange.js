@@ -3,18 +3,18 @@
 
     angular
         .module('app.core')
-        .controller('stateCtrl', stateCtrl);
+        .controller('stateChangeCtrl', stateChangeCtrl);
 
-    stateCtrl.$inject = ['$location', '$filter', '$http'];
+    stateChangeCtrl.$inject = [];
 
     /* @ngInject */
-    function stateCtrl($location, $filter, $http) {
+    function stateChangeCtrl() {
         var vm = this;
-        vm.title = 'stateCtrl';
+        vm.title = 'stateChangeCtrl';
         vm.offers = {
             name: "test name"
         };
-        
+
         activate();
 
         function activate() {};

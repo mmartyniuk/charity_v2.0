@@ -3,14 +3,15 @@
 
     angular
         .module('app.offers')
-        .controller('OffersController', OffersController);
+        .controller('editOffersContoller', editOffersContoller);
 
-    OffersController.$inject = ['$location', '$filter', '$http'];
+    editOffersContoller.$inject = ['$location', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function OffersController($location, $filter, $http) {
+    function editOffersContoller($location, $filter, $http, $state) {
+        console.log($state);
         var vm = this;
-        vm.title = 'OffersController';
+        vm.title = 'editOffersContoller';
         vm.saveUser = saveUser;
         vm.user = {};
         /*Memo: Cities with Regions are hardcoded we will get them from backend in future */
@@ -54,7 +55,7 @@
         vm.user.time = "Пн-Пт, 10:00 - 19:00";
         vm.user.street = "вул. Тараса Шевченка";
         vm.user.house = "Номер будинку";
-        
+
         vm.user.status = 0;
         vm.userStatuses = [{
             value: 1,
