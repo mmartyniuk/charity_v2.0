@@ -9,7 +9,6 @@
 
     /* @ngInject */
     function editOffersContoller($location, $filter, $http, $state) {
-        console.log($state);
         var vm = this;
         vm.title = 'editOffersContoller';
         vm.saveUser = saveUser;
