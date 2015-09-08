@@ -1,0 +1,32 @@
+<script type="text/ng-template" id="needs-modal.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()">&times;</button>
+        <h4 class="modal-title">Оберіть категорію:</h4>
+    </div>
+    <div class="modal-body">
+        <div class="category">
+            <!-- Main categories -->
+            <ul class="list-unstyled" role="tablist" id="categories">
+                <li ng-repeat="category in vm.categories" ng-if="category.parent_id=='0'">
+                    <a href="" ng-click="vm.setCurrentCategory(category.id)">{{category.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ng-hide subcategory" id="sub" ng-show="vm.setCurrentSubCategory">
+            <ul class="list-unstyled" role="tablist" id="subcategories">
+                <li ng-repeat="sub in vm.categories" ng-if="sub.parent_id==vm.currentCategory">
+                    <a href="" ng-click="vm.setCurrentSubCategory(sub.id, sub.name)">{{sub.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ng-hide subcategory_child" id="subchild" ng-show="vm.checkChild">
+            <ul class="list-unstyled" role="tablist">
+                <li ng-repeat="subchild in vm.categories" ng-if="subchild.parent_id==vm.currentSubCategory">
+                    <a href="#" ng-click="vm.setCurrentSubSubCategory(subchild.name)">{{subchild.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+</script>

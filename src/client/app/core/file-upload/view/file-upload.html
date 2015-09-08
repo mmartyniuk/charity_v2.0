@@ -1,0 +1,13 @@
+<div class="col-sm-6" flow-init ng-model="vm.upload">
+    <div flow-init="{target: '/home'}">
+        <span class="btn btn-primary" flow-btn>Виберіть файл(и)</span>
+        <table>
+            <tr ng-repeat="file in $flow.files">
+                <td>{{$index+1}} </td>
+                <td>{{file.name}}</td>
+                <!-- <td>{{file.msg}}</td>-->
+            </tr>
+        </table>
+        <span class="btn btn-primary" ng-click="vm.InsertItems($flow)">Завантажити</span>
+    </div>
+</div>

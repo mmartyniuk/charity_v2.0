@@ -14,8 +14,6 @@
         vm.enableEditor = enableEditor;
         vm.disableEditor = disableEditor;
         vm.save = save;
-        vm.setFilter = setFilter;
-        vm.resetFilter = resetFilter;
 
         activate();
 
@@ -32,14 +30,6 @@
 
         function disableEditor() {
             vm.editorEnabled = false;
-        };
-
-        function resetFilter() {
-            vm.filterLocation = '';
-        };
-
-        function setFilter(location){
-            vm.filterLocation = location;
         };
 
         function save() {
