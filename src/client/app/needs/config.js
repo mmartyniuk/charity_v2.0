@@ -49,18 +49,15 @@
                     controller: 'NewNeedRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedRegister',
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
+                    params: {prefilled: null}
                 }
             },
             {
                 state: 'newneedstep1',
                 config: {
                     url: '/needs/newneedstep1',
-                    templateUrl: 'app/needs/new_need_step1.html',
-                    controller: 'NewNeedStep1Controller',
+                    templateUrl: 'app/needs/new_need_step_1.html',
+                    controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedStep1',
                     /*settings: {
