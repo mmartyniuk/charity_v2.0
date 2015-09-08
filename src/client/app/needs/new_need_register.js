@@ -14,8 +14,8 @@
         vm.need = {}; //need data from form will be stored here
         vm.need.title = $state.params.prefilled.title;  //---> commented for testing
         vm.need.category = $state.params.prefilled.category;  //---> commented for testing
-        //vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
-        //vm.need.category = 'Дитячі куртки'; // ---> static data for testing
+        vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
+        vm.need.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
         activate();
 
@@ -25,8 +25,8 @@
             vm.need.images = vm.upload;
             //this will be shown when there will be entries on server to post this data
             /*$http({
-                url: 'send-need-url',
-                method: "POST",
+                url: '/api/new_need',
+                method: "GET",
                 data: { 'message' : vm.need }
             })
                 .then(function(response) {
@@ -34,8 +34,9 @@
                 },
                 function(response) { // optional
                     // failed
-                });*/
-        };
+                });
+        };*/
+        
         //here will be additional ajax call to server to get only needed cities by id
         vm.setCity = function(id, name){
             //setting region here
