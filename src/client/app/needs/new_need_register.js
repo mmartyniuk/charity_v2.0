@@ -25,8 +25,8 @@
             vm.need.images = vm.upload;
             //this will be shown when there will be entries on server to post this data
             /*$http({
-                url: 'send-need-url',
-                method: "POST",
+                url: '/api/new_need',
+                method: "GET",
                 data: { 'message' : vm.need }
             })
                 .then(function(response) {
@@ -34,8 +34,9 @@
                 },
                 function(response) { // optional
                     // failed
-                });*/
-        };
+                });
+        };*/
+        
         //here will be additional ajax call to server to get only needed cities by id
         vm.setCity = function(id, name){
             //setting region here
