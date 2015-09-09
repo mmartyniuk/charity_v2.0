@@ -48,7 +48,7 @@
                     templateUrl: 'app/needs/new_need_register.html',
                     controller: 'NewNeedRegisterController',
                     controllerAs: 'vm',
-                    title: 'NewNeedRegister',
+                    title: 'NewNeedRegisterController',
                     params: {prefilled: null}
                 }
             },
@@ -59,7 +59,7 @@
                     templateUrl: 'app/needs/new_need_step_1.html',
                     controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',
-                    title: 'NewNeedStep1',
+                    title: 'NewNeedBeforeRegisterController',
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
