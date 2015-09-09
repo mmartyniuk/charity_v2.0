@@ -63,7 +63,7 @@
             value: 0,
             text: "Не зможу забрати"
         }];
-        vm.indeficator = "testttttttttt";
+
         activate();
 
         function activate() {};
