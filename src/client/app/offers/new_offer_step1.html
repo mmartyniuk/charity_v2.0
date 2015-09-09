@@ -1,95 +1,24 @@
 <section>
     <div class="container">
         <h2 class="text-left text-heading">Нова пропозиція</h2>
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="NewOffer" ng-submit="vm.submitOffer()">
             <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1" for="title">Назва</label>
+                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1">Назва</label>
                 <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
-                    <input type="text" class="form-control" name="heading" id="title" placeholder="Назва пропозиції">
+                    <input type="text" class="form-control" name="offerTitle" ng-model="vm.offer.title" placeholder="Назва пропозиції" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1">Категорія</label>
                 <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
-                    <input type="text" class="form-control" id="category_name" placeholder="Оберіть категорію" data-toggle="modal" data-target="#categoriesModal">
+                    <input type="text" class="form-control" id="category_name" ng-model="vm.offer.category" placeholder="Оберіть категорію" ng-click="vm.open()" required>
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="categoriesModal" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Оберіть категорію:</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="category">
-                                <!-- Main categories -->
-                                <ul class="list-unstyled" role="tablist">
-                                    <li><a href="#">Одяг</a></li>
-                                    <li><a href="#">Взуття</a></li>
-                                    <li><a href="#">Аксесуари</a></li>
-                                    <li><a href="#">Канцтовари</a></li>
-                                    <li><a href="#">Книги</a></li>
-                                    <li><a href="#">Побутова техніка</a></li>
-                                    <li><a href="#">Електроніка</a></li>
-                                    <li><a href="#">Побут</a></li>
-                                    <li><a href="#">Засоби гігієни</a></li>
-                                    <li><a href="#">Іграшки</a></li>
-                                    <li><a href="#">Продукти</a></li>
-                                    <li><a href="#">Медикаменти</a></li>
-                                    <li><a href="#">Спорт</a></li>
-                                    <li><a href="#">Інструменти</a></li>
-                                    <li><a href="#">Матеріали</a></li>
-                                    <li><a href="#">Послуги</a></li>
-                                </ul>
-                            </div>
-                            <div class="hidden subcategory">
-                                <!-- Sub-categories, hidden, should be displayed after main category is selected -->
-                                <ul class="list-unstyled" role="tablist">
-                                    <li><a href="#">Дитячий одяг</a></li>
-                                    <li><a href="#">Жіночий одяг</a></li>
-                                    <li><a href="#">Чоловічий одяг</a></li>
-                                </ul>
-                            </div>
-                            <div class="hidden subcategory_child">
-                                <!-- Sub-categories, hidden, should be displayed after main category is selected -->
-                                <ul class="list-unstyled" role="tablist">
-                                    <li><a href="#">Верхній одяг</a></li>
-                                    <li><a href="#">Светри</a></li>
-                                    <li><a href="#">Штани</a></li>
-                                    <li><a href="#">Футболки</a></li>
-                                    <li><a href="#">Білизна</a></li>
-                                    <li><a href="#">Для немовлят</a></li>
-                                    <li><a href="#">Інше</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">Назад</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group row pull-right">
-                <div class="col-sm-12">
-                    <button type="button" class="btn btn-default" id="myButton0">Назад</button>
-
-                    <button type="button" class="btn btn-primary col-sm-offset-1" id="myButton">Далі</button>
-                    <script type="text/javascript">
-                            var btn = document.getElementById('myButton');
-                            btn.addEventListener('click', function() {
-                              document.location.href = 'new_offer_register.html';
-                            });
-                    </script>
-                    <script type="text/javascript">
-                                var btn = document.getElementById('myButton0');
-                                btn.addEventListener('click', function() {
-                                  document.location.href = 'index.html';
-                                });
-                    </script>
-
-                </div>
+            <offer-modal-directive></offer-modal-directive>
+            <div class="form-group">
+                <button type="button" class="btn btn-warning">Назад</button>
+                <button type="submit" class="btn btn-primary">Далі</button>
             </div>
         </form>
     </div>
