@@ -20,11 +20,9 @@
         activate();
 
         vm.submitOffer = function(){
-            vm.month = vm.dt.getMonth() + 1;
-            vm.offer.actualDate = vm.dt.getDate() + '/' + vm.month + '/' + vm.dt.getFullYear();
+            vm.offer.actualDate = vm.dt.getDate() + '/' + parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.offer.get = vm.getChecked;
             vm.offer.images = vm.upload;
-            console.log(vm.offer);
             //this will be shown when there will be entries on server to post this data
             /*$http({
                 url: 'send-offer-url',
