@@ -3,12 +3,12 @@
 
     angular
         .module('app.offers')
-        .controller('editOffersContoller', editOffersContoller);
+        .controller('EditOffersContoller', EditOffersContoller);
 
-    editOffersContoller.$inject = ['$location', '$filter', '$http', '$state'];
+    EditOffersContoller.$inject = ['$location', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function editOffersContoller($location, $filter, $http, $state) {
+    function EditOffersContoller($location, $filter, $http, $state) {
         var vm = this;
         vm.title = 'editOffersContoller';
         vm.saveUser = saveUser;
@@ -63,7 +63,7 @@
             value: 0,
             text: "Не зможу забрати"
         }];
-
+        vm.indeficator = "testttttttttt";
         activate();
 
         function activate() {};

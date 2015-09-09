@@ -18,7 +18,7 @@
                 abstract: true,
                 config: {
                     template: '<ui-view/>',
-                    controller: 'editOffersContoller',
+                    controller: 'EditOffersContoller',
                     controllerAs: 'vm',
                     title: 'Offers'
                     /*settings: {

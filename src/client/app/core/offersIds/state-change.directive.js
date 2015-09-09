@@ -7,9 +7,10 @@ function stateChangeDirective() {
         restrict: 'E',
         templateUrl: '/app/core/offersIds/view/stateChange.html',
         scope: {
-            state: '='
+            stateName: '=',
+            id: '='
         },
-        controller: 'stateChangeCtrl',
+        controller: 'StateChangeCtrl',
         controllerAs: 'vm',
         bindToController: true
     }

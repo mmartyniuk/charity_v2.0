@@ -3,19 +3,19 @@
 
     angular
         .module('app.core')
-        .controller('stateChangeCtrl', stateChangeCtrl);
+        .controller('StateChangeCtrl', StateChangeCtrl);
 
-    stateChangeCtrl.$inject = [];
+    StateChangeCtrl.$inject = [];
 
     /* @ngInject */
-    function stateChangeCtrl() {
+    function StateChangeCtrl() {
         var vm = this;
-        vm.title = 'stateChangeCtrl';
-        vm.offers = {
-            name: "test name"
-        };
-        vm.id = "({id: 1})";
-
+        vm.title = 'StateChangeCtrl';
+        vm.indeficator = [{
+            value: 'offerID'
+        }, {
+            value: 'offerID'
+        }];
         activate();
 
         function activate() {};
