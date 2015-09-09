@@ -86,6 +86,7 @@
                     controller: 'NewOfferRegisterController',
                     controllerAs: 'vm',
                     title: 'NewOfferRegister',
+                    params: {prefilled: null}
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'

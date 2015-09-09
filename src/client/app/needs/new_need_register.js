@@ -3,7 +3,7 @@
 
     angular
         .module('app.needs')
-        .controller('NewNeedRegisterController', NewNeedRegisterController)
+        .controller('NewNeedRegisterController', NewNeedRegisterController);
 
     NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http'];
 
@@ -20,25 +20,26 @@
         activate();
 
         vm.submitNeed = function(){
-            vm.need.actualDate = vm.dt.getDate() + '/' + vm.dt.getMonth() + 1 + '/' + vm.dt.getFullYear();
+            vm.need.actualDate = vm.dt.getDate() + '/' + parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
             vm.need.images = vm.upload;
             //this will be shown when there will be entries on server to post this data
             /*$http({
-                url: '/api/new_need',
-                method: "GET",
-                data: { 'message' : vm.need }
-            })
-                .then(function(response) {
-                    // success
-                },
-                function(response) { // optional
-                    // failed
-                });
-        };*/
-        
-        //here will be additional ajax call to server to get only needed cities by id
-        vm.setCity = function(id, name){
+             url: '/api/new_need',
+             method: "GET",
+             data: { 'message' : vm.need }
+             })
+             .then(function(response) {
+             // success
+             },
+             function(response) { // optional
+             // failed
+             });
+             };*/
+
+            //here will be additional ajax call to server to get only needed cities by id
+        };
+        vm.setCity = function (id, name) {
             //setting region here
             vm.need.region = name;
             vm.currentRegion = id;
