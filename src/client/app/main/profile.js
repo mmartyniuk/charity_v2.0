@@ -7,7 +7,7 @@
 
     ProfileController.$inject = ['$location', 'Users'];
 
-    function ProfileController($location,Users) {
+    function ProfileController($location, Users) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
