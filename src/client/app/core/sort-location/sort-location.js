@@ -3,9 +3,9 @@
 
     angular
         .module('app.core')
-        .controller('LocationFilterController', LocationFilterController);
+        .controller('SortLocationController', SortLocationController);
 
-    function LocationFilterController() {
+    function SortLocationController() {
         var vm = this;
         vm.resetFilter = resetFilter;
         vm.setFilter = setFilter;

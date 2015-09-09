@@ -14,6 +14,31 @@
     function getStates() {
         return [
             {
+                state: 'needs',
+                abstract: true,
+                config: {
+                    template: '<ui-view/>',
+                    controller: 'NeedsController',
+                    controllerAs: 'vm',
+                    title: 'Needs',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'needs.home',
+                config: {
+                    url: '/needs',
+                    templateUrl: 'app/needs/needs.html',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
                 state: 'createdneed',
                 config: {
                     url: '/needs/createdneed',
@@ -81,7 +106,7 @@
                 }
             },
             {
-                state: 'searchcompletedneeds',
+                state: 'needs.searchcompletedneeds',
                 config: {
                     url: '/needs/searchcompletedneeds',
                     templateUrl: 'app/needs/search_completed_needs.html',

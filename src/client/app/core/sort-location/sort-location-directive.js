@@ -1,16 +1,16 @@
 angular
     .module('app.core')
-    .directive('locationFilterDirective', locationFilterDirective);
+    .directive('sortLocation', sortLocation);
 
-function locationFilterDirective() {
+function sortLocation() {
     return {
         restrict: 'E',
-        templateUrl: '/app/core/location-filter/view/location-filter.html',
+        templateUrl: '/app/core/sort-location/view/sort-location.html',
         scope: {
             locations: '=locations',
             setlocation: '=setlocation'
         },
-        controller: 'LocationFilterController',
+        controller: 'SortLocationController',
         controllerAs: 'vm',
         bindToController: true
     }

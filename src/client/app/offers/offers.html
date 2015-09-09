@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
                 <div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
-                    <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle p aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle aria-haspopup="true" aria-expanded="true">
                         Категорії&nbsp;
                         <span class="caret"></span>
                     </button>
@@ -17,7 +17,7 @@
                         <li><a href="#">Stuff from different category</a></li>
                     </ul>
                 </div>
-                <location-filter-directive locations="vm.data" setlocation="vm.setlocation"></location-filter-directive>
+                <sort-location locations="vm.data" setlocation="vm.setlocation"></sort-location>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="search">
