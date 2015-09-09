@@ -1,6 +1,6 @@
 angular
     .module('app.offers')
-    .directive('offerModalDirective', offerModal);
+    .directive('offerModal', offerModal);
 
 function offerModal() {
     return {
