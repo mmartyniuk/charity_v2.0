@@ -8,8 +8,8 @@
     appRun.$inject = ['routerHelper'];
     /* @ngInject */
     function appRun(routerHelper) {
-        var otherwise = '/404';
-        routerHelper.configureStates(getStates(), otherwise);
+        /*var otherwise = '/404';*/
+        routerHelper.configureStates(getStates() /*otherwise*/);
     }
 
     function getStates() {
@@ -41,7 +41,8 @@
                         content: '<i class="fa fa-lock"></i> Admin'
                     }*/
                 }
-            },
+            }
+            /*,
             {
                 state: '404',
                 config: {
@@ -49,8 +50,7 @@
                     templateUrl: 'app/core/404.html',
                     title: '404'
                 }
-            }
-
+            }*/
         ];
     }
 
