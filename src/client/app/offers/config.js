@@ -14,6 +14,43 @@
     function getStates() {
         return [
             {
+                state: 'offers',
+                abstract: true,
+                config: {
+                    template: '<ui-view/>',
+                    controller: 'EditOffersContoller',
+                    controllerAs: 'vm',
+                    title: 'Offers'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'offers.home',
+                config: {
+                    url: '/offers',
+                    templateUrl: 'app/offers/offers.html',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'offers.edit',
+                config: {
+                    url: '/offers/edit/:id',
+                    templateUrl: 'app/offers/edit_offer.html',
+                    title: 'editOffer',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
                 state: 'acceptedoffers',
                 config: {
                     url: '/offers/acceptedoffers',
