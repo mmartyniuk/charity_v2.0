@@ -3,7 +3,7 @@
 
     angular
         .module('app.core')
-        /*.run(appRun);
+        .run(appRun);
 
 
     function appRun(routerHelper) {
@@ -22,5 +22,5 @@
                 }
             }
         ];
-    }*/
+    }
 })();

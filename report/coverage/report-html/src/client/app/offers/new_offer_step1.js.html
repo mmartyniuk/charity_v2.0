@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/app/offers/new_offer_step1.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/client/app/offers/new_offer_step1.js</span></h1>
+    <h2>
+        Statements: <span class="metric">14.29% <small>(5 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">8.33% <small>(1 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">14.29% <small>(5 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">./src/client/app/offers/</a> &#187; new_offer_step1.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function () {
+    'use strict';
+&nbsp;
+    angular
+        .module('app.offers')
+        .controller('NewOfferStep1Controller', NewOfferStep1Controller);
+&nbsp;
+    NewOfferStep1Controller.$inject = ['$scope','CreateOfferFactory','$modal', '$state'];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function NewOfferStep1Controller($scope, CreateOfferFactory, $modal, $state) {</span>
+        /* jshint validthis:true */
+<span class="cstat-no" title="statement not covered" >        var vm = this;</span>
+<span class="cstat-no" title="statement not covered" >        vm.title = 'NewOfferStep1Controller';</span>
+<span class="cstat-no" title="statement not covered" >        activate();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        vm.offer = {}; </span>//all data from this form will be stored here
+&nbsp;
+        //set option for modal animation
+<span class="cstat-no" title="statement not covered" >        vm.animationsEnabled = true;</span>
+&nbsp;
+        //open function for modal
+<span class="cstat-no" title="statement not covered" >        vm.open = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            var init = $modal.open({</span>
+                animation: vm.animationsEnabled,
+                templateUrl: 'offers-modal.html',
+                controller: 'ModalInstanceController',
+                scope: $scope,
+                resolve: {
+                    data: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        return vm; </span>// post scope to modal window
+                    }
+                }
+            });
+            //setting category when modal is closed
+<span class="cstat-no" title="statement not covered" >            init.result.then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                vm.offer.category = vm.selected;</span>
+<span class="cstat-no" title="statement not covered" >                vm.currentCategory = null, vm.currentSubCategory = null;</span>
+            });
+        };
+<span class="cstat-no" title="statement not covered" >        vm.toggleAnimation = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            vm.animationsEnabled = !vm.animationsEnabled;</span>
+        };
+        //function to identify current category and set child category
+<span class="cstat-no" title="statement not covered" >        vm.setCurrentCategory = <span class="fstat-no" title="function not covered" >function(id){</span></span>
+<span class="cstat-no" title="statement not covered" >            vm.currentCategory = id;</span>
+<span class="cstat-no" title="statement not covered" >            vm.checkChild = false;</span>
+        };
+        //function to identify current category and set child category
+<span class="cstat-no" title="statement not covered" >        vm.setCurrentSubCategory = <span class="fstat-no" title="function not covered" >function(id, name){</span></span>
+<span class="cstat-no" title="statement not covered" >            vm.currentSubCategory = id;</span>
+<span class="cstat-no" title="statement not covered" >            var temp = [];</span>
+<span class="cstat-no" title="statement not covered" >            angular.forEach(vm.categories, <span class="fstat-no" title="function not covered" >function(value, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (value.parent_id === vm.currentSubCategory) {</span>
+<span class="cstat-no" title="statement not covered" >                    this.push(key + ': ' + value);</span>
+                }
+            }, temp);
+<span class="cstat-no" title="statement not covered" >            if(!temp.length) {</span>
+<span class="cstat-no" title="statement not covered" >                vm.ok(name);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                vm.checkChild = true;</span>
+            }
+        };
+<span class="cstat-no" title="statement not covered" >        vm.setCurrentSubSubCategory = <span class="fstat-no" title="function not covered" >function(name){</span></span>
+<span class="cstat-no" title="statement not covered" >            vm.ok(name);</span>
+        };
+        //using state object here to post submitted data to next page
+<span class="cstat-no" title="statement not covered" >        vm.submitOffer = <span class="fstat-no" title="function not covered" >function(title, category){</span></span>
+            // some ui validation should be applied here, tbd in future
+<span class="cstat-no" title="statement not covered" >            $state.go('newofferregister', {prefilled: vm.offer});</span>
+        };
+        //getting categories object from service
+<span class="fstat-no" title="function not covered" >        function activate() {</span>
+<span class="cstat-no" title="statement not covered" >            vm.categories = CreateOfferFactory.getCategories();</span>
+        }
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 10 2015 12:03:18 GMT+0300 (FLE Daylight Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
