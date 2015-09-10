@@ -18,7 +18,7 @@
                 abstract: true,
                 config: {
                     template: '<ui-view/>',
-                    controller: 'EditOffersContoller',
+                    controller: 'OffersController',
                     controllerAs: 'vm',
                     title: 'Offers'
                     /*settings: {
@@ -43,6 +43,8 @@
                 config: {
                     url: '/offers/edit/:id',
                     templateUrl: 'app/offers/edit_offer.html',
+                    controller: 'EditOffersContoller',
+                    controllerAs: 'vm',
                     title: 'editOffer',
                     /*settings: {
                      nav: 2,

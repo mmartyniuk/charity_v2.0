@@ -23,9 +23,9 @@
                     controllerAs: 'vm',
                     title: 'Index'
                     /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin' - tbd
+                     }*/
                 }
             }
         ];
