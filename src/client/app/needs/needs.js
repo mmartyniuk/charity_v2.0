@@ -14,6 +14,6 @@
 
         activate();
 
-        function activate() {console.log("test");}
+        function activate() {}
     }
 })();

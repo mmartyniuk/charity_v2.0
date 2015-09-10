@@ -23,34 +23,11 @@
                     controllerAs: 'vm',
                     title: 'Index'
                     /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
-                }
-            },
-            {
-                state: 'offers',
-                config: {
-                    url: '/offers',
-                    templateUrl: 'app/offers/offers.html',
-                    controller: 'OffersController',
-                    controllerAs: 'vm',
-                    title: 'Offers',
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin' - tbd
+                     }*/
                 }
             }
-            /*,
-            {
-                state: '404',
-                config: {
-                    url: '/404',
-                    templateUrl: 'app/core/404.html',
-                    title: '404'
-                }
-            }*/
         ];
     }
 

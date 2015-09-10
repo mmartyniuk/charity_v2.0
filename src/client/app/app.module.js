@@ -8,6 +8,7 @@
         'app.main',
         'app.needs',
         'app.offers'
+
     ]);
 
 })();

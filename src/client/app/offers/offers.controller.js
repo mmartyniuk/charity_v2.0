@@ -18,9 +18,9 @@
         activate();
 
         function activate() {
-          vm.offerText = "";
-          vm.editorEnabled = false;
-          vm.data = OffersFactory.getOffers();
+            vm.offerText = "";
+            vm.editorEnabled = false;
+            vm.data = OffersFactory.getOffers();
         };
 
         function enableEditor() {
