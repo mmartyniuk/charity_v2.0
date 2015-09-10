@@ -1,4 +1,3 @@
-<aside class="hidden-xs hidden-md hidden-lg marginTop">&nbsp;</aside>
 <section>
     <div class="contentWrapper">
         <div class="row">
@@ -31,25 +30,25 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
         <hr>
-        <h2>За Вашим запитом знайдено 23 пропозиції:</h2>
+        <h2>За Вашим запитом знайдено 23 потреби:</h2>
         <hr>
-        <div ng-repeat="offers in vm.data | filter: vm.setlocation | filter: search">
+        <div ng-repeat="completedNeeds in vm.data | filter: vm.setlocation | filter: search">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="#">{{ offers.desc }}</a></strong>
+                        <strong><a href="created_need.html">{{ completedNeeds.desc }}</a></strong>
                         <p>
-                            {{ offers.body }}
+                            {{ completedNeeds.body }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ offers.location }}</strong>
+                            <strong>{{ completedNeeds.location }}</strong>
                             <small> / </small>
-                            <strong>{{ offers.date }}</strong>
+                            <strong>{{ completedNeeds.date }}</strong>
                         </div>
                     </div>
                 </div>
@@ -60,7 +59,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="#">{{ offers.author }}</a>
+                                <a href="created_need.html">{{ completedNeeds.author }}</a>
                             </p>
                         </div>
                     </div>
@@ -70,7 +69,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="#">{{ offers.project }}</a>
+                                <a href="created_need.html">{{ completedNeeds.project }}</a>
                             </p>
                         </div>
                     </div>

@@ -29,20 +29,6 @@
                 }
             },
             {
-                state: 'needs',
-                config: {
-                    url: '/needs',
-                    templateUrl: 'app/needs/needs.html',
-                    controller: 'NeedsController',
-                    controllerAs: 'vm',
-                    title: 'Needs',
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
-                }
-            },
-            {
                 state: 'offers',
                 config: {
                     url: '/offers',
@@ -64,8 +50,8 @@
                     templateUrl: 'app/core/404.html',
                     title: '404'
                 }
+<<<<<<< HEAD
             }*/
-
         ];
     }
 
