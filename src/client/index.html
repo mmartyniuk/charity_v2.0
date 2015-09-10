@@ -6,6 +6,7 @@
         /* Since Angular has this but needs to load, this gives us the class early. */
         .ng-hide { display: none!important; }
     </style>
+    <base href="/" />
     <title ng-bind="title">Благодійний портал</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -121,6 +122,8 @@
     <script src="/src/client/app/core/datepicker/datepicker.js"></script>
     <script src="/src/client/app/core/file-upload/file-upload-directive.js"></script>
     <script src="/src/client/app/core/file-upload/file-upload.js"></script>
+    <script src="/src/client/app/core/sort-location/sort-location-directive.js"></script>
+    <script src="/src/client/app/core/sort-location/sort-location.js"></script>
     <script src="/src/client/app/directives.js"></script>
     <script src="/src/client/app/main/about_us.js"></script>
     <script src="/src/client/app/main/config.js"></script>
@@ -137,7 +140,9 @@
     <script src="/src/client/app/needs/new_need_register.js"></script>
     <script src="/src/client/app/needs/new_need_step_1.js"></script>
     <script src="/src/client/app/needs/new_project.js"></script>
+    <script src="/src/client/app/needs/search_completed_needs.js"></script>
     <script src="/src/client/app/needs/services/create_need_service.js"></script>
+    <script src="/src/client/app/needs/services/search_completed_needs_service.js"></script>
     <script src="/src/client/app/offers/config.js"></script>
     <script src="/src/client/app/offers/created_offer.js"></script>
     <script src="/src/client/app/offers/directives/offer-modal-directive.js"></script>
@@ -145,6 +150,7 @@
     <script src="/src/client/app/offers/new_offer_register.js"></script>
     <script src="/src/client/app/offers/new_offer_step1.js"></script>
     <script src="/src/client/app/offers/offers.js"></script>
+    <script src="/src/client/app/offers/services/offers_service.js"></script>
     <script src="/src/client/app/offers/services/create_offer_service.js"></script>
     <!-- endinject -->
 
