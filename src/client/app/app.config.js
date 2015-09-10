@@ -50,7 +50,6 @@
                     templateUrl: 'app/core/404.html',
                     title: '404'
                 }
-<<<<<<< HEAD
             }*/
         ];
     }
