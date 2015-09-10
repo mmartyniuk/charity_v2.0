@@ -1,32 +1,41 @@
-﻿describe('needs', function () {
-    describe('NewNeedBeforeRegisterController', function () {
-        /*var need = {
-            four0four: 'app/core/404.html'
-        };*/
+﻿describe('NewNeedBeforeRegisterController', function() {
+    var controller, scope;
+    beforeEach(function() {
+        controller = undefined;
+    });
 
-        /*beforeEach(function () {
-            module('app.needs', bard.fakeToastr);
-            bard.inject('$scope','CreateNeedFactory','$modal', '$state');
-            $templateCache.put(views.core, '');
-        });*/
+    beforeEach(function() {
+        module('app.core', 'app.needs');
+    });
 
-        /*it('should map /404 route to 404 View template', function () {
-            expect($state.get('404').templateUrl).to.equal(views.four0four);
-        });*/
-        /*it('should be a function', function () {
-            expect(NewNeedBeforeRegisterController).to.equal(Function);
-        });*/
-
-        /*it('of dashboard should work with $state.go', function () {
-            $state.go('404');
-            $rootScope.$apply();
-            expect($state.is('404'));
+    beforeEach(function () {
+        bard.inject(this, '$controller', '$rootScope');
+        scope = $rootScope.$new();
+        controller = $controller('NewNeedBeforeRegisterController', {
+            $scope: scope
         });
 
-        it('should route /invalid to the otherwise (404) route', function () {
-            $location.path('/invalid');
-            $rootScope.$apply();
-            expect($state.current.templateUrl).to.equal(views.four0four);
-        });*/
+    });
+
+    describe('NewNeedBefore RegisterController', function() {
+        it('should be created successfully', function () {
+            expect(controller).to.be.defined;
+        });
+
+        it('should have name', function () {
+            var vm = controller;
+            expect(vm.title).to.equal('NewNeedBeforeRegisterController');
+        });
+
+        it('should have animations enabled by default', function () {
+            var vm = controller;
+            expect(vm.animationsEnabled).to.be.ok;
+        });
+        it('should have empty object for needs to post them to another page', function () {
+            var vm = controller;
+            expect(vm.need).to.be.an('object');
+            expect(vm.need).to.be.empty;
+        });
+
     });
 });
