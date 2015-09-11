@@ -9,6 +9,8 @@
         var vm = this;
         vm.resetFilter = resetFilter;
         vm.setFilter = setFilter;
+        vm.setlocation = '';
+        vm.title = 'SortLocationController';
 
         function resetFilter() {
             vm.setlocation = '';
