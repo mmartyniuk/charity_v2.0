@@ -15,9 +15,7 @@ describe('EditOffersContoller', function() {
     });
 
     describe('EditOffersContoller', function() {
-        before(function() {
-            console.log("test of EditOffersContoller controller");
-        });
+
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
