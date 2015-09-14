@@ -7,7 +7,7 @@ describe('statusCtrl', function() {
     });
 
     beforeEach(function() {
-        module('app.core', 'app.offers');
+        module('app.core');
     });
 
     beforeEach(function () {
