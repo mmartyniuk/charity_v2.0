@@ -38,7 +38,7 @@
                      content: '<i class="fa fa-lock"></i> Admin'
                      }*/
                 }
-            },
+            }
 
         ];
     }
