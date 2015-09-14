@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.main')
+        .module('app.profile')
         .controller('ProfileController', ProfileController);
 
     ProfileController.$inject = ['$location', 'Users'];
