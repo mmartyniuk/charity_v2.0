@@ -54,20 +54,6 @@
                 }
             },
             {
-                state: 'acceptedoffers',
-                config: {
-                    url: '/offers/acceptedoffers',
-                    templateUrl: 'app/offers/acceptedOffers.html',
-                    controller: 'AcceptedOffersController',
-                    controllerAs: 'vm',
-                    title: 'AcceptedOffers'
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
-                }
-            },
-            {
                 state: 'createdoffer',
                 config: {
                     url: '/offers/createdoffer',

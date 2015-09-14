@@ -7,7 +7,8 @@
         'app.admin',
         'app.main',
         'app.needs',
-        'app.offers'
+        'app.offers',
+        'app.profile'
 
     ]);
 
