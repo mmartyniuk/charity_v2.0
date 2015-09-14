@@ -1,9 +1,15 @@
 html {
     overflow-x: hidden;
+    height: 100%;
 }
 
 body {
-    padding: 75px 0;
+    padding: 60px 0;
+    height: 100%;
+}
+
+body .ng-scope {
+    height: 100%;
 }
 
 /* section styling */
@@ -162,19 +168,20 @@ body > section {
     word-break: break-all;
 }
 /* <--------------index.html style--------> */
-.marketing {
-    text-align: justify;
-    text-indent: 1em;
-}
-.marketing h2 {
+.background-img {
+    background-image: url("../images/background.png");
+    background-attachment: fixed;
+    margin: -10px 0;
     text-align: center;
-    font-style: italic;
+    background-position: center center;
+    width: 100%;
+    height: 104%;
+    background-size: cover;
 }
-.marketing a {
-    float: right;
-}
-.marketing img {
-    clear: both;
+
+.background-img .jumbotron {
+    opacity: 0.75;
+    background-color: #fff;
 }
 /* <--------------index.html style END--------> */
 /* <--------------edit_offer.html style--------> */
