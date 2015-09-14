@@ -5,7 +5,7 @@
         function () {
             return {
                 restrict: 'E',
-                template: '<ul><li ng-show="vm.list.length === 0">No data</li><li ng-repeat="entiti in vm.list | limitTo: vm.limit">{{entiti}}</li><li ng-click="vm.toggleList()"><span ng-show="vm.list.length > vm.limit">[show more]</span><span ng-show="vm.list.length == vm.limit">[hide more]</span></ul>',
+                templateUrl: '/app/profile/views/user-entities.html',
                 scope: {
                     list: '=',
                     limit: '=?'
