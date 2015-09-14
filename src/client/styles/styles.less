@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    padding-bottom: 75px;
+    padding: 75px 0;
 }
 
 /* section styling */
@@ -14,10 +14,10 @@ body > section {
 .dropButtons {
 	width: 90px;
 }
-.input-group {
+/*.input-group {
 	width: 40%;
 	float: right;
-}
+}*/
 
 .logo {
     position: relative;
@@ -35,7 +35,43 @@ body > section {
 #navbar ul li:hover {
     background-color: #ccc;
 }
+.currneLink{
+    text-decoration: underline !important;
+}
+.container .control-label {
+    text-align: left;
+}
+/*secondaryNavigation begin*/
+.secondaryNavigation {
+    padding-left: 1em;
+    margin: 0;
+}
+.secondaryNavigation li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
 
+}
+.secondaryNavigation li.topRow a {
+    color: #000000;
+}
+.marginBottom {
+    margin-bottom: 5px;
+}
+.marginTop {
+    display: block;
+    height: 45px;
+}
+.marginRight {
+    margin-right: 5px;
+}
+.fontWeight {
+    font-weight: bold;
+}
+.fontWeight.collapsed {
+     font-weight: normal;
+}
+/*secondaryNavigation end*/
 @media (max-width:720px) {
     body {
         padding-bottom: 80px;
@@ -82,6 +118,7 @@ body > section {
 .status {
     background-color: lightgray;
     padding: 15px;
+    margin-bottom: 10px;
 }
 .activeNeed {
     font-weight: bold;
@@ -136,4 +173,33 @@ body > section {
 .marketing a {
     float: right;
 }
+.marketing img {
+    clear: both;
+}
 /* <--------------index.html style END--------> */
+/* <--------------edit_offer.html style--------> */
+.edit-offer {
+    padding-top: 40px;
+}
+.edit-offer h2 {
+    text-align: center;
+}
+.editable-empty {
+    color: #000;
+}
+
+/* <--------------edit_offer.html END--------> */
+
+/* <--------------offers.html style --------> */
+.check {
+    margin: 10px 0 0 0;
+}
+.check span {
+    margin-right: 20px;
+}
+.check span a {
+    text-decoration: underline;
+}
+/* <--------------offers.html style END--------> */
+
+
