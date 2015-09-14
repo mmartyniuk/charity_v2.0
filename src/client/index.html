@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -47,15 +48,15 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/needs">Потреби</a></li>
                         <li><a href="/offers">Пропозиції</a></li>
-                        <li><a href="#">Додати Потребу</a></li>
-                        <li><a href="#">Додати Пропозицію</a></li>
+                        <li><a href="/needs/newneedstep1">Додати Потребу</a></li>
+                        <li><a href="/offers/newofferstep1">Додати Пропозицію</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <hr class="divider hidden-lg hidden-md hidden-sm">
                         </li>
                         <li><a href="../navbar/">Про нас</a></li>
-                        <li><a href="../navbar-static-top/">Мій кабінет</a></li>
+                        <li><a href="/profile">Мій кабінет</a></li>
                         <li><a href="#">Вийти</a></li>
                     </ul>
                 </div>
@@ -105,6 +106,7 @@
     <script src="/src/client/app/main/main.module.js"></script>
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
+    <script src="/src/client/app/profile/profile.module.js"></script>
     <script src="/src/client/app/admin/admin.controller.js"></script>
     <script src="/src/client/app/admin/admin.route.js"></script>
     <script src="/src/client/app/app.config.js"></script>
@@ -130,11 +132,7 @@
     <script src="/src/client/app/core/status/status.js"></script>
     <script src="/src/client/app/directives.js"></script>
     <script src="/src/client/app/main/about_us.js"></script>
-    <script src="/src/client/app/main/config.js"></script>
-    <script src="/src/client/app/main/directives/user_entities_directive.js"></script>
     <script src="/src/client/app/main/index.js"></script>
-    <script src="/src/client/app/main/profile.js"></script>
-    <script src="/src/client/app/main/services/user_service.js"></script>
     <script src="/src/client/app/needs/config.js"></script>
     <script src="/src/client/app/needs/created_need.controller.js"></script>
     <script src="/src/client/app/needs/created_project.controller.js"></script>
@@ -157,6 +155,10 @@
     <script src="/src/client/app/offers/offers.controller.js"></script>
     <script src="/src/client/app/offers/services/create_offer_service.js"></script>
     <script src="/src/client/app/offers/services/offers_service.js"></script>
+    <script src="/src/client/app/profile/config.js"></script>
+    <script src="/src/client/app/profile/directives/user_entities_directive.js"></script>
+    <script src="/src/client/app/profile/profile.js"></script>
+    <script src="/src/client/app/profile/services/user_service.js"></script>
     <!-- endinject -->
 
     <!-- inject:templates:js -->
