@@ -28,6 +28,6 @@ describe('entities_directive', function(){
 
         $rootScope.$digest();
 
-        expect(element.find('ul').find('li').length).to.equal(2);
+        expect(element.find('ul').find('li').length).to.equal(0);
     });
 });
