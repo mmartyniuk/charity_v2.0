@@ -1,4 +1,4 @@
-﻿describe('SearchCompletedNeedsController', function() {
+﻿describe('NeedsController', function() {
     var controller, scope;
     beforeEach(function() {
         controller = undefined;
@@ -11,20 +11,20 @@
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
         scope = $rootScope.$new();
-        controller = $controller('SearchCompletedNeedsController', {
+        controller = $controller('NeedsController', {
             $scope: scope
         });
 
     });
 
-    describe('SearchCompletedNeeds Controller', function() {
+    describe('Needs Controller', function() {
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.title).to.equal('SearchCompletedNeedsController');
+            expect(vm.title).to.equal('NeedsController');
         });
 
         it('should have an array with completed needs received from factory', function () {
