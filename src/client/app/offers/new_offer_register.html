@@ -5,7 +5,7 @@
         </div>
         <form class="form-horizontal" ng-submit="vm.submitOffer();">
             <div class="form-group row">
-                <label class="control-label col-sm-2">Назва</label>
+                <label class="control-label col-sm-2 title-label">Назва</label>
                 <div class="col-sm-10">
                     <!-- here should be pre-filled data from  newofferstep1.html -->
                     <h3>{{vm.offer.title}}</h3>
@@ -41,7 +41,7 @@
                 <label class="control-label col-sm-2">Фото:</label>
                 <file-upload-directive upload="vm.upload"></file-upload-directive>
             </div>
-            <div class="form-group row">
+             <!--<div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
                 <div class="col-sm-2">
                     <select class="form-control">
@@ -51,7 +51,7 @@
                         <option>XL</option>
                     </select>
                 </div>
-            </div>
+            </div>           this should be discussed, there shouldn't be same sizes for all types of needs (such as difference between clothes sizes and shoes)-->
             <div class="row">
                 <div class="col-sm-12">
                     <hr>
