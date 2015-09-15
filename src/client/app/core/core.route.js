@@ -5,7 +5,6 @@
         .module('app.core')
         .run(appRun);
 
-
     function appRun(routerHelper) {
         var otherwise = '/404';
         routerHelper.configureStates(getStates(), otherwise);

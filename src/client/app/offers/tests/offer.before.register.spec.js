@@ -45,7 +45,8 @@ describe('NewOfferBeforeRegisterController', function() {
             expect(vm.offer).to.be.empty;
         });
 
-        it('category should be array, should not be empty and it values must be name, id and parent id', function () {
+        it('category should be array, should not be empty ' +
+        'and it values must be name, id and parent id', function () {
             var vm = controller;
             expect(vm.categories).to.be.an('array');
             expect(vm.categories).to.have.length.above(0);
@@ -82,14 +83,14 @@ describe('NewOfferBeforeRegisterController', function() {
                 expect(vm.setCurrentCategory).to.be.a('function');
             });
 
-            it('currentCategory should be undefined initially, \
-            until user clicks on category field', function () {
+            it('currentCategory should be undefined initially, ' +
+            'until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentCategory).to.be.an('undefined');
-             });
+            });
 
-            it('checkChild should be false initially, until we \
-            pass an sub category id to setCurrentCategory', function () {
+            it('checkChild should be false initially, until we ' +
+            'pass an sub category id to setCurrentCategory', function () {
                 var vm = controller;
                 expect(vm.checkChild).not.to.be.ok;
             });
@@ -103,7 +104,8 @@ describe('NewOfferBeforeRegisterController', function() {
                 var vm = controller;
                 expect(vm.setCurrentSubCategory).to.be.a('function');
             });
-            it('currentSubCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentSubCategory should be undefined initially, ' +
+            'until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentSubCategory).to.be.an('undefined');
             });

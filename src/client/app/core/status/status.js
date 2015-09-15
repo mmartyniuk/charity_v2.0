@@ -10,7 +10,7 @@
 
     /* @ngInject */
     function statusCtrl($filter) {
-      
+
         var vm = this;
 
         vm.title = 'statusCtrl';

@@ -7,7 +7,7 @@
 
     CreateNeedFactory.$inject = ['$http'];
 
-    function CreateNeedFactory($http){
+    function CreateNeedFactory($http) {
         return {
             getCategories: function() {
                 //tbd when there will be api to call, till that time hardcoded the

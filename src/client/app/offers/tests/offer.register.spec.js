@@ -39,7 +39,8 @@ describe('NewOfferRegisterController', function() {
             expect(vm.title).to.be.equal('NewOfferRegisterController');
         });
 
-        it('should have defined offer object, which must be prefilled with data from previous page', function () {
+        it('should have defined offer object, which must ' +
+        'be prefilled with data from previous page', function () {
             var vm = controller;
             expect(vm.offer).to.be.an('object');
             expect(vm.offer).not.to.be.empty;
@@ -69,7 +70,8 @@ describe('NewOfferRegisterController', function() {
                 var vm = controller;
                 //passing some fake data to test output
                 var d = new Date();
-                vm.offer.actualDate = d.getDate() + '/' + parseInt(d.getMonth() + 1) + '/' + d.getFullYear();
+                vm.offer.actualDate = d.getDate() + '/' +
+                parseInt(d.getMonth() + 1) + '/' + d.getFullYear();
                 //end of fake data
                 expect(vm.offer.actualDate).to.be.a('string');
             });
@@ -91,9 +93,9 @@ describe('NewOfferRegisterController', function() {
                 expect(vm.setCity).to.be.a('function');
             });
 
-            it('setCity should have region and current region \
-            params undefined by default, cities should return \
-            object with defined params', function () {
+            it('setCity should have region and current region ' +
+            'params undefined by default, cities should return ' +
+            'object with defined params', function () {
                 var vm = controller;
                 expect(vm.offer.region).to.equal(undefined);
                 expect(vm.currentRegion).to.equal(undefined);

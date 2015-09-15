@@ -19,7 +19,7 @@
 
         // Disable weekend selection
         vm.disabled = function(date, mode) {
-            return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
         };
 
         vm.toggleMin = function() {
@@ -63,7 +63,7 @@
             if (mode === 'day') {
                 var dayToCheck = new Date(date).setHours(0,0,0,0);
 
-                for (var i=0;i<vm.events.length;i++){
+                for (var i = 0;i < vm.events.length;i++) {
                     var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
 
                     if (dayToCheck === currentDay) {
