@@ -10,7 +10,7 @@
     function NewOfferRegisterController($state,CreateOfferFactory,$http) {
 
         var vm = this;
-        vm.title = 'NewNeedRegisterController';
+        vm.title = 'NewOfferRegisterController';
         vm.offer = {}; //offer data from form will be stored here
         vm.offer.title = $state.params.prefilled.title;  //---> commented for testing
         vm.offer.category = $state.params.prefilled.category;  //---> commented for testing
