@@ -52,7 +52,7 @@ describe('NewNeedBeforeRegisterController', function() {
             expect(vm.categories).to.be.an('array');
             expect(vm.categories).to.have.length.above(0);
             vm.categories.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                expect(item).to.have.all.keys('name', 'id', 'parentId');
             });
         });
 
@@ -238,7 +238,7 @@ describe('NewNeedRegisterController', function() {
                 //end
 
                 vm.cities.forEach(function(item) {
-                    expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                    expect(item).to.have.all.keys('name', 'id', 'parentId');
                 });
             });
 
