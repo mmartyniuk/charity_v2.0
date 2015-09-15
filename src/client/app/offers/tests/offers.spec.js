@@ -1,4 +1,5 @@
-﻿describe('OffersController', function() {
+﻿/*jshint expr: true*/
+describe('OffersController', function() {
     var controller, scope;
     beforeEach(function() {
         controller = undefined;

@@ -1,3 +1,4 @@
+/*jshint expr: true, multistr: true */
 //NewOfferStep1Controller
 describe('NewOfferStep1Controller', function() {
 
@@ -81,12 +82,14 @@ describe('NewOfferStep1Controller', function() {
                 expect(vm.setCurrentCategory).to.be.a('function');
             });
 
-            it('currentCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentCategory should be undefined initially, \
+            until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentCategory).to.be.an('undefined');
              });
 
-            it('checkChild should be false initially, until we pass an sub category id to setCurrentCategory', function () {
+            it('checkChild should be false initially, until we \
+            pass an sub category id to setCurrentCategory', function () {
                 var vm = controller;
                 expect(vm.checkChild).not.to.be.ok;
             });

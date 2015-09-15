@@ -12,5 +12,5 @@ function datepickerDirective() {
         controller: 'DatePickerController',
         controllerAs: 'vm',
         bindToController: true
-    }
+    };
 }

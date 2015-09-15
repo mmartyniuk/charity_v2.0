@@ -13,5 +13,5 @@ function statusDirective() {
         controller: 'statusCtrl',
         controllerAs: 'vm',
         bindToController: true
-    }
+    };
 }

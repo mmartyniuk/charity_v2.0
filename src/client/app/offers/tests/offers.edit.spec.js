@@ -1,3 +1,4 @@
+/*jshint expr: true*/
 describe('EditOffersContoller', function() {
     var controller;
     beforeEach(function() {
@@ -22,7 +23,7 @@ describe('EditOffersContoller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.user.offer).to.equal("test title");
+            expect(vm.user.offer).to.equal('test title');
         });
         it('should be a function', function () {
             var vm = controller;

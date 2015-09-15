@@ -12,10 +12,10 @@
         var vm = this;
         vm.title = 'NewOfferRegisterController';
         vm.offer = {}; //offer data from form will be stored here
-        vm.offer.title = $state.params.prefilled.title;  //---> commented for testing
-        vm.offer.category = $state.params.prefilled.category;  //---> commented for testing
-//        vm.offer.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
-//        vm.offer.category = 'Дитячі куртки'; // ---> static data for testing
+        vm.offer.title = $state.params.prefilled.title;  //---> comment for testing
+        vm.offer.category = $state.params.prefilled.category;  //---> comment for testing
+//      vm.offer.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
+//      vm.offer.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
         activate();
 
@@ -47,5 +47,5 @@
         function activate() {
             vm.regions = CreateOfferFactory.getRegions();
         }
-    };
+    }
 })();

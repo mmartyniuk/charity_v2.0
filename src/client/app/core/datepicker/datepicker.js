@@ -3,7 +3,7 @@
 
     angular
         .module('app.core')
-        .controller('DatePickerController', DatePickerController)
+        .controller('DatePickerController', DatePickerController);
 
     function DatePickerController() {
         var vm = this;
