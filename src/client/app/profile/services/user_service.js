@@ -7,7 +7,7 @@
 
     Users.$inject = ['$http', '$q'];
 
-    function Users($http, $q){
+    function Users($http, $q) {
         return {
             getUsers: function() {
                 //return $http.get('/api/users');

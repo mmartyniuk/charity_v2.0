@@ -7,7 +7,7 @@
 
     CreateOfferFactory.$inject = ['$http'];
 
-    function CreateOfferFactory($http){
+    function CreateOfferFactory($http) {
         return {
             getCategories: function() {
                 //tbd when there will be api to call, till that time hardcoded the

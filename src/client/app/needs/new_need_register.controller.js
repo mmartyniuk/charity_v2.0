@@ -19,8 +19,9 @@
         vm.getChecked = false;
         activate();
 
-        vm.submitNeed = function(){
-            vm.need.actualDate = vm.dt.getDate() + '/' + parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
+        vm.submitNeed = function() {
+            vm.need.actualDate = vm.dt.getDate() + '/' +
+            parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
             vm.need.images = vm.upload;
             //this will be shown when there will be entries on server to post this data
