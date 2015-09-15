@@ -46,7 +46,7 @@
         }, ];
 
         vm.user.offer = "test title";
-        vm.user.offerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eum quos distinctio, aspernatur ut porro. Voluptatibus culpa cumque distinctio deleniti, nam itaque accusamus ipsum vero illo eligendi voluptates velit consequuntur facere eaque asperiores minus fugit, debitis, nisi officia, maiores optio quos. Ut rerum cumque porro recusandae at, natus facilis quas!";
+        vm.user.offerText = "Влад з Дніпропетровська з народження страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.  Владика мучать сильні болі. Мама хлопчика спробувала вже чимало методів лікування, проте досі лікарі не змогли отримати бажаного результату.";
         vm.user.size = "S";
         vm.user.regions = "Київська область‎";
         vm.user.city = "Київ";
