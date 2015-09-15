@@ -32,23 +32,23 @@
         <hr>
         <h2>За Вашим запитом знайдено 23 потреби:</h2>
         <hr>
-        <div ng-repeat="completedNeeds in vm.data | filter: vm.setlocation | filter: search">
+        <div ng-repeat="needs in vm.data | filter: vm.setlocation | filter: search">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="created_need.html">{{ completedNeeds.desc }}</a></strong>
+                        <strong><a href="created_need.html">{{ needs.desc }}</a></strong>
                         <p>
-                            {{ completedNeeds.body }}
+                            {{ needs.body }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ completedNeeds.location }}</strong>
+                            <strong>{{ needs.location }}</strong>
                             <small> / </small>
-                            <strong>{{ completedNeeds.date }}</strong>
+                            <strong>{{ needs.date }}</strong>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="created_need.html">{{ completedNeeds.author }}</a>
+                                <a href="created_need.html">{{ needs.author }}</a>
                             </p>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="created_need.html">{{ completedNeeds.project }}</a>
+                                <a href="created_need.html">{{ needs.project }}</a>
                             </p>
                         </div>
                     </div>
