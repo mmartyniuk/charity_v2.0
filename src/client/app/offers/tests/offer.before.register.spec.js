@@ -1,5 +1,5 @@
-//NewOfferStep1Controller
-describe('NewOfferStep1Controller', function() {
+//NewOfferBeforeRegisterController
+describe('NewOfferBeforeRegisterController', function() {
 
     var controller, scope;
 
@@ -15,14 +15,14 @@ describe('NewOfferStep1Controller', function() {
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
         scope = $rootScope.$new();
-        controller = $controller('NewOfferStep1Controller', {
+        controller = $controller('NewOfferBeforeRegisterController', {
             $scope: scope
         });
         $rootScope.$apply();
     });
 
     //constants, initial testing
-    describe('new offer first step controller', function() {
+    describe('new offer before register controller', function() {
 
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
@@ -30,7 +30,7 @@ describe('NewOfferStep1Controller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.title).to.equal('NewOfferStep1Controller');
+            expect(vm.title).to.equal('NewOfferBeforeRegisterController');
         });
 
         it('should have animations enabled by default', function () {

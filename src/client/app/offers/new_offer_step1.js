@@ -3,14 +3,14 @@
 
     angular
         .module('app.offers')
-        .controller('NewOfferStep1Controller', NewOfferStep1Controller);
+        .controller('NewOfferBeforeRegisterController', NewOfferBeforeRegisterController);
 
-    NewOfferStep1Controller.$inject = ['$scope','CreateOfferFactory','$modal', '$state'];
+    NewOfferBeforeRegisterController.$inject = ['$scope','CreateOfferFactory','$modal', '$state'];
 
-    function NewOfferStep1Controller($scope, CreateOfferFactory, $modal, $state) {
+    function NewOfferBeforeRegisterController($scope, CreateOfferFactory, $modal, $state) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'NewOfferStep1Controller';
+        vm.title = 'NewOfferBeforeRegisterController';
         activate();
 
         vm.offer = {}; //all data from this form will be stored here
