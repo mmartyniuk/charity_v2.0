@@ -1,231 +1,82 @@
 <section>
-    <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-xs-offset-2 col-sm-offset-2">
-            <div class="row">&nbsp;</div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading1">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapseOne" class="">
-                            Опубліковані потреби
-                        </a>
-                    </h4>
+    <div class="contentWrapper">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
+                <div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
+                    <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle aria-haspopup="true" aria-expanded="true">
+                        Категорії&nbsp;
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu col-xs-12" aria-labelledby="dropdownMenu2">
+                        <li><a href="#">Stuff</a></li>
+                        <li><a href="#">Stuff</a></li>
+                        <li><a href="#">Stuff</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Stuff from different category</a></li>
+                        <li><a href="#">Stuff from different category</a></li>
+                    </ul>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
-                    <div class="panel-body">
-                        <div>
-                            <form role="form">
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio" checked>Потреби
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio">Проекти
-                                </label>
-                            </form>
-                        </div>
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                            <div class="date">
-                                <div class="dateCreating">10/07/2015</div>
-                                <div class="row">
-                                    <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                    <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
-                                    <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                                </div>
-                            </div>
-                            <div class="check">
-                                <span><a href="#">Переглянути</a></span>
-                                <span><a href="#">Редагувати</a></span>
-                                <span><a href="#">Закрити</a></span>
-                            </div>
-                            <hr>
-                        </div>
+                <sort-location locations="vm.data" setlocation="vm.setlocation"></sort-location>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="fontWeight">
-                                Підтримані потреби
-                            </a>
-                        </h4>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
+        <hr>
+        <h2>За Вашим запитом знайдено 23 потреби:</h2>
+        <hr>
+        <div ng-repeat="needs in vm.data | filter: vm.setlocation | filter: search">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
+                    <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
+                    <div>
+                        <strong><a href="created_need.html">{{ needs.desc }}</a></strong>
+                        <p>
+                            {{ needs.body }}
+                        </p>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <div class="status">
-                                <span><a href="#" class="currneLink">Активні</a></span>
-                                <span><a href="#">Завершені</a></span>
-                            </div>
-                            <div class="contentWrapper">
-                                <div class="date">
-                                    <div class="dateCreating">10/07/2015</div>
-                                    <div class="row">
-                                        <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                        <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
-                                        <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                                    </div>
-                                </div>
-                                <div class="check">
-                                    <span><a href="#">Переглянути</a></span>
-                                    <span><a href="#">Відмінити</a></span>
-                                </div>
-                                <hr>
-                            </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <strong>{{ needs.location }}</strong>
+                            <small> / </small>
+                            <strong>{{ needs.date }}</strong>
                         </div>
                     </div>
                 </div>
+                <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                            <p><b>Автор: </b></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                            <p>
+                                <a href="created_need.html">{{ needs.author }}</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                            <p><b>Проект: </b></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                            <p>
+                                <a href="created_need.html">{{ needs.project }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading22">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="true" aria-controls="collapseOne" class="">
-                            Опубліковані пропозиції
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading22">
-                    <div class="panel-body">
-                        <div>
-                            <form role="form">
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio" checked>Потреби
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio">Проекти
-                                </label>
-                            </form>
-                        </div>
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                            <div class="date">
-                                <div class="dateCreating">10/07/2015</div>
-                                <div class="row">
-                                    <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                    <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
-                                    <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                                </div>
-                            </div>
-                            <div class="check">
-                                <span><a href="#">Переглянути</a></span>
-                                <span><a href="#">Редагувати</a></span>
-                                <span><a href="#">Закрити</a></span>
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading212">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse123" aria-expanded="true" aria-controls="collapseOne" class="">
-                             Підтримані пропозиції
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse123" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading212">
-                    <div class="panel-body">
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                            <div class="date">
-                                <div class="dateCreating">10/07/2015</div>
-                                <div class="row">
-                                    <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                    <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
-                                    <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                                </div>
-                            </div>
-                            <div class="check">
-                                <span><a href="#">Переглянути</a></span>
-                                <span><a href="#">Відмінити</a></span>
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading2122">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1234" aria-expanded="true" aria-controls="collapseOne" class="">
-                              Повідомлення
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse1234" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2122">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                <span>10/14/2015</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                <span>10/14/2015</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                <span>10/14/2015</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading21222">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse12345" aria-expanded="true" aria-controls="collapseOne" class="">
-                              Профіль
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse12345" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading21222">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <span>Ваше ім&#180;я  {{user.name}}</span><br><hr>
-                                <span>Електронна пошта: {{user.email}}</span><br><hr>
-                                <span>Телефон: {{user.phone}}</span><br><hr>
-                                <span>Хто Ви:  {{user.status}}</span><br><hr>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <span>Підтримані потреби  {{user.supportedNeeds}}</span><br><hr>
-                                <span>Опубліковані Пропозиції {{user.offers}}</span><br><hr>
-                                <span>Опубліковані Потреби  {{user.needs}}</span><br><hr>
-                                <span>Підтримані Пропозиції  {{user.supportedOffers}}</span><br><hr>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="button" id="profileEdit" class="btn btn-default btn-md pull-right">Редагувати</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <hr>
         </div>
     </div>
 </section>

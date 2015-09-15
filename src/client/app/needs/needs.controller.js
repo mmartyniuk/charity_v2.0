@@ -5,15 +5,17 @@
         .module('app.needs')
         .controller('NeedsController', NeedsController);
 
-    NeedsController.$inject = ['$location'];
+    NeedsController.$inject = ['NeedsFactory'];
 
-    function NeedsController($location) {
+    function NeedsController(NeedsFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NeedsController';
 
         activate();
 
-        function activate() {}
+        function activate() {
+            vm.data = NeedsFactory.getNeeds();
+        }
     }
 })();

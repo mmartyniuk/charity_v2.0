@@ -3,17 +3,17 @@
 
     angular
         .module('app.needs')
-        .factory('SearchCompletedNeedsFactory', SearchCompletedNeedsFactory);
+        .factory('NeedsFactory', NeedsFactory);
 
-    function SearchCompletedNeedsFactory() {
+    function NeedsFactory() {
         return {
-            getCompletedNeeds: function() {
+            getNeeds: function() {
                 //tbd when there will be api to call, till that time hardcoded the
                 //vm.completedNeeds array to verify if factory is properly working
                 /*$http.get("/api/completedNeeds").success(function(data) {
                     vm.completedNeeds = data;
                 })*/
-                var completedNeeds = [
+                var needs = [
                     {
                         desc: 'Необхідні зимові штани #1 для центру "Джерело".',
                         body: '1 Необхідний набір одягу для волонтерського центру джерело, найбільша потреба в теплих куртках, шкарпетках, зимових штанах, також необхідна їжа і мінеральна вода. ',
@@ -40,7 +40,7 @@
                         project: 'допомога дитячому будинку "Надія"'
                     }
                 ];
-                return completedNeeds;
+                return needs;
             }
         }
     }
