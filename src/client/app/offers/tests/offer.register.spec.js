@@ -105,7 +105,7 @@ describe('NewOfferRegisterController', function() {
                 //end
 
                 vm.cities.forEach(function(item) {
-                    expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                    expect(item).to.have.all.keys('name', 'id', 'parentId');
                 });
             });
 
