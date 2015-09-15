@@ -50,9 +50,9 @@
                 }
             },
             {
-                state: 'termsofuse',
+                state: 'terms',
                 config: {
-                    url: '/termsofuse',
+                    url: '/terms',
                     templateUrl: 'app/footer/views/terms_of_use.html',
                     title: 'Terms of Use',
                     /*settings: {
