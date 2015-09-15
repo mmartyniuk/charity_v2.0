@@ -8,7 +8,8 @@
         'app.main',
         'app.needs',
         'app.offers',
-        'app.profile'
+        'app.profile',
+        'app.footer'
 
     ]);
 
