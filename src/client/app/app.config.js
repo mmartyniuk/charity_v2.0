@@ -27,6 +27,18 @@
                      content: '<i class="fa fa-lock"></i> Admin' - tbd
                      }*/
                 }
+            },
+            {
+                state: 'about',
+                config: {
+                    url: '/about',
+                    templateUrl: 'app/main/about_us.html',
+                    title: 'about'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin' - tbd
+                     }*/
+                }
             }
         ];
     }
