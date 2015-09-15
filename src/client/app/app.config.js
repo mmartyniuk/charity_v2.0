@@ -29,11 +29,11 @@
                 }
             },
             {
-                state: 'aboutus',
+                state: 'about',
                 config: {
-                    url: '/aboutus',
+                    url: '/about',
                     templateUrl: 'app/main/about_us.html',
-                    title: 'aboutus'
+                    title: 'about'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin' - tbd
