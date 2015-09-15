@@ -34,7 +34,8 @@
             //setting category when modal is closed
             init.result.then(function () {
                 vm.need.category = vm.selected;
-                vm.currentCategory = null, vm.currentSubCategory = null;
+                vm.currentCategory = null;
+                vm.currentSubCategory = null;
             });
         };
         vm.toggleAnimation = function () {
@@ -50,7 +51,7 @@
             vm.currentSubCategory = id;
             var temp = [];
             angular.forEach(vm.categories, function(value, key) {
-                if (value.parent_id === vm.currentSubCategory) {
+                if (value.parentId === vm.currentSubCategory) {
                     this.push(key + ': ' + value);
                 }
             }, temp);

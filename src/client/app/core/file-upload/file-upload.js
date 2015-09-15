@@ -3,7 +3,7 @@
 
     angular
         .module('app.core')
-        .controller('FileUploadController', FileUploadController)
+        .controller('FileUploadController', FileUploadController);
 
     function FileUploadController() {
         var vm = this;

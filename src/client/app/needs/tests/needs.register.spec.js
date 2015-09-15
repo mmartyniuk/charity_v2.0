@@ -1,4 +1,6 @@
-﻿//NewNeedBeforeRegisterController
+﻿/*jshint expr: true, multistr: true*/
+/*globals $state, CreateNeedFactory */
+//NewNeedBeforeRegisterController
 describe('NewNeedBeforeRegisterController', function() {
 
     var controller, scope;
@@ -86,7 +88,8 @@ describe('NewNeedBeforeRegisterController', function() {
                 expect(vm.currentCategory).to.be.an('undefined');
              });
 
-            it('checkChild should be false initially, until we pass an sub category id to setCurrentCategory', function () {
+            it('checkChild should be false initially, until we pass \
+            an sub category id to setCurrentCategory', function () {
                 var vm = controller;
                 expect(vm.checkChild).not.to.be.ok;
             });
@@ -219,7 +222,8 @@ describe('NewNeedRegisterController', function() {
                 expect(vm.setCity).to.be.a('function');
             });
 
-            it('setCity should have region and current region params undefined by default, cities should return object with defined params', function () {
+            it('setCity should have region and current region params undefined \
+            by default, cities should return object with defined params', function () {
                 var vm = controller;
                 expect(vm.need.region).to.equal(undefined);
                 expect(vm.currentRegion).to.equal(undefined);

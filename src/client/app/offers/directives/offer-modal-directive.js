@@ -10,5 +10,5 @@ function offerModal() {
             category: '=category'
         },
         bindToController: true
-    }
+    };
 }

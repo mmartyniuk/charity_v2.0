@@ -13,5 +13,5 @@ function sortLocation() {
         controller: 'SortLocationController',
         controllerAs: 'vm',
         bindToController: true
-    }
+    };
 }

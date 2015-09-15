@@ -1,3 +1,4 @@
+/*jshint -W040: false*/
 (function() {
     'use strict';
 
@@ -9,7 +10,9 @@
 
     /* @ngInject */
     function statusCtrl($filter) {
+      
         var vm = this;
+
         vm.title = 'statusCtrl';
         vm.showStatus = showStatus;
 
@@ -17,13 +20,13 @@
 
         activate();
 
-        function activate() {};
+        function activate() {}
 
         function showStatus() {
             var selected = $filter('filter')(vm.statuses, {
                 value: vm.status
             });
             return (vm.status && selected.length) ? selected[0].text : 'Невідомо';
-        };
+        }
     }
 })();

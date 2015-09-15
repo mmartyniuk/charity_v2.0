@@ -55,6 +55,14 @@
     "node": true,
 
     "globals": {
-        "angular": false
+        "angular": false,
+        "describe": false,
+        "beforeEach": false,
+        "bard": false,
+        "$rootScope": false,
+        "$controller": false,
+        "it": false,
+        "expect": false,
+        "scope": false
     }
 }

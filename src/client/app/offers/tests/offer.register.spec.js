@@ -1,3 +1,5 @@
+/*jshint expr: true, multistr: true*/
+/*globals $state, CreateOfferFactory */
 //NewOfferRegisterController
 describe('NewOfferRegisterController', function() {
     //constants for defining controller
@@ -89,7 +91,9 @@ describe('NewOfferRegisterController', function() {
                 expect(vm.setCity).to.be.a('function');
             });
 
-            it('setCity should have region and current region params undefined by default, cities should return object with defined params', function () {
+            it('setCity should have region and current region \
+            params undefined by default, cities should return \
+            object with defined params', function () {
                 var vm = controller;
                 expect(vm.offer.region).to.equal(undefined);
                 expect(vm.currentRegion).to.equal(undefined);
