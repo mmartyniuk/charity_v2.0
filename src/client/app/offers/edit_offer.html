@@ -40,18 +40,8 @@
           <div class="form-group row">
             <label class="control-label col-sm-2">Фото:</label>
             <div class="col-sm-10">
-              <input type="file" id="exampleInputFile">
+                <img src="../images/dog.jpg" class="img-responsive img-rounded" alt="kid">
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Виберіть розмір:</label>
-            <div class="col-sm-10">
-              <span editable-select="vm.user.size" e-name="name" e-ng-options="s.value as s.text for s in vm.size" ng-class="form-control" ng-model="vm.user.size">
-              {{ vm.user.size }}
-              </span>
-            </div>
-            <br>
-            <hr>
           </div>
           <div class="form-group row">
             <label class="control-label col-sm-2">Виберіть область:</label>
@@ -83,10 +73,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="control-label col-sm-2">Актуальність</label>
-            <div class="col-sm-3">
-              <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01"> <!-- other person working on datepicker -->
-            </div>
+              <date-picker date="vm.dt"></date-picker>
           </div>
           <div class="form-group row">
             <label class="control-label col-sm-2">Зручний час</label>
@@ -95,25 +82,21 @@
             </div>
           </div>
           <status status="vm.user.status" statuses="vm.userStatuses"></status>
-          <div>
-            <!-- button to show form -->
-            <div class="form-group row pull-right">
-              <div class="col-sm-12">
-                <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-                Edit
-                </button>
-                <!-- buttons to submit / cancel form -->
-                <span ng-show="editableForm.$visible">
-                  <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-                  Зберегти
-                  </button>
-                  <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-                  Скасувати
-                  </button>
-                </span>
-              </div>
+            <div>
+                <!-- button to show form -->
+                <div class="form-group row pull-right">
+                    <div class="col-sm-12">
+                        <span>
+                          <button type="submit" class="btn btn-primary">
+                              Зберегти
+                          </button>
+                          <button type="button" class="btn btn-default" ng-click="editableForm.$cancel()">
+                              Скасувати
+                          </button>
+                        </span>
+                    </div>
+                </div>
             </div>
-          </div>
         </form>
       </div>
     </div>
