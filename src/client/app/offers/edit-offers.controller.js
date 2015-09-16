@@ -58,7 +58,6 @@
 
         function saveUser() {
             vm.user.date = vm.dt;
-            console.log(vm.user);
         }
     }
 })();
