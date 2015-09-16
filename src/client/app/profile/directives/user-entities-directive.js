@@ -2,20 +2,40 @@
     'use strict';
 
     angular.module('app.profile').directive('userEntities', [
-        function () {
+        '$interpolate',
+        function ($interpolate) {
             return {
                 restrict: 'E',
                 templateUrl: '/app/profile/views/user-entities.html',
                 scope: {
                     list: '=',
+                    title: '@',
+                    url: '=?',
                     limit: '=?'
                 },
                 controller: function () {
+                    if (!this.title) {
+                        this.title = 'title';
+                    }
+
+                    var url;
+                    if (this.url) {
+                        url = $interpolate(this.url);
+                    }
+
                     if (!this.limit) {
                         this.limit = 1;
                     }
 
                     var limit = this.limit;
+
+                    this.getTitle = function (entity) {
+                        return entity[this.title];
+                    };
+
+                    this.getHref = function (entity) {
+                        return angular.isFunction(url) ? url(entity) : '';
+                    };
 
                     this.toggleList = function () {
                         if (this.limit < this.list.length) {
