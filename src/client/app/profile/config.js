@@ -38,8 +38,19 @@
                      content: '<i class="fa fa-lock"></i> Admin'
                      }*/
                 }
+            },
+            {
+                state: 'profile.user',
+                config: {
+                    url: '/profile/user',
+                    templateUrl: 'app/profile/user_profile.html',
+                    title: 'userProfile'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
             }
-
         ];
     }
 
