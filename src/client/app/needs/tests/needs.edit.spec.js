@@ -23,7 +23,7 @@ describe('EditNeedsContoller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.user.offer).to.equal('Хвора дитина');
+            expect(vm.user.need).to.equal('Хвора дитина');
         });
         it('should be a function', function () {
             var vm = controller;
