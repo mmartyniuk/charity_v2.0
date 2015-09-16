@@ -77,19 +77,21 @@
             </div>
           </div>
           <status status="vm.user.status" statuses="vm.userStatuses"></status>
-            <div>
-                <!-- button to show form -->
-                <div class="form-group row pull-right">
-                    <div class="col-sm-12">
-                        <span>
-                          <button type="submit" class="btn btn-primary">
-                              Зберегти
-                          </button>
-                          <button type="button" class="btn btn-default" ng-click="editableForm.$cancel()">
-                              Скасувати
-                          </button>
-                        </span>
-                    </div>
+            <!-- button to show form -->
+            <div class="form-group row pull-right">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible" ng-init="editableForm.$show()">
+                        Edit
+                    </button>
+                    <!-- buttons to submit / cancel form -->
+                    <span ng-show="editableForm.$visible">
+                      <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                          Зберегти
+                      </button>
+                      <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                          Скасувати
+                      </button>
+                    </span>
                 </div>
             </div>
         </form>
