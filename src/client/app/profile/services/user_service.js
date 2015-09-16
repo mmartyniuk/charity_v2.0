@@ -23,27 +23,27 @@
                             ],
                         'offers':
                             [
-                                'Шолом',
-                                'Кросівки',
-                                'Куртка',
-                                'Шапка',
-                                'Штани'
+                                {id: 1, title:'Шолом'},
+                                {id: 2, title:'Кросівки'},
+                                {id: 3, title:'Куртка'},
+                                {id: 4, title:'Шапка'},
+                                {id: 5, title:'Штани'}
                             ],
                         'needs':
                             [
-                                'АК-47',
-                                'СВД',
-                                'Телевізор',
-                                'Диван',
-                                'Матрас'
+                                {customId: 1, customTitle:'АК-47'},
+                                {customId: 2, customTitle:'СВД'},
+                                {customId: 3, customTitle:'Телевізор'},
+                                {customId: 4, customTitle:'Диван'},
+                                {customId: 5, customTitle:'Матрас'}
                             ],
                         'supportedOffers':
                             [
-                                'Гамак',
-                                'Таблетки',
-                                'Вода',
-                                'Фрукти',
-                                'Овочі'
+                                {id: 1, title:'Гамак'},
+                                {id: 2, title:'Таблетки'},
+                                {id: 3, title:'Вода'},
+                                {id: 4, title:'Фрукти'},
+                                {id: 5, title:'Овочі'}
                             ]
                     });
                 });

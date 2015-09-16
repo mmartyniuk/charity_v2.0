@@ -221,8 +221,24 @@ div.form-group.prev-next-buttons {
     margin-top: 15px;
 }
 /* <--------------offers.html style END--------> */
+
 /* <--------------profile.html style --------> */
+
 #profile li {
+    list-style: disc;
+}
+
+#profile li:last-child {
     list-style: none;
 }
+
+.accorion-with-chevron .panel-group > .panel {
+    & > .panel-heading i.chevron-icon:before {
+        content: "\e080";
+    }
+    &.panel-open > .panel-heading i.chevron-icon:before {
+        content: "\e114";
+    }
+}
+
 /* <--------------profile.html style  END--------> */
