@@ -14,10 +14,10 @@
 
         function resetFilter() {
             vm.setlocation = '';
-        };
+        }
 
         function setFilter(location) {
             vm.setlocation = location;
-        };
+        }
     }
 })();

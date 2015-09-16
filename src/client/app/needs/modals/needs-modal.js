@@ -18,6 +18,5 @@
         data.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
     }
 })();

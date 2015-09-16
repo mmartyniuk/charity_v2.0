@@ -1,21 +1,21 @@
 /*jshint expr: true*/
-describe('EditOffersContoller', function() {
+describe('EditNeedsContoller', function() {
     var controller;
     beforeEach(function() {
         controller = undefined;
     });
 
     beforeEach(function() {
-        module('app.core', 'app.offers');
+        module('app.core', 'app.needs');
     });
 
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
-        controller = $controller('EditOffersContoller', {
+        controller = $controller('EditNeedsContoller', {
         });
     });
 
-    describe('EditOffersContoller', function() {
+    describe('EditNeedsContoller', function() {
 
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
@@ -23,7 +23,7 @@ describe('EditOffersContoller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.user.offer).to.equal('test title');
+            expect(vm.user.offer).to.equal('Хвора дитина');
         });
         it('should be a function', function () {
             var vm = controller;

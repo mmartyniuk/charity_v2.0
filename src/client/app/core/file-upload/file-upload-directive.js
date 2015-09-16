@@ -12,5 +12,5 @@ function fileUploadDirective() {
         controller: 'FileUploadController',
         controllerAs: 'vm',
         bindToController: true
-    }
+    };
 }

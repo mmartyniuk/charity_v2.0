@@ -16,6 +16,6 @@
 
         function activate() {
             vm.data = OffersFactory.getOffers();
-        };
-    };
+        }
+    }
 })();

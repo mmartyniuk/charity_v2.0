@@ -1,5 +1,6 @@
-//NewOfferStep1Controller
-describe('NewOfferStep1Controller', function() {
+/*jshint expr: true, multistr: true */
+//NewOfferBeforeRegisterController
+describe('NewOfferBeforeRegisterController', function() {
 
     var controller, scope;
 
@@ -15,14 +16,14 @@ describe('NewOfferStep1Controller', function() {
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
         scope = $rootScope.$new();
-        controller = $controller('NewOfferStep1Controller', {
+        controller = $controller('NewOfferBeforeRegisterController', {
             $scope: scope
         });
         $rootScope.$apply();
     });
 
     //constants, initial testing
-    describe('new offer first step controller', function() {
+    describe('new offer before register controller', function() {
 
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
@@ -30,7 +31,7 @@ describe('NewOfferStep1Controller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.title).to.equal('NewOfferStep1Controller');
+            expect(vm.title).to.equal('NewOfferBeforeRegisterController');
         });
 
         it('should have animations enabled by default', function () {
@@ -44,12 +45,13 @@ describe('NewOfferStep1Controller', function() {
             expect(vm.offer).to.be.empty;
         });
 
-        it('category should be array, should not be empty and it values must be name, id and parent id', function () {
+        it('category should be array, should not be empty ' +
+        'and it values must be name, id and parent id', function () {
             var vm = controller;
             expect(vm.categories).to.be.an('array');
             expect(vm.categories).to.have.length.above(0);
             vm.categories.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                expect(item).to.have.all.keys('name', 'id', 'parentId');
             });
         });
 
@@ -81,12 +83,14 @@ describe('NewOfferStep1Controller', function() {
                 expect(vm.setCurrentCategory).to.be.a('function');
             });
 
-            it('currentCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentCategory should be undefined initially, ' +
+            'until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentCategory).to.be.an('undefined');
-             });
+            });
 
-            it('checkChild should be false initially, until we pass an sub category id to setCurrentCategory', function () {
+            it('checkChild should be false initially, until we ' +
+            'pass an sub category id to setCurrentCategory', function () {
                 var vm = controller;
                 expect(vm.checkChild).not.to.be.ok;
             });
@@ -100,7 +104,8 @@ describe('NewOfferStep1Controller', function() {
                 var vm = controller;
                 expect(vm.setCurrentSubCategory).to.be.a('function');
             });
-            it('currentSubCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentSubCategory should be undefined initially, ' +
+            'until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentSubCategory).to.be.an('undefined');
             });

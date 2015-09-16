@@ -3,15 +3,15 @@
     'use strict';
 
     angular
-        .module('app.offers')
-        .controller('EditOffersContoller', EditOffersContoller);
+        .module('app.needs')
+        .controller('EditNeedsContoller', EditNeedsContoller);
 
-    EditOffersContoller.$inject = ['$location', '$filter', '$http', '$state'];
+    EditNeedsContoller.$inject = ['$location', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditOffersContoller($location, $filter, $http, $state) {
+    function EditNeedsContoller($location, $filter, $http, $state) {
         var vm = this;
-        vm.title = 'editOffersContoller';
+        vm.title = 'EditNeedsContoller';
         vm.saveUser = saveUser;
         vm.user = {};
         /*Memo: Cities with Regions are hardcoded we will get them from backend in future */
@@ -46,11 +46,11 @@
             text: 'XL'
         },];
 
-        vm.user.offer = 'test title';
+        vm.user.offer = 'Хвора дитина';
         vm.user.offerText = 'Влад з Дніпропетровська з народження' +
-        'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
-        'Владика мучать сильні болі. Мама хлопчика спробувала вже чимало' +
-        'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
+            'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
+            'Владика мучать сильні болі. Мама хлопчика спробувала вже чимало' +
+            'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
         vm.user.size = 'S';
         vm.user.regions = 'Київська область‎';
         vm.user.city = 'Київ';
@@ -74,8 +74,8 @@
 
         function saveUser() {
             /*      return $http.post('/saveUser', vm.user).error(function(err) {
-                    console.log(vm.user); -----Logic for updating info on backend
-                    });*/
+             console.log(vm.user); -----Logic for updating info on backend
+             });*/
             console.log(vm.user); /*edited info testing*/
         }
 

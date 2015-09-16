@@ -1,4 +1,5 @@
-﻿describe('SortLocationController', function() {
+﻿/*jshint expr: true*/
+describe('SortLocationController', function() {
     var controller, scope;
     beforeEach(function() {
         controller = undefined;

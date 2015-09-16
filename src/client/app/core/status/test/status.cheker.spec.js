@@ -1,5 +1,6 @@
+/*jshint expr: true*/
 describe('statusCtrl', function() {
-    var controller;
+    var controller, scope;
 
     beforeEach(function() {
         controller = undefined;

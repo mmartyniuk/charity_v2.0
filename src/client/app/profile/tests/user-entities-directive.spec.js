@@ -1,5 +1,5 @@
 /* jshint -W117, -W030 */
-describe('entities_directive', function(){
+describe('entities_directive', function() {
     /*var $compile,
         $scope;*/
 
