@@ -12,14 +12,16 @@
     "tests"
   ],
   "devDependencies": {
+    "angular-i18n": "~1.3.17",
     "angular-mocks": "~1.3.17",
-    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js",
-    "bardjs": "~0.1.4"
+    "bardjs": "~0.1.4",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js"
   },
   "dependencies": {
     "angular": "~1.3.17",
     "angular-animate": "~1.3.17",
     "angular-bootstrap": "~0.13.3",
+    "angular-i18n": "~1.3.17",
     "angular-sanitize": "~1.3.17",
     "angular-ui-router": "~0.2.15",
     "angular-xeditable": "~0.1.9",
