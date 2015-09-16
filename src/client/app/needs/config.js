@@ -39,6 +39,20 @@
                 }
             },
             {
+                state: 'needs.edit',
+                config: {
+                    url: '/needs/edit/:id',
+                    templateUrl: 'app/needs/edit_need.html',
+                    controller: 'EditNeedsContoller',
+                    controllerAs: 'vm',
+                    title: 'editNeed',
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
                 state: 'createdneed',
                 config: {
                     url: '/needs/createdneed',
