@@ -16,26 +16,7 @@
                         <li><a href="#">Stuff from different category</a></li>
                     </ul>
                 </div-->
-                <!--sort-location locations="vm.data" setlocation="vm.setlocation"></sort-location-->
-                <!--div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom location-search">
-                    <input type="text" class="form-control" ng-click="vm.enableShowRegions()" ng-model="vm.locationValue" placeholder="Вкажіть місто" popover-placement="bottom" popover-template="vm.locationPopover.templateUrl"/>
-                    <div class="regions" ng-show="vm.showRegions">
-                        <ul>
-                            <li ng-repeat="region in vm.regions">
-                                <a href="#" ng-click="vm.enableShowCities(region.id)">{{ region.name }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cities" ng-show="vm.showCities">
-                        <ul>
-                            <li ng-repeat="city in vm.cities" ng-if="city.parentId == vm.setRegionId">
-                                <a href="#" ng-click="vm.setLocation(city.name)">{{ city.name }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div-->
-                <location-search locations="vm.locationValue"></location-search>
-                <span>{{ vm.l }}</span>
+                <location-search location="vm.location"></location-search>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch">
@@ -49,9 +30,9 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
         <hr>
-        <h2>За Вашим запитом знайдено 23 потреби:</h2>
+        <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
-        <div ng-repeat="needs in vm.data | filter: vm.l | filter: vm.search">
+        <div ng-repeat="needs in vm.data | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">

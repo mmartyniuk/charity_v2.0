@@ -7,7 +7,7 @@ function locationSearch() {
         restrict: 'EA',
         templateUrl: '/app/core/location-search/view/location-search.html',
         scope: {
-            locations: '=locations'
+            location: '=location'
         },
         controller: 'LocationSearchController',
         controllerAs: 'vm',

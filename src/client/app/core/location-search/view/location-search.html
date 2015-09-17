@@ -1,6 +1,8 @@
 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom location-search">
-    <input type="text" class="form-control" ng-click="vm.enableShowRegions()" ng-model="vm.locationValue" placeholder="Вкажіть місто" popover-placement="bottom" popover-template="vm.locationPopover.templateUrl"/>
-    <div class="regions" ng-show="vm.showRegions">
+    <input type="text" class="form-control" ng-click="vm.enableShowRegions()" ng-model="vm.locationValue" placeholder="Вкажіть місто" popover-placement="bottom" popover-template="vm.locationPopover.templateUrl" popover-is-open="vm.locationPopover.opened" popover-trigger="focus"/>
+</div>
+<script type="text/ng-template" id="locationPopoverTemplate.html">
+    <div class="regions">
         <ul>
             <li ng-repeat="region in vm.regions">
                 <a href="#" ng-click="vm.enableShowCities(region.id)">{{ region.name }}</a>
@@ -14,4 +16,4 @@
             </li>
         </ul>
     </div>
-</div>
+</script>

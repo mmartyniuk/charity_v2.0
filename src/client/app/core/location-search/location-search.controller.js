@@ -5,43 +5,42 @@
         .module('app.core')
         .controller('LocationSearchController', LocationSearchController);
 
-    LocationSearchController.$inject = ['NeedsFactory'];
+    LocationSearchController.$inject = ['LocationFactory'];
 
-    function LocationSearchController(NeedsFactory) {
+    function LocationSearchController(LocationFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'LocationSearchController';
         vm.showCities = false;
-        vm.showRegions = false;
         vm.enableShowCities = enableShowCities;
-        vm.enableShowRegions = enableShowRegions;
         vm.setLocation = setLocation;
         vm.setRegionId = null;
+        vm.locationPopover = {
+            content: 'Test',
+            title: 'Title',
+            templateUrl: 'locationPopoverTemplate.html',
+            opened: false
 
+        };
 
         activate();
 
         function activate() {
-            vm.regions = NeedsFactory.getRegions();
-            vm.cities = NeedsFactory.getCities();
+            vm.regions = LocationFactory.getRegions();
+            vm.cities = LocationFactory.getCities();
         }
 
         function enableShowCities(id) {
             vm.setRegionId = id;
             vm.showCities = true;
-            vm.showRegions = false;
-        }
-
-        function enableShowRegions() {
-            vm.showRegions = true;
+            vm.locationPopover.opened = true;
         }
 
         function setLocation(city){
             vm.locationValue = city;
-            console.log(vm.locationValue);
-            vm.showRegions = false;
             vm.showCities = false;
-            return vm.locationValue;
+            vm.location = vm.locationValue;
+            vm.locationPopover.opened = false;
         }
     }
 })();
