@@ -8,27 +8,27 @@
             <div class="col-sm-10">
                 <form editable-form name="editableForm" onaftersave="vm.saveUser()">
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Назва</label>
+                        <label class="control-label col-sm-2">Назва:</label>
                         <div class="col-sm-10">
                             <div>
                                 <span editable-text="vm.user.need" e-name="name" onbeforesave="checkName($data)" e-required ng-model="vm.user.need">{{ vm.user.need }}</span>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="#">Одяг</a>
-                            </li>
-                            <li>
-                                <a href="#">Дитячий одяг</a>
-                            </li>
-                            <li>Светри</li>
-                        </ol>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Категорія:</label>
+                        <div class="col-sm-10 col-md-6 col-lg-4">
+                            <!-- here should be pre-filled data from previous page -->
+                            <ol class="breadcrumb">
+                                <li>Одяг</li>
+                                <li>Дитячий одяг</li>
+                                <li>Техніка</li>
+                            </ol>
+                        </div>
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Опис потреби</label>
+                        <label class="control-label col-sm-2">Опис потреби:</label>
                         <div class="col-sm-10">
                             <div>
                                 <a href="#" editable-textarea="vm.user.needText" e-rows="7" e-cols="90" ng-model="vm.user.needText">
@@ -39,24 +39,20 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Фото:</label>
-                        <div class="col-sm-10">
-                            <img src="../images/kid.jpg" class="img-responsive img-rounded img-edit" alt="kid">
-                        </div>
+                        <file-upload-directive upload="vm.upload"></file-upload-directive>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть область:</label>
-                        <div class="col-sm-10">
-                          <span editable-select="vm.user.regions" e-name="name" e-ng-options="s.value as s.text for s in vm.regions" ng-model="vm.user.regions">
-                          {{ vm.user.regions }}
-                          </span>
+                        <div class="col-sm-3">
+                            <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setCity(region.id, region.name);">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть місто:</label>
-                        <div class="col-sm-10">
-                          <span editable-select="vm.user.city" e-name="name" e-ng-options="s.value as s.text for s in vm.city" ng-model="vm.user.city">
-                          {{ vm.user.city }}
-                          </span>
+                        <div class="col-sm-2">
+                            <!-- here should be pre-filled data depending on previous select field -->
+                            <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(region)"></select>
                         </div>
                     </div>
                     <hr>
@@ -76,7 +72,7 @@
                         <date-picker date="vm.dt"></date-picker>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Зручний час</label>
+                        <label class="control-label col-sm-2">Зручний час:</label>
                         <div class="col-sm-3">
                             <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time }}</span>
                         </div>
