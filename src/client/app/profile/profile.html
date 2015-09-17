@@ -2,15 +2,18 @@
     <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-xs-offset-2 col-sm-offset-2">
             <div class="row">&nbsp;</div>
-            <accordion>
-                <accordion-group heading="Опубліковані потреби">
+            <accordion class="accorion-with-chevron">
+                <accordion-group>
+                    <accordion-heading>
+                        Опубліковані потреби <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
                     <div>
-                        <form role="form">
+                        <form role="form" >
                             <label class="radio-inline">
-                                <input type="radio" name="optradio" checked>Потреби
+                                <input disabled="disabled" type="radio" name="optradio" checked>Потреби
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="optradio">Проекти
+                                <input disabled="disabled" type="radio" name="optradio">Проекти
                             </label>
                         </form>
                     </div>
@@ -22,51 +25,46 @@
                         <div class="date">
                             <div class="dateCreating">10/07/2015</div>
                             <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
+                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/needs/createdneed">Кольорові олівці</a></div>
+                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя Єдинорог</a></div>
                                 <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
                             </div>
                         </div>
                         <div class="check">
-                            <span><a href="#">Переглянути</a></span>
-                            <span><a href="#">Редагувати</a></span>
-                            <span><a href="#">Закрити</a></span>
+                            <a href="/needs/edit/1"><button type="button" class="btn btn-default">Редагувати</button></a>
+                            <a><button type="button" class="btn btn-default">Закрити</button></a>
                         </div>
                         <hr>
                     </div>
                 </accordion-group>
-                <accordion-group heading="Підтримані потреби">
-                    <div class="status">
+                <accordion-group>
+                    <accordion-heading>
+                        Підтримані потреби <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
+<!--                    <div class="status">
                         <span><a href="#" class="currneLink">Активні</a></span>
                         <span><a href="#">Завершені</a></span>
-                    </div>
+                    </div>-->
                     <div class="contentWrapper">
                         <div class="date">
                             <div class="dateCreating">10/07/2015</div>
                             <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
+                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/needs/createdneed">Кольорові олівці</a></div>
+                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя Єдинорог</a></div>
                                 <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
                             </div>
                         </div>
-                        <div class="check">
+<!--                        <div class="check">
                             <span><a href="#">Переглянути</a></span>
                             <span><a href="#">Відмінити</a></span>
-                        </div>
+                        </div>-->
                         <hr>
                     </div>
                 </accordion-group>
-                <accordion-group heading="Опобліковані пропозиції">
-                    <div>
-                        <form role="form">
-                            <label class="radio-inline">
-                                <input type="radio" name="optradio" checked>Потреби
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optradio">Проекти
-                            </label>
-                        </form>
-                    </div>
+                <accordion-group>
+                    <accordion-heading>
+                        Опубліковані пропозиції <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
                     <div class="status">
                         <span><a href="#" class="currneLink">Активні</a></span>
                         <span><a href="#">Завершені</a></span>
@@ -75,20 +73,22 @@
                         <div class="date">
                             <div class="dateCreating">10/07/2015</div>
                             <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
+                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/offers/createdoffer">Кольорові олівці</a></div>
+                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя Єдинорог</a></div>
                                 <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
                             </div>
                         </div>
                         <div class="check">
-                            <span><a href="#">Переглянути</a></span>
-                            <span><a href="#">Редагувати</a></span>
-                            <span><a href="#">Закрити</a></span>
+                            <a href="/offers/edit/1"><button type="button" class="btn btn-default">Редагувати</button></a>
+                            <a><button type="button" class="btn btn-default">Закрити</button></a>
                         </div>
                         <hr>
                     </div>
                 </accordion-group>
-                <accordion-group heading="Підтримані пропозиції">
+                <accordion-group>
+                    <accordion-heading>
+                        Підтримані пропозиції <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
                     <div class="status">
                         <span><a href="#" class="currneLink">Активні</a></span>
                         <span><a href="#">Завершені</a></span>
@@ -97,73 +97,91 @@
                         <div class="date">
                             <div class="dateCreating">10/07/2015</div>
                             <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4">Кольорові олівці</div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4">Катя Єдинорог</div>
+                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/offers/createdoffer">Кольорові олівці</a></div>
+                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя Єдинорог</a></div>
                                 <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
                             </div>
                         </div>
-                        <div class="check">
+<!--                        <div class="check">
                             <span><a href="#">Переглянути</a></span>
                             <span><a href="#">Відмінити</a></span>
-                        </div>
+                        </div>-->
                         <hr>
                     </div>
                 </accordion-group>
-                <accordion-group heading="Повідомлення">
+                <accordion-group>
+                    <accordion-heading>
+                        Повідомлення <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
                     <div class="row">
                         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                             <span>10/14/2015</span>
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
+                            Ваша потреба підтримана.
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                            <span>10/14/2015</span>
+                            <span>10/13/2015</span>
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
+                            Перегляньте Вашу пропозицію.
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                            <span>10/14/2015</span>
+                            <span>10/12/2015</span>
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde fugit, esse nulla. Quasi rerum facere praesentium repellendus quis, mollitia hic ipsa eum, eveniet nesciunt id voluptate nulla velit, perspiciatis corporis quo expedita blanditiis sit error animi quaerat sint corrupti. Assumenda minima earum velit, nisi distinctio et, qui blanditiis perferendis.
+                            Вітаємо Вас на нашому сайті.
                         </div>
                     </div>
                     <hr>
                 </accordion-group>
-                <accordion-group heading="Профіль">
+                <accordion-group is-open="true">
+                    <accordion-heading>
+                        Профіль <i class="pull-right glyphicon chevron-icon"></i>
+                    </accordion-heading>
                     <div class="row" id="profile">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <span>Ваше ім&#180;я: {{vm.users.name}}</span><br><hr>
-                            <span>Електронна пошта: {{vm.users.email}}</span><br><hr>
-                            <span>Телефон: {{vm.users.phone}}</span><br><hr>
-                            <span>Хто Ви:  {{vm.users.status}}</span><br><hr>
+                            <form editable-form name="editUser" >
+                                <span editable-text="vm.users.name" e-name="name" e-required>Ваше ім&#180;я: {{vm.users.name}}</span><br><hr>
+                                <span editable-text="vm.users.email" e-name="email" e-required>Електронна пошта: {{vm.users.email}}</span><br><hr>
+                                <span editable-text="vm.users.phone" e-name="phone" e-required>Телефон: {{vm.users.phone}}</span><br><hr>
+                                <span>Хто Ви:  {{vm.users.status}}</span><br><hr>
+                            </form>
+                            <div>
+                                <!-- button to show form -->
+                                <button type="button" class="btn btn-default" ng-click="editUser.$show()" ng-show="!editUser.$visible">
+                                Edit
+                                </button>
+                                <!-- buttons to submit / cancel form -->
+                                <span ng-show="editUser.$visible">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
+                                        Save
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <span>Підтримані потреби:
-                                    <user-entities list="vm.users.supportedNeeds" limit="3"></user-entities>
+                                    <user-entities list="vm.users.supportedNeeds" url="'/needs/{{id}}'" limit="3"></user-entities>
                                 </span><br><hr>
-                                <span>Опобліковані Пропозиції:
-                                    <user-entities list="vm.users.offers"></user-entities>
+                                <span>Опубліковані Пропозиції:
+                                    <user-entities list="vm.users.offers" url="'/offers/{{id}}'"></user-entities>
                                 </span><br><hr>
-                                <span>Опобліковані Потреби:
-                                    <user-entities list="vm.users.needs" limit="4"></user-entities>
+                                <span>Опубліковані Потреби:
+                                    <user-entities list="vm.users.needs" title="customTitle" url="'/needs/{{customId}}'" limit="4"></user-entities>
                                 </span><br><hr>
                                 <span>Підтримані Пропозиції:
-                                    <user-entities list="vm.users.supportedOffers" limit="2"></user-entities>
+                                    <user-entities list="vm.users.supportedOffers" url="'/offers/{{id}}'" limit="2"></user-entities>
                                 </span><br><hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <button type="button" id="profileEdit" class="btn btn-default btn-md pull-right">Редагувати</button>
                         </div>
                     </div>
                 </accordion-group>

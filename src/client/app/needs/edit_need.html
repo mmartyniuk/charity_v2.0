@@ -1,25 +1,22 @@
-<!-- offer edit -->
+<!-- need edit -->
 <section>
-    <div class="container edit-offer">
+    <div class="container edit-need">
         <div>
-            <h2 class="text-left">Редагування пропозиції</h2>
+            <h2 class="text-left">Редагування потреби</h2>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
                 <form editable-form name="editableForm" onaftersave="vm.saveUser()">
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Назва:</label>
-
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.user.offer" e-name="name" onbeforesave="checkName($data)"
-                                      e-required ng-model="vm.user.offer">{{ vm.user.offer }}</span>
+                                <span editable-text="vm.user.need" e-name="name" onbeforesave="checkName($data)" e-required ng-model="vm.user.need">{{ vm.user.need }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Категорія:</label>
-
                         <div class="col-sm-10 col-md-6 col-lg-4">
                             <!-- here should be pre-filled data from previous page -->
                             <ol class="breadcrumb">
@@ -29,14 +26,13 @@
                             </ol>
                         </div>
                     </div>
-                    <div class="form-group row offer-desc">
-                        <label class="control-label col-sm-2">Опис пропозиції:</label>
-
+                    <hr>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Опис потреби:</label>
                         <div class="col-sm-10">
                             <div>
-                                <a href="#" editable-textarea="vm.user.offerText" e-rows="7" e-cols="90"
-                                   ng-model="vm.user.offerText">
-                                    <pre>{{ vm.user.offerText }}</pre>
+                                <a href="#" editable-textarea="vm.user.needText" e-rows="7" e-cols="90" ng-model="vm.user.needText">
+                                    <pre>{{ vm.user.needText }}</pre>
                                 </a>
                             </div>
                         </div>
@@ -47,30 +43,23 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть область:</label>
-
                         <div class="col-sm-3">
-                            <select class="form-control"
-                                    ng-options="region.name for region in vm.regions track by region.id"
-                                    ng-model="region" ng-change="vm.setCity(region.id, region.name);">
+                            <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setCity(region.id, region.name);">
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть місто:</label>
-
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
-                            <select class="form-control" id="cities" ng-options="city.name for city in vm.cities"
-                                    ng-model="vm.need.city" ng-disabled="!(region)"></select>
+                            <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(region)"></select>
                         </div>
                     </div>
                     <hr>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Адреса:</label>
-
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)"
-                                  id="str">{{ vm.user.street }}</span>
+                            <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.user.street }}</span>
                         </div>
                         <div class="col-sm-3">
                             <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house }}</span>
@@ -84,30 +73,26 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Зручний час:</label>
-
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)"
-                                  ng-model="vm.user.time">{{ vm.user.time }}</span>
+                            <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time }}</span>
                         </div>
                     </div>
                     <status status="vm.user.status" statuses="vm.userStatuses"></status>
                     <!-- button to show form -->
                     <div class="form-group row pull-right">
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-default" ng-click="editableForm.$show()"
-                                    ng-show="!editableForm.$visible" ng-init="editableForm.$show()">
+                            <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible" ng-init="editableForm.$show()">
                                 Edit
                             </button>
                             <!-- buttons to submit / cancel form -->
-                    <span ng-show="editableForm.$visible">
-                      <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-                          Зберегти
-                      </button>
-                      <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting"
-                              ng-click="editableForm.$cancel()">
-                          Скасувати
-                      </button>
-                    </span>
+                            <span ng-show="editableForm.$visible">
+                              <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                                  Зберегти
+                              </button>
+                              <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                                  Скасувати
+                              </button>
+                            </span>
                         </div>
                     </div>
                 </form>
