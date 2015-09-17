@@ -19,7 +19,7 @@
 
     core.value('config', config);
 
-    core.config(configure);
+    core.config(configure).run(run);
 
     configure.$inject = ['$logProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];
     /* @ngInject */
@@ -29,6 +29,10 @@
         }
         exceptionHandlerProvider.configure(config.appErrorPrefix);
         routerHelperProvider.configure({docTitle: config.appTitle + ': '});
+    }
+    run.$inject = ['editableOptions'];
+    function run(editableOptions) {
+        editableOptions.theme = 'bs3';
     }
 
 })();
