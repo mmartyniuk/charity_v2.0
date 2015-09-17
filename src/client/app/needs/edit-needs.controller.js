@@ -6,33 +6,16 @@
         .module('app.needs')
         .controller('EditNeedsContoller', EditNeedsContoller);
 
-    EditNeedsContoller.$inject = ['$location', '$filter', '$http', '$state'];
+    EditNeedsContoller.$inject = ['$location', 'CreateNeedFactory', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditNeedsContoller($location, $filter, $http, $state) {
+    function EditNeedsContoller($location, CreateNeedFactory, $filter, $http, $state) {
         var vm = this;
         vm.title = 'EditNeedsContoller';
         vm.saveUser = saveUser;
         vm.user = {};
         vm.user.date = {};
-        /*Memo: Cities with Regions are hardcoded we will get them from backend in future */
-        vm.regions = [{
-            value: 'Івано-Франківська область',
-            text: 'Івано-Франківська область'
-        }, {
-            value: 'Київська область‎',
-            text: 'Київська область‎'
-        },];
-
-        vm.city = [{
-            value: 'Івано-Франківськ',
-            text: 'Івано-Франківськ'
-        }, {
-            value: 'Київ',
-            text: 'Київ'
-        },];
-        /* End of Memo*/
-
+        vm.need = {};
         vm.user.need = 'Хвора дитина';
         vm.user.needText = 'Влад з Дніпропетровська з народження' +
             'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
@@ -47,18 +30,30 @@
         vm.user.status = 0;
         vm.userStatuses = [{
             value: 1,
-            text: 'Зможу забрати'
+            text: 'Так'
         }, {
             value: 0,
-            text: 'Не зможу забрати'
+            text: 'Ні'
         }];
 
         activate();
 
-        function activate() {}
+        function activate() {
+            vm.regions = CreateNeedFactory.getRegions();
+        }
+
+        vm.setCity = function (id, name) {
+            //setting region here
+            vm.need.region = name;
+            vm.currentRegion = id;
+            vm.cities = CreateNeedFactory.getCities(id);
+        };
 
         function saveUser() {
             vm.user.date = vm.dt;
+            $location.path('/needs/createdneed');
         }
+
     }
 })();
+
