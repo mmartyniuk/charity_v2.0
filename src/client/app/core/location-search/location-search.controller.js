@@ -36,7 +36,7 @@
             vm.locationPopover.opened = true;
         }
 
-        function setLocation(city){
+        function setLocation(city) {
             vm.locationValue = city;
             vm.showCities = false;
             vm.location = vm.locationValue;
