@@ -3,7 +3,7 @@
     <div class="contentWrapper">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
-                <div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
+                <!--div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
                     <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle aria-haspopup="true" aria-expanded="true">
                         Категорії&nbsp;
                         <span class="caret"></span>
@@ -16,13 +16,13 @@
                         <li><a href="#">Stuff from different category</a></li>
                         <li><a href="#">Stuff from different category</a></li>
                     </ul>
-                </div>
+                </div-->
                 <sort-location locations="vm.data" setlocation="vm.setlocation"></sort-location>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="search">
+                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
                         </span>
                     </div>
                 </div>
@@ -33,14 +33,14 @@
         <hr>
         <h2>За Вашим запитом знайдено 23 пропозиції:</h2>
         <hr>
-        <div ng-repeat="offers in vm.data | filter: vm.setlocation | filter: search">
+        <div ng-repeat="offers in vm.data | filter: vm.setlocation | filter: vm.search">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="#">{{ offers.desc }}</a></strong>
+                        <strong><a href="/offers/createdoffer">{{ offers.desc }}</a></strong>
                         <p>
                             {{ offers.body }}
                         </p>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-9">
                             <p>
-                                <a href="#">{{ offers.author }}</a>
+                                <a href="/profile/user">{{ offers.author }}</a>
                             </p>
                         </div>
                     </div>

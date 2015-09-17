@@ -11,11 +11,16 @@
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'OffersController';
+        vm.setSearch = setSearch;
 
         activate();
 
         function activate() {
             vm.data = OffersFactory.getOffers();
+        }
+
+        function setSearch(value) {
+            vm.search = value;
         }
     }
 })();
