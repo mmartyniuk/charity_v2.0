@@ -6,33 +6,16 @@
         .module('app.offers')
         .controller('EditOffersContoller', EditOffersContoller);
 
-    EditOffersContoller.$inject = ['$location', '$filter', '$http', '$state'];
+    EditOffersContoller.$inject = ['$location', 'CreateOfferFactory', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditOffersContoller($location, $filter, $http, $state) {
+    function EditOffersContoller($location, CreateOfferFactory, $filter, $http, $state) {
         var vm = this;
         vm.title = 'editOffersContoller';
         vm.saveUser = saveUser;
         vm.user = {};
         vm.user.date = {};
-        /*Memo: Cities with Regions are hardcoded we will get them from backend in future */
-        vm.regions = [{
-            value: 'Івано-Франківська область',
-            text: 'Івано-Франківська область'
-        }, {
-            value: 'Київська область‎',
-            text: 'Київська область‎'
-        },];
-
-        vm.city = [{
-            value: 'Івано-Франківськ',
-            text: 'Івано-Франківськ'
-        }, {
-            value: 'Київ',
-            text: 'Київ'
-        },];
-        /* End of Memo*/
-
+        vm.offer = {};
         vm.user.offer = 'test title';
         vm.user.offerText = 'Віддам цуценя в хороші руки!!!!' +
             'Безкоштовно!!! Дівчинка, вік 1,5 міс, дуже грайлива' +
@@ -46,18 +29,29 @@
         vm.user.status = 0;
         vm.userStatuses = [{
             value: 1,
-            text: 'Зможу забрати'
+            text: 'Так'
         }, {
             value: 0,
-            text: 'Не зможу забрати'
+            text: 'Ні'
         }];
 
         activate();
 
-        function activate() {}
+        function activate() {
+            vm.regions = CreateOfferFactory.getRegions();
+        }
+
+        vm.setCity = function (id, name) {
+            //setting region here
+            vm.offer.region = name;
+            vm.currentRegion = id;
+            vm.cities = CreateOfferFactory.getCities(id);
+        };
 
         function saveUser() {
             vm.user.date = vm.dt;
+            $location.path('/offers/createdoffer');
         }
+
     }
 })();
