@@ -147,10 +147,27 @@
                     </accordion-heading>
                     <div class="row" id="profile">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <span>Ваше ім&#180;я: {{vm.users.name}}</span><br><hr>
-                            <span>Електронна пошта: {{vm.users.email}}</span><br><hr>
-                            <span>Телефон: {{vm.users.phone}}</span><br><hr>
-                            <span>Хто Ви:  {{vm.users.status}}</span><br><hr>
+                            <form editable-form name="editUser" >
+                                <span editable-text="vm.users.name" e-name="name" e-required>Ваше ім&#180;я: {{vm.users.name}}</span><br><hr>
+                                <span editable-text="vm.users.email" e-name="email" e-required>Електронна пошта: {{vm.users.email}}</span><br><hr>
+                                <span editable-text="vm.users.phone" e-name="phone" e-required>Телефон: {{vm.users.phone}}</span><br><hr>
+                                <span>Хто Ви:  {{vm.users.status}}</span><br><hr>
+                            </form>
+                            <div>
+                                <!-- button to show form -->
+                                <button type="button" class="btn btn-default" ng-click="editUser.$show()" ng-show="!editUser.$visible">
+                                Edit
+                                </button>
+                                <!-- buttons to submit / cancel form -->
+                                <span ng-show="editUser.$visible">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
+                                        Save
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <span>Підтримані потреби:
@@ -165,11 +182,6 @@
                                 <span>Підтримані Пропозиції:
                                     <user-entities list="vm.users.supportedOffers" url="'/offers/{{id}}'" limit="2"></user-entities>
                                 </span><br><hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <button type="button" id="profileEdit" class="btn btn-default btn-md pull-right">Редагувати</button>
                         </div>
                     </div>
                 </accordion-group>
