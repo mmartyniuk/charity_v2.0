@@ -2,7 +2,7 @@
     <div class="contentWrapper">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
-                <div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
+                <!--div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
                     <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle aria-haspopup="true" aria-expanded="true">
                         Категорії&nbsp;
                         <span class="caret"></span>
@@ -15,13 +15,13 @@
                         <li><a href="#">Stuff from different category</a></li>
                         <li><a href="#">Stuff from different category</a></li>
                     </ul>
-                </div>
-                <sort-location locations="vm.data" setlocation="vm.setlocation"></sort-location>
+                </div-->
+                <location-search location="vm.location"></location-search>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="search">
+                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
                         </span>
                     </div>
                 </div>
@@ -30,16 +30,16 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
         <hr>
-        <h2>За Вашим запитом знайдено 23 потреби:</h2>
+        <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
-        <div ng-repeat="needs in vm.data | filter: vm.setlocation | filter: search">
+        <div ng-repeat="needs in vm.data | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="created_need.html">{{ needs.desc }}</a></strong>
+                        <strong><a href="/needs/createdneed">{{ needs.desc }}</a></strong>
                         <p>
                             {{ needs.body }}
                         </p>
@@ -59,18 +59,25 @@
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="created_need.html">{{ needs.author }}</a>
+                                <a href="/profile/user">{{ needs.author }}</a>
                             </p>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--div class="row">
                         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                             <p><b>Проект: </b></p>
                         </div>
                         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                             <p>
-                                <a href="created_need.html">{{ needs.project }}</a>
+                                <a href="#">{{ needs.project }}</a>
                                 <div><a href="/needs/edit/1">Редагувати</a></div>
+                            </p>
+                        </div>
+                    </div-->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                            <p>
+                            <div><a href="/needs/edit/1">Редагувати</a></div>
                             </p>
                         </div>
                     </div>
