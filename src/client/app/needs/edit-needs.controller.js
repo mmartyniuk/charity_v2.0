@@ -6,10 +6,10 @@
         .module('app.needs')
         .controller('EditNeedsContoller', EditNeedsContoller);
 
-    EditNeedsContoller.$inject = ['$location', 'CreateNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsContoller.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditNeedsContoller($location, CreateNeedFactory, $filter, $http, $state) {
+    function EditNeedsContoller($location, EditNeedFactory, $filter, $http, $state) {
         var vm = this;
         vm.title = 'EditNeedsContoller';
         vm.saveUser = saveUser;
@@ -39,14 +39,14 @@
         activate();
 
         function activate() {
-            vm.regions = CreateNeedFactory.getRegions();
+            vm.regions = EditNeedFactory.getRegions();
         }
 
-        vm.setCity = function (id, name) {
+        vm.setRegion = function(region) {
             //setting region here
-            vm.need.region = name;
-            vm.currentRegion = id;
-            vm.cities = CreateNeedFactory.getCities(id);
+            EditNeedFactory.getCities(region.id).then(function(cities) {
+                vm.cities = cities;
+            });
         };
 
         function saveUser() {

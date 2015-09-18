@@ -31,7 +31,8 @@
     "jquery": "~2.1.4",
     "moment": "~2.10.3",
     "ng-flow": "~2.6.1",
-    "toastr": "~2.1.1"
+    "toastr": "~2.1.1",
+    "lodash": "~3.10.1"
   },
   "resolutions": {
     "angular": "1.3.17"
