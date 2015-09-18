@@ -45,18 +45,18 @@
                 </div>
                 <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="/needs">Потреби</a></li>
-                        <li><a href="/offers">Пропозиції</a></li>
-                        <li><a href="/needs/newneedstep1">Додати Потребу</a></li>
-                        <li><a href="/offers/newofferstep1">Додати Пропозицію</a></li>
+                        <li><a href="/needs" class="navbar-link">Потреби</a></li>
+                        <li><a href="/offers" class="navbar-link">Пропозиції</a></li>
+                        <li><a href="/needs/newneedstep1" class="navbar-link">Додати Потребу</a></li>
+                        <li><a href="/offers/newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <hr class="divider hidden-lg hidden-md hidden-sm">
                         </li>
-                        <li><a href="/about">Про нас</a></li>
-                        <li><a href="/profile">Мій кабінет</a></li>
-                        <li><a href="#">Вийти</a></li>
+                        <li><a href="/about" class="navbar-link">Про нас</a></li>
+                        <li><a href="/profile" class="navbar-link">Мій кабінет</a></li>
+                        <li><a href="#" class="navbar-link">Вийти</a></li>
                     </ul>
                 </div>
             </div>
@@ -167,7 +167,18 @@
     <script src="/src/client/app/profile/profile.js"></script>
     <script src="/src/client/app/profile/services/user_service.js"></script>
     <!-- endinject -->
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+            $('.navbar-nav a.navbar-link').on('click', function () {
+                var navbarToggle = $('.navbar-toggle');
+                if (navbarToggle.is(':visible')) {
+                    navbarToggle.trigger('click');
+                }
+            });
+        });
+
+    </script>
     <!-- inject:templates:js -->
     <!-- endinject -->
     <!-- endbuild -->
