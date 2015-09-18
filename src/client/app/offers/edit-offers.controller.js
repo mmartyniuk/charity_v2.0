@@ -4,19 +4,19 @@
 
     angular
         .module('app.offers')
-        .controller('EditOffersContoller', EditOffersContoller);
+        .controller('EditOffersController', EditOffersController);
 
-    EditOffersContoller.$inject = ['$location', 'CreateOfferFactory', '$filter', '$http', '$state'];
+    EditOffersController.$inject = ['$location', '$filter', '$http', '$state', 'EditOfferFactory'];
 
     /* @ngInject */
-    function EditOffersContoller($location, CreateOfferFactory, $filter, $http, $state) {
+    function EditOffersController($location, $filter, $http, $state, EditOfferFactory) {
         var vm = this;
-        vm.title = 'editOffersContoller';
+        vm.title = 'EditOffersController';
         vm.saveUser = saveUser;
         vm.user = {};
         vm.user.date = {};
         vm.offer = {};
-        vm.user.offer = 'test title';
+        vm.user.offer = 'Цуценя';
         vm.user.offerText = 'Віддам цуценя в хороші руки!!!!' +
             'Безкоштовно!!! Дівчинка, вік 1,5 міс, дуже грайлива' +
             'і розумна собачка, середньої породи. Потрібні хороші люблячі';
@@ -38,14 +38,14 @@
         activate();
 
         function activate() {
-            vm.regions = CreateOfferFactory.getRegions();
+            vm.regions = EditOfferFactory.getRegions();
         }
 
-        vm.setCity = function (id, name) {
+        vm.setRegion = function(region) {
             //setting region here
-            vm.offer.region = name;
-            vm.currentRegion = id;
-            vm.cities = CreateOfferFactory.getCities(id);
+            EditOfferFactory.getCities(region.id).then(function(cities) {
+                vm.cities = cities;
+            });
         };
 
         function saveUser() {
