@@ -10,6 +10,6 @@
                 <span class="fileClose" ng-click="$flow.removeFile($flow.files[$index])">x</span>
             </li>
         </ul>
-        <span ng-show="vm.message">Зображення успішно завантажені!</span>
+        <span ng-show="vm.message" ng-if="$flow.files.length !== 0">Зображення успішно завантажені!</span>
     </div>
 </div>

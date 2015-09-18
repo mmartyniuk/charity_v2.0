@@ -12,7 +12,7 @@
         vm.InsertItems = function(e) {
             e.upload();
             vm.upload = e;
-            if (vm.upload) {
+            if (e.files.length !== 0) {
                 vm.message = true;
                 return vm.upload;
             }
