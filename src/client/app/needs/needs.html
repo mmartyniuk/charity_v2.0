@@ -32,7 +32,7 @@
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
-        <div ng-repeat="needs in vm.data | filter: vm.location | filter: vm.search as filtered">
+        <div ng-repeat="needs in vm.data | filter: vm.location | filter: vm.search as filtered" class="needs-list">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
