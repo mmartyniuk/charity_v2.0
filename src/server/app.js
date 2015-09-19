@@ -23,13 +23,13 @@ console.log('About to crank up node');
 console.log('PORT=' + port);
 console.log('NODE_ENV=' + environment);
 
-// configure proxy middleware context 
-var context = '/api';                     // requests with this path will be proxied 
- 
-// configure proxy middleware options 
+// configure proxy middleware context
+var context = '/api';                     // requests with this path will be proxied
+
+// configure proxy middleware options
 var options = {
-    target: 'http://localhost:8080', // target host 
-    changeOrigin: true,               // needed for virtual hosted sites 
+    target: 'http://localhost:8080', // target host
+    changeOrigin: true,               // needed for virtual hosted sites
     ws: true
 };
 

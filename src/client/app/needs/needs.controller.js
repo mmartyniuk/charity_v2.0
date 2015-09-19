@@ -5,15 +5,22 @@
         .module('app.needs')
         .controller('NeedsController', NeedsController);
 
-    NeedsController.$inject = ['$location'];
+    NeedsController.$inject = ['$location','NeedsFactory'];
 
-    function NeedsController($location) {
+    function NeedsController($location,NeedsFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NeedsController';
+        vm.setSearch = setSearch;
 
         activate();
 
-        function activate() {}
+        function activate() {
+            vm.data = NeedsFactory.getNeeds();
+        }
+
+        function setSearch(value) {
+            vm.search = value;
+        }
     }
 })();

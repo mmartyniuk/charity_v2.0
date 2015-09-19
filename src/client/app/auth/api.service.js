@@ -22,7 +22,7 @@
                 if (onError) {
                     promise.error(onError);
                 }
-            }
+            };
         }
 
         return service;

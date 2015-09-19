@@ -3,22 +3,24 @@
         <h2 class="text-left text-heading">Нова пропозиція</h2>
         <form class="form-horizontal" name="NewOffer" ng-submit="vm.submitOffer()">
             <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1">Назва</label>
-                <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
+                <label class="control-label col-md-1 col-sm-2">Назва</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" name="offerTitle" ng-model="vm.offer.title" placeholder="Назва пропозиції" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-2 col-md-1 col-lg-1">Категорія</label>
-                <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
+                <label class="control-label col-md-1 col-sm-2">Категорія</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="category_name" ng-model="vm.offer.category" placeholder="Оберіть категорію" ng-click="vm.open()" required>
                 </div>
             </div>
             <!-- Modal -->
             <offer-modal></offer-modal>
-            <div class="form-group">
-                <button type="button" class="btn btn-warning">Назад</button>
-                <button type="submit" class="btn btn-primary">Далі</button>
+            <div class="col-md-7 col-sm-8">
+                <div class="form-group pull-right prev-next-buttons">
+                    <a type="button" href="/" class="btn btn-default">Назад</a>
+                    <button type="submit" class="btn btn-primary">Далі</button>
+                </div>
             </div>
         </form>
     </div>

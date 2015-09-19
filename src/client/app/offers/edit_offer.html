@@ -1,123 +1,119 @@
 <!-- offer edit -->
 <section>
-  <div class="container edit-offer">
-    <div>
-      <h2 class="text-left">Редагування пропозиції</h2>
+    <div class="container edit-offer">
+        <div>
+            <h2 class="text-left">Редагування пропозиції</h2>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <form editable-form name="editOfferForm" onaftersave="vm.saveUser()">
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Назва:</label>
+
+                        <div class="col-sm-10">
+                            <div>
+                                <span editable-text="vm.user.offer" e-name="name" onbeforesave="checkName($data)"
+                                      e-required>{{ vm.user.offer }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Категорія:</label>
+
+                        <div class="col-sm-10 col-md-6 col-lg-4">
+                            <!-- here should be pre-filled data from previous page -->
+                            <ol class="breadcrumb">
+                                <li>Одяг</li>
+                                <li>Дитячий одяг</li>
+                                <li>Техніка</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row offer-desc">
+                        <label class="control-label col-sm-2">Опис пропозиції:</label>
+
+                        <div class="col-sm-10">
+                            <div>
+                                <a href="#" editable-textarea="vm.user.offerText" e-rows="7" e-cols="90">
+                                    <pre>{{ vm.user.offerText }}</pre>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Фото:</label>
+                        <file-upload-directive upload="vm.upload"></file-upload-directive>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Виберіть область:</label>
+
+                        <div class="col-sm-3">
+                            <span editable-select="vm.region" e-name="region" e-ng-options="region.name for region in vm.regions track by region.id" e-ng-change="vm.setRegion($data);">
+                                {{ vm.region.name }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Виберіть місто:</label>
+
+                        <div class="col-sm-2">
+                            <!-- here should be pre-filled data depending on previous select field -->
+                            <span editable-select="vm.city" e-name="city" e-ng-options="city.name for city in vm.cities" e-ng-disabled="!editOfferForm.region.$modelValue">
+                                {{ vm.city.name }}
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Адреса:</label>
+
+                        <div class="col-sm-3">
+                            <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)"
+                                  id="str">{{ vm.user.street }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <date-picker date="vm.dt"></date-picker>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Зручний час:</label>
+
+                        <div class="col-sm-3">
+                            <span editable-text="vm.user.time" e-name="time" onbeforesave="checkName($data)">{{ vm.user.time }}</span>
+                        </div>
+                    </div>
+                    <status status="vm.user.status" statuses="vm.userStatuses"></status>
+                    <!-- button to show form -->
+                    <div class="form-group row pull-right">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-default" ng-click="editOfferForm.$show()"
+                                    ng-show="!editOfferForm.$visible" ng-init="editOfferForm.$show()">
+                                Edit
+                            </button>
+                            <!-- buttons to submit / cancel form -->
+                    <span ng-show="editOfferForm.$visible">
+                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
+                          Зберегти
+                      </button>
+                      <a href="/offers/createdoffer" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
+                              ng-click="editOfferForm.$cancel()">
+                          Скасувати
+                      </button> -->
+                    </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <form editable-form name="editableForm" onaftersave="vm.saveUser()">
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Назва</label>
-            <div class="col-sm-10">
-              <div>
-                <span editable-text="vm.user.offer" e-name="name" onbeforesave="checkName($data)" e-required ng-model="vm.user.offer">{{ vm.user.offer }}</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <ol class="breadcrumb">
-              <li>
-                <a href="#">Одяг</a>
-              </li>
-              <li>
-                <a href="#">Дитячий одяг</a>
-              </li>
-              <li>Светри</li>
-            </ol>
-          </div>
-          <hr>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Опис потреби</label>
-            <div class="col-sm-10">
-              <div>
-                <a href="#" editable-textarea="vm.user.offerText" e-rows="7" e-cols="90" ng-model="vm.user.offerText">
-                  <pre>{{ vm.user.offerText }}</pre>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Фото:</label>
-            <div class="col-sm-10">
-              <input type="file" id="exampleInputFile">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Виберіть розмір:</label>
-            <div class="col-sm-10">
-              <span editable-select="vm.user.size" e-name="name" e-ng-options="s.value as s.text for s in vm.size" ng-class="form-control" ng-model="vm.user.size">
-              {{ vm.user.size }}
-              </span>
-            </div>
-            <br>
-            <hr>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Виберіть область:</label>
-            <div class="col-sm-10">
-              <span editable-select="vm.user.regions" e-name="name" e-ng-options="s.value as s.text for s in vm.regions" ng-model="vm.user.regions">
-              {{ vm.user.regions }}
-              </span>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Виберіть місто:</label>
-            <div class="col-sm-10">
-              <span editable-select="vm.user.city" e-name="name" e-ng-options="s.value as s.text for s in vm.city" ng-model="vm.user.city">
-              {{ vm.user.city }}
-              </span>
-            </div>
-          </div>
-          <hr>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Адреса:</label>
-            <div class="col-sm-3">
-              <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.user.street }}</span>
-            </div>
-            <div class="col-sm-3">
-              <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house }}</span>
-            </div>
-            <div class="col-sm-3">
-              <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat }}</span>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Актуальність</label>
-            <div class="col-sm-3">
-              <input type="date" value="2015-01-01" max="2018-01-01" min="2015-01-01"> <!-- other person working on datepicker -->
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="control-label col-sm-2">Зручний час</label>
-            <div class="col-sm-3">
-              <span editable-text="vm.user.time" e-name="name" onbeforesave="checkName($data)" ng-model="vm.user.time">{{ vm.user.time }}</span>
-            </div>
-          </div>
-          <status status="vm.user.status" statuses="vm.userStatuses"></status>
-          <div>
-            <!-- button to show form -->
-            <div class="form-group row pull-right">
-              <div class="col-sm-12">
-                <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-                Edit
-                </button>
-                <!-- buttons to submit / cancel form -->
-                <span ng-show="editableForm.$visible">
-                  <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-                  Зберегти
-                  </button>
-                  <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-                  Скасувати
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 </section>
 <!-- edit, the end of section -->
 

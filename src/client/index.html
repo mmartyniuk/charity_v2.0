@@ -33,30 +33,30 @@
         <nav class="navbar navbar-default navbar-fixed-top fw700">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <img alt="SoftServe" class="logo" src="images/logo.png">
                     </a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbar">
+                <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="/needs">Потреби</a></li>
-                        <li><a href="/offers">Пропозиції</a></li>
-                        <li><a href="#">Додати Потребу</a></li>
-                        <li><a href="#">Додати Пропозицію</a></li>
+                        <li><a href="/needs" class="navbar-link">Потреби</a></li>
+                        <li><a href="/offers" class="navbar-link">Пропозиції</a></li>
+                        <li><a href="/needs/newneedstep1" class="navbar-link">Додати Потребу</a></li>
+                        <li><a href="/offers/newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <hr class="divider hidden-lg hidden-md hidden-sm">
                         </li>
-                        <li><a href="../navbar/">Про нас</a></li>
-                        <li><a href="../navbar-static-top/">Мій кабінет</a></li>
-                        <li><a href="#">Вийти</a></li>
+                        <li><a href="/about" class="navbar-link">Про нас</a></li>
+                        <li><a href="/profile" class="navbar-link">Мій кабінет</a></li>
+                        <li><a href="#" class="navbar-link">Вийти</a></li>
                     </ul>
                 </div>
             </div>
@@ -66,11 +66,11 @@
     <footer>
         <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
-                <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.
-                    <a href="#">Контакти</a>
-                    <a href="#">Site Map</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms Of Use</a>
+                <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.)
+                    <a href="/contacts">Контакти</a>
+                    <!--<a href="/sitemap">Site Map</a>-->
+                    <a href="/privacy">Конфіденційність</a>
+                    <a href="/terms">Умови користування</a>
                 </p>
             </div>
         </nav>
@@ -90,7 +90,10 @@
     <script src="/bower_components/flow.js/dist/flow.js"></script>
     <script src="/bower_components/ng-flow/dist/ng-flow.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
+    <!-- added uk_ua localization manually for datepicker -->
+    <script src="/bower_components/angular-i18n/angular-locale_uk-ua.js"></script>
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
@@ -102,9 +105,11 @@
     <script src="/src/client/app/blocks/logger/logger.module.js"></script>
     <script src="/src/client/app/blocks/router/router.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
+    <script src="/src/client/app/footer/footer.module.js"></script>
     <script src="/src/client/app/main/main.module.js"></script>
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
+    <script src="/src/client/app/profile/profile.module.js"></script>
     <script src="/src/client/app/admin/admin.controller.js"></script>
     <script src="/src/client/app/admin/admin.route.js"></script>
     <script src="/src/client/app/app.config.js"></script>
@@ -124,29 +129,28 @@
     <script src="/src/client/app/core/datepicker/datepicker.js"></script>
     <script src="/src/client/app/core/file-upload/file-upload-directive.js"></script>
     <script src="/src/client/app/core/file-upload/file-upload.js"></script>
-    <script src="/src/client/app/core/sort-location/sort-location-directive.js"></script>
-    <script src="/src/client/app/core/sort-location/sort-location.js"></script>
+    <script src="/src/client/app/core/location-search/location-search-directive.js"></script>
+    <script src="/src/client/app/core/location-search/location-search.controller.js"></script>
+    <script src="/src/client/app/core/location-search/services/location_service.js"></script>
     <script src="/src/client/app/core/status/status.directive.js"></script>
     <script src="/src/client/app/core/status/status.js"></script>
     <script src="/src/client/app/directives.js"></script>
+    <script src="/src/client/app/footer/config.js"></script>
     <script src="/src/client/app/main/about_us.js"></script>
-    <script src="/src/client/app/main/config.js"></script>
-    <script src="/src/client/app/main/directives/user_entities_directive.js"></script>
     <script src="/src/client/app/main/index.js"></script>
-    <script src="/src/client/app/main/profile.js"></script>
-    <script src="/src/client/app/main/services/user_service.js"></script>
     <script src="/src/client/app/needs/config.js"></script>
     <script src="/src/client/app/needs/created_need.controller.js"></script>
     <script src="/src/client/app/needs/created_project.controller.js"></script>
     <script src="/src/client/app/needs/directives/need-modal-directive.js"></script>
+    <script src="/src/client/app/needs/edit-needs.controller.js"></script>
     <script src="/src/client/app/needs/modals/needs-modal.js"></script>
     <script src="/src/client/app/needs/needs.controller.js"></script>
     <script src="/src/client/app/needs/new_need_register.controller.js"></script>
     <script src="/src/client/app/needs/new_need_step_1.controller.js"></script>
     <script src="/src/client/app/needs/new_project.controller.js"></script>
-    <script src="/src/client/app/needs/search_completed_needs.controller.js"></script>
     <script src="/src/client/app/needs/services/create_need_service.js"></script>
-    <script src="/src/client/app/needs/services/search_completed_needs_service.js"></script>
+    <script src="/src/client/app/needs/services/edit_need_service.js"></script>
+    <script src="/src/client/app/needs/services/needs_service.js"></script>
     <script src="/src/client/app/offers/config.js"></script>
     <script src="/src/client/app/offers/created_offer.js"></script>
     <script src="/src/client/app/offers/directives/offer-modal-directive.js"></script>
@@ -156,9 +160,25 @@
     <script src="/src/client/app/offers/new_offer_step1.js"></script>
     <script src="/src/client/app/offers/offers.controller.js"></script>
     <script src="/src/client/app/offers/services/create_offer_service.js"></script>
+    <script src="/src/client/app/offers/services/edit_offer_service.js"></script>
     <script src="/src/client/app/offers/services/offers_service.js"></script>
+    <script src="/src/client/app/profile/config.js"></script>
+    <script src="/src/client/app/profile/directives/user-entities-directive.js"></script>
+    <script src="/src/client/app/profile/profile.js"></script>
+    <script src="/src/client/app/profile/services/user_service.js"></script>
     <!-- endinject -->
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+            $('.navbar-nav a.navbar-link').on('click', function () {
+                var navbarToggle = $('.navbar-toggle');
+                if (navbarToggle.is(':visible')) {
+                    navbarToggle.trigger('click');
+                }
+            });
+        });
+
+    </script>
     <!-- inject:templates:js -->
     <!-- endinject -->
     <!-- endbuild -->

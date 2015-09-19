@@ -44,27 +44,13 @@
                 config: {
                     url: '/offers/edit/:id',
                     templateUrl: 'app/offers/edit_offer.html',
-                    controller: 'EditOffersContoller',
+                    controller: 'EditOffersController',
                     controllerAs: 'vm',
-                    title: 'editOffer',
+                    title: 'editOffer'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
                      }*/
-                }
-            },
-            {
-                state: 'acceptedoffers',
-                config: {
-                    url: '/offers/acceptedoffers',
-                    templateUrl: 'app/offers/acceptedOffers.html',
-                    controller: 'AcceptedOffersController',
-                    controllerAs: 'vm',
-                    title: 'AcceptedOffers'
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin' - tbd
-                    }*/
                 }
             },
             {
@@ -74,7 +60,7 @@
                     templateUrl: 'app/offers/created_offer.html',
                     controller: 'CreatedOfferController',
                     controllerAs: 'vm',
-                    title: 'CreatedOffer',
+                    title: 'CreatedOffer'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
@@ -101,9 +87,9 @@
                 config: {
                     url: '/offers/newofferstep1',
                     templateUrl: 'app/offers/new_offer_step1.html',
-                    controller: 'NewOfferStep1Controller',
+                    controller: 'NewOfferBeforeRegisterController',
                     controllerAs: 'vm',
-                    title: 'NewOfferStep1',
+                    title: 'NewOfferBeforeRegisterController'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'

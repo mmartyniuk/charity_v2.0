@@ -1,7 +1,7 @@
-describe('EditOffersContoller', function() {
+/*jshint expr: true*/
+describe('EditOffersController', function() {
     var controller;
     beforeEach(function() {
-        console.log("Hello im gonna test this");
         controller = undefined;
     });
 
@@ -9,33 +9,28 @@ describe('EditOffersContoller', function() {
         module('app.core', 'app.offers');
     });
 
-    beforeEach(function () {
+    beforeEach(function() {
         bard.inject(this, '$controller', '$rootScope');
-        controller = $controller('EditOffersContoller', {
-        });
+        controller = $controller('EditOffersController', {});
     });
 
-    describe('EditOffersContoller', function() {
-        before(function() {
-            console.log("here im gonna test EditOffersContoller controller");
-        });
+    describe('EditOffersController', function() {
+
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
-
         it('should have name', function () {
             var vm = controller;
-            expect(vm.user.offer).to.equal("test title");
+            expect(vm.user.offer).to.be.ok;
         });
-/*        it('should use exeditable lib default', function () {
+        it('should be a function', function () {
             var vm = controller;
-            expect(xeditable).to.be.ok;
-        });*/
-        /*  it('should have empty object for needs to post them to another page', function () {
+            expect(vm.saveUser).to.be.a('function');
+        });
+        it('should have object with information from other page we edit', function () {
             var vm = controller;
-            expect(vm.need).to.be.an('object');
+            expect(vm.user).to.be.an('object');
             expect(vm.need).to.be.empty;
-        });*/
-
+        });
     });
 });

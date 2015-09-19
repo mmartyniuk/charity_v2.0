@@ -10,5 +10,5 @@ function needModal() {
             category: '=category'
         },
         bindToController: true
-    }
+    };
 }

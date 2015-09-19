@@ -6,21 +6,17 @@
         </div>
         <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
-                <label class="control-label col-sm-2">Назва</label>
-                        <!-- here should be pre-filled data from previous page -->
-                <h3>{{vm.need.title}}</h3>
+                <label class="control-label col-sm-2 title-label">Назва</label>
+                        <!-- here should be pre-filled data from newneedstep1.html -->
+                <h3 class="col-sm-10">{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Категорія</label>
-                <div class="col-sm-10">
+                <div class="col-sm-10 col-md-6 col-lg-4">
                     <!-- here should be pre-filled data from previous page -->
                     <ol class="breadcrumb">
-                        <li>
-                            <a href="#">Одяг</a>
-                        </li>
-                        <li>
-                            <a href="#">Дитячий одяг</a>
-                        </li>
+                        <li>Одяг</li>
+                        <li>Дитячий одяг</li>
                         <li>{{vm.need.category}}</li>
                     </ol>
                 </div>
@@ -109,8 +105,8 @@
             </div>
             <div class="form-group row pull-right">
                 <div class="col-sm-12 ">
-                    <button type="reset" class="btn btn-default">Відмінити</button>
-                    <button type="submit" class="btn btn-primary">Опублікувати</button>
+                    <a href="/needs/newneedstep1" class="btn btn-default" id="myButton0">Відмінити</a>
+                    <a href="/needs/createdneed" class="btn btn-primary">Опублікувати</a>
                 </div>
             </div>
         </form>

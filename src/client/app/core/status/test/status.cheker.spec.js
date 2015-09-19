@@ -1,40 +1,37 @@
+/*jshint expr: true*/
 describe('statusCtrl', function() {
-    var controller;
+    var controller, scope;
+
     beforeEach(function() {
-        console.log("Hello im gonna test this");
         controller = undefined;
+        scope = undefined;
     });
 
     beforeEach(function() {
-        module('app.core', 'app.offers');
+        module('app.core');
     });
 
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
+        scope = $rootScope.$new();
         controller = $controller('statusCtrl', {
+            $scope: scope
         });
+        $rootScope.$apply();
     });
 
     describe('statusCtrl', function() {
-        before(function() {
-            console.log("here im gonna test statusCtrl controller");
-        });
+
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
-        it('filter should be empty when the page loads', function () {
+        it('should be a function', function () {
             var vm = controller;
-            expect(vm.setlocation).to.equal('');
+            expect(vm.showStatus).to.be.a('function');
         });
-        /*        it('should use exeditable lib default', function () {
-         var vm = controller;
-         expect(xeditable).to.be.ok;
-         });*/
-        /*  it('should have empty object for needs to post them to another page', function () {
-         var vm = controller;
-         expect(vm.need).to.be.an('object');
-         expect(vm.need).to.be.empty;
-         });*/
-
+        it('status should say undefined initially, until user clicks on edit button', function () {
+            var vm = controller;
+            expect(vm.status).to.be.an('undefined');
+        });
     });
 });

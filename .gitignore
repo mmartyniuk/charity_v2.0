@@ -6,3 +6,6 @@ bower_components/
 # other
 .tmp
 report
+specs.html
+build/
+npm-debug.log

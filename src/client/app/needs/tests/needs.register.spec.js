@@ -1,4 +1,6 @@
-﻿//NewNeedBeforeRegisterController
+﻿/*jshint expr: true, multistr: true*/
+/*globals $state, CreateNeedFactory */
+//NewNeedBeforeRegisterController
 describe('NewNeedBeforeRegisterController', function() {
 
     var controller, scope;
@@ -44,12 +46,13 @@ describe('NewNeedBeforeRegisterController', function() {
             expect(vm.need).to.be.empty;
         });
 
-        it('category should be array, should not be empty and it values must be name, id and parent id', function () {
+        it('category should be array, should not be empty and ' +
+        'it values must be name, id and parent id', function () {
             var vm = controller;
             expect(vm.categories).to.be.an('array');
             expect(vm.categories).to.have.length.above(0);
             vm.categories.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                expect(item).to.have.all.keys('name', 'id', 'parentId');
             });
         });
 
@@ -81,12 +84,14 @@ describe('NewNeedBeforeRegisterController', function() {
                 expect(vm.setCurrentCategory).to.be.a('function');
             });
 
-            it('currentCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentCategory should be undefined initially, until ' +
+            'user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentCategory).to.be.an('undefined');
-             });
+            });
 
-            it('checkChild should be false initially, until we pass an sub category id to setCurrentCategory', function () {
+            it('checkChild should be false initially, until we pass ' +
+            'an sub category id to setCurrentCategory', function () {
                 var vm = controller;
                 expect(vm.checkChild).not.to.be.ok;
             });
@@ -100,7 +105,8 @@ describe('NewNeedBeforeRegisterController', function() {
                 var vm = controller;
                 expect(vm.setCurrentSubCategory).to.be.a('function');
             });
-            it('currentSubCategory should be undefined initially, until user clicks on category field', function () {
+            it('currentSubCategory should be undefined initially, ' +
+            'until user clicks on category field', function () {
                 var vm = controller;
                 expect(vm.currentSubCategory).to.be.an('undefined');
             });
@@ -167,7 +173,8 @@ describe('NewNeedRegisterController', function() {
             expect(vm.title).to.be.equal('NewNeedRegisterController');
         });
 
-        it('should have defined need object, which must be prefilled with data from previous page', function () {
+        it('should have defined need object, which must be' +
+        'prefilled with data from previous page', function () {
             var vm = controller;
             expect(vm.need).to.be.an('object');
             expect(vm.need).not.to.be.empty;
@@ -197,7 +204,8 @@ describe('NewNeedRegisterController', function() {
                 var vm = controller;
                 //passing some fake data to test output
                 var d = new Date();
-                vm.need.actualDate = d.getDate() + '/' + parseInt(d.getMonth() + 1) + '/' + d.getFullYear();
+                vm.need.actualDate = d.getDate() + '/' +
+                parseInt(d.getMonth() + 1) + '/' + d.getFullYear();
                 //end of fake data
                 expect(vm.need.actualDate).to.be.a('string');
             });
@@ -219,7 +227,8 @@ describe('NewNeedRegisterController', function() {
                 expect(vm.setCity).to.be.a('function');
             });
 
-            it('setCity should have region and current region params undefined by default, cities should return object with defined params', function () {
+            it('setCity should have region and current region params undefined ' +
+            'by default, cities should return object with defined params', function () {
                 var vm = controller;
                 expect(vm.need.region).to.equal(undefined);
                 expect(vm.currentRegion).to.equal(undefined);
@@ -229,7 +238,7 @@ describe('NewNeedRegisterController', function() {
                 //end
 
                 vm.cities.forEach(function(item) {
-                    expect(item).to.have.all.keys('name', 'id', 'parent_id');
+                    expect(item).to.have.all.keys('name', 'id', 'parentId');
                 });
             });
 

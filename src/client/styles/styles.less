@@ -3,7 +3,10 @@ html {
 }
 
 body {
-    padding: 75px 0;
+    padding: 60px 0;
+}
+
+body .ng-scope {
 }
 
 /* section styling */
@@ -30,6 +33,10 @@ body > section {
 
 #footer .navbar-text {
     width: 100%;
+}
+
+#navbar {
+    overflow: hidden;
 }
 
 #navbar ul li:hover {
@@ -100,6 +107,13 @@ body > section {
 .text-muted span a {
 	margin-right: 1em;
 }
+#date-picker {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.file-upload span {
+    margin-bottom: 5px;
+}
 
 /* <--------------needs.html style--------> */
 .topLinks {
@@ -132,11 +146,29 @@ body > section {
 .status span a:hover{
     text-decoration: underline;
 }
+.search-result {
+    margin-bottom: 50px;
+}
+.product-images img {
+    margin-bottom: 15px;
+}
 /* <--------------needs.html style END--------> */
 
 #profileEdit {
     box-shadow: 5px 5px 2px #add8e6;
     margin-left: 1em;
+}
+
+.regions, .cities {
+    margin-top: 20px;
+}
+
+.location-search ul {
+    padding-left: 0;
+}
+
+.location-search ul li {
+    list-style-type: none;
 }
 
 /* <--------------login.html style--------> */
@@ -162,30 +194,30 @@ body > section {
     word-break: break-all;
 }
 /* <--------------index.html style--------> */
-.marketing {
-    text-align: justify;
-    text-indent: 1em;
-}
-.marketing h2 {
+.background-img {
+    background-image: url("../images/background.png");
+    margin: -10px 0;
     text-align: center;
-    font-style: italic;
+    background-position: center center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
 }
-.marketing a {
-    float: right;
+
+.background-img .jumbotron {
+    opacity: 0.75;
+    background-color: transparent;
 }
-.marketing img {
-    clear: both;
-}
+
 /* <--------------index.html style END--------> */
 /* <--------------edit_offer.html style--------> */
-.edit-offer {
-    padding-top: 40px;
-}
-.edit-offer h2 {
-    text-align: center;
-}
+
 .editable-empty {
     color: #000;
+}
+
+.offer-desc {
+    clear: both;
 }
 
 /* <--------------edit_offer.html END--------> */
@@ -200,6 +232,99 @@ body > section {
 .check span a {
     text-decoration: underline;
 }
+div.form-group.prev-next-buttons {
+    margin-right: 0;
+}
+.title-label {
+    margin-top: 15px;
+}
 /* <--------------offers.html style END--------> */
 
+/* <--------------profile.html style --------> */
 
+#profile li {
+    list-style: disc;
+}
+
+#profile li:last-child {
+    list-style: none;
+}
+
+.accorion-with-chevron .panel-group > .panel {
+    & > .panel-heading i.chevron-icon:before {
+        content: "\e080";
+    }
+    &.panel-open > .panel-heading i.chevron-icon:before {
+        content: "\e114";
+    }
+}
+
+/* <--------------profile.html style  END--------> */
+
+/* <-------------- newNeed(Offer)beforeRegisterl style --------> */
+.category, .subcategory {
+    float: left;
+    margin: 0 40px 0 0;
+}
+.subcategory, .subcategory_child {
+    border-left: 1px solid #e5e5e5;
+    padding-left: 20px;
+}
+.modal-dialog {
+    width: 480px;
+}
+.modal-body {
+    display: flex;
+    left: 7%;
+}
+/* <-------------- newNeed(Offer)beforeRegisterl style  END--------> */
+/* <-------------- newNeed(Offer)Registerl style --------> */
+.file-upload ul li {
+    list-style-type: none;
+}
+.filesupload {
+    display: inline;
+}
+.fileClose {
+    cursor: pointer;
+    color: #337ab7;
+    padding-bottom: 2px;
+}
+.file-upload ul li img {
+    width: 65px;
+    height: auto;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 8px;
+}
+/* <-------------- newNeed(Offer)beforeRegisterl style  END--------> */
+
+
+/* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
+@media (max-width: 1000px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
