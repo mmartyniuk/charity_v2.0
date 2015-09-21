@@ -28,14 +28,14 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2 search-result">
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
         <div ng-repeat="needs in vm.data | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
-                    <img src="../images/no-avatar.jpg" class="img-thumbnail" alt="Main photo">
+                    <img src="{{ needs.image }}" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
@@ -54,30 +54,23 @@
                 </div>
                 <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-4">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             <p><b>Автор: </b></p>
                         </div>
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
                                 <a href="/profile/user">{{ needs.author }}</a>
                             </p>
                         </div>
                     </div>
-                    <!--div class="row">
-                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                            <p><b>Проект: </b></p>
-                        </div>
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                            <p>
-                                <a href="#">{{ needs.project }}</a>
-                                <div><a href="/needs/edit/1">Редагувати</a></div>
-                            </p>
-                        </div>
-                    </div-->
                     <div class="row">
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            <p><b>Категорія: </b></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
-                            <div><a href="/needs/edit/1">Редагувати</a></div>
+                                <span>{{ needs.category }}</span>
+                                <div><a href="/needs/edit/1">Редагувати</a></div>
                             </p>
                         </div>
                     </div>
