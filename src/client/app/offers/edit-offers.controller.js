@@ -49,7 +49,7 @@
 
         function saveEditedOffer() {
             vm.editedOffer.date = vm.dt;
-            $location.path('/needs/createdneed');
+            $location.path('/offers/createdoffer');
         }
 
     }
