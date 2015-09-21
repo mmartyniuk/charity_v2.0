@@ -4,31 +4,30 @@
 
     angular
         .module('app.needs')
-        .controller('EditNeedsContoller', EditNeedsContoller);
+        .controller('EditNeedsController', EditNeedsController);
 
-    EditNeedsContoller.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsController.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditNeedsContoller($location, EditNeedFactory, $filter, $http, $state) {
+    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state) {
         var vm = this;
-        vm.title = 'EditNeedsContoller';
-        vm.saveUser = saveUser;
-        vm.user = {};
-        vm.user.date = {};
-        vm.need = {};
-        vm.user.need = 'Хвора дитина';
-        vm.user.needText = 'Влад з Дніпропетровська з народження' +
+        vm.title = 'EditNeedsController';
+        vm.saveEditedNeed = saveEditedNeed;
+        vm.editedNeed = {};
+        vm.date = {};
+        vm.editedNeed.title = 'Хвора дитина';
+        vm.editedNeed.needText = 'Влад з Дніпропетровська з народження' +
             'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
             'Владика мучать сильні болі. Мама хлопчика спробувала вже чимало' +
             'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
-        vm.user.regions = 'Київська область‎';
-        vm.user.city = 'Київ';
-        vm.user.flat = 'Номер квартири';
-        vm.user.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.user.street = 'вул. Тараса Шевченка';
-        vm.user.house = 'Номер будинку';
-        vm.user.status = 0;
-        vm.userStatuses = [{
+        vm.editedNeed.regions = 'Київська область‎';
+        vm.editedNeed.city = 'Київ';
+        vm.editedNeed.flat = 'Номер квартири';
+        vm.editedNeed.time = 'Пн-Пт, 10:00 - 19:00';
+        vm.editedNeed.street = 'вул. Тараса Шевченка';
+        vm.editedNeed.house = 'Номер будинку';
+        vm.editedNeed.status = 0;
+        vm.editedNeedStatuses = [{
             value: 1,
             text: 'Так'
         }, {
@@ -49,8 +48,8 @@
             });
         };
 
-        function saveUser() {
-            vm.user.date = vm.dt;
+        function saveEditedNeed() {
+            vm.editedNeed.date = vm.dt;
             $location.path('/needs/createdneed');
         }
 

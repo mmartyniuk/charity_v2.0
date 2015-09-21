@@ -43,7 +43,7 @@
                 config: {
                     url: '/needs/edit/:id',
                     templateUrl: 'app/needs/edit_need.html',
-                    controller: 'EditNeedsContoller',
+                    controller: 'EditNeedsController',
                     controllerAs: 'vm',
                     title: 'editNeed',
                     /*settings: {
