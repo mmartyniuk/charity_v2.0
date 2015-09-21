@@ -21,16 +21,16 @@ describe('EditOffersController', function() {
         });
         it('should have name', function () {
             var vm = controller;
-            expect(vm.user.offer).to.be.ok;
+            expect(vm.editedOffer.title).to.be.ok;
         });
         it('should be a function', function () {
             var vm = controller;
-            expect(vm.saveUser).to.be.a('function');
+            expect(vm.saveEditedOffer).to.be.a('function');
         });
         it('should have object with information from other page we edit', function () {
             var vm = controller;
-            expect(vm.user).to.be.an('object');
-            expect(vm.need).to.be.empty;
+            expect(vm.editedOffer).to.be.an('object');
+            expect(vm.date).to.be.empty;
         });
     });
 });

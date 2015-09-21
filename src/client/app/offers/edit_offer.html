@@ -6,14 +6,14 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
-                <form editable-form name="editOfferForm" onaftersave="vm.saveUser()">
+                <form editable-form name="editOfferForm" onaftersave="vm.saveeditedOffer()">
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Назва:</label>
 
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.user.offer" e-name="name" onbeforesave="checkName($data)"
-                                      e-required>{{ vm.user.offer }}</span>
+                                <span editable-text="vm.editedOffer.title" e-name="name" onbeforesave="checkName($data)"
+                                      e-required>{{ vm.editedOffer.title }}</span>
                             </div>
                         </div>
                     </div>
@@ -35,8 +35,8 @@
 
                         <div class="col-sm-10">
                             <div>
-                                <a href="#" editable-textarea="vm.user.offerText" e-rows="7" e-cols="90">
-                                    <pre>{{ vm.user.offerText }}</pre>
+                                <a href="#" editable-textarea="vm.editedOffer.offerText" e-rows="7" e-cols="90">
+                                    <pre>{{ vm.editedOffer.offerText }}</pre>
                                 </a>
                             </div>
                         </div>
@@ -69,14 +69,14 @@
                         <label class="control-label col-sm-2">Адреса:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.street" e-name="street" onbeforesave="checkName($data)"
-                                  id="str">{{ vm.user.street }}</span>
+                            <span editable-text="vm.editedOffer.street" e-name="street" onbeforesave="checkName($data)"
+                                  id="str">{{ vm.editedOffer.street }}</span>
                         </div>
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.user.house }}</span>
+                            <span editable-text="vm.editedOffer.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.editedOffer.house }}</span>
                         </div>
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.user.flat }}</span>
+                            <span editable-text="vm.editedOffer.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.editedOffer.flat }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -86,10 +86,10 @@
                         <label class="control-label col-sm-2">Зручний час:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.user.time" e-name="time" onbeforesave="checkName($data)">{{ vm.user.time }}</span>
+                            <span editable-text="vm.editedOffer.time" e-name="time" onbeforesave="checkName($data)">{{ vm.editedOffer.time }}</span>
                         </div>
                     </div>
-                    <status status="vm.user.status" statuses="vm.userStatuses"></status>
+                    <status status="vm.editedOffer.status" statuses="vm.editedOfferStatuses"></status>
                     <!-- button to show form -->
                     <div class="form-group row pull-right">
                         <div class="col-sm-12">
