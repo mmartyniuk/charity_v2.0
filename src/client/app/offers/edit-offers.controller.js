@@ -11,7 +11,7 @@
     /* @ngInject */
     function EditOffersController($location, $filter, $http, $state, EditOfferFactory) {
         var vm = this;
-        vm.title = 'EditNeedsContoller';
+        vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
         vm.editedOffer = {};
         vm.date = {};
