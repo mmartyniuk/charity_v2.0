@@ -4,14 +4,14 @@
 
     angular
         .module('app.needs')
-        .controller('EditNeedsContoller', EditNeedsContoller);
+        .controller('EditNeedsController', EditNeedsController);
 
-    EditNeedsContoller.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsController.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
 
     /* @ngInject */
-    function EditNeedsContoller($location, EditNeedFactory, $filter, $http, $state) {
+    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state) {
         var vm = this;
-        vm.title = 'EditNeedsContoller';
+        vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
         vm.editedNeed = {};
         vm.date = {};

@@ -1,5 +1,5 @@
 /*jshint expr: true*/
-describe('EditNeedsContoller', function() {
+describe('EditNeedsController', function() {
     var controller;
     beforeEach(function() {
         controller = undefined;
@@ -11,11 +11,11 @@ describe('EditNeedsContoller', function() {
 
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope');
-        controller = $controller('EditNeedsContoller', {
+        controller = $controller('EditNeedsController', {
         });
     });
 
-    describe('EditNeedsContoller', function() {
+    describe('EditNeedsController', function() {
 
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
@@ -23,7 +23,7 @@ describe('EditNeedsContoller', function() {
 
         it('should have name', function () {
             var vm = controller;
-            expect(vm.editedNeed.title).to.equal('Хвора дитина');
+            expect(vm.title).to.equal('EditNeedsController');
         });
         it('should be a function', function () {
             var vm = controller;
