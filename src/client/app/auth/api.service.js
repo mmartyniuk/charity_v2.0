@@ -9,7 +9,7 @@
 
     function AuthApi($http) {
         var service = {
-            login: buildPostRequest('/api/auth/login'),
+            login: buildPostRequest('/api/auth/login')
             //logoff: buildPostRequest('/api/auth/logoff') tbd
         };
 
