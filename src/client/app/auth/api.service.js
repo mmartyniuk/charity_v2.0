@@ -8,23 +8,18 @@
     AuthApi.$inject = ['$http'];
 
     function AuthApi($http) {
-        var service = {
-            login: buildPostRequest('/api/auth/login')
-            //logoff: buildPostRequest('/api/auth/logoff') tbd
+        return {
+            authentificateUser: function(credentials) {
+                $http.post('/api/auth', credentials)
+                    .success(function (data, status, headers) {
+                        var token = headers(["x-auth-token"]);
+                        $http.get('/api/users/current', {
+                            headers: {
+                                'x-auth-token': token
+                            }
+                        });
+                    });
+            }
         };
-
-        function buildPostRequest(path) {
-            return function (req, onSuccess, onError) {
-                var promise = $http.post(path, req);
-                if (onSuccess) {
-                    promise.success(onSuccess);
-                }
-                if (onError) {
-                    promise.error(onError);
-                }
-            };
-        }
-
-        return service;
     }
 })();
