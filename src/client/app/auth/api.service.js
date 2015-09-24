@@ -3,23 +3,24 @@
 
     angular
         .module('app.auth')
-        .factory('AuthApi', AuthApi);
+        .factory('Auth', Auth);
 
-    AuthApi.$inject = ['$http'];
+    Auth.$inject = ['$http', '$sessionStorage'];
 
-    function AuthApi($http) {
+    function Auth($http, $sessionStorage) {
+
         return {
-            authentificateUser: function(credentials) {
-                $http.post('/api/auth', credentials)
-                    .success(function (data, status, headers) {
-                        var token = headers(["x-auth-token"]);
-                        $http.get('/api/users/current', {
-                            headers: {
-                                'x-auth-token': token
-                            }
-                        });
-                    });
-            }
+            /*signup: function (data, success, error) {
+                $http.post('/api/users/register', data).success(success).error(error);
+            },*/
+            signin: function (data, success, error) {
+                $http.post('/api/auth', data).success(success).error(error);
+            }/*,
+            logout: function (success) {
+                delete $sessionStorage.token;
+                success();
+            }*/
         };
     }
+
 })();
