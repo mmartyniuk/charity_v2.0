@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -12,9 +12,9 @@
         vm.user = {};
         vm.authenticateUser = function () {
             $http.post('/api/auth', {username: vm.user.login, password: vm.user.password})
-            .success(function (response) {
-                console.log(response);
-            });
-        }
+                .success(function (response) {
+                    console.log(response);
+                });
+        };
     }
 })();
