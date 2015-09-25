@@ -542,9 +542,9 @@ function startBrowserSync(isDev, specRunner) {
                 ])
             ],
             routes: {
-                "/bower_components": "./bower_components",
-                "/src/client/app": "./src/client/app",
-                "/.tmp": "./.tmp"
+                '/bower_components': './bower_components',
+                '/src/client/app': './src/client/app',
+                '/.tmp': './.tmp'
             }
         }
     } ;

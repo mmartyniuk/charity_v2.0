@@ -3,13 +3,19 @@
 
     angular
         .module('app')
+        .config(config)
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
+    config.$inject = ['$httpProvider'];
+
     /* @ngInject */
     function appRun(routerHelper) {
-        /*var otherwise = '/404';*/
-        routerHelper.configureStates(getStates() /*otherwise*/);
+        routerHelper.configureStates(getStates());
+    }
+
+    function config($httpProvider) {
+        $httpProvider.interceptors.push('AuthInterceptor');
     }
 
     function getStates() {
@@ -22,10 +28,6 @@
                     controller: 'IndexController',
                     controllerAs: 'vm',
                     title: 'Index'
-                    /*settings: {
-                     nav: 2,
-                     content: '<i class="fa fa-lock"></i> Admin' - tbd
-                     }*/
                 }
             },
             {
@@ -34,10 +36,6 @@
                     url: '/about',
                     templateUrl: 'app/main/about_us.html',
                     title: 'about'
-                    /*settings: {
-                     nav: 2,
-                     content: '<i class="fa fa-lock"></i> Admin' - tbd
-                     }*/
                 }
             }
         ];
