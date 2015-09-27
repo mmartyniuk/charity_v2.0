@@ -85,7 +85,7 @@
             {
                 state: 'newofferstep1',
                 config: {
-                    url: '/offers/newofferstep1',
+                    url: '/newofferstep1',
                     templateUrl: 'app/offers/new_offer_step1.html',
                     controller: 'NewOfferBeforeRegisterController',
                     controllerAs: 'vm',

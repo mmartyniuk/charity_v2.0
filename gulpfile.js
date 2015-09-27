@@ -7,6 +7,8 @@ var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({lazy: true});
+var proxyMiddleware = require('http-proxy-middleware');
+var modRewrite = require('connect-modrewrite');
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -487,6 +489,15 @@ function startBrowserSync(isDev, specRunner) {
     if (args.nosync || browserSync.active) {
         return;
     }
+    var context = '/api';
+
+    var optionsForContext = {
+        target: 'http://localhost:8088', // target host
+        changeOrigin: true,               // needed for virtual hosted sites
+        ws: true
+    };
+
+    var proxy = proxyMiddleware(context, optionsForContext);
 
     log('Starting BrowserSync on port ' + port);
 
@@ -501,7 +512,7 @@ function startBrowserSync(isDev, specRunner) {
     }
 
     var options = {
-        proxy: 'localhost:' + port,
+        /*proxy: 'localhost:' + port,*/
         port: 3000,
         files: isDev ? [
             config.client + '**/*.*',
@@ -519,7 +530,23 @@ function startBrowserSync(isDev, specRunner) {
         logLevel: 'info',
         logPrefix: 'hottowel',
         notify: true,
-        reloadDelay: 0 //1000
+        reloadDelay: 0, //1000
+        server: {
+            port: 3000,
+            baseDir: config.client,
+            index: 'index.html',
+            middleware: [
+                proxy,
+                modRewrite([
+                    '!\\.\\w+$ /index.html [L]'
+                ])
+            ],
+            routes: {
+                '/bower_components': './bower_components',
+                '/src/client/app': './src/client/app',
+                '/.tmp': './.tmp'
+            }
+        }
     } ;
     if (specRunner) {
         options.startPath = config.specRunnerFile;

@@ -1,5 +1,6 @@
-﻿/*jshint expr: true, multistr: true*/
-/*globals $state, CreateNeedFactory */
+﻿/*
+/!*jshint expr: true, multistr: true*!/
+/!*globals $state, CreateNeedFactory *!/
 //NewNeedBeforeRegisterController
 describe('NewNeedBeforeRegisterController', function() {
 
@@ -245,3 +246,4 @@ describe('NewNeedRegisterController', function() {
         });
     });
 });
+*/

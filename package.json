@@ -21,6 +21,7 @@
     "chai": "^3.1.0",
     "chai-as-promised": "^5.1.0",
     "chalk": "^1.1.0",
+    "connect-modrewrite": "^0.8.2",
     "dateformat": "^1.0.8-1.2.3",
     "debug": "^2.0.0",
     "del": "^1.2.0",
