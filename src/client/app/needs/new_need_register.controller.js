@@ -5,9 +5,11 @@
         .module('app.needs')
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
-    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http'];
+    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory',
+        'CreateNeedAddressFactory','$http'];
 
-    function NewNeedRegisterController($state,CreateNeedFactory,$http) {
+    function NewNeedRegisterController($state,CreateNeedFactory,
+                                       CreateNeedAddressFactory,$http) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NewNeedRegisterController';
@@ -17,6 +19,7 @@
         //vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
         //vm.need.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
+
         activate();
 
         vm.submitNeed = function() {
@@ -49,6 +52,9 @@
 
         function activate() {
             vm.regions = CreateNeedFactory.getRegions();
+            CreateNeedAddressFactory.getAddress().then(function(address) {
+                vm.address = address;
+            });
         }
     }
 })();

@@ -67,7 +67,7 @@
         //using state object here to post submitted data to next page
         vm.submitOffer = function(title, category) {
             // some ui validation should be applied here, tbd in future
-            $state.go('newofferregister', {prefilled: vm.offer});
+            $state.go('newoffer.register', {prefilled: vm.offer});
         };
         //getting categories object from service
         function activate() {

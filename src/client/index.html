@@ -15,6 +15,7 @@
 
     <!-- build:css styles/lib.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/angular-motion/dist/angular-motion.css" />
     <link rel="stylesheet" href="/bower_components/angular-xeditable/dist/css/xeditable.css" />
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
@@ -29,52 +30,52 @@
     <!-- endbuild -->
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top fw700">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        <img alt="SoftServe" class="logo" src="images/logo.png">
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/needs" class="navbar-link">Потреби</a></li>
-                        <li><a href="/offers" class="navbar-link">Пропозиції</a></li>
-                        <li><a href="/needs/newneedstep1" class="navbar-link">Додати Потребу</a></li>
-                        <li><a href="/offers/newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <hr class="divider hidden-lg hidden-md hidden-sm">
-                        </li>
-                        <li><a href="/about" class="navbar-link">Про нас</a></li>
-                        <li><a href="/profile" class="navbar-link">Мій кабінет</a></li>
-                        <li><a href="#" class="navbar-link">Вийти</a></li>
-                    </ul>
-                </div>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top fw700" role="navigation" bs-navbar>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img alt="SoftServe" class="logo" src="images/logo.png">
+                </a>
             </div>
-        </nav>
-    </header>
-    <div ui-view></div>
-    <footer>
-        <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.)
-                    <a href="/contacts">Контакти</a>
-                    <!--<a href="/sitemap">Site Map</a>-->
-                    <a href="/privacy">Конфіденційність</a>
-                    <a href="/terms">Умови користування</a>
-                </p>
+            <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">Потреби</a></li>
+                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">Пропозиції</a></li>
+                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">Додати Потребу</a></li>
+                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">Додати Пропозицію</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <hr class="divider hidden-lg hidden-md hidden-sm">
+                    </li>
+                    <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
+                    <li active-sref="profile"><a ui-sref="profile.home" class="navbar-link">Мій кабінет</a></li>
+                    <li><a href="#" class="navbar-link">Вийти</a></li>
+                </ul>
             </div>
-        </nav>
-    </footer>
+        </div>
+    </nav>
+</header>
+<div ui-view></div>
+<footer>
+    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.)
+                <a href="/contacts">Контакти</a>
+                <!--<a href="/sitemap">Site Map</a>-->
+                <aa href="/privacy">Конфіденційність</aa>
+                <a href="/terms">Умови користування</a>
+            </p>
+        </div>
+    </nav>
+</footer>
 
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
@@ -89,13 +90,13 @@
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/flow.js/dist/flow.js"></script>
     <script src="/bower_components/ng-flow/dist/ng-flow.js"></script>
+    <script src="/bower_components/ngstorage/ngStorage.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
     <script src="/bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- added uk_ua localization manually for datepicker -->
     <script src="/bower_components/angular-i18n/angular-locale_uk-ua.js"></script>
     <!-- endbuild -->
-
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
@@ -110,6 +111,7 @@
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
     <script src="/src/client/app/profile/profile.module.js"></script>
+    <script src="/src/client/app/auth/auth.interceptor.js"></script>
     <script src="/src/client/app/admin/admin.controller.js"></script>
     <script src="/src/client/app/admin/admin.route.js"></script>
     <script src="/src/client/app/app.config.js"></script>
@@ -121,6 +123,8 @@
     <script src="/src/client/app/blocks/exception/exception.js"></script>
     <script src="/src/client/app/blocks/logger/logger.js"></script>
     <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/core/activelinks/activelinks-directive.js"></script>
+    <script src="/src/client/app/core/activelinks/activelinks.js"></script>
     <script src="/src/client/app/core/category-search/category-search-directive.js"></script>
     <script src="/src/client/app/core/category-search/category-search.controller.js"></script>
     <script src="/src/client/app/core/category-search/services/category_service.js"></script>
@@ -151,6 +155,7 @@
     <script src="/src/client/app/needs/new_need_register.controller.js"></script>
     <script src="/src/client/app/needs/new_need_step_1.controller.js"></script>
     <script src="/src/client/app/needs/new_project.controller.js"></script>
+    <script src="/src/client/app/needs/services/create_need_adress_service.js"></script>
     <script src="/src/client/app/needs/services/create_need_service.js"></script>
     <script src="/src/client/app/needs/services/edit_need_service.js"></script>
     <script src="/src/client/app/needs/services/needs_service.js"></script>
@@ -162,6 +167,7 @@
     <script src="/src/client/app/offers/new_offer_register.js"></script>
     <script src="/src/client/app/offers/new_offer_step1.js"></script>
     <script src="/src/client/app/offers/offers.controller.js"></script>
+    <script src="/src/client/app/offers/services/create_offer_adress_service.js"></script>
     <script src="/src/client/app/offers/services/create_offer_service.js"></script>
     <script src="/src/client/app/offers/services/edit_offer_service.js"></script>
     <script src="/src/client/app/offers/services/offers_service.js"></script>

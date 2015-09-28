@@ -41,6 +41,7 @@ module.exports = function() {
         jsOrder: [
             '**/app.module.js',
             '**/*.module.js',
+            'auth/auth.interceptor.js',
             '**/*.js'
         ],
         less: client + 'styles/styles.less',
