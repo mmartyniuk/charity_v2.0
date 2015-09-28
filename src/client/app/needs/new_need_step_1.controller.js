@@ -67,7 +67,7 @@
         //using state object here to post submitted data to next page
         vm.submitNeed = function(title, category) {
             // some ui validation should be applied here, tbd in future
-            $state.go('newneedregister', {prefilled: vm.need});
+            $state.go('newneed.register', {prefilled: vm.need});
         };
         //getting categories object from service
         function activate() {

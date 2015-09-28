@@ -15,12 +15,11 @@
         return [
             {
                 state: 'needs',
-                abstract: true,
                 config: {
+                    url: '/needs',
+                    abstract: true,
                     template: '<ui-view/>',
-                    controller: 'NeedsController',
-                    controllerAs: 'vm',
-                    title: 'Needs',
+                    title: 'Needs'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
@@ -30,8 +29,10 @@
             {
                 state: 'needs.home',
                 config: {
-                    url: '/needs',
+                    url: '',
                     templateUrl: 'app/needs/needs.html',
+                    controller: 'NeedsController',
+                    controllerAs: 'vm'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
@@ -53,13 +54,13 @@
                 }
             },
             {
-                state: 'createdneed',
+                state: 'needs.created',
                 config: {
                     url: '/needs/createdneed',
                     templateUrl: 'app/needs/created_need.html',
                     controller: 'CreatedNeedController',
                     controllerAs: 'vm',
-                    title: 'CreatedNeed',
+                    title: 'CreatedNeed'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
@@ -81,7 +82,7 @@
                 }
             },
             {
-                state: 'newneedregister',
+                state: 'newneed.register',
                 config: {
                     url: '/needs/newneedregister',
                     templateUrl: 'app/needs/new_need_register.html',
@@ -92,9 +93,22 @@
                 }
             },
             {
-                state: 'newneedstep1',
+                state: 'newneed',
                 config: {
-                    url: '/needs/newneedstep1',
+                    url: '/newneed',
+                    abstract: true,
+                    template: '<ui-view/>',
+                    title: 'NewNeed'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'newneed.home',
+                config: {
+                    url: '/newneedstep1',
                     templateUrl: 'app/needs/new_need_step_1.html',
                     controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',

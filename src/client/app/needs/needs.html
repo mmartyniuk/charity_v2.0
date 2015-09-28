@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="/needs/createdneed">{{ need.desc }}</a></strong>
+                        <strong><a ui-sref="needs.created">{{ need.desc }}</a></strong>
                         <p>
                             {{ need.body }}
                         </p>
@@ -70,7 +70,7 @@
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
                                 <span>{{ need.category }}</span>
-                                <div><a href="/needs/edit/1">Редагувати</a></div>
+                                <div><a ui-sref="needs.edit({id:1})">Редагувати</a></div>
                             </p>
                         </div>
                     </div>
