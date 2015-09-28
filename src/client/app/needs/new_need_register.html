@@ -69,13 +69,13 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Адреса:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="street" id="str" ng-model="vm.need.street" placeholder="вул. Тараса Шевченка">
+                    <input type="text" class="form-control" name="street" id="str" ng-model="vm.offer.address.street" placeholder="{{vm.address.street}}">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="house" id="house_nmb" ng-model="vm.need.houseNumber" placeholder="Номер будинку">
+                    <input type="text" class="form-control" name="house" id="house_nmb" ng-model="vm.offer.address.house" placeholder="{{vm.address.house}}">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="flat" id="flat_nmb" ng-model="vm.need.flatNumber" placeholder="Номер квартири">
+                    <input type="text" class="form-control" name="flat" id="flat_nmb" ng-model="vm.offer.address.flat" placeholder="{{vm.address.flat}}">
                 </div>
             </div>
             <div class="row">
@@ -105,8 +105,8 @@
             </div>
             <div class="form-group row pull-right">
                 <div class="col-sm-12 ">
-                    <a href="/needs/newneedstep1" class="btn btn-default" id="myButton0">Відмінити</a>
-                    <a href="/needs/createdneed" class="btn btn-primary">Опублікувати</a>
+                    <a ui-sref="newneed.home" class="btn btn-default" id="myButton0">Відмінити</a>
+                    <a ui-sref="needs.created" class="btn btn-primary">Опублікувати</a>
                 </div>
             </div>
         </form>

@@ -149,7 +149,8 @@ describe('NewNeedRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateNeedFactory');
+        bard.inject(this, '$controller', '$rootScope', '$state',
+            'CreateNeedFactory', 'CreateNeedAddressFactory');
         scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;

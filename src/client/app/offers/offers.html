@@ -29,6 +29,10 @@
             </div>
         </div>
     </div>
+ <!--   for testing-->
+
+
+    <!--   for testing-->
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2 search-result">
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} пропозицій:</h2>
@@ -40,7 +44,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="/offers/createdoffer">{{ offers.desc }}</a></strong>
+                        <strong><a ui-sref="offers.created">{{ offers.desc }}</a></strong>
                         <p>
                             {{ offers.body }}
                         </p>
@@ -71,7 +75,7 @@
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
                                 <span>{{ offers.category }}</span>
-                            <div><a href="/offers/edit/1">Редагувати</a></div>
+                            <div><a ui-sref="offers.edit({id:1})">Редагувати</a></div>
                             </p>
                         </div>
                     </div>
