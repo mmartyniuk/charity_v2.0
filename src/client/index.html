@@ -29,39 +29,7 @@
     <!-- endbuild -->
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top fw700">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        <img alt="SoftServe" class="logo" src="images/logo.png">
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/needs" class="navbar-link">Потреби</a></li>
-                        <li><a href="/offers" class="navbar-link">Пропозиції</a></li>
-                        <li><a href="/needs/newneedstep1" class="navbar-link">Додати Потребу</a></li>
-                        <li><a href="/offers/newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <hr class="divider hidden-lg hidden-md hidden-sm">
-                        </li>
-                        <li><a href="/about" class="navbar-link">Про нас</a></li>
-                        <li><a href="/profile" class="navbar-link">Мій кабінет</a></li>
-                        <li><a href="#" class="navbar-link">Вийти</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <app-header></app-header>
     <div ui-view></div>
     <footer>
         <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
@@ -107,6 +75,7 @@
     <script src="/src/client/app/blocks/router/router.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/footer/footer.module.js"></script>
+    <script src="/src/client/app/header/app.header.module.js"></script>
     <script src="/src/client/app/main/main.module.js"></script>
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
@@ -138,6 +107,8 @@
     <script src="/src/client/app/core/status/status.js"></script>
     <script src="/src/client/app/directives.js"></script>
     <script src="/src/client/app/footer/config.js"></script>
+    <script src="/src/client/app/header/app.header.controller.js"></script>
+    <script src="/src/client/app/header/directive/header.directive.js"></script>
     <script src="/src/client/app/main/about_us.js"></script>
     <script src="/src/client/app/main/index.js"></script>
     <script src="/src/client/app/needs/config.js"></script>

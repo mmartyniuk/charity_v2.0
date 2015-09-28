@@ -5,9 +5,9 @@
         .module('app.offers')
         .controller('NewOfferBeforeRegisterController', NewOfferBeforeRegisterController);
 
-    NewOfferBeforeRegisterController.$inject = ['$scope','CreateOfferFactory','$modal', '$state'];
+    NewOfferBeforeRegisterController.$inject = ['$scope','CreateOfferFactory','$modal', '$state', '$sessionStorage'];
 
-    function NewOfferBeforeRegisterController($scope, CreateOfferFactory, $modal, $state) {
+    function NewOfferBeforeRegisterController($scope, CreateOfferFactory, $modal, $state, $sessionStorage) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NewOfferBeforeRegisterController';
@@ -71,7 +71,11 @@
         };
         //getting categories object from service
         function activate() {
-            vm.categories = CreateOfferFactory.getCategories();
+            if(!$sessionStorage.token){
+                $state.go('login');
+            }else{
+                vm.categories = CreateOfferFactory.getCategories();
+            }
         }
     }
 })();

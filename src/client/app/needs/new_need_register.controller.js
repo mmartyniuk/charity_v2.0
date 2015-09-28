@@ -5,11 +5,13 @@
         .module('app.needs')
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
-    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http'];
+    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http', '$sessionStorage'];
 
-    function NewNeedRegisterController($state,CreateNeedFactory,$http) {
+    function NewNeedRegisterController($state,CreateNeedFactory, $http, $sessionStorage) {
         /* jshint validthis:true */
+
         var vm = this;
+        activate();
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
         vm.need.title = $state.params.prefilled.title;  //---> commented for testing
@@ -17,7 +19,7 @@
         //vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
         //vm.need.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
-        activate();
+
 
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
@@ -48,7 +50,11 @@
         };
 
         function activate() {
-            vm.regions = CreateNeedFactory.getRegions();
+            if(!$sessionStorage.token){
+                $state.go('login');
+            }else{
+                vm.regions = CreateNeedFactory.getRegions();
+            }
         }
     }
 })();

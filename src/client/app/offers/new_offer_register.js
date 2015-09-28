@@ -46,7 +46,11 @@
         };
 
         function activate() {
-            vm.regions = CreateOfferFactory.getRegions();
+            if(!$sessionStorage.token){
+                $state.go('login');
+            }else{
+                vm.regions = CreateOfferFactory.getRegions();
+            }
         }
     }
 })();
