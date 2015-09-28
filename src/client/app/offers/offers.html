@@ -33,23 +33,23 @@
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} пропозицій:</h2>
         <hr>
-        <div ng-repeat="offers in vm.data | filter: vm.location | filter: vm.search as filtered">
+        <div ng-repeat="offer in vm.offers | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
-                    <img src="{{ offers.image }}" class="img-thumbnail" alt="Main photo">
+                    <img src="{{ offer.image }}" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="/offers/createdoffer">{{ offers.desc }}</a></strong>
+                        <strong><a href="/offers/createdoffer">{{ offer.desc }}</a></strong>
                         <p>
-                            {{ offers.body }}
+                            {{ offer.body }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ offers.location }}</strong>
+                            <strong>{{ offer.location }}</strong>
                             <small> / </small>
-                            <strong>{{ offers.date }}</strong>
+                            <strong>{{ offer.date }}</strong>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
-                                <a href="/profile/user">{{ offers.author }}</a>
+                                <a href="/profile/user">{{ offer.author }}</a>
                             </p>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
-                                <span>{{ offers.category }}</span>
+                                <span>{{ offer.category }}</span>
                             <div><a href="/offers/edit/1">Редагувати</a></div>
                             </p>
                         </div>
@@ -80,6 +80,9 @@
             </div>
             <hr>
         </div>
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.loadPage()"
+                    max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
+                    previous-text="Попередня" next-text="Наступна"></pagination>
     </div>
 </section>
 

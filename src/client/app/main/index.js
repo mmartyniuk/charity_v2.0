@@ -15,8 +15,12 @@
         activate();
 
         function activate() {
-            vm.needsData = NeedsFactory.getNeeds();
-            vm.offersData = OffersFactory.getOffers();
+            NeedsFactory.getNeeds().then(function(data) {
+                vm.needsData = data.needs;
+            });
+            OffersFactory.getOffers().then(function(data) {
+                vm.offersData = data.offers;
+            });
         }
     }
 })();

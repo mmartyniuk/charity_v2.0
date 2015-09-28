@@ -12,11 +12,21 @@
         var vm = this;
         vm.title = 'OffersController';
         vm.setSearch = setSearch;
+        vm.loadPage = loadPage;
 
         activate();
 
         function activate() {
-            vm.data = OffersFactory.getOffers();
+            loadPage();
+        }
+
+        function loadPage() {
+            OffersFactory.getOffers(vm.currentPage).then(function(data) {
+                vm.offers = data.offers;
+                vm.currentPage = data.currentPage;
+                vm.totalItems = data.totalItems;
+                vm.itemsPerPage = data.itemsPerPage;
+            });
         }
 
         function setSearch(value) {

@@ -12,11 +12,21 @@
         var vm = this;
         vm.title = 'NeedsController';
         vm.setSearch = setSearch;
+        vm.loadPage = loadPage;
 
         activate();
 
         function activate() {
-            vm.data = NeedsFactory.getNeeds();
+            loadPage();
+        }
+
+        function loadPage() {
+            NeedsFactory.getNeeds(vm.currentPage).then(function(data) {
+                vm.needs = data.needs;
+                vm.currentPage = data.currentPage;
+                vm.totalItems = data.totalItems;
+                vm.itemsPerPage = data.itemsPerPage;
+            });
         }
 
         function setSearch(value) {

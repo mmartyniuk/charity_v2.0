@@ -28,10 +28,13 @@ describe('OffersController', function() {
             expect(vm.title).to.equal('OffersController');
         });
 
-        it('should have an array with completed needs received from factory', function () {
-            var vm = controller;
-            expect(vm.data).to.be.an('array');
-            expect(vm.data).to.not.be.empty;
+        describe('loadPage() function', function() {
+
+            it('should be a function', function () {
+                var vm = controller;
+                expect(vm.loadPage).to.be.a('function');
+            });
+
         });
 
     });
