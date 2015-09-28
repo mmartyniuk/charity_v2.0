@@ -32,6 +32,7 @@
                 config: {
                     url: '/needs',
                     templateUrl: 'app/needs/needs.html',
+                    params: {prefilled: ''}
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'

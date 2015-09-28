@@ -32,7 +32,8 @@
                 config: {
                     url: '/offers',
                     templateUrl: 'app/offers/offers.html',
-                    title: 'Offers'
+                    title: 'Offers',
+                    params: {prefilled: ''}
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
