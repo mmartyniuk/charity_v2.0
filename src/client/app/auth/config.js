@@ -12,6 +12,7 @@
     }
 
     function getStates() {
+
         return [
             {
                 state: 'login',
@@ -34,7 +35,7 @@
                     templateUrl: 'app/auth/register.html',
                     controller: 'RegisterController',
                     controllerAs: 'vm',
-                    title: 'Register',
+                    title: 'Register'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
@@ -42,5 +43,6 @@
                 }
             }
         ];
+
     }
 })();

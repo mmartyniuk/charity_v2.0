@@ -46,17 +46,17 @@
             </div>
             <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li data-match-route="/needs"><a href="/needs" class="navbar-link">Потреби</a></li>
-                    <li data-match-route="/offers"><a href="/offers" class="navbar-link">Пропозиції</a></li>
-                    <li data-match-route="/newneedstep1"><a href="newneedstep1" class="navbar-link">Додати Потребу</a></li>
-                    <li data-match-route="/newofferstep1"><a href="newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
+                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">Потреби</a></li>
+                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">Пропозиції</a></li>
+                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">Додати Потребу</a></li>
+                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">Додати Пропозицію</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <hr class="divider hidden-lg hidden-md hidden-sm">
                     </li>
-                    <li data-match-route="/about"><a href="/about" class="navbar-link">Про нас</a></li>
-                    <li data-match-route="/profile"><a href="/profile" class="navbar-link">Мій кабінет</a></li>
+                    <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
+                    <li active-sref="profile"><a ui-sref="profile.home" class="navbar-link">Мій кабінет</a></li>
                     <li><a href="#" class="navbar-link">Вийти</a></li>
                 </ul>
             </div>
@@ -77,28 +77,26 @@
     </nav>
 </footer>
 
-<!-- build:js js/lib.js -->
-<!-- bower:js -->
-<script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/angular/angular.js"></script>
-<script src="/bower_components/angular-animate/angular-animate.js"></script>
-<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="/bower_components/angular-strap/dist/angular-strap.js"></script>
-<script src="/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
-<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="/bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-<script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
-<script src="/bower_components/lodash/lodash.js"></script>
-<script src="/bower_components/moment/moment.js"></script>
-<script src="/bower_components/flow.js/dist/flow.js"></script>
-<script src="/bower_components/ng-flow/dist/ng-flow.js"></script>
-<script src="/bower_components/toastr/toastr.js"></script>
-<!-- endbower -->
-<!-- added uk_ua localization manually for datepicker -->
-<script src="/bower_components/angular-i18n/angular-locale_uk-ua.js"></script>
-<!-- endbuild -->
-
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/flow.js/dist/flow.js"></script>
+    <script src="/bower_components/ng-flow/dist/ng-flow.js"></script>
+    <script src="/bower_components/ngstorage/ngStorage.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <!-- endbower -->
+    <!-- added uk_ua localization manually for datepicker -->
+    <script src="/bower_components/angular-i18n/angular-locale_uk-ua.js"></script>
+    <!-- endbuild -->
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
@@ -113,6 +111,7 @@
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
     <script src="/src/client/app/profile/profile.module.js"></script>
+    <script src="/src/client/app/auth/auth.interceptor.js"></script>
     <script src="/src/client/app/admin/admin.controller.js"></script>
     <script src="/src/client/app/admin/admin.route.js"></script>
     <script src="/src/client/app/app.config.js"></script>
@@ -124,6 +123,8 @@
     <script src="/src/client/app/blocks/exception/exception.js"></script>
     <script src="/src/client/app/blocks/logger/logger.js"></script>
     <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/core/activelinks/activelinks-directive.js"></script>
+    <script src="/src/client/app/core/activelinks/activelinks.js"></script>
     <script src="/src/client/app/core/config.js"></script>
     <script src="/src/client/app/core/constants.js"></script>
     <script src="/src/client/app/core/core.route.js"></script>
