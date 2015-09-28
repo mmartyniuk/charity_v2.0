@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.offers')
+        .module('app.needs')
         .factory('CreateNeedAddressFactory', CreateNeedAddressFactory);
 
     CreateNeedAddressFactory.$inject = ['$http', '$q'];

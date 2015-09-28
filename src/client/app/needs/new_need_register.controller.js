@@ -54,9 +54,6 @@
             vm.regions = CreateNeedFactory.getRegions();
             CreateNeedAddressFactory.getAddress().then(function(address) {
                 vm.address = address;
-                console.log(address.street);
-                console.log(address.house);
-                console.log(address.flat);
             });
         }
     }

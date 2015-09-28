@@ -1,6 +1,5 @@
-﻿/*
-/!*jshint expr: true, multistr: true*!/
-/!*globals $state, CreateNeedFactory *!/
+﻿/*jshint expr: true, multistr: true*/
+/*globals $state, CreateNeedFactory */
 //NewNeedBeforeRegisterController
 describe('NewNeedBeforeRegisterController', function() {
 
@@ -150,7 +149,8 @@ describe('NewNeedRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateNeedFactory');
+        bard.inject(this, '$controller', '$rootScope', '$state',
+            'CreateNeedFactory', 'CreateNeedAddressFactory');
         scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;
@@ -246,4 +246,3 @@ describe('NewNeedRegisterController', function() {
         });
     });
 });
-*/
