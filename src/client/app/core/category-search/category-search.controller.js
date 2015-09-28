@@ -60,7 +60,6 @@
             vm.setCategory(name);
         }
 
-
         function activate() {
             vm.categories = CategoryFactory.getCategories();
         }
