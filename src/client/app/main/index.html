@@ -8,6 +8,26 @@
     </div>
     <div class="container">
         <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                <div class="btn-group pull-left col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-bottom-20" dropdown is-open="status.isopen">
+                    <input id="single-button" type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Що шукаємо?"/>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                        <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
+                        <li role="menuitem"><a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a></li>
+                    </ul>
+                </div>
+                <category-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-bottom-20" category="vm.category"></category-search>
+                <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-bottom-20" location="vm.location"></location-search>
+                <!--div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-bottom-20">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
+                        </span>
+                    </div>
+                </div-->
+            </div>
+            <button class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-offset-4 col-lg-offset-4 btn btn-success" ng-click="vm.submitCategorySearch(vm.category, vm.location)">Шукати!</button>
             <div class="last-needs col-md-5 panel panel-default">
                 <h2 class="panel-heading">Останні потреби</h2>
                 <div ng-repeat="needs in vm.needsData | orderBy: 'date': true | limitTo: 2" class="panel-body">
@@ -44,7 +64,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                                     <p>
-                                        {{ needs.category }}
+                                        <a href="#" ng-click="vm.filterCategoryNeeds(needs.category)">{{ needs.category }}</a>
                                     </p>
                                 </div>
                             </div>
@@ -90,7 +110,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                                     <p>
-                                        {{ offers.category }}
+                                        <a href="#" ng-click="vm.filterCategoryOffers(offers.category)">{{ offers.category }}</a>
                                     </p>
                                 </div>
                             </div>

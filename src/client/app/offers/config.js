@@ -31,6 +31,8 @@
                 config: {
                     url: '',
                     templateUrl: 'app/offers/offers.html',
+                    title: 'Offers',
+                    params: {prefilled: ''},
                     controller: 'OffersController',
                     controllerAs: 'vm'
                     /*settings: {

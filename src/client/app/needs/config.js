@@ -31,6 +31,7 @@
                 config: {
                     url: '',
                     templateUrl: 'app/needs/needs.html',
+                    params: {prefilled: ''},
                     controller: 'NeedsController',
                     controllerAs: 'vm'
                     /*settings: {
@@ -131,20 +132,6 @@
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
                     }*/
-                }
-            },
-            {
-                state: 'needs.searchcompletedneeds',
-                config: {
-                    url: '/needs/searchcompletedneeds',
-                    templateUrl: 'app/needs/search_completed_needs.html',
-                    controller: 'SearchCompletedNeedsController',
-                    controllerAs: 'vm',
-                    title: 'SearchCompletedNeeds',
-                    /*settings: {
-                     nav: 2,
-                     content: '<i class="fa fa-lock"></i> Admin'
-                     }*/
                 }
             }
         ];

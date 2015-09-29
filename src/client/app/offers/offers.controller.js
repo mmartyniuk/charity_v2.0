@@ -5,13 +5,20 @@
         .module('app.offers')
         .controller('OffersController', OffersController);
 
-    OffersController.$inject = ['$location', 'OffersFactory'];
+    OffersController.$inject = ['$location', 'OffersFactory', '$state'];
 
-    function OffersController($location, OffersFactory) {
+    function OffersController($location, OffersFactory, $state) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'OffersController';
         vm.setSearch = setSearch;
+        vm.setCategory = setCategory;
+        vm.offers = {};
+        vm.offers.category = $state.params.prefilled.category;
+        vm.offers.location = $state.params.prefilled.location;
+        vm.category = vm.offers.category;
+        vm.location = vm.offers.location;
+        vm.categoryValue = vm.category;
 
         activate();
 
@@ -21,6 +28,10 @@
 
         function setSearch(value) {
             vm.search = value;
+        }
+
+        function setCategory(value) {
+            vm.category = value;
         }
     }
 })();

@@ -1,0 +1,27 @@
+<div class="category-search">
+    <input type="text" class="form-control" ng-model="vm.category" placeholder="Виберіть категорію" popover-placement="bottom" popover-template="vm.categoryPopover.templateUrl" popover-is-open="vm.categoryPopover.opened" popover-trigger="focus"/>
+</div>
+<script type="text/ng-template" id="categoryPopoverTemplate.html">
+    <div class="category" ng-show="vm.showCategory">
+        <!-- Main categories -->
+        <ul class="list-unstyled" role="tablist" id="categories">
+            <li ng-repeat="category in vm.categories" ng-if="category.parentId == '0'">
+                <a href="#" ng-click="vm.setCurrentCategory(category.id)">{{category.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ng-hide subcategory" id="sub" ng-show="vm.showSubCategory">
+        <ul class="list-unstyled" role="tablist" id="subcategories">
+            <li ng-repeat="sub in vm.categories" ng-if="sub.parentId == vm.currentCategory">
+                <a href="#" ng-click="vm.setCurrentSubCategory(sub.id, sub.name)">{{sub.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ng-hide subcategory_child" id="subchild" ng-show="vm.showSubSubCategory">
+        <ul class="list-unstyled" role="tablist">
+            <li ng-repeat="subchild in vm.categories" ng-if="subchild.parentId == vm.currentSubCategory">
+                <a href="#" ng-click="vm.setCurrentSubSubCategory(subchild.name)">{{subchild.name}}</a>
+            </li>
+        </ul>
+    </div>
+</script>
