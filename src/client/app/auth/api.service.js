@@ -10,16 +10,16 @@
     function Auth($http, $sessionStorage) {
 
         return {
-            /*signup: function (data, success, error) {
-                $http.post('/api/users/register', data).success(success).error(error);
-            },*/
+            signup: function (data) {
+                return $http.post('/api/users/register', data);
+            },
             signin: function (data, success, error) {
                 $http.post('/api/auth', data).success(success).error(error);
-            }/*,
+            },
             logout: function (success) {
                 delete $sessionStorage.token;
                 success();
-            }*/
+            }
         };
     }
 
