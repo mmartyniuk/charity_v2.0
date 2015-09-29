@@ -5,9 +5,9 @@
         .module('app.profile')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$location', 'Users', '$sessionStorage', '$state'];
+    ProfileController.$inject = ['$location', 'Users', '$sessionStorage', '$state', '$rootScope'];
 
-    function ProfileController($location, Users, $sessionStorage, $state) {
+    function ProfileController($location, $rootScope, Users, $sessionStorage, $state) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
@@ -16,6 +16,7 @@
 
         function activate() {
             if(!$sessionStorage.token){
+                $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             }else{
                 Users.getUsers().then(function(data) {

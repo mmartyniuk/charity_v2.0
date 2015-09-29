@@ -5,9 +5,9 @@
         .module('app.offers')
         .controller('NewOfferRegisterController', NewOfferRegisterController);
 
-    NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http'];
+    NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http', '$rootScope'];
 
-    function NewOfferRegisterController($state,CreateOfferFactory,$http) {
+    function NewOfferRegisterController($state,CreateOfferFactory,$http, $rootScope) {
 
         var vm = this;
         vm.title = 'NewOfferRegisterController';
@@ -47,6 +47,7 @@
 
         function activate() {
             if(!$sessionStorage.token){
+                $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             }else{
                 vm.regions = CreateOfferFactory.getRegions();

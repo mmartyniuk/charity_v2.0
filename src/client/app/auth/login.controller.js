@@ -11,8 +11,13 @@
         var vm = this;
         function successAuth(data, status, headers) {
             $sessionStorage.token = headers(['x-auth-token']);
-            console.log($sessionStorage.token);
-            $state.go('index');
+            //$state.go('index');
+            /*$rootScope.$on('$stateChangeStart', function (ev, to, toParams, from) {
+                console.log(from);
+            });*/
+            if($rootScope.savePreviousState){
+                $state.go($rootScope.savePreviousState);
+            }
         }
 
         vm.signIn = function () {
