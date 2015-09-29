@@ -3,24 +3,11 @@
     <div class="contentWrapper">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
-                <!--div class="btn-group col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" dropdown>
-                    <button class="btn btn-info dropdown-toggle col-xs-12" type="button" id="dropdownMenu2" dropdown-toggle aria-haspopup="true" aria-expanded="true">
-                        Категорії&nbsp;
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu col-xs-12" aria-labelledby="dropdownMenu2">
-                        <li><a href="#">Stuff</a></li>
-                        <li><a href="#">Stuff</a></li>
-                        <li><a href="#">Stuff</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Stuff from different category</a></li>
-                        <li><a href="#">Stuff from different category</a></li>
-                    </ul>
-                </div-->
-                <location-search location="vm.location"></location-search>
+                <category-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" category="vm.category"></category-search>
+                <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" location="vm.location"></location-search>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch">
+                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
                         </span>
@@ -29,18 +16,22 @@
             </div>
         </div>
     </div>
+ <!--   for testing-->
+
+
+    <!--   for testing-->
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2 search-result">
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} пропозицій:</h2>
         <hr>
-        <div ng-repeat="offers in vm.data | filter: vm.location | filter: vm.search as filtered">
+        <div ng-repeat="offers in vm.data | filter: vm.category | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="{{ offers.image }}" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a href="/offers/createdoffer">{{ offers.desc }}</a></strong>
+                        <strong><a ui-sref="offers.created">{{ offers.desc }}</a></strong>
                         <p>
                             {{ offers.body }}
                         </p>
@@ -70,8 +61,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
-                                <span>{{ offers.category }}</span>
-                            <div><a href="/offers/edit/1">Редагувати</a></div>
+                                <a href="#" ng-click="vm.setCategory(offers.category)">{{ offers.category }}</a>
+                                <div><a ui-sref="offers.edit({id:1})">Редагувати</a></div>
                             </p>
                         </div>
                     </div>

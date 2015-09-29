@@ -15,11 +15,10 @@
         return [
             {
                 state: 'profile',
-                abstract: true,
                 config: {
+                    url: '/profile',
+                    abstract: true,
                     template: '<ui-view/>',
-                    controller: 'ProfileController',
-                    controllerAs: 'vm',
                     title: 'profile'
                     /*settings: {
                      nav: 2,
@@ -30,9 +29,10 @@
             {
                 state: 'profile.home',
                 config: {
-                    url: '/profile',
+                    url: '',
                     templateUrl: 'app/profile/profile.html',
-                    title: 'profile'
+                    controller: 'ProfileController',
+                    controllerAs: 'vm',
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'

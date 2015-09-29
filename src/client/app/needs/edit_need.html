@@ -89,10 +89,10 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                             <span ng-show="editNeedForm.$visible">
-                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting">
+                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting" ui-sref="needs.created">
                                   Зберегти
                               </button>
-                              <a href="/needs/createdneed" class="btn btn-default" id="myButton0">Відмінити</a>
+                              <a ui-sref="needs.created" class="btn btn-default" id="myButton0">Відмінити</a>
                               <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
                                   Скасувати
                               </button> -->

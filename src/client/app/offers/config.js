@@ -15,11 +15,10 @@
         return [
             {
                 state: 'offers',
-                abstract: true,
                 config: {
+                    url: '/offers',
+                    abstract: true,
                     template: '<ui-view/>',
-                    controller: 'OffersController',
-                    controllerAs: 'vm',
                     title: 'Offers'
                     /*settings: {
                      nav: 2,
@@ -30,9 +29,12 @@
             {
                 state: 'offers.home',
                 config: {
-                    url: '/offers',
+                    url: '',
                     templateUrl: 'app/offers/offers.html',
-                    title: 'Offers'
+                    title: 'Offers',
+                    params: {prefilled: ''},
+                    controller: 'OffersController',
+                    controllerAs: 'vm'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
@@ -54,7 +56,7 @@
                 }
             },
             {
-                state: 'createdoffer',
+                state: 'offers.created',
                 config: {
                     url: '/offers/createdoffer',
                     templateUrl: 'app/offers/created_offer.html',
@@ -68,28 +70,41 @@
                 }
             },
             {
-                state: 'newofferregister',
+                state: 'newoffer',
                 config: {
-                    url: '/offers/newofferregister',
+                    url: '/newoffer',
+                    abstract: true,
+                    template: '<ui-view/>',
+                    title: 'NewOffer'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'newoffer.home',
+                config: {
+                    url: '',
+                    templateUrl: 'app/offers/new_offer_step1.html',
+                    controller: 'NewOfferBeforeRegisterController',
+                    controllerAs: 'vm',
+                    title: 'NewOfferBeforeRegisterController'
+                    /*settings: {
+                     nav: 2,
+                     content: '<i class="fa fa-lock"></i> Admin'
+                     }*/
+                }
+            },
+            {
+                state: 'newoffer.register',
+                config: {
+                    url: '/newoffer/register',
                     templateUrl: 'app/offers/new_offer_register.html',
                     controller: 'NewOfferRegisterController',
                     controllerAs: 'vm',
                     title: 'NewOfferRegister',
                     params: {prefilled: null}
-                    /*settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }*/
-                }
-            },
-            {
-                state: 'newofferstep1',
-                config: {
-                    url: '/offers/newofferstep1',
-                    templateUrl: 'app/offers/new_offer_step1.html',
-                    controller: 'NewOfferBeforeRegisterController',
-                    controllerAs: 'vm',
-                    title: 'NewOfferBeforeRegisterController'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'

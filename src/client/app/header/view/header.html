@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top fw700">
+    <nav class="navbar navbar-default navbar-fixed-top fw700" role="navigation" bs-navbar>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -14,20 +14,19 @@
             </div>
             <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="/needs" class="navbar-link">Потреби</a></li>
-                    <li><a href="/offers" class="navbar-link">Пропозиції</a></li>
-                    <li><a href="/needs/newneedstep1" class="navbar-link">Додати Потребу</a></li>
-                    <li><a href="/offers/newofferstep1" class="navbar-link">Додати Пропозицію</a></li>
+                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">Потреби</a></li>
+                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">Пропозиції</a></li>
+                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">Додати Потребу</a></li>
+                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">Додати Пропозицію</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <hr class="divider hidden-lg hidden-md hidden-sm">
                     </li>
-                    <li><a href="/about" class="navbar-link">Про нас</a></li>
-
-                    <li><a href="/login" class="navbar-link" ng-show="!vm.loggedIn">Залогінитись</a></li>
-                    <li><a href="/profile" class="navbar-link" ng-show="vm.loggedIn">Мій кабінет</a></li>
-                    <li><a href="/" class="navbar-link" ng-show="vm.loggedIn" ng-click="vm.logOut()">Вийти</a></li>
+                    <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
+                    <li><a ui-sref="login" class="navbar-link" ng-show="!vm.loggedIn">Залогінитись</a></li>
+                    <li active-sref="profile"><a ui-sref="profile.home" class="navbar-link" ng-show="vm.loggedIn">Мій кабінет</a></li>
+                    <li><a href="#" class="navbar-link" ng-show="vm.loggedIn" ng-click="vm.logOut()">Вийти</a></li>
                 </ul>
             </div>
         </div>

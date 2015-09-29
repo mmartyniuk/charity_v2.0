@@ -10,12 +10,15 @@ describe('OffersController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope');
+        bard.inject(this, '$controller', '$rootScope', '$state');
         scope = $rootScope.$new();
+        stateparams = {title: 'title', category: 'category'};
+        state = $state;
+        state.params = {prefilled: null};
+        state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('OffersController', {
             $scope: scope
         });
-
     });
 
     describe('Offers Controller', function() {

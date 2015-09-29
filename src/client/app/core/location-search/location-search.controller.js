@@ -13,11 +13,11 @@
         vm.title = 'LocationSearchController';
         vm.showCities = false;
         vm.enableShowCities = enableShowCities;
+        vm.enableShowRegions = enableShowRegions;
         vm.setLocation = setLocation;
+        vm.showRegions = true;
         vm.setRegionId = null;
         vm.locationPopover = {
-            content: 'Test',
-            title: 'Title',
             templateUrl: 'locationPopoverTemplate.html',
             opened: false
 
@@ -32,15 +32,20 @@
 
         function enableShowCities(id) {
             vm.setRegionId = id;
+            vm.showRegions = false;
             vm.showCities = true;
             vm.locationPopover.opened = true;
         }
 
         function setLocation(city) {
-            vm.locationValue = city;
+            vm.location = city;
             vm.showCities = false;
-            vm.location = vm.locationValue;
             vm.locationPopover.opened = false;
+            setTimeout(vm.enableShowRegions, 50);
+        }
+
+        function enableShowRegions() {
+            vm.showRegions = true;
         }
     }
 })();
