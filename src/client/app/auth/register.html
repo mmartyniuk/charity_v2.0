@@ -1,51 +1,88 @@
 <section>
-    <div id="registerModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content row">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center">&#x0417;&#x0430;&#x0440;&#x0435;&#x0454;&#x0441;&#x0442;&#x0440;&#x0443;&#x0432;&#x0430;&#x0442;&#x0438;&#x0441;&#x044c;</h4>
+
+    <div ng-view="" class="container ng-scope"><div class="row ng-scope">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <strong>Sign up</strong>
                 </div>
-                <div class="modal-body">
-                    <form class="registrationForm">
+                <div class="panel-body">
+                    <form ng-submit="vm.signup()" role="form" class="form-horizontal ng-pristine ng-valid ng-valid-email">
                         <div class="form-group">
-                            <label for="exampleInputName1">&#x0412;&#x0430;&#x0448;&#x0435; &#x0456;&#x043c;'&#x044f;:</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="&#x041f;&#x0435;&#x0442;&#x0440;&#x043e; &#x041f;&#x043e;&#x0440;&#x043e;&#x0448;&#x0435;&#x043d;&#x043a;&#x043e;">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">&#x0415;&#x043b;&#x0435;&#x043a;&#x0442;&#x0440;&#x043e;&#x043d;&#x043d;&#x0430; &#x043f;&#x043e;&#x0448;&#x0442;&#x0430;:</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="petro.poroshenko@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">&#x041f;&#x0430;&#x0440;&#x043e;&#x043b;&#x044c;:</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label class="col-sm-2 control-label" for="email">Email</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" ng-model="vm.username" placeholder="Email" name="email" id="email" class="form-control ng-pristine ng-untouched ng-valid ng-valid-email">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword2">&#x041f;&#x0456;&#x0434;&#x0442;&#x0432;&#x0435;&#x0440;&#x0434;&#x0456;&#x0442;&#x044c; &#x043f;&#x0430;&#x0440;&#x043e;&#x043b;&#x044c;:</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            <label class="col-sm-2 control-label" for="password">Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" ng-model="vm.password" placeholder="Password" name="password" id="password" class="form-control ng-pristine ng-untouched ng-valid">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPhone1">&#x0422;&#x0435;&#x043b;&#x0435;&#x0444;&#x043e;&#x043d;</label>
-                            <input type="text" class="form-control" id="exampleInputPhone1" placeholder="0(XX)-XXX-XX-XX">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary pull-right" type="submit">Sign up</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleSelectRole1">&#x0425;&#x0442;&#x043e; &#x0412;&#x0438;:</label>
-                            <select class="form-control" id="exampleSelectRole1">
-                                <option>&#x041f;&#x0440;&#x0438;&#x0432;&#x0430;&#x0442;&#x043d;&#x0430; &#x043e;&#x0441;&#x043e;&#x0431;&#x0430;</option>
-                                <option>&#x0412;&#x043e;&#x043b;&#x043e;&#x043d;&#x0442;&#x0435;&#x0440;</option>
-                            </select>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> &#x042f; &#x043f;&#x043e;&#x0433;&#x043e;&#x0434;&#x0436;&#x0443;&#x044e;&#x0441;&#x044c; &#x0437; &#x043f;&#x0440;&#x0430;&#x0432;&#x0438;&#x043b;&#x0430;&#x043c;&#x0438; &#x043a;&#x043e;&#x0440;&#x0438;&#x0441;&#x0442;&#x0443;&#x0432;&#x0430;&#x043d;&#x043d;&#x044f;
-                            </label>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">&#x0417;&#x0430;&#x0440;&#x0435;&#x0454;&#x0441;&#x0442;&#x0440;&#x0443;&#x0432;&#x0430;&#x0442;&#x0438;&#x0441;&#x044c;</button>
-                        </div>
+                        <p class="error ng-binding ng-hide" data-ng-show="error"></p>
                     </form>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+        </div>
+    </div></div>
+
+
+
+    <!--<div id="registerModal" class="modal fade">-->
+        <!--<div class="">-->
+            <!--<div class=" row">-->
+                <!--<div class="">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <!--<h4 class="text-center">&#x0417;&#x0430;&#x0440;&#x0435;&#x0454;&#x0441;&#x0442;&#x0440;&#x0443;&#x0432;&#x0430;&#x0442;&#x0438;&#x0441;&#x044c;</h4>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                    <!--<form class="registrationForm">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleInputName1">&#x0412;&#x0430;&#x0448;&#x0435; &#x0456;&#x043c;'&#x044f;:</label>-->
+                            <!--<input type="text" class="form-control" id="exampleInputName1" placeholder="&#x041f;&#x0435;&#x0442;&#x0440;&#x043e; &#x041f;&#x043e;&#x0440;&#x043e;&#x0448;&#x0435;&#x043d;&#x043a;&#x043e;">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleInputEmail1">&#x0415;&#x043b;&#x0435;&#x043a;&#x0442;&#x0440;&#x043e;&#x043d;&#x043d;&#x0430; &#x043f;&#x043e;&#x0448;&#x0442;&#x0430;:</label>-->
+                            <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="petro.poroshenko@gmail.com">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleInputPassword1">&#x041f;&#x0430;&#x0440;&#x043e;&#x043b;&#x044c;:</label>-->
+                            <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleInputPassword2">&#x041f;&#x0456;&#x0434;&#x0442;&#x0432;&#x0435;&#x0440;&#x0434;&#x0456;&#x0442;&#x044c; &#x043f;&#x0430;&#x0440;&#x043e;&#x043b;&#x044c;:</label>-->
+                            <!--<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleInputPhone1">&#x0422;&#x0435;&#x043b;&#x0435;&#x0444;&#x043e;&#x043d;</label>-->
+                            <!--<input type="text" class="form-control" id="exampleInputPhone1" placeholder="0(XX)-XXX-XX-XX">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="exampleSelectRole1">&#x0425;&#x0442;&#x043e; &#x0412;&#x0438;:</label>-->
+                            <!--<select class="form-control" id="exampleSelectRole1">-->
+                                <!--<option>&#x041f;&#x0440;&#x0438;&#x0432;&#x0430;&#x0442;&#x043d;&#x0430; &#x043e;&#x0441;&#x043e;&#x0431;&#x0430;</option>-->
+                                <!--<option>&#x0412;&#x043e;&#x043b;&#x043e;&#x043d;&#x0442;&#x0435;&#x0440;</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="checkbox">-->
+                            <!--<label>-->
+                                <!--<input type="checkbox"> &#x042f; &#x043f;&#x043e;&#x0433;&#x043e;&#x0434;&#x0436;&#x0443;&#x044e;&#x0441;&#x044c; &#x0437; &#x043f;&#x0440;&#x0430;&#x0432;&#x0438;&#x043b;&#x0430;&#x043c;&#x0438; &#x043a;&#x043e;&#x0440;&#x0438;&#x0441;&#x0442;&#x0443;&#x0432;&#x0430;&#x043d;&#x043d;&#x044f;-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<button type="submit" class="btn btn-primary col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">&#x0417;&#x0430;&#x0440;&#x0435;&#x0454;&#x0441;&#x0442;&#x0440;&#x0443;&#x0432;&#x0430;&#x0442;&#x0438;&#x0441;&#x044c;</button>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
 </section>
