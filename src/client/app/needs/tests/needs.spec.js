@@ -1,4 +1,4 @@
-﻿/*jshint expr: true*/
+﻿/*jshint expr: true, -W117*/
 describe('NeedsController', function() {
     var controller, scope;
     beforeEach(function() {
@@ -10,12 +10,15 @@ describe('NeedsController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope');
+        bard.inject(this, '$controller', '$rootScope', '$state');
         scope = $rootScope.$new();
+        stateparams = {title: 'title', category: 'category'};
+        state = $state;
+        state.params = {prefilled: null};
+        state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('NeedsController', {
             $scope: scope
         });
-
     });
 
     describe('Needs Controller', function() {

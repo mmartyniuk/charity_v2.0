@@ -65,6 +65,11 @@ body > section {
 .marginBottom {
     margin-bottom: 5px;
 }
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
 .marginTop {
     display: block;
     height: 45px;
@@ -159,15 +164,11 @@ body > section {
     margin-left: 1em;
 }
 
-.regions, .cities {
-    margin-top: 20px;
-}
-
-.location-search ul {
+.location-search ul, .category-search ul {
     padding-left: 0;
 }
 
-.location-search ul li {
+.location-search ul li, .category-search ul li {
     list-style-type: none;
 }
 
@@ -207,6 +208,14 @@ body > section {
 .background-img .jumbotron {
     opacity: 0.75;
     background-color: transparent;
+}
+
+#index .btn-success {
+    margin-bottom: 20px;
+}
+
+.last-needs {
+    clear: left;
 }
 
 /* <--------------index.html style END--------> */
@@ -268,6 +277,7 @@ div.form-group.prev-next-buttons {
 }
 .subcategory, .subcategory_child {
     border-left: 1px solid #e5e5e5;
+    float: left;
     padding-left: 20px;
 }
 .modal-dialog {
@@ -328,3 +338,14 @@ div.form-group.prev-next-buttons {
 }
 
 /* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
+
+/* <-------------- Popover --------> */
+.popover {
+    max-width: 600px;
+}
+
+category-search .subcategory, category-search .subcategory_child {
+    padding-left: 5px;
+    border: none;
+}
+/* <-------------- Popover  END--------> */
