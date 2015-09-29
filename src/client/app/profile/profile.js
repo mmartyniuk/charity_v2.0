@@ -5,7 +5,7 @@
         .module('app.profile')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$location', 'Users', '$sessionStorage', '$state', '$rootScope'];
+    ProfileController.$inject = ['$location', '$rootScope', 'Users', '$sessionStorage', '$state'];
 
     function ProfileController($location, $rootScope, Users, $sessionStorage, $state) {
         /* jshint validthis:true */

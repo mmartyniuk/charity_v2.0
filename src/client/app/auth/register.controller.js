@@ -5,9 +5,9 @@
         .module('app.auth')
         .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['Auth', '$state', '$log'];
+    RegisterController.$inject = ['Auth', '$state', '$log', '$rootScope'];
 
-    function RegisterController(Auth, $state, $log) {
+    function RegisterController(Auth, $state, $log, $rootScope) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'RegisterController';

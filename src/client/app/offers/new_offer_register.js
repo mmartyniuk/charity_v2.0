@@ -5,9 +5,9 @@
         .module('app.offers')
         .controller('NewOfferRegisterController', NewOfferRegisterController);
 
-    NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http', '$rootScope', 'CreateOfferAddressFactory'];
+    NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http', '$rootScope', 'CreateOfferAddressFactory', '$sessionStorage'];
 
-    function NewOfferRegisterController($state,CreateOfferFactory,$http, $rootScope, CreateOfferAddressFactory) {
+    function NewOfferRegisterController($state,CreateOfferFactory,$http, $rootScope, CreateOfferAddressFactory, $sessionStorage) {
 
         var vm = this;
         vm.title = 'NewOfferRegisterController';
