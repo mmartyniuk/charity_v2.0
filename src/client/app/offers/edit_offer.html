@@ -99,10 +99,10 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                     <span ng-show="editOfferForm.$visible">
-                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
+                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting" ui-sref="offers.created">
                           Зберегти
                       </button>
-                      <a href="/offers/createdoffer" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <a ui-sref="offers.created" class="btn btn-default" id="myButton0">Відмінити</a>
                       <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                               ng-click="editOfferForm.$cancel()">
                           Скасувати
