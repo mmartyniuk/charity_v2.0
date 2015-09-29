@@ -26,22 +26,11 @@
             });
         };
 
-        /*vm.signup = function () {
-            var formData = {
-                username: vm.username,
-                password: vm.password
-            };
-
-            Auth.signup(formData, successAuth, function () {
-                $rootScope.error = 'Failed to signup';
-            });
-        };
-
         vm.logout = function () {
             Auth.logout(function () {
                 $state.go('index');
             });
-        };*/
+        };
 
         vm.token = $sessionStorage.token;
     }
