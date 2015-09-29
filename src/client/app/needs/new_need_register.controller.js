@@ -52,7 +52,7 @@
         function activate() {
 
             if(!$sessionStorage.token){
-                $sessionStorage.savePreviousState = $state.$current.name;
+                $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             }else{
                 vm.regions = CreateNeedFactory.getRegions();
