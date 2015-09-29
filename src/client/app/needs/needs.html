@@ -19,23 +19,23 @@
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
-        <div ng-repeat="needs in vm.data | filter: vm.category | filter: vm.location | filter: vm.search as filtered">
+        <div ng-repeat="need in vm.needs | filter: vm.category | filter: vm.location | filter: vm.search as filtered">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
-                    <img src="{{ needs.image }}" class="img-thumbnail" alt="Main photo">
+                    <img src="{{ need.image }}" class="img-thumbnail" alt="Main photo">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a ui-sref="needs.created">{{ needs.desc }}</a></strong>
+                        <strong><a ui-sref="needs.created">{{ need.desc }}</a></strong>
                         <p>
-                            {{ needs.body }}
+                            {{ need.body }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ needs.location }}</strong>
+                            <strong>{{ need.location }}</strong>
                             <small> / </small>
-                            <strong>{{ needs.date }}</strong>
+                            <strong>{{ need.date }}</strong>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
-                                <a href="/profile/user">{{ needs.author }}</a>
+                                <a href="/profile/user">{{ need.author }}</a>
                             </p>
                         </div>
                     </div>
@@ -66,5 +66,8 @@
             </div>
             <hr>
         </div>
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.loadPage()"
+                    max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
+                    previous-text="Попередня" next-text="Наступна"></pagination>
     </div>
 </section>
