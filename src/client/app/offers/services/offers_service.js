@@ -1,4 +1,4 @@
-/*jshint multistr: true */
+/*jshint multistr: true, -W117 */
 (function () {
     'use strict';
 
@@ -6,9 +6,11 @@
         .module('app.offers')
         .factory('OffersFactory', OffersFactory);
 
-    function OffersFactory() {
+    OffersFactory.$inject = ['$http', '$q'];
+
+    function OffersFactory($http, $q) {
         return {
-            getOffers: function() {
+            getOffers: function(currentPage) {
                 //tbd when there will be api to call, till that time hardcoded the
                 //vm.offers array to verify if factory is properly working
                 /*$http.get("/api/offers").success(function(data) {
@@ -89,7 +91,20 @@
                         image: '../images/trousers.jpg'
                     }
                 ];
-                return offers;
+
+                currentPage = currentPage > 0 ? currentPage - 1 : 0;
+                var itemsPerPage = 4;
+                var start = currentPage * itemsPerPage;
+                var end = start + itemsPerPage;
+
+                return $q(function(resolve, reject) {
+                    resolve({
+                        offers: _.slice(offers, start, end),
+                        currentPage: currentPage + 1,
+                        totalItems: offers.length,
+                        itemsPerPage: itemsPerPage
+                    });
+                });
             }
         };
     }

@@ -1,4 +1,4 @@
-/*jshint multistr: true */
+/*jshint multistr: true, -W117 */
 (function () {
     'use strict';
 
@@ -6,9 +6,11 @@
         .module('app.needs')
         .factory('NeedsFactory', NeedsFactory);
 
-    function NeedsFactory() {
+    NeedsFactory.$inject = ['$http', '$q'];
+
+    function NeedsFactory($http, $q) {
         return {
-            getNeeds: function() {
+            getNeeds: function(currentPage) {
                 //tbd when there will be api to call, till that time hardcoded the
                 //vm.needs array to verify if factory is properly working
                 /*$http.get("/api/needs").success(function(data) {
@@ -89,7 +91,20 @@
                         image: '../images/sweater.jpg'
                     }
                 ];
-                return needs;
+
+                currentPage = currentPage > 0 ? currentPage - 1 : 0;
+                var itemsPerPage = 4;
+                var start = currentPage * itemsPerPage;
+                var end = start + itemsPerPage;
+
+                return $q(function(resolve, reject) {
+                    resolve({
+                        needs: _.slice(needs, start, end),
+                        currentPage: currentPage + 1,
+                        totalItems: needs.length,
+                        itemsPerPage: itemsPerPage
+                    });
+                });
             }
         };
     }
