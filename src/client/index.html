@@ -30,52 +30,20 @@
     <!-- endbuild -->
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-default navbar-fixed-top fw700" role="navigation" bs-navbar>
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img alt="SoftServe" class="logo" src="images/logo.png">
-                </a>
+    <app-header></app-header>
+    <div ui-view></div>
+    <footer>
+        <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.)
+                    <a href="/contacts">Контакти</a>
+                    <!--<a href="/sitemap">Site Map</a>-->
+                    <aa href="/privacy">Конфіденційність</aa>
+                    <a href="/terms">Умови користування</a>
+                </p>
             </div>
-            <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
-                <ul class="nav navbar-nav">
-                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">Потреби</a></li>
-                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">Пропозиції</a></li>
-                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">Додати Потребу</a></li>
-                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">Додати Пропозицію</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <hr class="divider hidden-lg hidden-md hidden-sm">
-                    </li>
-                    <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
-                    <li active-sref="profile"><a ui-sref="profile.home" class="navbar-link">Мій кабінет</a></li>
-                    <li><a href="#" class="navbar-link">Вийти</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<div ui-view></div>
-<footer>
-    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <p class="navbar-text text-center">© SoftServe LTD, 2010-2014, 0 800 60 3000 (10.00 – 19.00 Пн.-Пт.)
-                <a href="/contacts">Контакти</a>
-                <!--<a href="/sitemap">Site Map</a>-->
-                <aa href="/privacy">Конфіденційність</aa>
-                <a href="/terms">Умови користування</a>
-            </p>
-        </div>
-    </nav>
-</footer>
+        </nav>
+    </footer>
 
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
@@ -107,6 +75,7 @@
     <script src="/src/client/app/blocks/router/router.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/footer/footer.module.js"></script>
+    <script src="/src/client/app/header/app.header.module.js"></script>
     <script src="/src/client/app/main/main.module.js"></script>
     <script src="/src/client/app/needs/needs.module.js"></script>
     <script src="/src/client/app/offers/offers.module.js"></script>
@@ -143,6 +112,8 @@
     <script src="/src/client/app/core/status/status.js"></script>
     <script src="/src/client/app/directives.js"></script>
     <script src="/src/client/app/footer/config.js"></script>
+    <script src="/src/client/app/header/app.header.controller.js"></script>
+    <script src="/src/client/app/header/directive/header.directive.js"></script>
     <script src="/src/client/app/main/about_us.js"></script>
     <script src="/src/client/app/main/index.js"></script>
     <script src="/src/client/app/needs/config.js"></script>
