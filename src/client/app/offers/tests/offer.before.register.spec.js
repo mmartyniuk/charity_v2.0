@@ -2,7 +2,7 @@
 //NewOfferBeforeRegisterController
 describe('NewOfferBeforeRegisterController', function() {
 
-    var controller, scope;
+    var controller, scope, state, session;
 
     beforeEach(function() {
         controller = undefined;
@@ -14,8 +14,11 @@ describe('NewOfferBeforeRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope');
+        bard.inject(this, '$controller', '$rootScope', '$state', '$sessionStorage');
         scope = $rootScope.$new();
+        state = $state;
+        session = $sessionStorage;
+        session.token = '123';
         controller = $controller('NewOfferBeforeRegisterController', {
             $scope: scope
         });

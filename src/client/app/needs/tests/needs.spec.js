@@ -40,5 +40,42 @@ describe('NeedsController', function() {
 
         });
 
+        describe('setSearch() function', function() {
+
+            it('should be a function', function () {
+                var vm = controller;
+                expect(vm.setSearch).to.be.a('function');
+            });
+
+        });
+
+        describe('setCategory() function', function() {
+
+            it('should be a function', function () {
+                var vm = controller;
+                expect(vm.setCategory).to.be.a('function');
+            });
+
+        });
+
+        describe('needs object', function() {
+
+            it('should be an object', function () {
+                var vm = controller;
+                expect(vm.needs).to.be.an('object');
+            });
+
+            it('should not be empty', function () {
+                var vm = controller;
+                expect(vm.needs).not.to.be.empty;
+            });
+
+            it('should have \'category\' and \'location\' properties', function () {
+                var vm = controller;
+                expect(vm.needs).to.have.all.keys('category', 'location');
+            });
+
+        });
+
     });
 });
