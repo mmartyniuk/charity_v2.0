@@ -5,9 +5,11 @@
         .module('app.needs')
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
-    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http', '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory'];
+    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
+        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory'];
 
-    function NewNeedRegisterController($state,CreateNeedFactory, $http, $sessionStorage, $rootScope, CreateNeedAddressFactory) {
+    function NewNeedRegisterController($state,CreateNeedFactory, $http,
+                                       $sessionStorage, $rootScope, CreateNeedAddressFactory) {
 
         /* jshint validthis:true */
 
@@ -51,10 +53,10 @@
 
         function activate() {
 
-            if(!$sessionStorage.token){
+            if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
-            }else{
+            } else {
                 vm.regions = CreateNeedFactory.getRegions();
                 CreateNeedAddressFactory.getAddress().then(function(address) {
                     vm.address = address;

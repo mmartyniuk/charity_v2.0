@@ -15,7 +15,7 @@
             /*$rootScope.$on('$stateChangeStart', function (ev, to, toParams, from) {
                 console.log(from);
             });*/
-            if($rootScope.savePreviousState){
+            if ($rootScope.savePreviousState) {
                 $state.go($rootScope.savePreviousState);
             }
         }

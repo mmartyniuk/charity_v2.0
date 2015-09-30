@@ -13,15 +13,15 @@
         vm.loggedIn = !!$sessionStorage.token || false; // this value is impacting view, if user is logged in some
         // elements from nav menu will be displayed
         $rootScope.$on('$stateChangeStart',
-            function(){
-                if($sessionStorage.token){
-                    return vm.loggedIn = true;
+            function() {
+                if ($sessionStorage.token) {
+                    vm.loggedIn = true;
                 }
             });
-        vm.logOut = function(){
+        vm.logOut = function() {
             $sessionStorage.$reset();
             $state.go($state.current, {}, {reload: true});
             vm.loggedIn = false;
-        }
+        };
     }
 })();

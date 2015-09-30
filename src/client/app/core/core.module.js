@@ -6,7 +6,7 @@
             'ngAnimate', 'ngSanitize',
             'blocks.exception', 'blocks.logger', 'blocks.router',
             'ui.router', 'ngplus', 'ui.bootstrap', 'flow', 'xeditable',
-            'ngStorage'
+            'ngStorage', 'angular-loading-bar'
 
         ]);
 })();
