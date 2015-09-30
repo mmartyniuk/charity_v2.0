@@ -14,6 +14,8 @@
 
         activate();
 
+        vm.tabs = {};
+
         function activate() {
             if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
