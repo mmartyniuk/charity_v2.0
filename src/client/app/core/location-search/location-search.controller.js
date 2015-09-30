@@ -16,7 +16,6 @@
         vm.enableShowRegions = enableShowRegions;
         vm.setLocation = setLocation;
         vm.showRegions = true;
-        vm.setRegionId = null;
         vm.locationPopover = {
             templateUrl: 'locationPopoverTemplate.html',
             opened: false

@@ -21,7 +21,7 @@ describe('NeedsController', function() {
         });
     });
 
-    describe('Needs Controller', function() {
+    describe('needs controller', function() {
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });

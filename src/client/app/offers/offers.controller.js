@@ -19,7 +19,6 @@
         vm.offers.location = $state.params.prefilled.location;
         vm.category = vm.offers.category;
         vm.location = vm.offers.location;
-        vm.categoryValue = vm.category;
 
         activate();
 

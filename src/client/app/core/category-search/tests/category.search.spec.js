@@ -27,11 +27,30 @@ describe('CategorySearchController', function() {
             expect(vm.title).to.equal('CategorySearchController');
         });
 
+        describe('categories array', function() {
+
+            it('categories array should be defined', function () {
+                var vm = controller;
+                expect(vm.categories).to.be.defined;
+            });
+
+            it('should be an array', function () {
+                var vm = controller;
+                expect(vm.categories).to.be.an('array');
+            });
+
+        });
+
         describe('setCurrentCategory() function', function() {
 
             it('should be a function', function () {
                 var vm = controller;
                 expect(vm.setCurrentCategory).to.be.a('function');
+            });
+
+            it('current category should be undefined by default', function () {
+                var vm = controller;
+                expect(vm.currentCategory).to.be.undefined;
             });
 
         });
@@ -41,6 +60,11 @@ describe('CategorySearchController', function() {
             it('should be a function', function () {
                 var vm = controller;
                 expect(vm.setCurrentSubCategory).to.be.a('function');
+            });
+
+            it('current subcategory should be undefined by default', function () {
+                var vm = controller;
+                expect(vm.currentSubCategory).to.be.undefined;
             });
 
         });
@@ -59,6 +83,11 @@ describe('CategorySearchController', function() {
             it('should be a function', function () {
                 var vm = controller;
                 expect(vm.setCategory).to.be.a('function');
+            });
+
+            it('category should be undefined by default', function () {
+                var vm = controller;
+                expect(vm.category).to.be.undefined;
             });
 
         });
