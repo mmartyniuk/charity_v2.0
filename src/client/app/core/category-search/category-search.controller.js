@@ -15,8 +15,6 @@
         vm.setCurrentCategory = setCurrentCategory;
         vm.setCurrentSubCategory = setCurrentSubCategory;
         vm.setCurrentSubSubCategory = setCurrentSubSubCategory;
-        vm.currentCategory = null;
-        vm.currentSubCategory = null;
         vm.showCategory = true;
         vm.showSubCategory = false;
         vm.showSubSubCategory = false;

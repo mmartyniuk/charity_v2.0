@@ -21,7 +21,7 @@ describe('OffersController', function() {
         });
     });
 
-    describe('Offers Controller', function() {
+    describe('offers controller', function() {
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
