@@ -3,7 +3,7 @@
 //NewNeedBeforeRegisterController
 describe('NewNeedBeforeRegisterController', function() {
 
-    var controller, scope;
+    var controller, scope, state, session;
 
     beforeEach(function() {
         controller = undefined;
@@ -11,12 +11,15 @@ describe('NewNeedBeforeRegisterController', function() {
     });
 
     beforeEach(function() {
-        module('app.core', 'app.needs');
+        module('app.core', 'app.needs', 'app.auth');
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope');
+        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateNeedFactory', '$sessionStorage');
         scope = $rootScope.$new();
+        state = $state;
+        session = $sessionStorage;
+        session.token = '123'
         controller = $controller('NewNeedBeforeRegisterController', {
             $scope: scope
         });
@@ -137,7 +140,7 @@ describe('NewNeedBeforeRegisterController', function() {
 //NewNeedRegisterController
 describe('NewNeedRegisterController', function() {
     //constants for defining controller
-    var controller, scope, state, stateparams;
+    var controller, scope, state, stateparams, session;
 
     beforeEach(function() {
         controller = undefined;
@@ -145,15 +148,17 @@ describe('NewNeedRegisterController', function() {
     });
 
     beforeEach(function() {
-        module('app.core', 'app.needs');
+        module('app.core', 'app.needs', 'app.auth');
     });
 
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope', '$state',
-            'CreateNeedFactory', 'CreateNeedAddressFactory');
+            'CreateNeedFactory', 'CreateNeedAddressFactory', '$sessionStorage');
         scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;
+        session = $sessionStorage;
+        session.token = '123'
         state.params = {prefilled: null};
         state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('NewNeedRegisterController', {

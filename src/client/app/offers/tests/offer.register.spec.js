@@ -3,7 +3,7 @@
 //NewOfferRegisterController
 describe('NewOfferRegisterController', function() {
     //constants for defining controller
-    var controller, scope, state, stateparams;
+    var controller, scope, state, stateparams, session;
 
     beforeEach(function() {
         controller = undefined;
@@ -11,14 +11,16 @@ describe('NewOfferRegisterController', function() {
     });
 
     beforeEach(function() {
-        module('app.core', 'app.offers');
+        module('app.core', 'app.offers', 'app.auth');
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateOfferFactory');
+        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateOfferFactory', '$sessionStorage');
         scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;
+        session = $sessionStorage;
+        session.token = '123';
         state.params = {prefilled: null};
         state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('NewOfferRegisterController', {
