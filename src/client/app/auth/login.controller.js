@@ -13,7 +13,7 @@
             $sessionStorage.token = headers(['x-auth-token']);
             if ($rootScope.savePreviousState) {
                 $state.go($rootScope.savePreviousState);
-            }else{
+            } else {
                 $state.go('index')
             }
         }
