@@ -5,9 +5,11 @@
         .module('app.needs')
         .controller('NewNeedBeforeRegisterController', NewNeedBeforeRegisterController);
 
-    NewNeedBeforeRegisterController.$inject = ['$scope','CreateNeedFactory','$modal', '$state', '$sessionStorage', '$rootScope'];
+    NewNeedBeforeRegisterController.$inject = ['$scope','CreateNeedFactory','$modal',
+        '$state', '$sessionStorage', '$rootScope'];
 
-    function NewNeedBeforeRegisterController($scope, CreateNeedFactory, $modal, $state, $sessionStorage, $rootScope) {
+    function NewNeedBeforeRegisterController($scope, CreateNeedFactory, $modal,
+                                             $state, $sessionStorage, $rootScope) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'NewNeedBeforeRegisterController';
@@ -71,10 +73,10 @@
         };
         //getting categories object from service
         function activate() {
-            if(!$sessionStorage.token){
+            if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
-            }else{
+            } else {
                 vm.categories = CreateNeedFactory.getCategories();
             }
         }

@@ -63,6 +63,8 @@
         "$controller": false,
         "it": false,
         "expect": false,
-        "scope": false
+        "scope": false,
+        "$sessionStorage": false,
+        "$state": false
     }
 }

@@ -15,7 +15,8 @@ describe('NewOfferRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateOfferFactory', '$sessionStorage');
+        bard.inject(this, '$controller', '$rootScope', '$state',
+            'CreateOfferFactory', '$sessionStorage');
         scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;

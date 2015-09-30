@@ -15,10 +15,10 @@
         activate();
 
         function activate() {
-            if(!$sessionStorage.token){
+            if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
-            }else{
+            } else {
                 Users.getUsers().then(function(data) {
                     vm.users = data;
                 }).catch(function() {

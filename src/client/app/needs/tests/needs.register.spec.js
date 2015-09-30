@@ -15,11 +15,12 @@ describe('NewNeedBeforeRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state', 'CreateNeedFactory', '$sessionStorage');
+        bard.inject(this, '$controller', '$rootScope', '$state',
+            'CreateNeedFactory', '$sessionStorage');
         scope = $rootScope.$new();
         state = $state;
         session = $sessionStorage;
-        session.token = '123'
+        session.token = '123';
         controller = $controller('NewNeedBeforeRegisterController', {
             $scope: scope
         });
@@ -158,7 +159,7 @@ describe('NewNeedRegisterController', function() {
         stateparams = {title: 'title', category: 'category'};
         state = $state;
         session = $sessionStorage;
-        session.token = '123'
+        session.token = '123';
         state.params = {prefilled: null};
         state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('NewNeedRegisterController', {
