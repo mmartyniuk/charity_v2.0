@@ -14,6 +14,12 @@ body > section {
     margin-top: 80px;
 }
 
+a {
+    &:focus {
+        outline: none;
+    }
+}
+
 .dropButtons {
 	width: 90px;
 }
@@ -195,14 +201,32 @@ body > section {
     word-break: break-all;
 }
 /* <--------------index.html style--------> */
+.no-side-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+.no-left-padding {
+    padding-left: 0;
+}
+
+.no-right-padding {
+    padding-right: 0;
+}
+
+.main-filters {
+    background-color: rgba(37, 37, 37, 0.48);
+    .container {
+        padding-top: 20px;
+    }
+}
+
 .background-img {
-    background-image: url("../images/background.png");
+    background-image: url("../images/example.png");
     margin: -10px 0;
     text-align: center;
     background-position: center center;
     width: 100%;
-    height: auto;
-    background-size: cover;
+    height: 500px;
 }
 
 .background-img .jumbotron {
@@ -216,6 +240,10 @@ body > section {
 
 .last-needs {
     clear: left;
+}
+
+.recent-needs {
+    margin-top: 40px;
 }
 
 /* <--------------index.html style END--------> */
@@ -250,6 +278,7 @@ div.form-group.prev-next-buttons {
 /* <--------------offers.html style END--------> */
 
 /* <--------------profile.html style --------> */
+@grey-color: #ddd;
 
 #profile li {
     list-style: disc;
@@ -266,6 +295,50 @@ div.form-group.prev-next-buttons {
     &.panel-open > .panel-heading i.chevron-icon:before {
         content: "\e114";
     }
+}
+
+.my-cabinet {
+    .nav-tabs > li {
+        &.active a {
+            background-color: lightgray;
+        }
+    }
+    .tab-content {
+        border: 1px solid @grey-color;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+    }
+    .publication-type {
+        margin: 8px;
+    }
+    .status {
+        margin-bottom: 0;
+        > span a {
+            color: #fff;
+            font-size: 1.5em;
+        }
+    }
+    .table > tbody > tr > td {
+        vertical-align: middle;
+    }
+    .user-profile {
+        margin: 15px;
+        .stats a {
+            color: #fff;
+        }
+        #profile {        
+            .editable-wrap {
+                display: block;
+            }
+            address strong {
+                margin-right: 3px;
+            }
+        }
+    }
+    .statistics {
+        margin-top: 5px;
+    }
+
 }
 
 /* <--------------profile.html style  END--------> */

@@ -12,7 +12,17 @@
         var vm = this;
         vm.title = 'ProfileController';
 
+        vm.tabs = {
+            my_needs : {},
+            my_offers : {},
+            sup_needs : {},
+            sup_offers : {},
+            messages : {},
+            profile : {}
+        }
+
         activate();
+
 
         function activate() {
             if (!$sessionStorage.token) {
