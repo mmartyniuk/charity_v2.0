@@ -20,6 +20,10 @@ a {
     }
 }
 
+/*  Color variables */
+@grey-color: #ddd;
+@grey-text: #777;
+
 .dropButtons {
 	width: 90px;
 }
@@ -205,18 +209,17 @@ a {
     padding-left: 0;
     padding-right: 0;
 }
-.no-left-padding {
-    padding-left: 0;
-}
-
-.no-right-padding {
-    padding-right: 0;
-}
 
 .main-filters {
     background-color: rgba(37, 37, 37, 0.48);
     .container {
         padding-top: 20px;
+        div {
+            input, & > div {
+                border-width: 0 0 0 0;
+                border-radius: 0;
+            }
+        }
     }
 }
 
@@ -241,10 +244,50 @@ a {
 .last-needs {
     clear: left;
 }
+.recent-publications {
+    color: @grey-text;
+    .well {
+        margin-top: 20px;
+    }
+    .post-panel {
 
-.recent-needs {
-    margin-top: 40px;
+        margin: 4px;  
+        background-color: #fff;
+        border: 2px solid @grey-color;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px @grey-color;
+        .post-image {
+            text-align: center;
+            margin-bottom: 10px;
+            img {
+                border-radius: 10px 10px 0 0;
+                width: 100%;
+                &:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+        }
+        .post-description {
+            margin: 0 auto;
+            width: 80%;
+            h5 {
+                width: 100%;
+                overflow: hidden;
+                height: 1em;
+            }
+        }
+        a {
+            color: @grey-text;
+            &:hover {
+                color: #333;
+            }
+        }
+    }
+
 }
+
+
 
 /* <--------------index.html style END--------> */
 /* <--------------edit_offer.html style--------> */
@@ -278,7 +321,6 @@ div.form-group.prev-next-buttons {
 /* <--------------offers.html style END--------> */
 
 /* <--------------profile.html style --------> */
-@grey-color: #ddd;
 
 #profile li {
     list-style: disc;
