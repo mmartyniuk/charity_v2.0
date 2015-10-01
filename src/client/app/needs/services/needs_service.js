@@ -107,7 +107,7 @@
                 });
             },
             getConcreteNeed: function(id, success, error){
-                $http.get("/api/needs/" + id).success(success).error(error);
+                $http.get('/api/needs/' + id).success(success).error(error);
             }
         };
     }

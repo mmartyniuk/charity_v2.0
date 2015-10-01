@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/*jshint -W101*/
+(function () {
     'use strict';
 
     angular
@@ -8,7 +9,7 @@
     CreatedNeedController.$inject = ['$location', 'NeedsFactory', '$sessionStorage', 'SharedFactory'];
 
     function CreatedNeedController($location, NeedsFactory, $sessionStorage, SharedFactory) {
-        /* jshint validthis:true */
+
         var vm = this;
         vm.title = 'CreatedNeedController';
 
@@ -26,7 +27,7 @@
         // and make additional api call to user (who had written this need) profile
         function successResponse(data) {
             vm.currentNeed = data;
-            vm.temp = vm.currentNeed._links.userCreated.href.slice(vm.currentNeed._links.userCreated.href.search("/api"), vm.currentNeed._links.userCreated.href.length);
+            vm.temp = vm.currentNeed._links.userCreated.href.slice(vm.currentNeed._links.userCreated.href.search('/api'), vm.currentNeed._links.userCreated.href.length);
             // making here next call to api, to get user
             // this is needed to check if current user is owner of this need
             // if so - edit and close buttons will be available and user will see responses from other users
@@ -47,8 +48,8 @@
             // hardcoded data for testing
             var needId = 1;
             NeedsFactory.getConcreteNeed(needId, successResponse, function () {
-                //console.log('something wrong');
-            })
+                console.log('something wrong');
+            });
         };
 
         function succeedGetAuthorizedUserInfo(data) {
