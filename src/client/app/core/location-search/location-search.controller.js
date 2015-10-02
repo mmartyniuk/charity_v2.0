@@ -36,15 +36,15 @@
             vm.locationPopover.opened = true;
         }
 
+        function enableShowRegions() {
+            vm.showRegions = true;
+        }
+
         function setLocation(city) {
             vm.location = city;
             vm.showCities = false;
             vm.locationPopover.opened = false;
             setTimeout(vm.enableShowRegions, 50);
-        }
-
-        function enableShowRegions() {
-            vm.showRegions = true;
         }
     }
 })();

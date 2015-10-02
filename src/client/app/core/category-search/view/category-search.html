@@ -20,7 +20,7 @@
     <div class="ng-hide subcategory_child" id="subchild" ng-show="vm.showSubSubCategory">
         <ul class="list-unstyled" role="tablist">
             <li ng-repeat="subchild in vm.categories" ng-if="subchild.parentId == vm.currentSubCategory">
-                <a href="#" ng-click="vm.setCurrentSubSubCategory(subchild.name)">{{subchild.name}}</a>
+                <a href="#" ng-click="vm.setCategory(subchild.name)">{{subchild.name}}</a>
             </li>
         </ul>
     </div>

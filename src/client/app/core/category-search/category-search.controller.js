@@ -14,7 +14,6 @@
         vm.setCategory = setCategory;
         vm.setCurrentCategory = setCurrentCategory;
         vm.setCurrentSubCategory = setCurrentSubCategory;
-        vm.setCurrentSubSubCategory = setCurrentSubSubCategory;
         vm.showCategory = true;
         vm.showSubCategory = false;
         vm.showSubSubCategory = false;
@@ -29,7 +28,6 @@
         //function to identify current category and set child category
         function setCurrentCategory(id) {
             vm.currentCategory = id;
-            vm.checkChild = false;
             vm.showCategory = false;
             vm.showSubCategory = true;
             vm.categoryPopover.opened = true;
@@ -46,16 +44,9 @@
             }, temp);
             if (!temp.length) {
                 vm.setCategory(name);
-            } else {
-                vm.checkChild = true;
-                vm.categoryPopover.opened = true;
             }
             vm.showSubCategory = false;
             vm.showSubSubCategory = true;
-        }
-
-        function setCurrentSubSubCategory(name) {
-            vm.setCategory(name);
         }
 
         function activate() {
