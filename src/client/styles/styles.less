@@ -205,7 +205,7 @@ a {
     word-break: break-all;
 }
 /* <--------------index.html style--------> */
-.no-side-padding {
+.no-gutter {
     padding-left: 0;
     padding-right: 0;
 }
@@ -257,13 +257,13 @@ a {
         margin: 4px;  
         background-color: #fff;
         border: 2px solid @grey-color;
-        border-radius: 10px;
+        border-radius: 4px;
         box-shadow: 1px 1px 5px @grey-color;
         .post-image {
             text-align: center;
             margin-bottom: 10px;
             img {
-                border-radius: 10px 10px 0 0;
+                border-radius: 3px 3px 0 0;
                 width: 100%;
                 &:hover {
                     opacity: 0.8;
@@ -344,8 +344,18 @@ div.form-group.prev-next-buttons {
 
 .my-cabinet {
     .nav-tabs > li {
+        width: 12%;
+        &.wide {
+            width: 19%;
+        }
+        a {
+            text-align: center;
+        }
         &.active a {
             background-color: lightgray;
+        }
+        &:last-child a {
+            margin: 0;
         }
     }
     .tab-content {
@@ -382,6 +392,9 @@ div.form-group.prev-next-buttons {
     }
     .statistics {
         margin-top: 5px;
+    }
+    .message-date {
+        width: 10%;
     }
 
 }
