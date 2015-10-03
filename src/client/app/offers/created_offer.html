@@ -5,7 +5,7 @@
                 <span class="col-xs-4 col-md-2">Пропозиція</span>
             </h2>
             <h2>
-                <span class="col-xs-4 col-md-offset-2 col-md-8">Куртка для Петрика з 7го сирітського будинку</span>
+                <h2 class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">{{vm.currentOffer.name}}</h2>
             </h2>
         </div>
         <div class="row">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                         <p>
-                            <a href="/profile/user">Андрій Козак </a>
+                            <a href="/">{{vm.userCreated.name}}</a>
                             <!--<a href="#">(Інші оголошення користувача)</a>-->
                         </p>
                     </div>
@@ -40,7 +40,7 @@
                         <p>Опубліковано: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>02.07.2015</strong>
+                        <strong>{{vm.currentOffer.dayCreated}}.{{vm.currentOffer.monthCreated}}.{{vm.currentOffer.yearCreated}}</strong>
                     </div>
                 </div>
                 <div class="row">
@@ -49,9 +49,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
                         <ol class="breadcrumb">
-                            <li>Одяг</li>
-                            <li>Дитячий одяг</li>
-                            <li>Светри</li>
+                            <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
+                            <li>{{vm.parentCategory}}</li>
+                            <li>{{vm.category}}</li>
                         </ol>
                     </div>
                 </div>
@@ -59,23 +59,23 @@
                 <h3>Опис пропозиції</h3>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <p>Необхідний светр для маленького Петрика, бажано кілька тому що наближається зима, а в діток в нашому дитячому будинку зовсім немає теплих речей.</p>
+                        <p>{{vm.currentOffer.description}}</p>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                         <p>Розмір: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                         <strong>М</strong>
                     </div>
-                </div>
+                </div>-->
                 <div class="row">
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                         <p>Актуальність: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        до <strong>02.07.2015</strong>
+                        до <strong>{{vm.currentOffer.formattedActualTo}}</strong>
                     </div>
                 </div>
                 <div class="row">
@@ -84,11 +84,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                         <strong>
-                            <span class='street'>вул. Шевченка</span>
-                            <small> / </small>
-                            <span class='house'>12</span>
-                            <small> / </small>
-                            <span class='apartment'>24</span>
+                            <span class='street'>{{vm.currentOffer.address}}</span>
                         </strong>
                     </div>
                 </div>
@@ -97,7 +93,7 @@
                         <p>Зручний час: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>Пн-Пт, 10:00 - 18:00</strong>
+                        <strong>{{vm.currentOffer.convenientTime}}</strong>
                     </div>
                 </div>
                 <div class="row">
@@ -105,7 +101,7 @@
                         <p>Зможу доставити:</p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>Ні</strong>
+                        <strong>{{vm.currentOffer.pickup}}</strong>
                     </div>
                 </div>
                 <hr>

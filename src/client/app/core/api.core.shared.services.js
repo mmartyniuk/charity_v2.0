@@ -21,6 +21,9 @@
                         'x-auth-token': token
                     }
                 }).success(success).error(error);
+            },
+            getCategory: function(link, success, error){
+                $http.get(link).success(success).error(error);
             }
         };
     }

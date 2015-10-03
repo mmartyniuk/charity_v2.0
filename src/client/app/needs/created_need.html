@@ -36,7 +36,7 @@
                         <p>Опубліковано: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>02.07.2015</strong>
+                        <strong>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}</strong>
                     </div>
                 </div>
                 <div class="row">
@@ -45,9 +45,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
                         <ol class="breadcrumb">
-                            <li>Одяг</li>
-                            <li>Дитячий одяг</li>
-                            <li>Светри</li>
+                            <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
+                            <li>{{vm.parentCategory}}</li>
+                            <li>{{vm.category}}</li>
                         </ol>
                     </div>
                 </div>
