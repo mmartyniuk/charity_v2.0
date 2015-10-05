@@ -26,16 +26,16 @@
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a ui-sref="needs.created">{{ need.desc }}</a></strong>
+                        <strong><a ui-sref="needs.created">{{ need.name }}</a></strong>
                         <p>
-                            {{ need.body }}
+                            {{ need.description }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ need.location }}</strong>
+                            <strong>{{ need.address }}</strong>
                             <small> / </small>
-                            <strong>{{ need.date }}</strong>
+                            <strong>{{ need.formattedActualTo }}</strong>
                         </div>
                     </div>
                 </div>

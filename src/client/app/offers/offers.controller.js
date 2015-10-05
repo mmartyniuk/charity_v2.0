@@ -14,11 +14,10 @@
         vm.setSearch = setSearch;
         vm.loadPage = loadPage;
         vm.setCategory = setCategory;
-        vm.offers = {};
-        vm.offers.category = $state.params.prefilled.category;
-        vm.offers.location = $state.params.prefilled.location;
-        vm.category = vm.offers.category;
-        vm.location = vm.offers.location;
+        vm.offers = [];
+        vm.itemsPerPage = 3;
+        vm.category = $state.params.prefilled.category;
+        vm.location = $state.params.prefilled.location;
 
         activate();
 
@@ -27,7 +26,7 @@
         }
 
         function loadPage() {
-            OffersFactory.getOffers(vm.currentPage).then(function(data) {
+            OffersFactory.getOffers(vm.currentPage, vm.itemsPerPage).then(function(data) {
                 vm.offers = data.offers;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
