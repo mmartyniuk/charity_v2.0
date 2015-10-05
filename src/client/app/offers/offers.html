@@ -31,16 +31,16 @@
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
-                        <strong><a ui-sref="offers.created">{{ offer.desc }}</a></strong>
+                        <strong><a ui-sref="offers.created">{{ offer.name }}</a></strong>
                         <p>
-                            {{ offer.body }}
+                            {{ offer.description }}
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong>{{ offer.location }}</strong>
+                            <strong>{{ offer.address }}</strong>
                             <small> / </small>
-                            <strong>{{ offer.date }}</strong>
+                            <strong>{{ offer.formattedActualTo }}</strong>
                         </div>
                     </div>
                 </div>

@@ -15,10 +15,9 @@
         vm.loadPage = loadPage;
         vm.setCategory = setCategory;
         vm.needs = {};
-        vm.needs.category = $state.params.prefilled.category;
-        vm.needs.location = $state.params.prefilled.location;
-        vm.category = vm.needs.category;
-        vm.location = vm.needs.location;
+        vm.itemsPerPage = 3;
+        vm.category = $state.params.prefilled.category;
+        vm.location = $state.params.prefilled.location;
 
         activate();
 
@@ -27,7 +26,7 @@
         }
 
         function loadPage() {
-            NeedsFactory.getNeeds(vm.currentPage).then(function(data) {
+            NeedsFactory.getNeeds(vm.currentPage, vm.itemsPerPage).then(function(data) {
                 vm.needs = data.needs;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;

@@ -12,17 +12,17 @@
 
     function SharedFactory($http, $q) {
         return {
-            getOwner: function(href, success, error){
+            getOwner: function(href, success, error) {
                 $http.get(href).success(success).error(error);
             },
-            getAuthorizedUserInfo: function(token, success, error){
+            getAuthorizedUserInfo: function(token, success, error) {
                 $http.get('api/users/current', {
                     headers: {
                         'x-auth-token': token
                     }
                 }).success(success).error(error);
             },
-            getCategory: function(link, success, error){
+            getCategory: function(link, success, error) {
                 $http.get(link).success(success).error(error);
             }
         };

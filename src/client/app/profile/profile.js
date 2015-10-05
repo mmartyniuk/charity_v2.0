@@ -13,16 +13,15 @@
         vm.title = 'ProfileController';
 
         vm.tabs = {
-            my_needs : {},
-            my_offers : {},
-            sup_needs : {},
-            sup_offers : {},
+            myNeeds : {},
+            myOffers : {},
+            supNeeds : {},
+            supOffers : {},
             messages : {},
             profile : {}
-        }
+        };
 
         activate();
-
 
         function activate() {
             if (!$sessionStorage.token) {
