@@ -43,7 +43,7 @@
             {
                 state: 'needs.edit',
                 config: {
-                    url: '/needs/edit/:id',
+                    url: '/edit/:id',
                     templateUrl: 'app/needs/edit_need.html',
                     controller: 'EditNeedsController',
                     controllerAs: 'vm',
@@ -57,7 +57,7 @@
             {
                 state: 'needs.created',
                 config: {
-                    url: '/needs/createdneed',
+                    url: '/createdneed',
                     templateUrl: 'app/needs/created_need.html',
                     controller: 'CreatedNeedController',
                     controllerAs: 'vm',
@@ -71,7 +71,7 @@
             {
                 state: 'createdproject',
                 config: {
-                    url: '/needs/createdproject',
+                    url: '/createdproject',
                     templateUrl: 'app/needs/createdproject.html',
                     controller: 'CreatedProjectController',
                     controllerAs: 'vm',
@@ -85,7 +85,7 @@
             {
                 state: 'newneed.register',
                 config: {
-                    url: '/needs/newneedregister',
+                    url: '/newneedregister',
                     templateUrl: 'app/needs/new_need_register.html',
                     controller: 'NewNeedRegisterController',
                     controllerAs: 'vm',
@@ -109,11 +109,11 @@
             {
                 state: 'newneed.home',
                 config: {
-                    url: '/newneedstep1',
+                    url: '',
                     templateUrl: 'app/needs/new_need_step_1.html',
                     controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',
-                    title: 'NewNeedBeforeRegisterController',
+                    title: 'NewNeedBeforeRegisterController'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
@@ -123,7 +123,7 @@
             {
                 state: 'newproject',
                 config: {
-                    url: '/needs/new_project.html',
+                    url: '/new_project.html',
                     templateUrl: 'app/needs/new_project.html',
                     controller: 'NewProjectController',
                     controllerAs: 'vm',
