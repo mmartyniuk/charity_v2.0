@@ -105,6 +105,9 @@
                         itemsPerPage: itemsPerPage
                     });
                 });
+            },
+            getConcreteOffer: function(id, success, error){
+                $http.get('/api/offers/' + id).success(success).error(error);
             }
         };
     }

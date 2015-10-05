@@ -14,7 +14,7 @@
             if ($rootScope.savePreviousState) {
                 $state.go($rootScope.savePreviousState);
             } else {
-                $state.go('index')
+                $state.go('index');
             }
         }
 
