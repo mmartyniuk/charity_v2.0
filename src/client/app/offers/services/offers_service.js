@@ -15,7 +15,8 @@
                     $http.get('/api/offers', {
                         params: {
                             page: pageNumber > 0 ? pageNumber - 1 : 0,
-                            size: itemsPerPage
+                            size: itemsPerPage,
+                            projection: 'inLine'
                         }
                     }).success(function(response) {
                         resolve({
