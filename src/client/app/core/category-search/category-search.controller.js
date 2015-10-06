@@ -17,10 +17,9 @@
         vm.showCategory = true;
         vm.showSubCategory = false;
         vm.showSubSubCategory = false;
-
-        vm.categoryPopover = {
-            templateUrl: 'categoryPopoverTemplate.html',
-            opened: false
+        vm.category = vm.category || 'Виберіть категорію';
+        vm.dropdown = {
+            isopen: false
         };
 
         activate();
@@ -30,7 +29,6 @@
             vm.currentCategory = id;
             vm.showCategory = false;
             vm.showSubCategory = true;
-            vm.categoryPopover.opened = true;
         }
 
         //function to identify current category and set child category
@@ -55,8 +53,8 @@
 
         function setCategory(category) {
             vm.category = category;
+            vm.dropdown.isopen = false;
             vm.showSubSubCategory = false;
-            vm.categoryPopover.opened = false;
             vm.showCategory = true;
         }
     }

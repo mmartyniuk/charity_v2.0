@@ -16,24 +16,21 @@
         vm.enableShowRegions = enableShowRegions;
         vm.setLocation = setLocation;
         vm.showRegions = true;
-        vm.locationPopover = {
-            templateUrl: 'locationPopoverTemplate.html',
-            opened: false
-
+        vm.location = vm.location || 'Вкажіть місто';
+        vm.dropdown = {
+            isopen: false
         };
 
         activate();
 
         function activate() {
-            vm.regions = LocationFactory.getRegions();
-            vm.cities = LocationFactory.getCities();
+            LocationFactory.getRegions(successGetRegions);
         }
 
-        function enableShowCities(id) {
-            vm.setRegionId = id;
+        function enableShowCities(api) {
+            LocationFactory.getCities(api, successGetCities);
             vm.showRegions = false;
             vm.showCities = true;
-            vm.locationPopover.opened = true;
         }
 
         function enableShowRegions() {
@@ -42,9 +39,20 @@
 
         function setLocation(city) {
             vm.location = city;
+            vm.dropdown.isopen = false;
             vm.showCities = false;
-            vm.locationPopover.opened = false;
-            setTimeout(vm.enableShowRegions, 50);
+            vm.showRegions = true;
+        }
+
+        function successGetRegions(data){
+            vm.regions = data._embedded.regions;
+            angular.forEach(vm.regions, function(value) {
+                value._links.cities.href = value._links.cities.href.slice(21);
+            }, vm.regions);
+        }
+
+        function successGetCities(data){
+            vm.cities = data._embedded.cities;
         }
     }
 })();

@@ -1,19 +1,19 @@
 <div class="location-search">
-    <input type="text" class="form-control" ng-model="vm.location" placeholder="Вкажіть місто" popover-placement="bottom" popover-template="vm.locationPopover.templateUrl" popover-is-open="vm.locationPopover.opened" popover-trigger="focus"/>
+    <div class="btn-group" dropdown is-open="vm.dropdown.isopen" auto-close="outsideClick">
+        <button id="single-button" type="button" ng-model="vm.location" class="btn" dropdown-toggle>
+            {{ vm.location }}
+        </button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="single-button">
+            <div class="regions" ng-show="vm.showRegions">
+                <span ng-repeat="region in vm.regions">
+                    <a href="#" ng-click="vm.enableShowCities(region._links.cities.href)">{{ region.name }}</a>
+                </span>
+            </div>
+            <div class="cities" ng-show="vm.showCities">
+                <span ng-repeat="city in vm.cities | orderBy: 'name'">
+                    <a href="#" ng-click="vm.setLocation(city.name)">{{ city.name }}</a>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
-<script type="text/ng-template" id="locationPopoverTemplate.html">
-    <div class="regions" ng-show="vm.showRegions">
-        <ul>
-            <li ng-repeat="region in vm.regions">
-                <a href="#" ng-click="vm.enableShowCities(region.id)">{{ region.name }}</a>
-            </li>
-        </ul>
-    </div>
-    <div class="cities" ng-show="vm.showCities">
-        <ul>
-            <li ng-repeat="city in vm.cities" ng-if="city.parentId == vm.setRegionId">
-                <a href="#" ng-click="vm.setLocation(city.name)">{{ city.name }}</a>
-            </li>
-        </ul>
-    </div>
-</script>
