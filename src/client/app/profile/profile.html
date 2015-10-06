@@ -1,327 +1,392 @@
-<section class="my-cabinet">
-    <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-xs-offset-2 col-sm-offset-2">
-            <div class="row">&nbsp;</div>
-            <section>
-                <tabset>
+<section class="my-cabinet container">
+    <section>
 
-                    <tab heading="Опубліковані потреби" active="vm.tabs.myNeeds.active">
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="publication-type">
-                            <form role="form" >
-                                <label class="radio-inline">
-                                    <input disabled="disabled" type="radio" name="optradio" checked>Потреби
-                                </label>
-                                <label class="radio-inline">
-                                    <input disabled="disabled" type="radio" name="optradio">Проекти
-                                </label>
+        <tabset>
+            <tab heading="Опубліковані потреби" active="vm.tabs.my_needs.active" class="wide">
+                <div class="status">
+                    <span><a href="#" class="currneLink">Активні</a></span>
+                    <span><a href="#">Завершені</a></span>
+                </div>
+                <div class="publication-type">
+                    <form role="form">
+                        <label class="radio-inline">
+                            <input disabled="disabled" type="radio" name="optradio" checked>Потреби
+                        </label>
+                        <label class="radio-inline">
+                            <input disabled="disabled" type="radio" name="optradio">Проекти
+                        </label>
+                    </form>
+                </div>
+                <div class="contentWrapper">
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Назва</th>
+                            <th class="text-center">Відгукнулись</th>
+                            <th class="text-center">Опубліковано</th>
+                            <th class="text-center">Актуально до</th>
+                            <th class="text-right">Керування</th>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">6 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+            </tab>
+
+
+            <tab heading="Підтримані потреби" active="vm.tabs.sup_needs.active" class="wide">
+                <div class="status">
+                    <span><a href="#" class="currneLink">Активні</a></span>
+                    <span><a href="#">Завершені</a></span>
+                </div>
+                <div class="contentWrapper">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Назва</th>
+                            <th class="text-center">Автор</th>
+                            <th class="text-center">Опубліковано</th>
+                            <th class="text-center">Актуально до</th>
+                            <th class="text-right">Керування</th>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </tab>
+
+
+            <tab heading="Опубліковані пропозиції" active="vm.tabs.my_offers.active" class="wide">
+                <div class="status">
+                    <span><a href="#" class="currneLink">Активні</a></span>
+                    <span><a href="#">Завершені</a></span>
+                </div>
+                <div class="contentWrapper">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Назва</th>
+                            <th class="text-center">Відгукнулись</th>
+                            <th class="text-center">Опубліковано</th>
+                            <th class="text-center">Актуально до</th>
+                            <th class="text-right">Керування</th>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a href="/needs/edit/1">
+                                    <button type="button" title="Редагувати"
+                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
+                                </a>
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+            </tab>
+
+
+            <tab heading="Підтримані пропозиції" active="vm.tabs.sup_offers.active" class="wide">
+                <div class="status">
+                    <span><a href="#" class="currneLink">Активні</a></span>
+                    <span><a href="#">Завершені</a></span>
+                </div>
+                <div class="contentWrapper">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Назва</th>
+                            <th class="text-center">Автор</th>
+                            <th class="text-center">Опубліковано</th>
+                            <th class="text-center">Актуально до</th>
+                            <th class="text-right">Керування</th>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>29/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                            <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                            <td class="text-center"><span>06/01/2014</span></td>
+                            <td class="text-center"><span>10/07/2016</span></td>
+                            <td class="text-right">
+                                <a>
+                                    <button type="button" title="Закрити"
+                                            class="btn btn-default glyphicon glyphicon-remove"></button>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+            </tab>
+
+
+            <tab heading="Повідомлення" active="vm.tabs.messages.active" class="">
+                <div class="status">
+                    <span><a href="#">Історія повідомлень</a></span>
+                </div>
+                <div class="contentWrapper">
+
+                    <table class="table">
+                        <tr>
+                            <th class="message-date">Дата</th>
+                            <th>Тема</th>
+                        </tr>
+                        <tr class="active">
+                            <td><span>10/14/2015</span></td>
+                            <td><span>Ваша потреба підтримана.</span></td>
+                        </tr>
+                        <tr class="active">
+                            <td><span>05/04/2013</span></td>
+                            <td><span>Перегляньте Вашу пропозицію.</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>10/13/2014</span></td>
+                            <td><span>Вітаємо Вас на нашому сайті.</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>10/13/2014</span></td>
+                            <td><span>Вітаємо Вас на нашому сайті.</span></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </tab>
+
+            <tab heading="Профіль" active="true" class="">
+                <div class="status">
+                    <span><a href="#">Дані користувача</a></span>
+                </div>
+                <div class="contentWrapper user-profile">
+                    <div class="row" id="profile">
+
+                        <div class="col-xs-12 col-md-6">
+                            <form editable-form name="editUser">
+                                <address class>
+                                    <p>
+                                        <strong title="ім'я">Ваше ім&#180;я:</strong>
+                                        <span editable-text="vm.users.name" e-name="name" e-placeholder="Василь Пупкін"
+                                              e-required> {{vm.users.name}}</span>
+                                    </p>
+
+                                    <p>
+                                        <strong title="email">Електронна пошта:</strong>
+                                        <span editable-text="vm.users.email" e-name="email"
+                                              e-placeholder="user@gmail.com" e-required>{{vm.users.email}}</span>
+                                    </p>
+
+                                    <p>
+                                        <strong title="телефон">Телефон:</strong>
+                                        <span editable-text="vm.users.phone" e-name="phone" e-placeholder="0959878589"
+                                              e-required>{{vm.users.phone}}</span>
+                                    </p>
+                                    <strong>Хто Ви: </strong><span>{{vm.users.status}}</span>
+                                </address>
                             </form>
-                        </div>
-                        <div class="contentWrapper">
-
-                            <table class="table table-striped">
-                                <tr>
-                                  <th>Назва</th>
-                                  <th class="text-center">Відгукнулись</th>
-                                  <th class="text-center">Опубліковано</th>
-                                  <th class="text-center">Актуально до</th>
-                                  <th class="text-right">Керування</th>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">6 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-
-                            </table>
-
-                        </div>
-                    </tab>
-
-
-
-                    <tab heading="Підтримані потреби" active="vm.tabs.supNeeds.active">
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                                                        <table class="table table-striped">
-                                <tr>
-                                  <th>Назва</th>
-                                  <th class="text-center">Автор</th>
-                                  <th class="text-center">Опубліковано</th>
-                                  <th class="text-center">Актуально до</th>
-                                  <th class="text-right">Керування</th>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </tab>
-
-
-
-                    <tab heading="Опубліковані пропозиції" active="vm.tabs.myOffers.active">
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                            <table class="table table-striped">
-                                <tr>
-                                  <th>Назва</th>
-                                  <th class="text-center">Відгукнулись</th>
-                                  <th class="text-center">Опубліковано</th>
-                                  <th class="text-center">Актуально до</th>
-                                  <th class="text-right">Керування</th>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a href="/needs/edit/1"><button type="button" title="Редагувати" class="btn btn-primary glyphicon glyphicon-pencil"></button></a>
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-
-                            </table>
-
-                        </div>
-                    </tab>
-
-
-
-                    <tab heading="Підтримані пропозиції" active="vm.tabs.supOffers.active">
-                        <div class="status">
-                            <span><a href="#" class="currneLink">Активні</a></span>
-                            <span><a href="#">Завершені</a></span>
-                        </div>
-                        <div class="contentWrapper">
-                            <table class="table table-striped">
-                                <tr>
-                                  <th>Назва</th>
-                                  <th class="text-center">Автор</th>
-                                  <th class="text-center">Опубліковано</th>
-                                  <th class="text-center">Актуально до</th>
-                                  <th class="text-right">Керування</th>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>29/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                                    <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                                    <td class="text-center"><span>06/01/2014</span></td>
-                                    <td class="text-center"><span>10/07/2016</span></td>
-                                    <td class="text-right">
-                                       <a><button type="button" title="Закрити" class="btn btn-default glyphicon glyphicon-remove"></button></a>
-                                    </td>
-                                </tr>
-
-
-                            </table>
-
-                        </div>
-                    </tab>
-
-
-
-                    <tab heading="Повідомлення" active="vm.tabs.messages.active">
-                        <div class="status">
-                            <span><a href="#">Історія повідомлень</a></span>
-                        </div>
-                        <div class="contentWrapper">
-
-                            <table class="table">
-                                <tr class="active">
-                                    <td><span>10/14/2015</span></td>
-                                    <td><span>Ваша потреба підтримана.</span></td>
-                                </tr>
-                                <tr class="active">
-                                    <td><span>05/04/2013</span></td>
-                                    <td><span>Перегляньте Вашу пропозицію.</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>10/13/2014</span></td>
-                                    <td><span>Вітаємо Вас на нашому сайті.</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>10/13/2014</span></td>
-                                    <td><span>Вітаємо Вас на нашому сайті.</span></td>
-                                </tr>
-                            </table>
-
-                        </div>
-                    </tab>
-
-                    <tab heading="Профіль" active="true">
-                        <div class="status">
-                            <span><a href="#">Дані користувача</a></span>
-                        </div>
-                        <div class="contentWrapper user-profile">
-                            <div class="row" id="profile">
-
-                                <div class="col-xs-12 col-md-6">
-                                    <form editable-form name="editUser" >
-                                        <address class>
-                                            <strong title="ім'я">Ваше ім&#180;я:</strong>
-                                            <span editable-text="vm.users.name" e-name="name" e-placeholder="Василь Пупкін" e-required> {{vm.users.name}}</span><br>
-                                            <strong title="email">Електронна пошта:</strong>
-                                            <span editable-text="vm.users.email" e-name="email" e-placeholder="user@gmail.com" e-required>{{vm.users.email}}</span><br>
-                                            <strong title="телефон">Телефон:</strong>
-                                            <span editable-text="vm.users.phone" e-name="phone" e-placeholder="0959878589" e-required>{{vm.users.phone}}</span><br>
-                                            <strong>Хто Ви:  </strong><span>{{vm.users.status}}</span><br>
-                                        </address>
-                                    </form>
-                                    <div>
-                                        <!-- button to show form -->
-                                        <button type="button" title="Редагувати" class="btn btn-primary" ng-click="editUser.$show()" ng-show="!editUser.$visible">
-                                        Редагувати
-                                        </button>
-                                        <!-- buttons to submit / cancel form -->
-                                        <span ng-show="editUser.$visible">
-                                            <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
-                                                Зберегти
-                                            </button>
-                                            <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting" ng-click="editUser.$cancel()">
-                                                Відмінити
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="statistics col-xs-12 col-md-6">
-                                    <ul class="list-group">
-                                         <li class="list-group-item">
-                                            <span class="badge stats"><a ng-click="vm.tabs.myNeeds.active = true" href="">3</a></span>
-                                            Опубліковані Потреби:
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="badge stats"><a ng-click="vm.tabs.supNeeds.active = true" href="">3</a></span>
-                                            Підтримані потреби:
-                                         </li>
-                                         <li class="list-group-item">
-                                            <span class="badge stats"><a ng-click="vm.tabs.myOffers.active = true" href="">3</a></span>
-                                            Опубліковані Пропозиції:
-                                         </li>
-                                        <li class="list-group-item">
-                                            <span class="badge stats"><a ng-click="vm.tabs.supOffers.active = true" href="">3</a></span>
-                                            Підтримані Пропозиції:
-                                        </li>
-                                    </ul>
-                                </div>
-
+                            <div>
+                                <!-- button to show form -->
+                                <button type="button" title="Редагувати" class="btn btn-primary"
+                                        ng-click="editUser.$show()" ng-show="!editUser.$visible">
+                                    Редагувати
+                                </button>
+                                <!-- buttons to submit / cancel form -->
+                                <span ng-show="editUser.$visible">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting"
+                                            ng-click="editUser.$cancel()">
+                                        Зберегти
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting"
+                                            ng-click="editUser.$cancel()">
+                                        Відмінити
+                                    </button>
+                                </span>
                             </div>
                         </div>
-                    </tab>
-                </tabset>
+                        <div class="statistics col-xs-12 col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="badge stats"><a ng-click="vm.tabs.my_needs.active = true" href="">3</a></span>
+                                    Опубліковані Потреби:
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge stats"><a ng-click="vm.tabs.sup_needs.active = true"
+                                                                 href="">3</a></span>
+                                    Підтримані потреби:
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge stats"><a ng-click="vm.tabs.my_offers.active = true"
+                                                                 href="">3</a></span>
+                                    Опубліковані Пропозиції:
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge stats"><a ng-click="vm.tabs.sup_offers.active = true"
+                                                                 href="">3</a></span>
+                                    Підтримані Пропозиції:
+                                </li>
+                            </ul>
+                        </div>
 
-            </section>
-        </div>
-    </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </section>
 </section>

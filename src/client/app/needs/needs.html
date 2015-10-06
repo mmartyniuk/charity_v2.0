@@ -1,21 +1,19 @@
 <section>
-    <div class="contentWrapper">
+    <div class="contentWrapper container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2">
-                <category-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" category="vm.category"></category-search>
-                <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" location="vm.location"></location-search>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
-                        </span>
-                    </div>
+            <category-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" category="vm.category"></category-search>
+            <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" location="vm.location"></location-search>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 col-md-offset-2 col-lg-offset-2 search-result">
+    <div class="container search-result">
         <hr>
         <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
         <hr>
