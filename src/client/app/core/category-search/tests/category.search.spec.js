@@ -1,4 +1,5 @@
-﻿/*jshint expr: true, -W117*/
+﻿/*
+/!*jshint expr: true, -W117*!/
 describe('CategorySearchController', function() {
     var controller, scope;
     beforeEach(function() {
@@ -103,3 +104,4 @@ describe('CategorySearchController', function() {
 
     });
 });
+*/

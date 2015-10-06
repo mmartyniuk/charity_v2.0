@@ -9,7 +9,7 @@
 
     function LocationFactory($http) {
         return {
-            getRegions: function(success){
+            getRegions: function(success) {
                 $http.get('/api/regions').success(success);
             },
 

@@ -22,10 +22,8 @@
             'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
         vm.editedNeed.regions = 'Київська область‎';
         vm.editedNeed.city = 'Київ';
-        vm.editedNeed.flat = 'Номер квартири';
         vm.editedNeed.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedNeed.street = 'вул. Тараса Шевченка';
-        vm.editedNeed.house = 'Номер будинку';
+        vm.editedNeed.address = 'вул. Шевченка 5/15';
         vm.editedNeed.status = 0;
         vm.editedNeedStatuses = [{
             value: 1,

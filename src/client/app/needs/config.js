@@ -47,7 +47,7 @@
                     templateUrl: 'app/needs/edit_need.html',
                     controller: 'EditNeedsController',
                     controllerAs: 'vm',
-                    title: 'editNeed',
+                    title: 'editNeed'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
@@ -75,7 +75,7 @@
                     templateUrl: 'app/needs/createdproject.html',
                     controller: 'CreatedProjectController',
                     controllerAs: 'vm',
-                    title: 'CreatedProject',
+                    title: 'CreatedProject'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
@@ -127,7 +127,7 @@
                     templateUrl: 'app/needs/new_project.html',
                     controller: 'NewProjectController',
                     controllerAs: 'vm',
-                    title: 'NewProject',
+                    title: 'NewProject'
                     /*settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'

@@ -44,14 +44,14 @@
             vm.showRegions = true;
         }
 
-        function successGetRegions(data){
+        function successGetRegions(data) {
             vm.regions = data._embedded.regions;
             angular.forEach(vm.regions, function(value) {
                 value._links.cities.href = value._links.cities.href.slice(21);
             }, vm.regions);
         }
 
-        function successGetCities(data){
+        function successGetCities(data) {
             vm.cities = data._embedded.cities;
         }
     }
