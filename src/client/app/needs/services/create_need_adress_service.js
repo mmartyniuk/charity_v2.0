@@ -15,9 +15,8 @@
                  vm.adress = data;
                  })*/
                 var address = {
-                    'street': 'Мазепи',
-                    'house': 'Дім 3',
-                    'flat': 'Квартира 2'
+                    'location': 'вул Мазепи Дім 3/44'
+
                 };
 
                 return $q(function(resolve, reject) {

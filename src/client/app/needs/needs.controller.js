@@ -28,6 +28,7 @@
         function loadPage() {
             NeedsFactory.getNeeds(vm.currentPage, vm.itemsPerPage).then(function(data) {
                 vm.needs = data.needs;
+                console.log(data.needs);
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
