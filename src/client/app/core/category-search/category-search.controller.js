@@ -53,6 +53,7 @@
 
         function setCategory(category) {
             vm.category = category;
+            vm.categoryButton = vm.category;
             vm.dropdown.isopen = false;
             vm.showSubSubCategory = false;
             vm.showCategory = true;
