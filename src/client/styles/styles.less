@@ -176,7 +176,7 @@ a {
         width: 100%;
     }
 
-    
+
 }
 
 
@@ -184,14 +184,6 @@ a {
 #profileEdit {
     box-shadow: 5px 5px 2px #add8e6;
     margin-left: 1em;
-}
-
-.location-search ul, .category-search ul {
-    padding-left: 0;
-}
-
-.location-search ul li, .category-search ul li {
-    list-style-type: none;
 }
 
 /* <--------------login.html style--------> */
@@ -266,7 +258,7 @@ a {
     }
     .post-panel {
 
-        margin: 4px;  
+        margin: 4px;
         background-color: #fff;
         border: 2px solid @grey-color;
         border-radius: 4px;
@@ -393,7 +385,7 @@ div.form-group.prev-next-buttons {
         .stats a {
             color: #fff;
         }
-        #profile {        
+        #profile {
             .editable-wrap {
                 display: block;
             }
@@ -482,13 +474,40 @@ div.form-group.prev-next-buttons {
 
 /* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
 
-/* <-------------- Popover --------> */
-.popover {
-    max-width: 600px;
+/* <-------------- Dropdown --------> */
+location-search .dropdown-menu {
+    width: 1140px;
+    right: -95px;
+    left: auto;
+    padding-left: 10px;
 }
 
-category-search .subcategory, category-search .subcategory_child {
-    padding-left: 5px;
-    border: none;
+category-search .dropdown-menu {
+    padding-left: 10px;
+    min-width: 175px;
 }
-/* <-------------- Popover  END--------> */
+
+location-search .btn-group, location-search button, category-search .btn-group, category-search button {
+    width: 100%;
+}
+
+location-search .btn-group {
+    position: absolute;
+}
+
+.cities span, .regions span, category-search span {
+    display: inline-block;
+}
+
+category-search span {
+    width: 100%;
+}
+
+.cities span {
+    width: 210px;
+}
+
+.regions span {
+    width: 185px;
+}
+/* <-------------- Dropdown  END--------> */
