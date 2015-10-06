@@ -39,6 +39,7 @@
 
         function setLocation(city) {
             vm.location = city;
+            vm.locationButton = vm.location;
             vm.dropdown.isopen = false;
             vm.showCities = false;
             vm.showRegions = true;
