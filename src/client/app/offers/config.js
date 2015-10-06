@@ -58,7 +58,7 @@
             {
                 state: 'offers.created',
                 config: {
-                    url: '/createdoffer',
+                    url: '/createdoffer/:id',
                     templateUrl: 'app/offers/created_offer.html',
                     controller: 'CreatedOfferController',
                     controllerAs: 'vm',

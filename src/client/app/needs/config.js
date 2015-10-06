@@ -57,7 +57,7 @@
             {
                 state: 'needs.created',
                 config: {
-                    url: '/createdneed',
+                    url: '/createdneed/:id',
                     templateUrl: 'app/needs/created_need.html',
                     controller: 'CreatedNeedController',
                     controllerAs: 'vm',
