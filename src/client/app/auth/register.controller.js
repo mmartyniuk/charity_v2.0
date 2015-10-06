@@ -14,8 +14,14 @@
 
         vm.signup = function () {
             var formData = {
+                //mail: vm.mail,
                 username: vm.username,
                 password: vm.password
+                //phone: vm.phone,
+                //city: vm.city,
+                //region: vm.region,
+                //address: vm.address,
+                //role: vm.role
             };
 
             Auth.signup(formData).then(function(data, status, headers) {

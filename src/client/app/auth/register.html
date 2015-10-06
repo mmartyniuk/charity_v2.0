@@ -4,27 +4,84 @@
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <strong>Sign up</strong>
+                        <strong>Зареєструватися</strong>
                     </div>
                     <div class="panel-body">
-                        <form ng-submit="vm.signup()" role="form" class="form-horizontal ng-pristine ng-valid ng-valid-email">
+                        <form ng-submit="vm.signup()" role="form"
+                              class="form-horizontal ng-pristine ng-valid ng-valid-email">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="email">Email</label>
+                                <label class="col-sm-2 control-label" for="email">Почта</label>
 
                                 <div class="col-sm-10">
-                                    <input type="email" ng-model="vm.username" placeholder="Email" name="email" id="email" class="form-control ng-pristine ng-untouched ng-valid ng-valid-email">
+                                    <input type="email" ng-model="vm.username" placeholder="Почта" name="email" id="email"
+                                           class="form-control ng-pristine ng-untouched ng-valid ng-valid-email">
                                 </div>
                             </div>
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-sm-2 control-label" for="username">Імя, Фамілія</label>-->
+
+                                <!--<div class="col-sm-10">-->
+                                    <!--<input ng-model="vm.username" placeholder="Імя, Фамілія"-->
+                                           <!--name="username" id="username"-->
+                                           <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                    <!--<label class="col-sm-2 control-label" for="phone">Телефон</label>-->
+
+                                    <!--<div class="col-sm-10">-->
+                                        <!--<input ng-model="vm.phone" placeholder="Телефон" name="phone"-->
+                                               <!--id="phone"-->
+                                               <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                    <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-sm-2 control-label" for="region">Область</label>-->
+
+                                <!--<div class="col-sm-10">-->
+                                    <!--<input ng-model="vm.region" placeholder="Область" name="region"-->
+                                           <!--id="region"-->
+                                           <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-sm-2 control-label" for="city">Місто</label>-->
+
+                                <!--<div class="col-sm-10">-->
+                                    <!--<input ng-model="vm.city" placeholder="Місто" name="city" id="city"-->
+                                           <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-sm-2 control-label" for="address">Адрес</label>-->
+
+                                <!--<div class="col-sm-10">-->
+                                    <!--<input ng-model="vm.address" placeholder="Адрес" name="address"-->
+                                           <!--id="address"-->
+                                           <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-sm-2 control-label" for="role">Роль</label>-->
+
+                                <!--<div class="col-sm-10">-->
+                                    <!--<input ng-model="vm.role" placeholder="Волонтер, користувач" name="role"-->
+                                           <!--id="role"-->
+                                           <!--class="form-control ng-pristine ng-untouched ng-valid">-->
+                                <!--</div>-->
+                            <!--</div>-->
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="password">Password</label>
+                                <label class="col-sm-2 control-label" for="password">Пароль</label>
 
                                 <div class="col-sm-10">
-                                    <input type="password" ng-model="vm.password" placeholder="Password" name="password" id="password" class="form-control ng-pristine ng-untouched ng-valid">
+                                    <input type="password" ng-model="vm.password" placeholder="Пароль"
+                                           name="password"
+                                           id="password" class="form-control ng-pristine ng-untouched ng-valid">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button class="btn btn-primary pull-right" type="submit">Sign up</button>
+                                    <button class="btn btn-primary pull-right" type="submit">Готово</button>
                                 </div>
                             </div>
                             <p class="error ng-binding ng-hide" data-ng-show="error"></p>
