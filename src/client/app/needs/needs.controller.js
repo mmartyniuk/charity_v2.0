@@ -23,7 +23,6 @@
 
         function activate() {
             loadPage();
-            console.log(vm.location);
         }
 
         function loadPage() {

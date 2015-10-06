@@ -17,7 +17,7 @@
         vm.showCategory = true;
         vm.showSubCategory = false;
         vm.showSubSubCategory = false;
-        vm.category = vm.category || 'Виберіть категорію';
+        vm.categoryButton = vm.category || 'Виберіть категорію';
         vm.dropdown = {
             isopen: false
         };

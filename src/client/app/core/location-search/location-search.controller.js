@@ -16,7 +16,7 @@
         vm.enableShowRegions = enableShowRegions;
         vm.setLocation = setLocation;
         vm.showRegions = true;
-        vm.location = vm.location || 'Вкажіть місто';
+        vm.locationButton = vm.location || 'Вкажіть місто';
         vm.dropdown = {
             isopen: false
         };
