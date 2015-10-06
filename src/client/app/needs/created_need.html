@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                         <strong>
-                            <span class='street'>{{vm.currentNeed.address}}</span>
+                            <span class='street' ng-show="vm.currentNeed.address">{{vm.currentNeed.address}}</span>
                         </strong>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                         <p>Зручний час: </p>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentNeed.convenientTime}}</strong>
+                        <strong ng-show="vm.currentNeed.convenientTime">{{vm.currentNeed.convenientTime}}</strong>
                     </div>
                 </div>
                 <div class="row">
