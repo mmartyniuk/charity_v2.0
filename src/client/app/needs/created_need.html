@@ -106,9 +106,22 @@
                         <a ui-sref="needs.home" class="btn btn-primary">Редагувати</a>
                         <a href="/" class="btn btn-default">Закрити</a>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="!vm.authorizedUser.ifOwner">
-                        <a ui-sref="needs.home" class="btn btn-primary">Відгукнутись</a>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
+                        <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToNeed">
+                        <button class="btn btn-default" ng-click="vm.cancelResponce()">Відмінити відгук</button>
+                    </div>
+                </div>
+                <div collapse="!isCollapsed" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <button type="button" class="close" aria-label="Close" ng-click="isCollapsed = !isCollapsed"><span aria-hidden="true" >&times;</span></button>
+                    <form ng-submit="vm.respondToNeed()">
+                        <div class="form-group">
+                            <label for="details">Деталі</label>
+                            <textarea class="form-control" id="details" placeholder="Введіть будь ласка деталі" ng-model="vm.respondData.description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">Підтвердити</button>
+                    </form>
                 </div>
             </div>
         </div>

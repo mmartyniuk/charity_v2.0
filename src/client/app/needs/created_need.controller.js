@@ -6,73 +6,31 @@
         .module('app.needs')
         .controller('CreatedNeedController', CreatedNeedController);
 
-    CreatedNeedController.$inject = ['$location', 'NeedsFactory', '$sessionStorage', 'SharedFactory'];
+    CreatedNeedController.$inject = ['$location', 'NeedsFactory', '$sessionStorage', 'SharedFactory', '$state'];
 
-    function CreatedNeedController($location, NeedsFactory, $sessionStorage, SharedFactory) {
+    function CreatedNeedController($location, NeedsFactory, $sessionStorage, SharedFactory, $state) {
 
         var vm = this;
         vm.title = 'CreatedNeedController';
 
-        vm.currentNeed = {};
-        vm.userCreated = {};
-        vm.authorizedUser = {};
+        vm.currentNeed = {}; // here we will store all data for need, which is currently displayed
+        vm.userCreated = {}; // here we will store all data for user, who have created this need
+        vm.authorizedUser = {}; // here we will store all data for user, who is authorized
         vm.category = {};
+        vm.respondData = {}; // here we will store all responses
+        vm.userRespondedToNeed = false; // user hasn't responded to this need by default
 
-        // applying data from successful response to user api to vm.userCreated variable
+        // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
         function succeedGetOwner(data){
             vm.userCreated = data;
-        }
-
-        // here we apply all data about this need to vm.currentNeed variable
-        // and make additional api call to user (who had written this need) profile
-        function successResponse(data) {
-            vm.currentNeed = data;
-
-            // parsing date here
-            vm.currentNeed.dateCreated = new Date(Date.parse(vm.currentNeed.created));
-            vm.currentNeed.dayCreated = vm.currentNeed.dateCreated.getDate();
-            vm.currentNeed.monthCreated = vm.currentNeed.dateCreated.getMonth() + 1;
-            vm.currentNeed.yearCreated = vm.currentNeed.dateCreated.getFullYear();
-
-            vm.tempAddressUser = vm.currentNeed._links.userCreated.href.slice(vm.currentNeed._links.userCreated.href.search('/api'), vm.currentNeed._links.userCreated.href.length);
-            vm.tempAddressCategory = vm.currentNeed._links.category.href.slice(vm.currentNeed._links.category.href.search('/api'), vm.currentNeed._links.category.href.length);
-            // making here next call to api, to get user
-            // this is needed to check if current user is owner of this need
-            // if so - edit and close buttons will be available and user will see responses from other users
-            // if not - respond button will be available
-
-            // api/core/api.core.shared.service.js - factory for reusable components for needs and offers
-            // please use it when you'll work with offer
-            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function(){
-                console.log('something wrong');
-            });
-            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function(){
-                console.log('something wrong');
-            });
-            if (vm.currentNeed.pickup) {
-                vm.currentNeed.pickup = 'Так';
-            } else {
-                vm.currentNeed.pickup = 'Ні';
+            if ($sessionStorage.token){
+                vm.userCreated.authorized = true;
             }
-        }
-        vm.currentNeed = function () {
-            // hardcoded data for testing
-            var needId = 1;
-            NeedsFactory.getConcreteNeed(needId, successResponse, function () {
-                console.log('something wrong');
-            });
-        };
-
-        function succeedGetAuthorizedUserInfo(data) {
-            vm.authorizedUser.username = data.username;
-            if (vm.authorizedUser.username === vm.userCreated.username) {
-                vm.authorizedUser.ifOwner = true;
-            } else {
-                vm.authorizedUser.ifOwner = false;
-            }
+            vm.userCheck();
         }
 
+        // categories
         function succeedGetMainCategory(data) {
             vm.mainCategory = data.name;
         }
@@ -95,19 +53,127 @@
             });
         }
 
+        // here we apply all data about this need to vm.currentNeed variable
+        // and make additional api call to user (who had written this need) profile
+        function successResponse(data) {
+            vm.currentNeed = data;
+
+            // parsing date here
+            vm.currentNeed.dateCreated = new Date(Date.parse(vm.currentNeed.created));
+            vm.currentNeed.dayCreated = vm.currentNeed.dateCreated.getDate();
+            vm.currentNeed.monthCreated = vm.currentNeed.dateCreated.getMonth() + 1;
+            vm.currentNeed.yearCreated = vm.currentNeed.dateCreated.getFullYear();
+
+            vm.tempAddressUser = vm.currentNeed._links.userCreated.href.slice(vm.currentNeed._links.userCreated.href.search('/api'), vm.currentNeed._links.userCreated.href.length);
+            vm.tempAddressCategory = vm.currentNeed._links.category.href.slice(vm.currentNeed._links.category.href.search('/api'), vm.currentNeed._links.category.href.length);
+            // making here next call to api, to get user
+            // this is needed to check if current user is owner of this need
+            // if so - edit and close buttons will be available and user will see responses from other users
+            // if not - respond button will be available
+            // api/core/api.core.shared.service.js - factory for reusable components for needs and offers
+            // please use it when you'll work with offer
+
+            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function(){
+                console.log('something wrong');
+            });
+            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function(){
+                console.log('something wrong');
+            });
+            if (vm.currentNeed.pickup) {
+                vm.currentNeed.pickup = 'Так';
+            } else {
+                vm.currentNeed.pickup = 'Ні';
+            }
+        }
+        // important, getting data from API about this need
+        vm.currentNeed = function () {
+            // hardcoded data for testing
+            var needId = 1;
+            NeedsFactory.getConcreteNeed(needId, successResponse, function () {
+                console.log('something wrong');
+            });
+        };
+
+        // getting data about user who is authorized
+        function succeedGetAuthorizedUserInfo(data) {
+            vm.authorizedUser = data;
+            if (vm.authorizedUser.username === vm.userCreated.username) {
+                vm.authorizedUser.ifOwner = true;
+                console.log('user is owner of this need');
+            } else {
+                vm.authorizedUser.ifOwner = false;
+                console.log('user is not owner of this need and can respond to it');
+            }
+        }
+
+        //  getting info about responses from API
+        function currentResponses(data){
+            if (data._embedded){
+                vm.responsesObj = data._embedded.needs_responses; // array with responses objects
+                for (var i = 0, len = vm.responsesObj.length; i < len; i++){
+                    if(vm.responsesObj[i].userId === vm.authorizedUser.id){ // if user has already responded to this need
+                        vm.userRespondedToNeed = true; // then we disable 'respond' button
+                        vm.linkToMyResponse = vm.responsesObj[i]._links.self.href; // getting link to response
+                        break;
+                    }
+                }
+                // here will be logic for need owner to show needs
+            }
+        }
+
+        // getting info about user
         vm.userCheck = function(){
             if($sessionStorage.token){
-                vm.userCreated.authorized = true;
                 SharedFactory.getAuthorizedUserInfo($sessionStorage.token, succeedGetAuthorizedUserInfo, function(){
                     console.log('something wrong');
                 });
+                vm.idResp = 1; // temp hack, till we have correct previous page
+                NeedsFactory.checkIfNeedRespondAlreadyExists(vm.idResp, currentResponses, function () {
+                    console.log('error');
+                });
             }
         };
-        activate();
+
+        // action which is performed after respond
+        function succeedWithRespond() {
+            vm.userRespondedToNeed = true;
+            vm.userCheck();
+        }
+
+        // sending response options to backend
+        vm.respondToNeed = function(){
+            vm.respondData.user = 'http://localhost:8088/api/users/' + vm.authorizedUser.id; // temporary hardcode
+            vm.respondData.need = vm.currentNeed._links.self.href;
+            NeedsFactory.respondToCurrentNeed(vm.respondData, succeedWithRespond, function () {
+                console.log('respond is not send');
+            });
+        };
+
+        // here are conditions when respond button will / will not be shown
+        vm.allowResponse = function () {
+            if (vm.userCreated.authorized && !vm.authorizedUser.ifOwner && !vm.userRespondedToNeed){
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        // after deleting the response we allow user to respond again
+        function succeedWithDelete () {
+            return vm.userRespondedToNeed = false;
+        }
+
+        vm.cancelResponce = function () {
+            vm.linkToRemoveResponse = vm.linkToMyResponse.slice(vm.linkToMyResponse.search('/api'), vm.linkToMyResponse.length);
+            NeedsFactory.cancelUserResponse(vm.linkToRemoveResponse, succeedWithDelete, function () {
+                console.log('respond is not send');
+            });
+        };
 
         function activate() {
             vm.currentNeed();
-            vm.userCheck();
         }
+
+        activate();
     }
 })();
