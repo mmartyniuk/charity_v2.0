@@ -10,6 +10,10 @@
 
     function EditNeedFactory($http, $q) {
         return {
+
+            getConcreteNeed: function(id) {
+                return $http.get('/api/needs/' + id);
+            },
             getRegions: function() {
                 //tbd when there will be api to call, till that time hardcoded the
                 // vm.categories array to verify if factory is properly working
