@@ -16,7 +16,7 @@
             {
                 state: 'profile',
                 config: {
-                    url: '/profile',
+                    url: '',
                     abstract: true,
                     template: '<ui-view/>',
                     title: 'profile'
@@ -32,7 +32,7 @@
                     url: '',
                     templateUrl: 'app/profile/profile.html',
                     controller: 'ProfileController',
-                    controllerAs: 'vm',
+                    controllerAs: 'vm'
                     /*settings: {
                      nav: 2,
                      content: '<i class="fa fa-lock"></i> Admin'
@@ -42,7 +42,7 @@
             {
                 state: 'profile.user',
                 config: {
-                    url: '/profile/user',
+                    url: '/profile/user/:id',
                     templateUrl: 'app/profile/user_profile.html',
                     title: 'userProfile'
                     /*settings: {

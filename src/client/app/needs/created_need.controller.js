@@ -6,9 +6,9 @@
         .module('app.needs')
         .controller('CreatedNeedController', CreatedNeedController);
 
-    CreatedNeedController.$inject = ['$location', 'NeedsFactory', '$sessionStorage', 'SharedFactory', '$state'];
+    CreatedNeedController.$inject = ['$stateParams', 'NeedsFactory', '$sessionStorage', 'SharedFactory', '$state'];
 
-    function CreatedNeedController($location, NeedsFactory, $sessionStorage, SharedFactory, $state) {
+    function CreatedNeedController($stateParams, NeedsFactory, $sessionStorage, SharedFactory, $state) {
 
         var vm = this;
         vm.title = 'CreatedNeedController';
@@ -90,9 +90,9 @@
         }
         // important, getting data from API about this need
         vm.currentNeed = function () {
-            // hardcoded data for testing
-            var needId = 1;
-            NeedsFactory.getConcreteNeed(needId, successResponse, function () {
+            NeedsFactory.getConcreteNeed($stateParams.id).then(function(response) {
+                console.log(response);
+            }).catch(function() {
                 console.log('something wrong');
             });
         };
@@ -101,7 +101,7 @@
         function succeedGetAuthorizedUserInfo(data) {
             vm.authorizedUser = data;
             if (vm.authorizedUser.username === vm.userCreated.username) {
-                vm.authorizedUser.ifOwner = true
+                vm.authorizedUser.ifOwner = true;
                 // here actions for owner
                 vm.getAllResponses();
                 vm.showResponsesToOwner = true;

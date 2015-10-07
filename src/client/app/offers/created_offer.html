@@ -78,7 +78,7 @@
                         до <strong>{{vm.currentOffer.formattedActualTo}}</strong>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-show="vm.currentOffer.address">
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                         <p>Адреса: </p>
                     </div>
@@ -88,7 +88,7 @@
                         </strong>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-show="vm.currentOffer.convenientTime">
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                         <p>Зручний час: </p>
                     </div>

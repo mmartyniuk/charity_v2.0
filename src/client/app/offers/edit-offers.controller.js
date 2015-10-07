@@ -21,10 +21,8 @@
             'і розумна собачка, середньої породи. Потрібні хороші люблячі';
         vm.editedOffer.regions = 'Київська область‎';
         vm.editedOffer.city = 'Київ';
-        vm.editedOffer.flat = 'Номер квартири';
         vm.editedOffer.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedOffer.street = 'вул. Тараса Шевченка';
-        vm.editedOffer.house = 'Номер будинку';
+        vm.editedOffer.address = 'вул. Тараса Шевченка 5/15';
         vm.editedOffer.status = 0;
         vm.editedOfferStatuses = [{
             value: 1,

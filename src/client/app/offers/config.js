@@ -44,7 +44,7 @@
             {
                 state: 'offers.edit',
                 config: {
-                    url: '/offers/edit/:id',
+                    url: '/edit/:id',
                     templateUrl: 'app/offers/edit_offer.html',
                     controller: 'EditOffersController',
                     controllerAs: 'vm',
@@ -58,7 +58,7 @@
             {
                 state: 'offers.created',
                 config: {
-                    url: '/offers/createdoffer',
+                    url: '/createdoffer/:id',
                     templateUrl: 'app/offers/created_offer.html',
                     controller: 'CreatedOfferController',
                     controllerAs: 'vm',
@@ -99,7 +99,7 @@
             {
                 state: 'newoffer.register',
                 config: {
-                    url: '/newoffer/register',
+                    url: '/register',
                     templateUrl: 'app/offers/new_offer_register.html',
                     controller: 'NewOfferRegisterController',
                     controllerAs: 'vm',

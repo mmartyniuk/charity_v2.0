@@ -9,19 +9,19 @@
     <section class="main-filters">
         <div class="container">
 
-            <div class="col-xs-12 col-sm-9 no-side-padding">
-                <div class="btn-group pull-left col-xs-3 no-side-padding margin-bottom-20" dropdown is-open="status.isopen">
+            <div class="col-xs-12 col-sm-11 no-gutter">
+                <div class="col-xs-6 no-gutter margin-bottom-20">
+                    <input id="key-search" type="search" class="form-control " placeholder="Що ви шукаєте...">
+                </div>
+                <div class="btn-group col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
                     <input id="single-button" type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Що шукаємо?"/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a></li>
                     </ul>
                 </div>
-                <category-search class="col-xs-3 no-side-padding margin-bottom-20" category="vm.category"></category-search>
-                <location-search class="col-xs-3 no-side-padding margin-bottom-20" location="vm.location"></location-search>
-                <div class="col-xs-3 no-side-padding margin-bottom-20">
-                    <input type="search" class="form-control " placeholder="Пошук по ключу...">
-                </div>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
+                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
                 <!--div class="col-xs-12 col-sm-4 margin-bottom-20">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
@@ -31,24 +31,37 @@
                     </div>
                 </div-->
             </div>
-            <button class="col-xs-12 col-sm-3 btn btn-success" ng-click="vm.submitCategorySearch(vm.category, vm.location)">Шукати!</button>
+            <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search" ng-click="vm.submitCategorySearch(vm.category, vm.location)"></button>
 
         </div>
     </section>
     <section class="recent-publications container">
 
-        <div class="well">
+        <div class="well" ng-repeat="needs in vm.needsData | orderBy: 'date': true | limitTo: 2">
                 <h2 class="text-center">Останні потреби</h2>
                 <div class="recent-needs">
                     <div class="row">
-                        <div class="col-xs-3">
-                            <div>
-                                <div>
-                                    <img src="../../images/computer.jpg" alt="computer" width="250px">
+                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                            <div class="post-panel">
+                                <div class="post-image">
+                                    <img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block">
                                 </div>
-                                <div class="text-center">
-                                    <strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong>
-                                    <br>
+                                <div class="post-description">
+                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
+                                    <strong>{{ needs.location  }}</strong>
+                                    <small> / </small>
+                                    <strong>{{ needs.date | date:'dd-MM-yyyy'  }}</strong>
+                                    <p><b>Автор: </b><a href="/profile/user">{{ needs.author }}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                            <div class="post-panel">
+                                <div class="post-image">
+                                    <img src="../../images/socks_bk.png" alt="computer" class="img-responsive center-block">
+                                </div>
+                                <div class="post-description">
+                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
                                     <strong>м.Львів{{  }}</strong>
                                     <small> / </small>
                                     <strong>11.03.2015{{ }}</strong>
@@ -56,14 +69,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div>
-                                <div>
-                                    <img src="../../images/computer.jpg" alt="computer" width="250px">
+                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                            <div class="post-panel">
+                                <div class="post-image">
+                                    <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
                                 </div>
-                                <div class="text-center">
-                                    <strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong>
-                                    <br>
+                                <div class="post-description">
+                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
                                     <strong>м.Львів{{  }}</strong>
                                     <small> / </small>
                                     <strong>11.03.2015{{ }}</strong>
@@ -71,29 +83,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div>
-                                <div>
-                                    <img src="../../images/computer.jpg" alt="computer" width="250px">
+                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                            <div class="post-panel">
+                                <div class="post-image">
+                                    <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
                                 </div>
-                                <div class="text-center">
-                                    <strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong>
-                                    <br>
-                                    <strong>м.Львів{{  }}</strong>
-                                    <small> / </small>
-                                    <strong>11.03.2015{{ }}</strong>
-                                    <p><b>Автор: </b><a href="/profile/user">Степан Крук{{ }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div>
-                                <div>
-                                    <img src="../../images/computer.jpg" alt="computer" width="250px">
-                                </div>
-                                <div class="text-center">
-                                    <strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong>
-                                    <br>
+                                <div class="post-description">
+                                    <h5><strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong></h5>
                                     <strong>м.Львів{{  }}</strong>
                                     <small> / </small>
                                     <strong>11.03.2015{{ }}</strong>
@@ -102,6 +98,7 @@
                             </div>
                         </div>
                 </div>
+
         </div>
 
 

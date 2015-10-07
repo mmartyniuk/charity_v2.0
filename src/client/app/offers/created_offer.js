@@ -1,13 +1,16 @@
-﻿(function () {
+﻿/*jshint -W101*/
+(function () {
     'use strict';
 
     angular
         .module('app.offers')
         .controller('CreatedOfferController', CreatedOfferController);
 
-    CreatedOfferController.$inject = ['$location', 'OffersFactory', '$sessionStorage', 'SharedFactory'];
+    CreatedOfferController.$inject = ['$stateParams', 'OffersFactory',
+        '$sessionStorage', 'SharedFactory'];
 
-    function CreatedOfferController($location, OffersFactory, $sessionStorage, SharedFactory) {
+    function CreatedOfferController($stateParams, OffersFactory,
+                                    $sessionStorage, SharedFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'CreatedOfferController';
@@ -19,7 +22,7 @@
 
         // applying data from successful response to user api to vm.userCreated variable
         // it will be an object with some data about user
-        function succeedGetOwner(data){
+        function succeedGetOwner(data) {
             vm.userCreated = data;
         }
 
@@ -35,8 +38,14 @@
             vm.currentOffer.monthCreated = vm.currentOffer.dateCreated.getMonth() + 1;
             vm.currentOffer.yearCreated = vm.currentOffer.dateCreated.getFullYear();
 
-            vm.tempAddressUser = vm.currentOffer._links.userCreated.href.slice(vm.currentOffer._links.userCreated.href.search('/api'), vm.currentOffer._links.userCreated.href.length);
-            vm.tempAddressCategory = vm.currentOffer._links.category.href.slice(vm.currentOffer._links.category.href.search('/api'), vm.currentOffer._links.category.href.length);
+            vm.tempAddressUser =
+                vm.currentOffer._links.userCreated.href.slice
+                (vm.currentOffer._links.userCreated.href.search('/api'),
+                vm.currentOffer._links.userCreated.href.length);
+            vm.tempAddressCategory =
+                vm.currentOffer._links.category.href.slice
+                (vm.currentOffer._links.category.href.search('/api'),
+                vm.currentOffer._links.category.href.length);
             // making here next call to api, to get user
             // this is needed to check if current user is owner of this offer
             // if so - edit and close buttons will be available and user will see responses from other users
@@ -44,10 +53,10 @@
 
             // api/core/api.core.shared.service.js - factory for reusable components for offers and offers
             // please use it when you'll work with offer
-            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function(){
+            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function() {
                 console.log('something wrong');
             });
-            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function(){
+            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function() {
                 console.log('something wrong');
             });
             if (vm.currentOffer.pickup) {
@@ -59,9 +68,9 @@
             }
         }
         vm.currentOffer = function () {
-            // hardcoded data for testing
-            var offerId = 2;
-            OffersFactory.getConcreteOffer(offerId, successResponse, function () {
+            OffersFactory.getConcreteOffer($stateParams.id).then(function(response) {
+                console.log(response);
+            }).catch(function() {
                 console.log('something wrong');
             });
         };
@@ -81,9 +90,12 @@
 
         function succeedGetParentCategory(data) {
             vm.parentCategory = data.name;
-            vm.tempAddressMainCategory = data._links.parent.href.slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
-            if (data._links.parent.href){
-                SharedFactory.getCategory(vm.tempAddressMainCategory, succeedGetMainCategory, function(){
+            vm.tempAddressMainCategory = data._links.parent.href.slice
+            (data._links.parent.href.search('/api'),
+                data._links.parent.href.length);
+            if (data._links.parent.href) {
+                SharedFactory.getCategory(vm.tempAddressMainCategory,
+                    succeedGetMainCategory, function() {
                     console.log('main category is already filled');
                 });
             }
@@ -91,16 +103,20 @@
 
         function succeedGetCategory(data) {
             vm.category = data.name;
-            vm.tempAddressParentCategory = data._links.parent.href.slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
-            SharedFactory.getCategory(vm.tempAddressParentCategory, succeedGetParentCategory, function(){
+            vm.tempAddressParentCategory = data._links.parent.href.slice
+            (data._links.parent.href.search('/api'),
+                data._links.parent.href.length);
+            SharedFactory.getCategory(vm.tempAddressParentCategory,
+                succeedGetParentCategory, function() {
                 console.log('something wrong');
             });
         }
 
-        vm.userCheck = function(){
-            if($sessionStorage.token){
+        vm.userCheck = function() {
+            if ($sessionStorage.token) {
                 vm.userCreated.authorized = true;
-                SharedFactory.getAuthorizedUserInfo($sessionStorage.token, succeedGetAuthorizedUserInfo, function(){
+                SharedFactory.getAuthorizedUserInfo($sessionStorage.token,
+                    succeedGetAuthorizedUserInfo, function() {
                     console.log('something wrong');
                 });
             }
