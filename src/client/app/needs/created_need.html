@@ -130,7 +130,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
                     <ul>
                         <li ng-repeat="response in vm.currentResponses">
-                            <div>{{response.description}}</div>
+                            <div>Опис: {{response.description}}</div>
                             <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">Отримати</button>
                             <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">Підтвердити отримання допомоги</button>
                         </li>

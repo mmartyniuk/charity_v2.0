@@ -28,13 +28,13 @@
                     }).error(reject);
                 });
             },
-            getConcreteNeed: function(id) {
-                return $http.get('/api/needs/' + id);
+            getConcreteNeed: function(id, success, error) {
+                return $http.get('/api/needs/' + id).success(success).error(error);
             },
             respondToCurrentNeed: function(data, success, error){
                 $http.post('/api/needResponses', data).success(success).error(error);
             },
-            checkIfNeedRespondAlreadyExists: function(id, success, error){
+            getReponsesForThisNeed: function(id, success, error){
                 $http.get('/api/needs/'+ id +'/needResponses').success(success).error(error);
             },
             cancelUserResponse: function(link, success, error) {

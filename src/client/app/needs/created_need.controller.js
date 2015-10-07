@@ -22,6 +22,7 @@
         vm.responsesObj = {};
         vm.showResponsesToOwner = false;
         vm.waitingForHelp = false;
+        vm.idResp = $stateParams.id;
 
         // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
@@ -90,9 +91,7 @@
         }
         // important, getting data from API about this need
         vm.currentNeed = function () {
-            NeedsFactory.getConcreteNeed($stateParams.id).then(function(response) {
-                console.log(response);
-            }).catch(function() {
+            NeedsFactory.getConcreteNeed($stateParams.id, successResponse, function(){
                 console.log('something wrong');
             });
         };
@@ -115,7 +114,6 @@
         //  getting info about responses from API
         function currentResponses(data){
             if (data._embedded.needs_responses){
-                console.log(data);
                vm.responsesObj = data._embedded.needs_responses; // array with responses objects
                 for (var i = 0, len = vm.responsesObj.length; i < len; i++){
                     if(vm.responsesObj[i].userId === vm.authorizedUser.id){ // if user has already responded to this need
@@ -134,8 +132,7 @@
                 SharedFactory.getAuthorizedUserInfo($sessionStorage.token, succeedGetAuthorizedUserInfo, function(){
                     console.log('something wrong');
                 });
-                vm.idResp = 1; // temp hack, till we have correct previous page
-                NeedsFactory.checkIfNeedRespondAlreadyExists(vm.idResp, currentResponses, function () {
+                NeedsFactory.getReponsesForThisNeed(vm.idResp, currentResponses, function () {
                     console.log('error');
                 });
             }
@@ -177,18 +174,27 @@
             });
         };
 
-        vm.getAllResponses = function() {
-            vm.currentResponses = vm.responsesObj;
-            for(var i = 0, len = vm.currentResponses.length;i<len;i++){
-                if (vm.currentResponses[i].status === 'DELETED'){
+        function getResponses(responses) {
+            vm.currentResponses = responses._embedded.needs_responses;
+            for(var i = 0,len = vm.currentResponses.length;i<len;i++){
+                if(vm.currentResponses[i].status === 'DELETED'){
+                    var temp = vm.currentResponses[i];
+                    vm.currentResponses = [];
+                    vm.currentResponses.push(temp);
                     vm.waitingForHelp = true;
-                    vm.currentResponses = vm.currentResponses[i];
+                    break;
                 }
             }
+            console.log(vm.currentResponses);
+        }
+        vm.getAllResponses = function() {
+            NeedsFactory.getReponsesForThisNeed(vm.idResp, getResponses, function () {
+                console.log('error');
+            });
         };
         function succeedAccept(){
-            console.log('ok');
             vm.waitingForHelp = true;
+            vm.getAllResponses();
         }
         vm.accept = function (id) {
             vm.accept.status = 1;
@@ -198,6 +204,7 @@
             });
         };
         function succeedCompletedResponse(){
+            console.log(vm.currentResponses);
             console.log('Need can be deleted');
         }
         vm.deleteCompletedResponse = function (id) {
@@ -207,6 +214,7 @@
                 console.log('something wrong');
             });
         };
+
         function activate() {
             vm.currentNeed();
             vm.userCheck();
