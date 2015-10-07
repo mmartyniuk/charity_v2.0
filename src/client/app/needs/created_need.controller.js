@@ -17,8 +17,11 @@
         vm.userCreated = {}; // here we will store all data for user, who have created this need
         vm.authorizedUser = {}; // here we will store all data for user, who is authorized
         vm.category = {};
-        vm.respondData = {}; // here we will store all responses
+        vm.respondData = {}; // here we will store data for response
         vm.userRespondedToNeed = false; // user hasn't responded to this need by default
+        vm.responsesObj = {};
+        vm.showResponsesToOwner = false;
+        vm.waitingForHelp = false;
 
         // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
@@ -98,7 +101,10 @@
         function succeedGetAuthorizedUserInfo(data) {
             vm.authorizedUser = data;
             if (vm.authorizedUser.username === vm.userCreated.username) {
-                vm.authorizedUser.ifOwner = true;
+                vm.authorizedUser.ifOwner = true
+                // here actions for owner
+                vm.getAllResponses();
+                vm.showResponsesToOwner = true;
                 console.log('user is owner of this need');
             } else {
                 vm.authorizedUser.ifOwner = false;
@@ -108,8 +114,9 @@
 
         //  getting info about responses from API
         function currentResponses(data){
-            if (data._embedded){
-                vm.responsesObj = data._embedded.needs_responses; // array with responses objects
+            if (data._embedded.needs_responses){
+                console.log(data);
+               vm.responsesObj = data._embedded.needs_responses; // array with responses objects
                 for (var i = 0, len = vm.responsesObj.length; i < len; i++){
                     if(vm.responsesObj[i].userId === vm.authorizedUser.id){ // if user has already responded to this need
                         vm.userRespondedToNeed = true; // then we disable 'respond' button
@@ -117,7 +124,7 @@
                         break;
                     }
                 }
-                // here will be logic for need owner to show needs
+                return vm.responsesObj;
             }
         }
 
@@ -170,8 +177,39 @@
             });
         };
 
+        vm.getAllResponses = function() {
+            vm.currentResponses = vm.responsesObj;
+            for(var i = 0, len = vm.currentResponses.length;i<len;i++){
+                if (vm.currentResponses[i].status === 'DELETED'){
+                    vm.waitingForHelp = true;
+                    vm.currentResponses = vm.currentResponses[i];
+                }
+            }
+        };
+        function succeedAccept(){
+            console.log('ok');
+            vm.waitingForHelp = true;
+        }
+        vm.accept = function (id) {
+            vm.accept.status = 1;
+            vm.accept.id = id;
+            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function(){
+                console.log('something wrong');
+            });
+        };
+        function succeedCompletedResponse(){
+            console.log('Need can be deleted');
+        }
+        vm.deleteCompletedResponse = function (id) {
+            vm.accept.status = 2;
+            vm.accept.id = id;
+            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedCompletedResponse, function(){
+                console.log('something wrong');
+            });
+        };
         function activate() {
             vm.currentNeed();
+            vm.userCheck();
         }
 
         activate();

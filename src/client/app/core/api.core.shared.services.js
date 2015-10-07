@@ -24,6 +24,9 @@
             },
             getCategory: function(link, success, error){
                 $http.get(link).success(success).error(error);
+            },
+            patchResponse: function(id, accept, success, error){
+                $http.patch('/api/needResponses/'+id, {'status': accept}).success(success).error(error);
             }
         };
     }
