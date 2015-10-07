@@ -28,8 +28,8 @@
                     }).error(reject);
                 });
             },
-            getConcreteOffer: function(id, success, error) {
-                $http.get('/api/offers/' + id).success(success).error(error);
+            getConcreteOffer: function(id) {
+                return $http.get('/api/offers/' + id);
             }
         };
     }

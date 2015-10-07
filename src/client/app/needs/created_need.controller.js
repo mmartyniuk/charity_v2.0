@@ -6,10 +6,10 @@
         .module('app.needs')
         .controller('CreatedNeedController', CreatedNeedController);
 
-    CreatedNeedController.$inject = ['$location', 'NeedsFactory', '$sessionStorage',
+    CreatedNeedController.$inject = ['$stateParams', 'NeedsFactory', '$sessionStorage',
         'SharedFactory'];
 
-    function CreatedNeedController($location, NeedsFactory, $sessionStorage,
+    function CreatedNeedController($stateParams, NeedsFactory, $sessionStorage,
                                    SharedFactory) {
 
         var vm = this;
@@ -66,9 +66,9 @@
         }
 
         vm.currentNeed = function () {
-            // hardcoded data for testing
-            var needId = 1;
-            NeedsFactory.getConcreteNeed(needId, successResponse, function () {
+            NeedsFactory.getConcreteNeed($stateParams.id).then(function(response) {
+                console.log(response);
+            }).catch(function() {
                 console.log('something wrong');
             });
         };

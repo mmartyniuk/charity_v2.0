@@ -6,10 +6,10 @@
         .module('app.offers')
         .controller('CreatedOfferController', CreatedOfferController);
 
-    CreatedOfferController.$inject = ['$location', 'OffersFactory',
+    CreatedOfferController.$inject = ['$stateParams', 'OffersFactory',
         '$sessionStorage', 'SharedFactory'];
 
-    function CreatedOfferController($location, OffersFactory,
+    function CreatedOfferController($stateParams, OffersFactory,
                                     $sessionStorage, SharedFactory) {
         /* jshint validthis:true */
         var vm = this;
@@ -68,9 +68,9 @@
             }
         }
         vm.currentOffer = function () {
-            // hardcoded data for testing
-            var offerId = 2;
-            OffersFactory.getConcreteOffer(offerId, successResponse, function () {
+            OffersFactory.getConcreteOffer($stateParams.id).then(function(response) {
+                console.log(response);
+            }).catch(function() {
                 console.log('something wrong');
             });
         };
