@@ -28,8 +28,8 @@
                     }).error(reject);
                 });
             },
-            getConcreteNeed: function(id, success, error) {
-                $http.get('/api/needs/' + id).success(success).error(error);
+            getConcreteNeed: function(id) {
+                return $http.get('/api/needs/' + id);
             }
         };
     }
