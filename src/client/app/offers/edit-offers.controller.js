@@ -36,18 +36,21 @@
             });
         };
 
+        vm.getRegion = function() {
+            EditOfferFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
         activate();
 
         function activate() {
-            vm.regions = EditOfferFactory.getRegions();
+            vm.getRegion();
             vm.currentOffer();
         }
 
         vm.setRegion = function (region) {
-            //setting region here
-            EditOfferFactory.getCities(region.id).then(function (cities) {
-                vm.cities = cities;
-            });
+            vm.cities = region._embedded.cities;
         };
 
         function saveEditedOffer(data) {
