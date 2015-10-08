@@ -39,23 +39,25 @@
             });
         };
 
+        vm.getRegion = function() {
+            EditNeedFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
         activate();
 
         function activate() {
-            vm.regions = EditNeedFactory.getRegions();
+            vm.getRegion();
             vm.currentNeed();
         }
 
         vm.setRegion = function (region) {
-            //setting region here
-            EditNeedFactory.getCities(region.id).then(function (cities) {
-                vm.cities = cities;
-            });
+            vm.cities = region._embedded.cities;
         };
 
         function saveEditedNeed(data) {
             vm.editedNeed.date = vm.dt;
-
         }
 
         vm.cancel = function () {
