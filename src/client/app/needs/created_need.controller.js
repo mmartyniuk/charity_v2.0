@@ -1,4 +1,4 @@
-﻿/*jshint -W101*/
+﻿/*jshint -W101, -W106*/
 (function () {
     'use strict';
 
@@ -6,9 +6,11 @@
         .module('app.needs')
         .controller('CreatedNeedController', CreatedNeedController);
 
-    CreatedNeedController.$inject = ['$stateParams', 'NeedsFactory', '$sessionStorage', 'SharedFactory', '$state'];
+    CreatedNeedController.$inject = ['$stateParams', 'NeedsFactory',
+        '$sessionStorage', 'SharedFactory', '$state'];
 
-    function CreatedNeedController($stateParams, NeedsFactory, $sessionStorage, SharedFactory, $state) {
+    function CreatedNeedController($stateParams, NeedsFactory,
+                                   $sessionStorage, SharedFactory, $state) {
 
         var vm = this;
         vm.title = 'CreatedNeedController';
@@ -27,9 +29,9 @@
 
         // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
-        function succeedGetOwner(data){
+        function succeedGetOwner(data) {
             vm.userCreated = data;
-            if ($sessionStorage.token){
+            if ($sessionStorage.token) {
                 vm.userCreated.authorized = true;
             }
             vm.userCheck();
@@ -42,9 +44,11 @@
 
         function succeedGetParentCategory(data) {
             vm.parentCategory = data.name;
-            vm.tempAddressMainCategory = data._links.parent.href.slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
-            if (data._links.parent.href){
-                SharedFactory.getCategory(vm.tempAddressMainCategory, succeedGetMainCategory, function(){
+            vm.tempAddressMainCategory = data._links.parent.href
+                .slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
+            if (data._links.parent.href) {
+                SharedFactory.getCategory(vm.tempAddressMainCategory,
+                    succeedGetMainCategory, function() {
                     console.log('main category is already filled');
                 });
             }
@@ -52,8 +56,10 @@
 
         function succeedGetCategory(data) {
             vm.category = data.name;
-            vm.tempAddressParentCategory = data._links.parent.href.slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
-            SharedFactory.getCategory(vm.tempAddressParentCategory, succeedGetParentCategory, function(){
+            vm.tempAddressParentCategory = data._links.parent.href
+                .slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
+            SharedFactory.getCategory(vm.tempAddressParentCategory,
+                succeedGetParentCategory, function() {
                 console.log('something wrong');
             });
         }
@@ -68,8 +74,12 @@
             vm.currentNeed.monthCreated = vm.currentNeed.dateCreated.getMonth() + 1;
             vm.currentNeed.yearCreated = vm.currentNeed.dateCreated.getFullYear();
 
-            vm.tempAddressUser = vm.currentNeed._links.userCreated.href.slice(vm.currentNeed._links.userCreated.href.search('/api'), vm.currentNeed._links.userCreated.href.length);
-            vm.tempAddressCategory = vm.currentNeed._links.category.href.slice(vm.currentNeed._links.category.href.search('/api'), vm.currentNeed._links.category.href.length);
+            vm.tempAddressUser = vm.currentNeed._links.userCreated.href
+                .slice(vm.currentNeed._links.userCreated.href.search('/api'),
+                vm.currentNeed._links.userCreated.href.length);
+            vm.tempAddressCategory = vm.currentNeed._links.category.href
+                .slice(vm.currentNeed._links.category.href.search('/api'),
+                vm.currentNeed._links.category.href.length);
             // making here next call to api, to get user
             // this is needed to check if current user is owner of this need
             // if so - edit and close buttons will be available and user will see responses from other users
@@ -77,10 +87,10 @@
             // api/core/api.core.shared.service.js - factory for reusable components for needs and offers
             // please use it when you'll work with offer
 
-            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function(){
+            SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function() {
                 console.log('something wrong');
             });
-            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function(){
+            SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function() {
                 console.log('something wrong');
             });
             if (vm.currentNeed.pickup) {
@@ -91,7 +101,7 @@
         }
         // important, getting data from API about this need
         vm.currentNeed = function () {
-            NeedsFactory.getConcreteNeed($stateParams.id, successResponse, function(){
+            NeedsFactory.getConcreteNeed($stateParams.id, successResponse, function() {
                 console.log('something wrong');
             });
         };
@@ -110,11 +120,11 @@
         }
 
         //  getting info about responses from API
-        function currentResponses(data){
-            if (data._embedded.need_response){
-               vm.responsesObj = data._embedded.need_response; // array with responses objects
-                for (var i = 0, len = vm.responsesObj.length; i < len; i++){
-                    if(vm.responsesObj[i].userId === vm.authorizedUser.id){ // if user has already responded to this need
+        function currentResponses(data) {
+            if (data._embedded.need_response)   {
+                vm.responsesObj = data._embedded.need_response; // array with responses objects
+                for (var i = 0, len = vm.responsesObj.length; i < len; i++) {
+                    if (vm.responsesObj[i].userId === vm.authorizedUser.id) { // if user has already responded to this need
                         vm.userRespondedToNeed = true; // then we disable 'respond' button
                         vm.linkToMyResponse = vm.responsesObj[i]._links.self.href; // getting link to response
                         break;
@@ -125,9 +135,10 @@
         }
 
         // getting info about user
-        vm.userCheck = function(){
-            if($sessionStorage.token){
-                SharedFactory.getAuthorizedUserInfo($sessionStorage.token, succeedGetAuthorizedUserInfo, function(){
+        vm.userCheck = function() {
+            if ($sessionStorage.token) {
+                SharedFactory.getAuthorizedUserInfo($sessionStorage.token,
+                    succeedGetAuthorizedUserInfo, function() {
                     console.log('something wrong');
                 });
                 NeedsFactory.getReponsesForThisNeed(vm.idResp, currentResponses, function () {
@@ -143,7 +154,7 @@
         }
 
         // sending response options to backend
-        vm.respondToNeed = function(){
+        vm.respondToNeed = function() {
             vm.respondData.user = 'http://localhost:8088/api/users/' + vm.authorizedUser.id; // temporary hardcode
             vm.respondData.need = vm.currentNeed._links.self.href;
             NeedsFactory.respondToCurrentNeed(vm.respondData, succeedWithRespond, function () {
@@ -153,7 +164,8 @@
 
         // here are conditions when respond button will / will not be shown
         vm.allowResponse = function () {
-            if (vm.userCreated.authorized && !vm.authorizedUser.ifOwner && !vm.userRespondedToNeed){
+            if (vm.userCreated.authorized &&
+                !vm.authorizedUser.ifOwner && !vm.userRespondedToNeed) {
                 return true;
             } else {
                 return false;
@@ -162,30 +174,33 @@
 
         // after deleting the response we allow user to respond again
         function succeedWithDelete () {
-            return vm.userRespondedToNeed = false;
+            vm.userRespondedToNeed = false;
         }
 
         vm.cancelResponce = function () {
-            vm.linkToRemoveResponse = vm.linkToMyResponse.slice(vm.linkToMyResponse.search('/api'), vm.linkToMyResponse.length);
-            NeedsFactory.cancelUserResponse(vm.linkToRemoveResponse, succeedWithDelete, function () {
+            vm.linkToRemoveResponse = vm.linkToMyResponse.slice(vm.linkToMyResponse
+                .search('/api'), vm.linkToMyResponse.length);
+            NeedsFactory.cancelUserResponse(vm.linkToRemoveResponse,
+                succeedWithDelete, function () {
                 console.log('respond is not send');
             });
         };
-        function getContactUser(data){
+        function getContactUser(data) {
             vm.userInfo.name = data.name;
             vm.userInfo.address = data.address.phone;
             console.log(data);
         }
 
         function getResponses(responses) {
-            if(responses._embedded.need_response){
+            if (responses._embedded.need_response) {
                 vm.currentResponses = responses._embedded.need_response;
-                for(var i = 0,len = vm.currentResponses.length;i<len;i++){
-                    if(vm.currentResponses[i].status === 'DELETED'){
+                for (var i = 0,len = vm.currentResponses.length;i < len;i++) {
+                    if (vm.currentResponses[i].status === 'DELETED') {
                         var temp = vm.currentResponses[i];
                         vm.currentResponses = [];
                         vm.currentResponses.push(temp);
-                        SharedFactory.getUserToContactWith(vm.currentResponses[0].id, getContactUser, function () {
+                        SharedFactory.getUserToContactWith(vm.currentResponses[0].id,
+                            getContactUser, function () {
                             console.log('respond is not send');
                         });
                         vm.waitingForHelp = true;
@@ -199,7 +214,7 @@
                 console.log('error');
             });
         };
-        function succeedAccept(data){
+        function succeedAccept(data) {
             vm.waitingForHelp = true;
             vm.getAllResponses();
         }
@@ -207,17 +222,18 @@
         vm.accept = function (id) {
             vm.accept.status = 1;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function(){
+            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
                 console.log('something wrong');
             });
         };
-        function succeedCompletedResponse(){
+        function succeedCompletedResponse() {
             vm.currentNeed.open = false;
         }
         vm.deleteCompletedResponse = function (id) {
             vm.accept.status = 2;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedCompletedResponse, function(){
+            SharedFactory.patchResponse(vm.accept.id,
+                vm.accept.status, succeedCompletedResponse, function() {
                 console.log('something wrong');
             });
         };
@@ -230,7 +246,8 @@
         vm.cancelGettingResponse = function(id) {
             vm.accept.status = 0;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, refreshResponses, function(){
+            SharedFactory.patchResponse(vm.accept.id,
+                vm.accept.status, refreshResponses, function() {
                 console.log('something wrong');
             });
         };
