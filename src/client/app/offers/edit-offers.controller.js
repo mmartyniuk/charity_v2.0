@@ -7,9 +7,9 @@
         .controller('EditOffersController', EditOffersController);
 
     EditOffersController.$inject = [
-        '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
+        '$http', '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
     /* @ngInject */
-    function EditOffersController($stateParams, EditOfferFactory, $state, $rootScope) {
+    function EditOffersController($http, $stateParams, EditOfferFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
@@ -34,9 +34,10 @@
             }).catch(function () {
                 console.log('something wrong');
             });
+
         };
 
-        vm.getRegion = function() {
+        vm.getRegion = function () {
             EditOfferFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
@@ -49,13 +50,24 @@
             vm.currentOffer();
         }
 
-        vm.setRegion = function (region) {
+        vm.setRegion = function(region) {
             vm.cities = region._embedded.cities;
         };
 
-        function saveEditedOffer(data) {
+        function saveEditedOffer() {
+            var offerId = $stateParams.id;
             vm.editedOffer.date = vm.dt;
 
+            return $http.patch('/api/offers/' + offerId, {
+                'name': vm.editedOffer.title,
+                'description': vm.editedOffer.offerText,
+                'address': vm.editedOffer.address,
+                'convenientTime': vm.editedOffer.convenientTime,
+                'pickup': vm.editedOffer.status
+
+            }).then(function () {
+                $state.go('offers.created', {id: offerId});
+            });
         }
 
         vm.cancel = function () {
