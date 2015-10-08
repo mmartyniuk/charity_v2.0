@@ -7,11 +7,11 @@
         .controller('EditNeedsController', EditNeedsController);
 
     EditNeedsController.$inject = [
-        '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
+        '$http', '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
     ];
 
     /* @ngInject */
-    function EditNeedsController($stateParams, EditNeedFactory, $state, $rootScope) {
+    function EditNeedsController($http, $stateParams, EditNeedFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
@@ -39,7 +39,7 @@
             });
         };
 
-        vm.getRegion = function() {
+        vm.getRegion = function () {
             EditNeedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
@@ -56,8 +56,20 @@
             vm.cities = region._embedded.cities;
         };
 
-        function saveEditedNeed(data) {
+        function saveEditedNeed() {
+            var needId = $stateParams.id;
             vm.editedNeed.date = vm.dt;
+
+            return $http.patch('/api/needs/' + needId, {
+                'name': vm.editedNeed.title,
+                'description': vm.editedNeed.needText,
+                'address': vm.editedNeed.address,
+                'convenientTime': vm.editedNeed.convenientTime,
+                'pickup': vm.editedNeed.status
+
+            }).then(function () {
+                $state.go('needs.created', {id: needId});
+            });
         }
 
         vm.cancel = function () {

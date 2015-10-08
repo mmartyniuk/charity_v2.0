@@ -12,7 +12,7 @@
 
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.editedOffer.title" e-name="name" onbeforesave="updateOffer($data)"
+                                <span editable-text="vm.editedOffer.title" e-name="name"
                                       e-required>{{ vm.editedOffer.title }}</span>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                         <label class="control-label col-sm-2">Адреса:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.address" e-name="street" onbeforesave="updateOffer($data)" id="str">{{ vm.editedOffer.address }}</span>
+                            <span editable-text="vm.editedOffer.address" e-name="street" id="str">{{ vm.editedOffer.address }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -79,7 +79,7 @@
                         <label class="control-label col-sm-2">Зручний час:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.convenientTime" e-name="time" onbeforesave="updateOffer($data)">{{ vm.editedOffer.convenientTime }}</span>
+                            <span editable-text="vm.editedOffer.convenientTime" e-name="time">{{ vm.editedOffer.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedOffer.status" statuses="vm.editedOfferStatuses"></status>
@@ -92,7 +92,7 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                     <span ng-show="editOfferForm.$visible">
-                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting" ui-sref="offers.created">
+                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
                           Зберегти
                       </button>
                       <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
