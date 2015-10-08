@@ -104,7 +104,6 @@
                 // here actions for owner
                 vm.getAllResponses();
                 vm.showResponsesToOwner = true;
-                console.log('user is owner of this need');
             } else {
                 vm.authorizedUser.ifOwner = false;
             }
