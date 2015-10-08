@@ -1,15 +1,17 @@
 /*jshint -W100: false, multistr: true*/
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.needs')
         .controller('EditNeedsController', EditNeedsController);
 
-    EditNeedsController.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsController.$inject = [
+        '$location', 'EditNeedFactory', '$filter', '$http', '$state', '$rootScope'
+    ];
 
     /* @ngInject */
-    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state) {
+    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
@@ -39,9 +41,9 @@
             vm.regions = EditNeedFactory.getRegions();
         }
 
-        vm.setRegion = function(region) {
+        vm.setRegion = function (region) {
             //setting region here
-            EditNeedFactory.getCities(region.id).then(function(cities) {
+            EditNeedFactory.getCities(region.id).then(function (cities) {
                 vm.cities = cities;
             });
         };
@@ -50,6 +52,10 @@
             vm.editedNeed.date = vm.dt;
             $location.path('/needs/createdneed');
         }
+
+        vm.cancel = function () {
+            $state.go($rootScope.previousState);
+        };
 
     }
 })();
