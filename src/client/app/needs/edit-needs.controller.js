@@ -7,25 +7,18 @@
         .controller('EditNeedsController', EditNeedsController);
 
     EditNeedsController.$inject = [
-        '$location', 'EditNeedFactory', '$filter', '$http', '$state', '$rootScope'
+        '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
     ];
 
     /* @ngInject */
-    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state, $rootScope) {
+    function EditNeedsController($stateParams, EditNeedFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
+        vm.currentNeed = {};
         vm.editedNeed = {};
         vm.date = {};
-        vm.editedNeed.title = 'Хвора дитина';
-        vm.editedNeed.needText = 'Влад з Дніпропетровська з народження' +
-            'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
-            'Владика мучать сильні болі. Мама хлопчика спробувала вже чимало' +
-            'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
-        vm.editedNeed.regions = 'Київська область‎';
-        vm.editedNeed.city = 'Київ';
-        vm.editedNeed.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedNeed.address = 'вул. Шевченка 5/15';
+
         vm.editedNeed.status = 0;
         vm.editedNeedStatuses = [{
             value: 1,
@@ -35,10 +28,22 @@
             text: 'Ні'
         }];
 
+        vm.currentNeed = function () {
+            EditNeedFactory.getConcreteNeed($stateParams.id).then(function (response) {
+                vm.editedNeed.title = response.data.name;
+                vm.editedNeed.needText = response.data.description;
+                vm.editedNeed.address = response.data.address;
+                vm.editedNeed.convenientTime = response.data.convenientTime;
+            }).catch(function () {
+                console.log('something wrong');
+            });
+        };
+
         activate();
 
         function activate() {
             vm.regions = EditNeedFactory.getRegions();
+            vm.currentNeed();
         }
 
         vm.setRegion = function (region) {
@@ -48,9 +53,9 @@
             });
         };
 
-        function saveEditedNeed() {
+        function saveEditedNeed(data) {
             vm.editedNeed.date = vm.dt;
-            $location.path('/needs/createdneed');
+
         }
 
         vm.cancel = function () {

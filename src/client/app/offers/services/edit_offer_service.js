@@ -10,6 +10,11 @@
 
     function EditOfferFactory($http, $q) {
         return {
+
+            getConcreteOffer: function(id) {
+                return $http.get('/api/offers/' + id);
+            },
+
             getRegions: function() {
                 //tbd when there will be api to call, till that time hardcoded the
                 // vm.categories array to verify if factory is properly working

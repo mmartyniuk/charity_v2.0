@@ -7,24 +7,15 @@
         .controller('EditOffersController', EditOffersController);
 
     EditOffersController.$inject = [
-        '$location', '$filter', '$http', '$state', 'EditOfferFactory', '$rootScope'
-    ];
-
+        '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
     /* @ngInject */
-    function EditOffersController($location, $filter, $http, $state, EditOfferFactory, $rootScope) {
+    function EditOffersController($stateParams, EditOfferFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
+        vm.currentOffer = {};
         vm.editedOffer = {};
         vm.date = {};
-        vm.editedOffer.title = 'Цуценя';
-        vm.editedOffer.offerText = 'Віддам цуценя в хороші руки!!!!' +
-            'Безкоштовно!!! Дівчинка, вік 1,5 міс, дуже грайлива' +
-            'і розумна собачка, середньої породи. Потрібні хороші люблячі';
-        vm.editedOffer.regions = 'Київська область‎';
-        vm.editedOffer.city = 'Київ';
-        vm.editedOffer.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedOffer.address = 'вул. Тараса Шевченка 5/15';
         vm.editedOffer.status = 0;
         vm.editedOfferStatuses = [{
             value: 1,
@@ -34,10 +25,22 @@
             text: 'Ні'
         }];
 
+        vm.currentOffer = function () {
+            EditOfferFactory.getConcreteOffer($stateParams.id).then(function (response) {
+                vm.editedOffer.title = response.data.name;
+                vm.editedOffer.offerText = response.data.description;
+                vm.editedOffer.address = response.data.address;
+                vm.editedOffer.convenientTime = response.data.convenientTime;
+            }).catch(function () {
+                console.log('something wrong');
+            });
+        };
+
         activate();
 
         function activate() {
             vm.regions = EditOfferFactory.getRegions();
+            vm.currentOffer();
         }
 
         vm.setRegion = function (region) {
@@ -47,9 +50,9 @@
             });
         };
 
-        function saveEditedOffer() {
+        function saveEditedOffer(data) {
             vm.editedOffer.date = vm.dt;
-            $location.path('/offers/createdoffer');
+
         }
 
         vm.cancel = function () {
