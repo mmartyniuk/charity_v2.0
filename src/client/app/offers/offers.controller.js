@@ -14,7 +14,7 @@
         vm.setSearch = setSearch;
         vm.loadPage = loadPage;
         vm.setCategory = setCategory;
-        vm.offers = [];
+        vm.offers = {};
         vm.itemsPerPage = 3;
         vm.category = $state.params.prefilled.category;
         vm.location = $state.params.prefilled.location;
