@@ -30,9 +30,14 @@
         exceptionHandlerProvider.configure(config.appErrorPrefix);
         routerHelperProvider.configure({docTitle: config.appTitle + ': '});
     }
-    run.$inject = ['editableOptions'];
-    function run(editableOptions) {
+    run.$inject = ['editableOptions', '$rootScope'];
+    function run(editableOptions, $rootScope) {
         editableOptions.theme = 'bs3';
+
+        $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+            $rootScope.previousState = from;
+        });
+
     }
 
 })();
