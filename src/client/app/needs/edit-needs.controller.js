@@ -6,11 +6,12 @@
         .module('app.needs')
         .controller('EditNeedsController', EditNeedsController);
 
-    EditNeedsController.$inject = ['$http', '$stateParams', '$location',
-        'EditNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsController.$inject = [
+        '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
+    ];
 
     /* @ngInject */
-    function EditNeedsController($http, $stateParams, $location, EditNeedFactory) {
+    function EditNeedsController($stateParams, EditNeedFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
@@ -54,9 +55,12 @@
 
         function saveEditedNeed(data) {
             vm.editedNeed.date = vm.dt;
-            $location.path('/needs/createdneed');
 
         }
+
+        vm.cancel = function () {
+            $state.go($rootScope.previousState);
+        };
 
     }
 })();

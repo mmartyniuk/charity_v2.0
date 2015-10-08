@@ -1,15 +1,15 @@
 /*jshint -W100: false, multistr: true*/
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.offers')
         .controller('EditOffersController', EditOffersController);
 
-    EditOffersController.$inject = ['$http', '$stateParams', '$location',
-        'EditOfferFactory', '$filter', '$http', '$state'];
+    EditOffersController.$inject = [
+        '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
     /* @ngInject */
-    function EditOffersController($http, $stateParams, $location, EditOfferFactory) {
+    function EditOffersController($stateParams, EditOfferFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
@@ -43,18 +43,21 @@
             vm.currentOffer();
         }
 
-        vm.setRegion = function(region) {
+        vm.setRegion = function (region) {
             //setting region here
-            EditOfferFactory.getCities(region.id).then(function(cities) {
+            EditOfferFactory.getCities(region.id).then(function (cities) {
                 vm.cities = cities;
             });
         };
 
         function saveEditedOffer(data) {
             vm.editedOffer.date = vm.dt;
-            $location.path('/offers/createdoffer');
 
         }
+
+        vm.cancel = function () {
+            $state.go($rootScope.previousState);
+        };
 
     }
 })();

@@ -95,7 +95,7 @@
                        <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting" ui-sref="offers.created">
                           Зберегти
                       </button>
-                      <a ui-sref="offers.created" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
                       <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                               ng-click="editOfferForm.$cancel()">
                           Скасувати
