@@ -79,7 +79,7 @@
                         <label class="control-label col-sm-2">Зручний час:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.time" e-name="time" onbeforesave="updateOffer($data)">{{ vm.editedOffer.time }}</span>
+                            <span editable-text="vm.editedOffer.convenientTime" e-name="time" onbeforesave="updateOffer($data)">{{ vm.editedOffer.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedOffer.status" statuses="vm.editedOfferStatuses"></status>
@@ -95,7 +95,7 @@
                        <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting" ui-sref="offers.created">
                           Зберегти
                       </button>
-                      <a ui-sref="offers.created" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
                       <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                               ng-click="editOfferForm.$cancel()">
                           Скасувати

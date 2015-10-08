@@ -62,7 +62,7 @@ describe('OffersController', function() {
 
             it('should be an object', function () {
                 var vm = controller;
-                expect(vm.offers).to.be.an('array');
+                expect(vm.offers).to.be.an('object');
             });
 
             /*it('should not be empty', function () {

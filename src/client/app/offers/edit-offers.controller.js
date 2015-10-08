@@ -1,28 +1,21 @@
 /*jshint -W100: false, multistr: true*/
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.offers')
         .controller('EditOffersController', EditOffersController);
 
-    EditOffersController.$inject = ['$location', '$filter', '$http', '$state', 'EditOfferFactory'];
-
+    EditOffersController.$inject = [
+        '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
     /* @ngInject */
-    function EditOffersController($location, $filter, $http, $state, EditOfferFactory) {
+    function EditOffersController($stateParams, EditOfferFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
+        vm.currentOffer = {};
         vm.editedOffer = {};
         vm.date = {};
-        vm.editedOffer.title = 'Цуценя';
-        vm.editedOffer.offerText = 'Віддам цуценя в хороші руки!!!!' +
-            'Безкоштовно!!! Дівчинка, вік 1,5 міс, дуже грайлива' +
-            'і розумна собачка, середньої породи. Потрібні хороші люблячі';
-        vm.editedOffer.regions = 'Київська область‎';
-        vm.editedOffer.city = 'Київ';
-        vm.editedOffer.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedOffer.address = 'вул. Тараса Шевченка 5/15';
         vm.editedOffer.status = 0;
         vm.editedOfferStatuses = [{
             value: 1,
@@ -32,23 +25,42 @@
             text: 'Ні'
         }];
 
-        activate();
-
-        function activate() {
-            vm.regions = EditOfferFactory.getRegions();
-        }
-
-        vm.setRegion = function(region) {
-            //setting region here
-            EditOfferFactory.getCities(region.id).then(function(cities) {
-                vm.cities = cities;
+        vm.currentOffer = function () {
+            EditOfferFactory.getConcreteOffer($stateParams.id).then(function (response) {
+                vm.editedOffer.title = response.data.name;
+                vm.editedOffer.offerText = response.data.description;
+                vm.editedOffer.address = response.data.address;
+                vm.editedOffer.convenientTime = response.data.convenientTime;
+            }).catch(function () {
+                console.log('something wrong');
             });
         };
 
-        function saveEditedOffer() {
-            vm.editedOffer.date = vm.dt;
-            $location.path('/offers/createdoffer');
+        vm.getRegion = function() {
+            EditOfferFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
+        activate();
+
+        function activate() {
+            vm.getRegion();
+            vm.currentOffer();
         }
+
+        vm.setRegion = function (region) {
+            vm.cities = region._embedded.cities;
+        };
+
+        function saveEditedOffer(data) {
+            vm.editedOffer.date = vm.dt;
+
+        }
+
+        vm.cancel = function () {
+            $state.go($rootScope.previousState);
+        };
 
     }
 })();

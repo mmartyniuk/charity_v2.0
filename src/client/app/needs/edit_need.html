@@ -71,7 +71,7 @@
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Зручний час:</label>
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.time" e-name="time" onbeforesave="updateNeed($data)">{{ vm.editedNeed.time }}</span>
+                            <span editable-text="vm.editedNeed.convenientTime" e-name="time" onbeforesave="updateNeed($data)">{{ vm.editedNeed.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedNeed.status" statuses="vm.editedNeedStatuses"></status>
@@ -86,7 +86,7 @@
                               <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting" ui-sref="needs.created">
                                   Зберегти
                               </button>
-                              <a ui-sref="needs.created" class="btn btn-default" id="myButton0">Відмінити</a>
+                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
                               <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
                                   Скасувати
                               </button> -->
