@@ -23,6 +23,7 @@
         vm.showResponsesToOwner = false;
         vm.waitingForHelp = false;
         vm.idResp = $stateParams.id;
+        vm.userInfo = {};
 
         // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
@@ -61,7 +62,6 @@
         // and make additional api call to user (who had written this need) profile
         function successResponse(data) {
             vm.currentNeed = data;
-
             // parsing date here
             vm.currentNeed.dateCreated = new Date(Date.parse(vm.currentNeed.created));
             vm.currentNeed.dayCreated = vm.currentNeed.dateCreated.getDate();
@@ -107,14 +107,13 @@
                 console.log('user is owner of this need');
             } else {
                 vm.authorizedUser.ifOwner = false;
-                console.log('user is not owner of this need and can respond to it');
             }
         }
 
         //  getting info about responses from API
         function currentResponses(data){
-            if (data._embedded.needs_responses){
-               vm.responsesObj = data._embedded.needs_responses; // array with responses objects
+            if (data._embedded.need_response){
+               vm.responsesObj = data._embedded.need_response; // array with responses objects
                 for (var i = 0, len = vm.responsesObj.length; i < len; i++){
                     if(vm.responsesObj[i].userId === vm.authorizedUser.id){ // if user has already responded to this need
                         vm.userRespondedToNeed = true; // then we disable 'respond' button
@@ -173,29 +172,39 @@
                 console.log('respond is not send');
             });
         };
+        function getContactUser(data){
+            vm.userInfo.name = data.name;
+            vm.userInfo.address = data.address.phone;
+            console.log(data);
+        }
 
         function getResponses(responses) {
-            vm.currentResponses = responses._embedded.needs_responses;
-            for(var i = 0,len = vm.currentResponses.length;i<len;i++){
-                if(vm.currentResponses[i].status === 'DELETED'){
-                    var temp = vm.currentResponses[i];
-                    vm.currentResponses = [];
-                    vm.currentResponses.push(temp);
-                    vm.waitingForHelp = true;
-                    break;
+            if(responses._embedded.need_response){
+                vm.currentResponses = responses._embedded.need_response;
+                for(var i = 0,len = vm.currentResponses.length;i<len;i++){
+                    if(vm.currentResponses[i].status === 'DELETED'){
+                        var temp = vm.currentResponses[i];
+                        vm.currentResponses = [];
+                        vm.currentResponses.push(temp);
+                        SharedFactory.getUserToContactWith(vm.currentResponses[0].id, getContactUser, function () {
+                            console.log('respond is not send');
+                        });
+                        vm.waitingForHelp = true;
+                        break;
+                    }
                 }
             }
-            console.log(vm.currentResponses);
         }
         vm.getAllResponses = function() {
             NeedsFactory.getReponsesForThisNeed(vm.idResp, getResponses, function () {
                 console.log('error');
             });
         };
-        function succeedAccept(){
+        function succeedAccept(data){
             vm.waitingForHelp = true;
             vm.getAllResponses();
         }
+
         vm.accept = function (id) {
             vm.accept.status = 1;
             vm.accept.id = id;
@@ -204,13 +213,25 @@
             });
         };
         function succeedCompletedResponse(){
-            console.log(vm.currentResponses);
-            console.log('Need can be deleted');
+            vm.currentNeed.open = false;
         }
         vm.deleteCompletedResponse = function (id) {
             vm.accept.status = 2;
             vm.accept.id = id;
             SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedCompletedResponse, function(){
+                console.log('something wrong');
+            });
+        };
+
+        function refreshResponses() {
+            vm.waitingForHelp = false;
+            vm.getAllResponses();
+        }
+
+        vm.cancelGettingResponse = function(id) {
+            vm.accept.status = 0;
+            vm.accept.id = id;
+            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, refreshResponses, function(){
                 console.log('something wrong');
             });
         };

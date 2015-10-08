@@ -27,6 +27,9 @@
             },
             patchResponse: function(id, accept, success, error){
                 $http.patch('/api/needResponses/'+id, {'status': accept}).success(success).error(error);
+            },
+            getUserToContactWith: function(id, success, error){
+                return $http.get('api/needResponses/' + id + '/user').success(success).error(error);
             }
         };
     }
