@@ -105,12 +105,43 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row pull-right marginBottom">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <a ui-sref="offers.home" class="btn btn-primary">Редагувати</a>
-                        <a href="/" class="btn btn-default">Закрити</a>
+                <div ng-show="vm.currentOffer.open">
+                    <div class="row pull-right marginBottom">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
+                            <a ui-sref="needs.home" class="btn btn-primary">Редагувати</a>
+                            <a href="/" class="btn btn-default">Закрити</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
+                            <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToOffer">
+                            <button class="btn btn-default" ng-click="vm.cancelResponce()">Відмінити відгук</button>
+                        </div>
+                    </div>
+                    <div collapse="!isCollapsed" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <button type="button" class="close" aria-label="Close" ng-click="isCollapsed = !isCollapsed"><span aria-hidden="true" >&times;</span></button>
+                        <form ng-submit="vm.respondToOffer()">
+                            <div class="form-group">
+                                <label for="details">Деталі</label>
+                                <textarea class="form-control" id="details" placeholder="Введіть будь ласка деталі" ng-model="vm.respondData.description"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">Підтвердити</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
+                        <ul>
+                            <li ng-repeat="response in vm.currentResponses">
+                                <div><b>Опис:</b> {{response.description}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>Ім'я користувача:</b> {{vm.userInfo.name}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>Телефон:</b> {{vm.userInfo.address}}</div>
+                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">Отримати</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">Підтвердити отримання допомоги</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">Відмінити підтримання допомоги від цього користувача</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div ng-show="!vm.currentOffer.open">Ця пропозиція закрита!!</div>
             </div>
         </div>
     </div>

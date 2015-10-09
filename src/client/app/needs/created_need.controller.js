@@ -199,7 +199,7 @@
                         var temp = vm.currentResponses[i];
                         vm.currentResponses = [];
                         vm.currentResponses.push(temp);
-                        SharedFactory.getUserToContactWith(vm.currentResponses[0].id,
+                        NeedsFactory.getUserToContactWith(vm.currentResponses[0].id,
                             getContactUser, function () {
                             console.log('respond is not send');
                         });
@@ -222,7 +222,7 @@
         vm.accept = function (id) {
             vm.accept.status = 1;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
+            NeedsFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
                 console.log('something wrong');
             });
         };
@@ -232,7 +232,7 @@
         vm.deleteCompletedResponse = function (id) {
             vm.accept.status = 2;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id,
+            NeedsFactory.patchResponse(vm.accept.id,
                 vm.accept.status, succeedCompletedResponse, function() {
                 console.log('something wrong');
             });
@@ -246,7 +246,7 @@
         vm.cancelGettingResponse = function(id) {
             vm.accept.status = 0;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id,
+            NeedsFactory.patchResponse(vm.accept.id,
                 vm.accept.status, refreshResponses, function() {
                 console.log('something wrong');
             });
