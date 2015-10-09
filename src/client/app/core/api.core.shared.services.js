@@ -24,6 +24,9 @@
             },
             getCategory: function(link, success, error) {
                 $http.get(link).success(success).error(error);
+            },
+            sliceLink: function(link) {
+                return link.slice(link.search('/api'), link.length);
             }
         };
     }
