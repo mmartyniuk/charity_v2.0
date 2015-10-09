@@ -44,8 +44,7 @@
 
         function succeedGetParentCategory(data) {
             vm.parentCategory = data.name;
-            vm.tempAddressMainCategory = data._links.parent.href
-                .slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
+            vm.tempAddressMainCategory = SharedFactory.sliceLink(data._links.parent.href);
             if (data._links.parent.href) {
                 SharedFactory.getCategory(vm.tempAddressMainCategory,
                     succeedGetMainCategory, function() {
@@ -56,8 +55,7 @@
 
         function succeedGetCategory(data) {
             vm.category = data.name;
-            vm.tempAddressParentCategory = data._links.parent.href
-                .slice(data._links.parent.href.search('/api'), data._links.parent.href.length);
+            vm.tempAddressParentCategory = SharedFactory.sliceLink(data._links.parent.href);
             SharedFactory.getCategory(vm.tempAddressParentCategory,
                 succeedGetParentCategory, function() {
                 console.log('something wrong');
@@ -74,12 +72,9 @@
             vm.currentNeed.monthCreated = vm.currentNeed.dateCreated.getMonth() + 1;
             vm.currentNeed.yearCreated = vm.currentNeed.dateCreated.getFullYear();
 
-            vm.tempAddressUser = vm.currentNeed._links.userCreated.href
-                .slice(vm.currentNeed._links.userCreated.href.search('/api'),
-                vm.currentNeed._links.userCreated.href.length);
-            vm.tempAddressCategory = vm.currentNeed._links.category.href
-                .slice(vm.currentNeed._links.category.href.search('/api'),
-                vm.currentNeed._links.category.href.length);
+            vm.tempAddressUser = SharedFactory.sliceLink(vm.currentNeed._links.userCreated.href);
+            vm.tempAddressCategory = SharedFactory.sliceLink(vm.currentNeed._links.category.href);
+
             // making here next call to api, to get user
             // this is needed to check if current user is owner of this need
             // if so - edit and close buttons will be available and user will see responses from other users
@@ -178,8 +173,7 @@
         }
 
         vm.cancelResponce = function () {
-            vm.linkToRemoveResponse = vm.linkToMyResponse.slice(vm.linkToMyResponse
-                .search('/api'), vm.linkToMyResponse.length);
+            vm.linkToRemoveResponse = SharedFactory.sliceLink(vm.linkToMyResponse);
             NeedsFactory.cancelUserResponse(vm.linkToRemoveResponse,
                 succeedWithDelete, function () {
                 console.log('respond is not send');
@@ -199,7 +193,7 @@
                         var temp = vm.currentResponses[i];
                         vm.currentResponses = [];
                         vm.currentResponses.push(temp);
-                        SharedFactory.getUserToContactWith(vm.currentResponses[0].id,
+                        NeedsFactory.getUserToContactWith(vm.currentResponses[0].id,
                             getContactUser, function () {
                             console.log('respond is not send');
                         });
@@ -222,7 +216,7 @@
         vm.accept = function (id) {
             vm.accept.status = 1;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
+            NeedsFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
                 console.log('something wrong');
             });
         };
@@ -232,7 +226,7 @@
         vm.deleteCompletedResponse = function (id) {
             vm.accept.status = 2;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id,
+            NeedsFactory.patchResponse(vm.accept.id,
                 vm.accept.status, succeedCompletedResponse, function() {
                 console.log('something wrong');
             });
@@ -246,7 +240,7 @@
         vm.cancelGettingResponse = function(id) {
             vm.accept.status = 0;
             vm.accept.id = id;
-            SharedFactory.patchResponse(vm.accept.id,
+            NeedsFactory.patchResponse(vm.accept.id,
                 vm.accept.status, refreshResponses, function() {
                 console.log('something wrong');
             });
