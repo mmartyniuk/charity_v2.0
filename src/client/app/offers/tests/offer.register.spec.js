@@ -3,11 +3,10 @@
 //NewOfferRegisterController
 describe('NewOfferRegisterController', function() {
     //constants for defining controller
-    var controller, scope, state, stateparams, session;
+    var controller, state, stateparams, session;
 
     beforeEach(function() {
         controller = undefined;
-        scope = undefined;
     });
 
     beforeEach(function() {
@@ -15,9 +14,8 @@ describe('NewOfferRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state',
-            'CreateOfferFactory', '$sessionStorage');
-        scope = $rootScope.$new();
+        bard.inject(this, '$controller', '$state',
+            'CreateOfferFactory', '$sessionStorage', 'SharedFactory');
         stateparams = {title: 'title', category: 'category'};
         state = $state;
         session = $sessionStorage;
@@ -25,9 +23,7 @@ describe('NewOfferRegisterController', function() {
         state.params = {prefilled: null};
         state.params.prefilled = {title: 'title', category: 'category'};
         controller = $controller('NewOfferRegisterController', {
-            $scope: scope
         });
-        $rootScope.$apply();
     });
 
     //constants, initial testing
@@ -55,13 +51,6 @@ describe('NewOfferRegisterController', function() {
             expect(vm.getChecked).not.to.be.ok;
         });
 
-        it('regions should return object with defined properties', function () {
-            var vm = controller;
-            vm.regions.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id');
-            });
-        });
-
         //submitOffer functionality
         describe('submitOffer function', function() {
             it('should be a function', function () {
@@ -87,31 +76,6 @@ describe('NewOfferRegisterController', function() {
 
                 //here should be REST api test, TBD in future
             });
-        });
-
-        //setCity functionality
-        describe('setCity function', function() {
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCity).to.be.a('function');
-            });
-
-            it('setCity should have region and current region ' +
-            'params undefined by default, cities should return ' +
-            'object with defined params', function () {
-                var vm = controller;
-                expect(vm.offer.region).to.equal(undefined);
-                expect(vm.currentRegion).to.equal(undefined);
-
-                //defining fake data
-                vm.cities = CreateOfferFactory.getCities(1);
-                //end
-
-                vm.cities.forEach(function(item) {
-                    expect(item).to.have.all.keys('name', 'id', 'parentId');
-                });
-            });
-
         });
     });
 });

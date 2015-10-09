@@ -153,9 +153,8 @@ describe('NewNeedRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state',
+        bard.inject(this, '$controller', '$state',
             'CreateNeedFactory', 'CreateNeedAddressFactory', '$sessionStorage');
-        scope = $rootScope.$new();
         stateparams = {title: 'title', category: 'category'};
         state = $state;
         session = $sessionStorage;
@@ -165,7 +164,6 @@ describe('NewNeedRegisterController', function() {
         controller = $controller('NewNeedRegisterController', {
             $scope: scope
         });
-        $rootScope.$apply();
     });
 
     //constants, initial testing
@@ -193,13 +191,6 @@ describe('NewNeedRegisterController', function() {
             expect(vm.getChecked).not.to.be.ok;
         });
 
-        it('regions should return object with defined properties', function () {
-            var vm = controller;
-            vm.regions.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id');
-            });
-        });
-
         //submitNeed functionality
         describe('submitNeed function', function() {
             it('should be a function', function () {
@@ -225,30 +216,6 @@ describe('NewNeedRegisterController', function() {
 
                 //here should be REST api test, TBD in future
             });
-        });
-
-        //setCity functionality
-        describe('setCity function', function() {
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCity).to.be.a('function');
-            });
-
-            it('setCity should have region and current region params undefined ' +
-            'by default, cities should return object with defined params', function () {
-                var vm = controller;
-                expect(vm.need.region).to.equal(undefined);
-                expect(vm.currentRegion).to.equal(undefined);
-
-                //defining fake data
-                vm.cities = CreateNeedFactory.getCities(1);
-                //end
-
-                vm.cities.forEach(function(item) {
-                    expect(item).to.have.all.keys('name', 'id', 'parentId');
-                });
-            });
-
         });
     });
 });

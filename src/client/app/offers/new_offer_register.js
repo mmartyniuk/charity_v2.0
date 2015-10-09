@@ -9,7 +9,8 @@
         '$rootScope', 'CreateOfferAddressFactory', '$sessionStorage', 'SharedFactory'];
 
     function NewOfferRegisterController($state,CreateOfferFactory,$http,
-                                        $rootScope, CreateOfferAddressFactory, $sessionStorage, SharedFactory) {
+                                        $rootScope, CreateOfferAddressFactory,
+                                        $sessionStorage, SharedFactory) {
 
         var vm = this;
         vm.title = 'NewOfferRegisterController';
@@ -29,11 +30,11 @@
             SharedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
-        };
+        }
 
         function setRegion(region) {
             vm.cities = region._embedded.cities;
-        };
+        }
 
         vm.submitOffer = function () {
             vm.offer.actualDate = vm.dt.getDate() + '/' +

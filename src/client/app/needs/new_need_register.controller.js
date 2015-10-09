@@ -9,7 +9,8 @@
         '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory'];
 
     function NewNeedRegisterController($state,CreateNeedFactory, $http,
-                                       $sessionStorage, $rootScope, CreateNeedAddressFactory, SharedFactory) {
+                                       $sessionStorage, $rootScope,
+                                       CreateNeedAddressFactory, SharedFactory) {
 
         /* jshint validthis:true */
 
@@ -29,11 +30,11 @@
             SharedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
-        };
+        }
 
-         function setRegion(region) {
+        function setRegion(region) {
             vm.cities = region._embedded.cities;
-        };
+        }
 
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
