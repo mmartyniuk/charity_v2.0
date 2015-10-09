@@ -12,7 +12,7 @@
 
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.editedOffer.title" e-name="name" onbeforesave="checkName($data)"
+                                <span editable-text="vm.editedOffer.title" e-name="name"
                                       e-required>{{ vm.editedOffer.title }}</span>
                             </div>
                         </div>
@@ -69,14 +69,7 @@
                         <label class="control-label col-sm-2">Адреса:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.street" e-name="street" onbeforesave="checkName($data)"
-                                  id="str">{{ vm.editedOffer.street }}</span>
-                        </div>
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.editedOffer.house }}</span>
-                        </div>
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.editedOffer.flat }}</span>
+                            <span editable-text="vm.editedOffer.address" e-name="street" id="str">{{ vm.editedOffer.address }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -86,7 +79,7 @@
                         <label class="control-label col-sm-2">Зручний час:</label>
 
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.time" e-name="time" onbeforesave="checkName($data)">{{ vm.editedOffer.time }}</span>
+                            <span editable-text="vm.editedOffer.convenientTime" e-name="time">{{ vm.editedOffer.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedOffer.status" statuses="vm.editedOfferStatuses"></status>
@@ -99,10 +92,10 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                     <span ng-show="editOfferForm.$visible">
-                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting" ui-sref="offers.created">
+                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
                           Зберегти
                       </button>
-                      <a ui-sref="offers.created" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
                       <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                               ng-click="editOfferForm.$cancel()">
                           Скасувати

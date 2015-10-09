@@ -19,10 +19,6 @@ describe('EditOffersController', function() {
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
-        it('should have name', function () {
-            var vm = controller;
-            expect(vm.editedOffer.title).to.be.ok;
-        });
         it('should be a function', function () {
             var vm = controller;
             expect(vm.saveEditedOffer).to.be.a('function');

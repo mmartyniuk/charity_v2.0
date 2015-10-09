@@ -8,7 +8,7 @@
         .module('app.core')
         .factory('SharedFactory', SharedFactory);
 
-    SharedFactory.$inject = ['$http'];
+    SharedFactory.$inject = ['$http', '$q'];
 
     function SharedFactory($http, $q) {
         return {
@@ -24,6 +24,16 @@
             },
             getCategory: function(link, success, error) {
                 $http.get(link).success(success).error(error);
+            },
+            getRegions: function() {
+                return $q(function(resolve, reject) {
+                    $http.get('/api/regions').success(function (data) {
+                        resolve(data._embedded.regions);
+                    }).error(reject);
+                });
+            },
+            sliceLink: function(link) {
+                return link.slice(link.search('/api'), link.length);
             }
         };
     }

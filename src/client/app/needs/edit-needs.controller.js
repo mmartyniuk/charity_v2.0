@@ -1,31 +1,24 @@
 /*jshint -W100: false, multistr: true*/
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.needs')
         .controller('EditNeedsController', EditNeedsController);
 
-    EditNeedsController.$inject = ['$location', 'EditNeedFactory', '$filter', '$http', '$state'];
+    EditNeedsController.$inject = [
+        '$http', '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
+    ];
 
     /* @ngInject */
-    function EditNeedsController($location, EditNeedFactory, $filter, $http, $state) {
+    function EditNeedsController($http, $stateParams, EditNeedFactory, $state, $rootScope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
+        vm.currentNeed = {};
         vm.editedNeed = {};
         vm.date = {};
-        vm.editedNeed.title = 'Хвора дитина';
-        vm.editedNeed.needText = 'Влад з Дніпропетровська з народження' +
-            'страждає на ДЦП: гідроцефалія, порок розвитку головного мозку.' +
-            'Владика мучать сильні болі. Мама хлопчика спробувала вже чимало' +
-            'методів лікування, проте досі лікарі не змогли отримати бажаного результату.';
-        vm.editedNeed.regions = 'Київська область‎';
-        vm.editedNeed.city = 'Київ';
-        vm.editedNeed.flat = 'Номер квартири';
-        vm.editedNeed.time = 'Пн-Пт, 10:00 - 19:00';
-        vm.editedNeed.street = 'вул. Тараса Шевченка';
-        vm.editedNeed.house = 'Номер будинку';
+
         vm.editedNeed.status = 0;
         vm.editedNeedStatuses = [{
             value: 1,
@@ -35,23 +28,53 @@
             text: 'Ні'
         }];
 
-        activate();
-
-        function activate() {
-            vm.regions = EditNeedFactory.getRegions();
-        }
-
-        vm.setRegion = function(region) {
-            //setting region here
-            EditNeedFactory.getCities(region.id).then(function(cities) {
-                vm.cities = cities;
+        vm.currentNeed = function () {
+            EditNeedFactory.getConcreteNeed($stateParams.id).then(function (response) {
+                vm.editedNeed.title = response.data.name;
+                vm.editedNeed.needText = response.data.description;
+                vm.editedNeed.address = response.data.address;
+                vm.editedNeed.convenientTime = response.data.convenientTime;
+            }).catch(function () {
+                console.log('something wrong');
             });
         };
 
-        function saveEditedNeed() {
-            vm.editedNeed.date = vm.dt;
-            $location.path('/needs/createdneed');
+        vm.getRegion = function () {
+            EditNeedFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
+        activate();
+
+        function activate() {
+            vm.getRegion();
+            vm.currentNeed();
         }
+
+        vm.setRegion = function (region) {
+            vm.cities = region._embedded.cities;
+        };
+
+        function saveEditedNeed() {
+            var needId = $stateParams.id;
+            vm.editedNeed.date = vm.dt;
+
+            return $http.patch('/api/needs/' + needId, {
+                'name': vm.editedNeed.title,
+                'description': vm.editedNeed.needText,
+                'address': vm.editedNeed.address,
+                'convenientTime': vm.editedNeed.convenientTime,
+                'pickup': vm.editedNeed.status
+
+            }).then(function () {
+                $state.go('needs.created', {id: needId});
+            });
+        }
+
+        vm.cancel = function () {
+            $state.go($rootScope.previousState);
+        };
 
     }
 })();

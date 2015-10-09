@@ -11,7 +11,7 @@
                         <label class="control-label col-sm-2">Назва:</label>
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.editedNeed.title" e-name="name" onbeforesave="checkName($data)" e-required>{{ vm.editedNeed.title }}</span>
+                                <span editable-text="vm.editedNeed.title" e-name="name" onbeforesave="updateNeed($data)" e-required>{{ vm.editedNeed.title }}</span>
                             </div>
                         </div>
                     </div>
@@ -62,13 +62,7 @@
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Адреса:</label>
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.street" e-name="street" onbeforesave="checkName($data)" id="str">{{ vm.editedNeed.street }}</span>
-                        </div>
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.house" e-name="house" onbeforesave="checkName($data)" id="str">{{ vm.editedNeed.house }}</span>
-                        </div>
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.flat" e-name="flat" onbeforesave="checkName($data)" id="str">{{ vm.editedNeed.flat }}</span>
+                            <span editable-text="vm.editedNeed.address" e-name="street" onbeforesave="updateNeed($data)" id="str">{{ vm.editedNeed.address }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -77,7 +71,7 @@
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Зручний час:</label>
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.time" e-name="time" onbeforesave="checkName($data)">{{ vm.editedNeed.time }}</span>
+                            <span editable-text="vm.editedNeed.convenientTime" e-name="time" onbeforesave="updateNeed($data)">{{ vm.editedNeed.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedNeed.status" statuses="vm.editedNeedStatuses"></status>
@@ -89,10 +83,10 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                             <span ng-show="editNeedForm.$visible">
-                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting" ui-sref="needs.created">
+                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting">
                                   Зберегти
                               </button>
-                              <a ui-sref="needs.created" class="btn btn-default" id="myButton0">Відмінити</a>
+                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
                               <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
                                   Скасувати
                               </button> -->

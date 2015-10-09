@@ -5,9 +5,9 @@
         .module('app.needs')
         .factory('CreateNeedFactory', CreateNeedFactory);
 
-    CreateNeedFactory.$inject = ['$http'];
+    CreateNeedFactory.$inject = ['$http', '$q'];
 
-    function CreateNeedFactory($http) {
+    function CreateNeedFactory($http, $q) {
         return {
             getCategories: function() {
                 //tbd when there will be api to call, till that time hardcoded the
@@ -63,54 +63,6 @@
                     }
                 ];
                 return categories;
-            },
-            getRegions: function() {
-                //tbd when there will be api to call, till that time hardcoded the
-                // vm.categories array to verify if factory is properly working
-                /*$http.get('/api/regions').success(function(data) {
-                 vm.regions = data;
-                 })*/
-                var regions = [
-                    {
-                        'name': 'Київська обл.',
-                        'id': 1
-                    },
-                    {
-                        'name': 'Івано-Франківська обл.',
-                        'id': 2
-                    }
-                ];
-                return regions;
-            },
-            getCities: function(id) {
-                //tbd when there will be api to call, till that time hardcoded the
-                // vm.categories array to verify if factory is properly working
-                /*$http.get('/api/regions/id/cities').success(function(data) {
-                 vm.cities = data;
-                 })*/
-                var cities = [
-                    {
-                        'name':'Київ',
-                        'id': 1,
-                        'parentId': 1
-                    },
-                    {
-                        'name':'Оболонь',
-                        'id': 2,
-                        'parentId': 1
-                    },
-                    {
-                        'name':'Івано-Франківськ',
-                        'id': 3,
-                        'parentId': 2
-                    },
-                    {
-                        'name':'Калуш',
-                        'id': 4,
-                        'parentId': 2
-                    }
-                ];
-                return cities;
             }
         };
     }

@@ -51,28 +51,56 @@
                     <dt class="col-xs-3">Актуальність: </dt>
                     <dd>до <strong>{{vm.currentNeed.formattedActualTo}}</strong></dd>
 
-                    <dt class="col-xs-3">Адреса:</dt>
-                    <dd>
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">Адреса:</dt>
+                    <dd ng-show="vm.currentNeed.address">
                         <span class='street'>{{vm.currentNeed.address}}</span>
                     </dd>
 
-                    <dt class="col-xs-3">Зручний час:</dt>
-                    <dd>{{vm.currentNeed.convenientTime}}</dd>
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">Зручний час:</dt>
+                    <dd ng-show="vm.currentNeed.convenientTime">{{vm.currentNeed.convenientTime}}</dd>
 
                     <dt class="col-xs-3">Зможу забрати:</dt>
                     <dd>{{vm.currentNeed.pickup}}</dd>
                 </dl>
 
                 <hr>
-                <div class="row pull-right marginBottom">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
-                        <a ui-sref="needs.home" class="btn btn-primary">Редагувати</a>
-                        <a href="/" class="btn btn-default">Закрити</a>
+                <div ng-show="vm.currentNeed.open">
+                    <div class="row pull-right marginBottom">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
+                            <a ui-sref="needs.home" class="btn btn-primary">Редагувати</a>
+                            <a href="/" class="btn btn-default">Закрити</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
+                            <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToNeed">
+                            <button class="btn btn-default" ng-click="vm.cancelResponce()">Відмінити відгук</button>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="!vm.authorizedUser.ifOwner">
-                        <a ui-sref="needs.home" class="btn btn-primary">Відгукнутись</a>
+                    <div collapse="!isCollapsed" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <button type="button" class="close" aria-label="Close" ng-click="isCollapsed = !isCollapsed"><span aria-hidden="true" >&times;</span></button>
+                        <form ng-submit="vm.respondToNeed()">
+                            <div class="form-group">
+                                <label for="details">Деталі</label>
+                                <textarea class="form-control" id="details" placeholder="Введіть будь ласка деталі" ng-model="vm.respondData.description"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">Підтвердити</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
+                        <ul>
+                            <li ng-repeat="response in vm.currentResponses">
+                                <div><b>Опис:</b> {{response.description}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>Ім'я користувача:</b> {{vm.userInfo.name}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>Телефон:</b> {{vm.userInfo.address}}</div>
+                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">Отримати</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">Підтвердити отримання допомоги</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">Відмінити підтримання допомоги від цього користувача</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div ng-show="!vm.currentNeed.open">Ця потреба закрита!!</div>
             </div>
         </div>
     </div>

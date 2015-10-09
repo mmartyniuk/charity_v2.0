@@ -15,7 +15,8 @@
                     $http.get('/api/offers', {
                         params: {
                             page: pageNumber > 0 ? pageNumber - 1 : 0,
-                            size: itemsPerPage
+                            size: itemsPerPage,
+                            projection: 'inLine'
                         }
                     }).success(function(response) {
                         resolve({
@@ -28,7 +29,24 @@
                 });
             },
             getConcreteOffer: function(id, success, error) {
-                $http.get('/api/offers/' + id).success(success).error(error);
+                return $http.get('/api/offers/' + id).success(success).error(error);
+            },
+            respondToCurrentOffer: function(data, success, error) {
+                $http.post('/api/offerResponses', data).success(success).error(error);
+            },
+            getReponsesForThisOffer: function(id, success, error) {
+                $http.get('/api/offers/' + id + '/offerResponses').success(success).error(error);
+            },
+            cancelUserResponse: function(link, success, error) {
+                $http.delete(link).success(success).error(error);
+            },
+            patchResponse: function(id, accept, success, error) {
+                $http.patch('/api/offerResponses/' + id,
+                    {'status': accept}).success(success).error(error);
+            },
+            getUserToContactWith: function(id, success, error) {
+                return $http.get('api/offerResponses/' +
+                    id + '/user').success(success).error(error);
             }
         };
     }
