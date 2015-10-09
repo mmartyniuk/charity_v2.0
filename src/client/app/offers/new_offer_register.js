@@ -20,8 +20,20 @@
         //vm.offer.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
         //vm.offer.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
+        vm.getRegion = getRegion;
+        vm.setRegion = setRegion;
 
         activate();
+
+        function getRegion() {
+            CreateOfferFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
+        function setRegion(region) {
+            vm.cities = region._embedded.cities;
+        };
 
         vm.submitOffer = function () {
             vm.offer.actualDate = vm.dt.getDate() + '/' +
@@ -41,20 +53,13 @@
              // failed
              });*/
         };
-        //here will be additional ajax call to server to get only needed cities by id
-        vm.setCity = function (id, name) {
-            //setting region here
-            vm.offer.region = name;
-            vm.currentRegion = id;
-            vm.cities = CreateOfferFactory.getCities(id);
-        };
 
         function activate() {
             if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             } else {
-                vm.regions = CreateOfferFactory.getRegions();
+                getRegion();
                 CreateOfferAddressFactory.getAddress().then(function (address) {
                     vm.address = address;
                 });

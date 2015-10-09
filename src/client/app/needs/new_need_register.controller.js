@@ -22,6 +22,18 @@
         //vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
         //vm.need.category = 'Дитячі куртки'; // ---> static data for testing
         vm.getChecked = false;
+        vm.getRegion = getRegion;
+        vm.setRegion = setRegion;
+
+        function getRegion() {
+            CreateNeedFactory.getRegions().then(function (regions) {
+                vm.regions = regions;
+            });
+        };
+
+         function setRegion(region) {
+            vm.cities = region._embedded.cities;
+        };
 
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
@@ -44,12 +56,6 @@
 
             //here will be additional ajax call to server to get only needed cities by id
         };
-        vm.setCity = function (id, name) {
-            //setting region here
-            vm.need.region = name;
-            vm.currentRegion = id;
-            vm.cities = CreateNeedFactory.getCities(id);
-        };
 
         function activate() {
 
@@ -57,7 +63,7 @@
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             } else {
-                vm.regions = CreateNeedFactory.getRegions();
+                getRegion();
                 CreateNeedAddressFactory.getAddress().then(function(address) {
                     vm.address = address;
                 });
