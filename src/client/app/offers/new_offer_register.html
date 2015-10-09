@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Виберіть область:</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setCity(region.id, region.name);">
+                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setRegion(region);">
                     </select>
                 </div>
             </div>
