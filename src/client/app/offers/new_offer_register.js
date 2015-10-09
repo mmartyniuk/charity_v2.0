@@ -6,10 +6,10 @@
         .controller('NewOfferRegisterController', NewOfferRegisterController);
 
     NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http',
-        '$rootScope', 'CreateOfferAddressFactory', '$sessionStorage'];
+        '$rootScope', 'CreateOfferAddressFactory', '$sessionStorage', 'SharedFactory'];
 
     function NewOfferRegisterController($state,CreateOfferFactory,$http,
-                                        $rootScope, CreateOfferAddressFactory, $sessionStorage) {
+                                        $rootScope, CreateOfferAddressFactory, $sessionStorage, SharedFactory) {
 
         var vm = this;
         vm.title = 'NewOfferRegisterController';
@@ -26,7 +26,7 @@
         activate();
 
         function getRegion() {
-            CreateOfferFactory.getRegions().then(function (regions) {
+            SharedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
         };

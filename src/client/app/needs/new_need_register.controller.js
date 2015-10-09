@@ -6,10 +6,10 @@
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
     NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
-        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory'];
+        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory'];
 
     function NewNeedRegisterController($state,CreateNeedFactory, $http,
-                                       $sessionStorage, $rootScope, CreateNeedAddressFactory) {
+                                       $sessionStorage, $rootScope, CreateNeedAddressFactory, SharedFactory) {
 
         /* jshint validthis:true */
 
@@ -26,7 +26,7 @@
         vm.setRegion = setRegion;
 
         function getRegion() {
-            CreateNeedFactory.getRegions().then(function (regions) {
+            SharedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
         };

@@ -63,13 +63,6 @@
                     }
                 ];
                 return categories;
-            },
-            getRegions: function() {
-                return $q(function(resolve, reject) {
-                    $http.get('/api/regions').success(function (data) {
-                        resolve(data._embedded.regions);
-                    }).error(reject);
-                });
             }
         };
     }
