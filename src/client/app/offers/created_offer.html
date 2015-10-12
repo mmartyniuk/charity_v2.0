@@ -43,7 +43,7 @@
                 </dl>
 
                 <hr>
-<<<<<<< HEAD
+
                 <h3>Опис Пропозиції:</h3>
 
                 <dl class="dl-horizontal">
@@ -53,68 +53,17 @@
                     <dt class="col-xs-3">Актуальність: </dt>
                     <dd>до <strong>{{vm.currentOffer.formattedActualTo}}</strong></dd>
 
-                    <dt class="col-xs-3">Адреса:</dt>
-                    <dd>
+                    <dt class="col-xs-3" ng-show="vm.currentOffer.address">Адреса:</dt>
+                    <dd ng-show="vm.currentOffer.address">
                         <span class='street'>{{vm.currentOffer.address}}</span>
                     </dd>
 
-                    <dt class="col-xs-3">Зручний час:</dt>
-                    <dd>{{vm.currentOffer.convenientTime}}</dd>
+                    <dt class="col-xs-3" ng-show="vm.currentOffer.convenientTime">Зручний час:</dt>
+                    <dd ng-show="vm.currentOffer.convenientTime">{{vm.currentOffer.convenientTime}}</dd>
 
                     <dt class="col-xs-3">Зможу доставити:</dt>
                     <dd>{{vm.currentOffer.pickup}}</dd>
                 </dl>
-
-=======
-                <h3>Опис пропозиції</h3>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <p>{{vm.currentOffer.description}}</p>
-                    </div>
-                </div>
-                <!-- <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Розмір: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>М</strong>
-                    </div>
-                </div>-->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Актуальність: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        до <strong>{{vm.currentOffer.formattedActualTo}}</strong>
-                    </div>
-                </div>
-                <div class="row" ng-show="vm.currentOffer.address">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Адреса: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>
-                            <span class='street'>{{vm.currentOffer.address}}</span>
-                        </strong>
-                    </div>
-                </div>
-                <div class="row" ng-show="vm.currentOffer.convenientTime">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Зручний час: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentOffer.convenientTime}}</strong>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Зможу доставити:</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentOffer.pickup}}</strong>
-                    </div>
-                </div>
->>>>>>> cc902fc8b20670bdf9f906ebadfd7907a3e89f01
                 <hr>
                 <div ng-show="vm.currentOffer.open">
                     <div class="row pull-right marginBottom">
