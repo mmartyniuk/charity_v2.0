@@ -42,7 +42,7 @@
   },
   "overrides": {
     "bootstrap": {
-      "main": ["dist/css/bootstrap.css", "dist/css/custom-paper-theme.css"],
+      "main": "dist/css/bootstrap.css",
       "dist": "dist/js/bootstrap.js"
     }
   }
