@@ -31,11 +31,11 @@ describe('OffersController', function() {
             expect(vm.title).to.equal('OffersController');
         });
 
-        describe('loadPage() function', function() {
+        describe('getSearchData() function', function() {
 
             it('should be a function', function () {
                 var vm = controller;
-                expect(vm.loadPage).to.be.a('function');
+                expect(vm.getSearchData).to.be.a('function');
             });
 
         });

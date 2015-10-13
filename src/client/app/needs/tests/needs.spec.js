@@ -31,11 +31,11 @@ describe('NeedsController', function() {
             expect(vm.title).to.equal('NeedsController');
         });
 
-        describe('loadPage() function', function() {
+        describe('getSearchData() function', function() {
 
             it('should be a function', function () {
                 var vm = controller;
-                expect(vm.loadPage).to.be.a('function');
+                expect(vm.getSearchData).to.be.a('function');
             });
 
         });

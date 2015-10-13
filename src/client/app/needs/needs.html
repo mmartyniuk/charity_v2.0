@@ -15,9 +15,9 @@
     </div>
     <div class="container search-result">
         <hr>
-        <h2>За Вашим запитом знайдено {{ filtered.length }} потреб:</h2>
+        <h2>За Вашим запитом знайдено {{ vm.totalItems }} потреб:</h2>
         <hr>
-        <div ng-repeat="need in vm.needs | filter: vm.category | filter: vm.location | filter: vm.search as filtered">
+        <div ng-repeat="need in vm.needs">
             <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 hidden-xs">
                     <img src="{{ need.image }}" class="img-thumbnail" alt="Main photo">
@@ -64,7 +64,7 @@
             </div>
             <hr>
         </div>
-        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.loadPage()"
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData(vm.preSearch)"
                     max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
                     previous-text="Попередня" next-text="Наступна"></pagination>
     </div>
