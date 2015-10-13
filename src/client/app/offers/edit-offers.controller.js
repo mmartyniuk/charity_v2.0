@@ -31,6 +31,8 @@
                 vm.editedOffer.offerText = response.data.description;
                 vm.editedOffer.address = response.data.address;
                 vm.editedOffer.convenientTime = response.data.convenientTime;
+                vm.editedOffer.date = response.data.formattedActualTo;
+
             }).catch(function () {
                 console.log('something wrong');
             });
@@ -63,7 +65,8 @@
                 'description': vm.editedOffer.offerText,
                 'address': vm.editedOffer.address,
                 'convenientTime': vm.editedOffer.convenientTime,
-                'pickup': vm.editedOffer.status
+                'pickup': vm.editedOffer.status,
+                'formattedActualTo': vm.editedOffer.date
 
             }).then(function () {
                 $state.go('offers.created', {id: offerId});
