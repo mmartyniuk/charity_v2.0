@@ -12,30 +12,34 @@
         var vm = this;
         vm.title = 'OffersController';
         vm.setSearch = setSearch;
-        vm.loadPage = loadPage;
         vm.setCategory = setCategory;
+        vm.getSearchData = getSearchData;
         vm.offers = {};
         vm.itemsPerPage = 3;
+        vm.preSearch = $state.params.prefilled.preSearch;
         vm.category = $state.params.prefilled.category;
         vm.location = $state.params.prefilled.location;
 
         activate();
 
         function activate() {
-            loadPage();
+            setSearch(vm.preSearch);
         }
 
-        function loadPage() {
-            OffersFactory.getOffers(vm.currentPage, vm.itemsPerPage).then(function(data) {
+        function setSearch(value) {
+            vm.search = value;
+            vm.currentPage = 0;
+            getSearchData(vm.search);
+        }
+
+        function getSearchData(search) {
+            OffersFactory.getSearchOffers(vm.currentPage, vm.itemsPerPage, search)
+                .then(function(data) {
                 vm.offers = data.offers;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
             });
-        }
-
-        function setSearch(value) {
-            vm.search = value;
         }
 
         function setCategory(value) {

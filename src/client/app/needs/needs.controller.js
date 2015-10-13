@@ -12,30 +12,34 @@
         var vm = this;
         vm.title = 'NeedsController';
         vm.setSearch = setSearch;
-        vm.loadPage = loadPage;
         vm.setCategory = setCategory;
+        vm.getSearchData = getSearchData;
         vm.needs = {};
         vm.itemsPerPage = 3;
+        vm.preSearch = $state.params.prefilled.preSearch;
         vm.category = $state.params.prefilled.category;
         vm.location = $state.params.prefilled.location;
 
         activate();
 
         function activate() {
-            loadPage();
+            setSearch(vm.preSearch);
         }
 
-        function loadPage() {
-            NeedsFactory.getNeeds(vm.currentPage, vm.itemsPerPage).then(function(data) {
+        function setSearch(value) {
+            vm.search = value;
+            vm.currentPage = 0;
+            getSearchData(vm.search);
+        }
+
+        function getSearchData(search) {
+            NeedsFactory.getSearchNeeds(vm.currentPage, vm.itemsPerPage, search)
+                .then(function(data) {
                 vm.needs = data.needs;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
             });
-        }
-
-        function setSearch(value) {
-            vm.search = value;
         }
 
         function setCategory(value) {
