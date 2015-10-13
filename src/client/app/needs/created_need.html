@@ -3,7 +3,7 @@
         <div class="row heading">
             <h2 class="col-xs-12 col-md-2">Потреба:</h2>
             <h2 class="col-xs-12 col-md-8 col-md-offset-2">{{vm.currentNeed.name}}</h2>
-         </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 product-images">
                 <div class="row">
@@ -24,86 +24,45 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Автор: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <p>
-                            <a href="/">{{vm.userCreated.name}}</a>
-                            <!--<a href="#">(Інші оголошення користувача)</a>-->
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Опубліковано: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}</strong>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Категорія: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+                <dl class="dl-horizontal">
+                    <dt class="col-xs-3">Автор</dt>
+                    <dd><a href="/">{{vm.userCreated.name}}</a></dd>
+
+                    <dt class="col-xs-3">Опубліковано:</dt>
+                    <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}</dd>
+
+                    <dt class="col-xs-3">Категорія:</dt>
+                    <dd>
                         <ol class="breadcrumb">
                             <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
                             <li>{{vm.parentCategory}}</li>
                             <li>{{vm.category}}</li>
                         </ol>
-                    </div>
-                </div>
+                    </dd>
+                </dl>
+
                 <hr>
-                <h3>Опис потреби</h3>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <p>{{vm.currentNeed.description}}</p>
-                    </div>
-                </div>
-                <!-- <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Розмір: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>М</strong>
-                    </div>
-                </div>-->
-                <div class="row" ng-show="vm.currentNeed.formattedActualTo">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Актуальність: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        до <strong>{{vm.currentNeed.formattedActualTo}}</strong>
-                    </div>
-                </div>
-                <div class="row" ng-show="vm.currentNeed.address">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Адреса: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>
-                            <span class='street'>{{vm.currentNeed.address}}</span>
-                        </strong>
-                    </div>
-                </div>
-                <div class="row" ng-show="vm.currentNeed.convenientTime">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Зручний час: </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentNeed.convenientTime}}</strong>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                        <p>Зможу забрати:</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <strong>{{vm.currentNeed.pickup}}</strong>
-                    </div>
-                </div>
+                <h3>Опис потреби:</h3>
+
+                <dl class="dl-horizontal">
+                    <dt class="col-xs-3">Опис: </dt>
+                    <dd> <a href="/">{{vm.currentNeed.description}}</a></dd>
+
+                    <dt class="col-xs-3">Актуальність: </dt>
+                    <dd>до <strong>{{vm.currentNeed.formattedActualTo}}</strong></dd>
+
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">Адреса:</dt>
+                    <dd ng-show="vm.currentNeed.address">
+                        <span class='street'>{{vm.currentNeed.address}}</span>
+                    </dd>
+
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">Зручний час:</dt>
+                    <dd ng-show="vm.currentNeed.convenientTime">{{vm.currentNeed.convenientTime}}</dd>
+
+                    <dt class="col-xs-3">Зможу забрати:</dt>
+                    <dd>{{vm.currentNeed.pickup}}</dd>
+                </dl>
+
                 <hr>
                 <div ng-show="vm.currentNeed.open">
                     <div class="row pull-right marginBottom">

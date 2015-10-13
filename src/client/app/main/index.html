@@ -22,14 +22,6 @@
                 </div>
                 <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
-                <!--div class="col-xs-12 col-sm-4 margin-bottom-20">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode == 13 && vm.setSearch(vm.preSearch)">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
-                        </span>
-                    </div>
-                </div-->
             </div>
             <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search" ng-click="vm.submitCategorySearch(vm.category, vm.location)"></button>
 
@@ -37,168 +29,160 @@
     </section>
     <section class="recent-publications container">
 
-        <div class="well" ng-repeat="needs in vm.needsData | orderBy: 'date': true | limitTo: 2">
-                <h2 class="text-center">Останні потреби</h2>
-                <div class="recent-needs">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
-                            <div class="post-panel">
-                                <div class="post-image">
-                                    <img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block">
-                                </div>
-                                <div class="post-description">
-                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
-                                    <strong>{{ needs.location  }}</strong>
-                                    <small> / </small>
-                                    <strong>{{ needs.date | date:'dd-MM-yyyy'  }}</strong>
-                                    <p><b>Автор: </b><a href="/profile/user">{{ needs.author }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
-                            <div class="post-panel">
-                                <div class="post-image">
-                                    <img src="../../images/socks_bk.png" alt="computer" class="img-responsive center-block">
-                                </div>
-                                <div class="post-description">
-                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
-                                    <strong>м.Львів{{  }}</strong>
-                                    <small> / </small>
-                                    <strong>11.03.2015{{ }}</strong>
-                                    <p><b>Автор: </b><a href="/profile/user">Степан Крук{{ }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
-                            <div class="post-panel">
-                                <div class="post-image">
-                                    <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
-                                </div>
-                                <div class="post-description">
-                                    <h5><strong><a href="/needs/createdneed">{{ needs.desc }}</a><strong></h5>
-                                    <strong>м.Львів{{  }}</strong>
-                                    <small> / </small>
-                                    <strong>11.03.2015{{ }}</strong>
-                                    <p><b>Автор: </b><a href="/profile/user">Степан Крук{{ }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
-                            <div class="post-panel">
-                                <div class="post-image">
-                                    <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
-                                </div>
-                                <div class="post-description">
-                                    <h5><strong><a href="/needs/createdneed">Ком'ютер для школи{{  }}</a></strong></h5>
-                                    <strong>м.Львів{{  }}</strong>
-                                    <small> / </small>
-                                    <strong>11.03.2015{{ }}</strong>
-                                    <p><b>Автор: </b><a href="/profile/user">Степан Крук{{ }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+        <div class="well">
+            <h3 class="text-center">Останні потреби</h3>
+            <div class="recent-needs">
+                <div class="row">
 
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h5><a ui-sref="needs.created">Штани камуфляжні на фронт</a></h5>
+                                <div class="details row">
+                                    <div class="col-xs-6 text-right">
+                                        <strong class="clipped-text">Київ</strong>
+                                        <span>11-06-2014</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <strong>Автор: </strong>
+                                        <a ui-sref="profile.user" class="clipped">Євген Лірник</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/socks_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h5><a ui-sref="needs.created">Теплі зимові шкарпетки</a></h5>
+                                <div class="details row">
+                                    <div class="col-xs-6 text-right">
+                                        <strong class="clipped-text">Львів</strong>
+                                        <span>11-06-2015</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <strong>Автор: </strong>
+                                        <a ui-sref="profile.user">Степан Чиж</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h5><a ui-sref="needs.created">Светрик для Павла Зіброва</a></h5>
+                                <div class="details row">
+                                    <div class="col-xs-6 text-right">
+                                        <strong class="clipped-text">Чернівці</strong>
+                                        <span>11-07-2015</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <strong>Автор: </strong>
+                                        <a ui-sref="profile.user">Ігор Качмар</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description test">
+                                <h5><a ui-sref="needs.created">Взуття 43 розміру для офіцерів першого добровольчого полку</a></h5>
+                                <div class="details row">
+                                    <div class="col-xs-6 text-right">
+                                        <strong class="clipped-text">Івано-Франківськ</strong>
+                                        <span>11-06-2015</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <strong>Автор: </strong>
+                                        <a ui-sref="profile.user">Степан Чиж</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="well">
+            <h3 class="text-center">Останні пропозиції</h3>
+            <div class="recent-needs">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h6><strong><a ui-sref="offers.created">Штани камуфляжні на фронт</a><strong></h6>
+                                <strong>Київ</strong>
+                                <small> / </small>
+                                <strong>11-06-2014</strong>
+                                <p><b>Автор: </b><a ui-sref="profile.user">Євген Лірник</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/socks_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h6><strong><a ui-sref="offers.created">Теплі зимові шкарпетки</a><strong></h6>
+                                <strong>м.Львів{{  }}</strong>
+                                <small> / </small>
+                                <strong>11.03.2015{{ }}</strong>
+                                <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h6><strong><a ui-sref="offers.created">Светрик в'язаний</a><strong></h6>
+                                <strong>м.Львів{{  }}</strong>
+                                <small> / </small>
+                                <strong>11.03.2015{{ }}</strong>
+                                <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                        <div class="post-panel">
+                            <div class="post-image">
+                                <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
+                            </div>
+                            <div class="post-description">
+                                <h6><strong><a ui-sref="offers.created">Взуття 43 розміру </a></strong></h6>
+                                <strong>м.Львів{{  }}</strong>
+                                <small> / </small>
+                                <strong>11.03.2015{{ }}</strong>
+                                <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
 
 
 
 
-
-
-
-        <!-- <div class="row">
-            <div class="last-needs col-md-5 panel panel-default">
-                <h2 class="panel-heading">Останні потреби</h2>
-                <div ng-repeat="needs in vm.needsData | orderBy: 'date': true | limitTo: 2" class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
-                            <div>
-                                <strong><a href="/needs/createdneed">{{ needs.desc }}</a></strong>
-                                <p>
-                                    {{ needs.body }}
-                                </p>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <strong>{{ needs.location }}</strong>
-                                    <small> / </small>
-                                    <strong>{{ needs.date | date:'dd-MM-yyyy' }}</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                    <p><b>Автор: </b></p>
-                                </div>
-                                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                    <p>
-                                        <a href="/profile/user">{{ needs.author }}</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                    <p><b>Категорія: </b></p>
-                                </div>
-                                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                    <p>
-                                        <a href="#" ng-click="vm.filterCategoryNeeds(needs.category)">{{ needs.category }}</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="separator col-md-1"></div>
-            <div class="last-offers col-md-5 panel panel-default">
-                <h2 class="panel-heading">Останні пропозиції</h2>
-                <div ng-repeat="offers in vm.offersData | orderBy: 'date': true | limitTo: 2" class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
-                            <div>
-                                <strong><a href="/offers/createdoffer">{{ offers.desc }}</a></strong>
-                                <p>
-                                    {{ offers.body }}
-                                </p>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <strong>{{ offers.location }}</strong>
-                                    <small> / </small>
-                                    <strong>{{ offers.date | date:'dd-MM-yyyy'}}</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                    <p><b>Автор: </b></p>
-                                </div>
-                                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                    <p>
-                                        <a href="/profile/user">{{ offers.author }}</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                    <p><b>Категорія: </b></p>
-                                </div>
-                                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                                    <p>
-                                        <a href="#" ng-click="vm.filterCategoryOffers(offers.category)">{{ offers.category }}</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div> -->
     </section>
 </section>
