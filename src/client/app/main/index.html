@@ -10,21 +10,21 @@
         <div class="container">
 
             <div class="col-xs-12 col-sm-11 no-gutter">
-                <div class="col-xs-6 no-gutter margin-bottom-20">
+                <div class="search-input-wrap col-xs-6 no-gutter margin-bottom-20">
                     <input id="key-search" type="search" class="form-control " placeholder="Що ви шукаєте...">
                 </div>
-                <div class="btn-group col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
-                    <input id="single-button" type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Що шукаємо?"/>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
+                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
+                <div class="col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                    <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Потреби"  readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a></li>
                     </ul>
                 </div>
-                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
-                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
             </div>
             <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search" ng-click="vm.submitCategorySearch(vm.category, vm.location)"></button>
-
+`
         </div>
     </section>
     <section class="recent-publications container">
