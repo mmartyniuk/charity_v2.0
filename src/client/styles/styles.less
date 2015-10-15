@@ -1,3 +1,5 @@
+@import url("/styles/custom/custom-paper-theme.css");
+
 html {
     overflow-x: hidden;
 }
@@ -239,25 +241,29 @@ a {
     background-color: rgba(226, 226, 226, 0.7);
     .container {
         padding-top: 20px;
+        .search-input-wrap {
+            box-shadow: -1px 0px 0px rgba(237, 237, 237, 0.3);
+        }
         input {
             background-color: #fff;
             padding-left: 0.5em;
             &#key-search {
                 border-radius: 4px 0 0 4px;
             }
-            box-shadow: inset 0px 0px 1px rgba(221, 221, 221, 0.5)
+            &:hover {
+                box-shadow: inset 0px -1px 0px #3097d1;
+            }
         }
-        .btn {
+        .btn-success {
             border-radius: 0 4px 4px 0;
             position: relative;
             top: 0px;
-            height: 39px;
             box-shadow: inset 0 -1px 0 #dddddd;
+            height: 39px;
             &:hover {
                 box-shadow: inset 0 -1px 0 #1e8b6a;
             }
         }
-
     }
 }
 
@@ -326,9 +332,18 @@ a {
                 }
                 a {
                     color: @gray;
+                }
             }
-
-        }
+            &.test-layout {
+                .details {
+                    div {
+                        margin-bottom: 10px;
+                        strong {
+                            display: inline;
+                        }
+                    }
+                }
+            }
         }
 
     }

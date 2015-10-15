@@ -11,19 +11,23 @@
 
             <div class="col-xs-12 col-sm-11 no-gutter">
                 <div class="col-xs-6 no-gutter margin-bottom-20">
-                    <input id="key-search" type="search" ng-model="vm.preSearch" ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.preSearch, vm.category, vm.location)" class="form-control" placeholder="Що ви шукаєте...">
+                    <input id="key-search" type="search" ng-model="vm.preSearch"
+                           ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.preSearch, vm.category, vm.location)"
+                           class="form-control" placeholder="Що ви шукаєте...">
                 </div>
-                <div class="btn-group col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
-                    <input id="single-button" type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Що шукаємо?"/>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
+                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
+                <div class="search-input-wrap col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                    <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"
+                           ng-disabled="disabled" placeholder="Потреби" readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a></li>
                     </ul>
                 </div>
-                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
-                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
             </div>
-            <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search" ng-click="vm.submitCategorySearch(vm.preSearch, vm.category, vm.location)"></button>
+            <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search"
+                    ng-click="vm.submitCategorySearch(vm.category, vm.location)"></button>
 
         </div>
     </section>
@@ -31,6 +35,7 @@
 
         <div class="well">
             <h3 class="text-center">Останні потреби</h3>
+
             <div class="recent-needs">
                 <div class="row">
 
@@ -41,6 +46,7 @@
                             </div>
                             <div class="post-description">
                                 <h5><a ui-sref="needs.created">Штани камуфляжні на фронт</a></h5>
+
                                 <div class="details row">
                                     <div class="col-xs-6 text-right">
                                         <strong class="clipped-text">Київ</strong>
@@ -61,6 +67,7 @@
                             </div>
                             <div class="post-description">
                                 <h5><a ui-sref="needs.created">Теплі зимові шкарпетки</a></h5>
+
                                 <div class="details row">
                                     <div class="col-xs-6 text-right">
                                         <strong class="clipped-text">Львів</strong>
@@ -77,10 +84,12 @@
                     <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
                         <div class="post-panel">
                             <div class="post-image">
-                                <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
+                                <img src="../../images/sweater_bk.png" alt="computer"
+                                     class="img-responsive center-block">
                             </div>
                             <div class="post-description">
                                 <h5><a ui-sref="needs.created">Светрик для Павла Зіброва</a></h5>
+
                                 <div class="details row">
                                     <div class="col-xs-6 text-right">
                                         <strong class="clipped-text">Чернівці</strong>
@@ -99,14 +108,16 @@
                             <div class="post-image">
                                 <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
                             </div>
-                            <div class="post-description test">
-                                <h5><a ui-sref="needs.created">Взуття 43 розміру для офіцерів першого добровольчого полку</a></h5>
-                                <div class="details row">
-                                    <div class="col-xs-6 text-right">
+                            <div class="post-description test-layout">
+                                <h5><a ui-sref="needs.created">Взуття 43 розміру для офіцерів першого добровольчого
+                                    полку</a></h5>
+
+                                <div class="details row text-center">
+                                    <div>
                                         <strong class="clipped-text">Івано-Франківськ</strong>
                                         <span>11-06-2015</span>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div>
                                         <strong>Автор: </strong>
                                         <a ui-sref="profile.user">Степан Чиж</a>
                                     </div>
@@ -120,6 +131,7 @@
 
         <div class="well">
             <h3 class="text-center">Останні пропозиції</h3>
+
             <div class="recent-needs">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
@@ -128,10 +140,11 @@
                                 <img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block">
                             </div>
                             <div class="post-description">
-                                <h6><strong><a ui-sref="offers.created">Штани камуфляжні на фронт</a><strong></h6>
+                                <h6><strong><a ui-sref="offers.created">Штани камуфляжні на фронт</a></strong></h6>
                                 <strong>Київ</strong>
-                                <small> / </small>
+                                <small> /</small>
                                 <strong>11-06-2014</strong>
+
                                 <p><b>Автор: </b><a ui-sref="profile.user">Євген Лірник</a></p>
                             </div>
                         </div>
@@ -142,10 +155,11 @@
                                 <img src="../../images/socks_bk.png" alt="computer" class="img-responsive center-block">
                             </div>
                             <div class="post-description">
-                                <h6><strong><a ui-sref="offers.created">Теплі зимові шкарпетки</a><strong></h6>
-                                <strong>м.Львів{{  }}</strong>
-                                <small> / </small>
+                                <h6><strong><a ui-sref="offers.created">Теплі зимові шкарпетки</a></strong></h6>
+                                <strong>м.Львів{{ }}</strong>
+                                <small> /</small>
                                 <strong>11.03.2015{{ }}</strong>
+
                                 <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
                             </div>
                         </div>
@@ -153,13 +167,15 @@
                     <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
                         <div class="post-panel">
                             <div class="post-image">
-                                <img src="../../images/sweater_bk.png" alt="computer" class="img-responsive center-block">
+                                <img src="../../images/sweater_bk.png" alt="computer"
+                                     class="img-responsive center-block">
                             </div>
                             <div class="post-description">
-                                <h6><strong><a ui-sref="offers.created">Светрик в'язаний</a><strong></h6>
-                                <strong>м.Львів{{  }}</strong>
-                                <small> / </small>
+                                <h6><strong><a ui-sref="offers.created">Светрик в'язаний</a></strong></h6>
+                                <strong>м.Львів{{ }}</strong>
+                                <small> /</small>
                                 <strong>11.03.2015{{ }}</strong>
+
                                 <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
                             </div>
                         </div>
@@ -171,18 +187,17 @@
                             </div>
                             <div class="post-description">
                                 <h6><strong><a ui-sref="offers.created">Взуття 43 розміру </a></strong></h6>
-                                <strong>м.Львів{{  }}</strong>
-                                <small> / </small>
+                                <strong>м.Львів{{ }}</strong>
+                                <small> /</small>
                                 <strong>11.03.2015{{ }}</strong>
+
                                 <p><b>Автор: </b><a ui-sref="profile.user">Степан Крук{{ }}</a></p>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-
-
-
 
     </section>
 </section>
