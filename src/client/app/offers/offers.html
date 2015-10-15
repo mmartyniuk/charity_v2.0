@@ -65,6 +65,16 @@
             </div>
             <hr>
         </div>
+        <div id="itemsPerPageWrapper" class="btn-group pull-left" dropdown>
+            <button id="itemsPerPageButton" dropdown-toggle type="button" class="btn btn-sm btn-default">
+                Відображати <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="itemsPerPageButton">
+                <li role="menuitem" ng-repeat="choice in vm.perPageDropdownItems track by $index" ng-click="vm.setItemsPerPage($index)">
+                    <a href="">{{choice.label}}</a>
+                </li>
+            </ul>
+        </div>
         <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData(vm.preSearch)"
                     max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
                     previous-text="Попередня" next-text="Наступна"></pagination>
