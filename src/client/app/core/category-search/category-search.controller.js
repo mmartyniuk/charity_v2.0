@@ -5,9 +5,9 @@
         .module('app.core')
         .controller('CategorySearchController', CategorySearchController);
 
-    CategorySearchController.$inject = ['CategoryFactory'];
+    CategorySearchController.$inject = ['CategoryFactory', 'SharedFactory'];
 
-    function CategorySearchController(CategoryFactory) {
+    function CategorySearchController(CategoryFactory, SharedFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'CategorySearchController';
@@ -28,7 +28,8 @@
             CategoryFactory.getCategories().then(function(data) {
                 vm.categories = data.categories;
                 angular.forEach(vm.categories, function(value) {
-                    value._links.children.href = value._links.children.href.slice(21);
+                    value._links.children.href = SharedFactory
+                        .sliceLink(value._links.children.href);
                 }, vm.categories);
             });
         }
@@ -38,7 +39,8 @@
             CategoryFactory.getSubCategories(api).then(function(data) {
                 vm.subcategories = data.subcategories;
                 angular.forEach(vm.subcategories, function(value) {
-                    value._links.children.href = value._links.children.href.slice(21);
+                    value._links.children.href = SharedFactory
+                        .sliceLink(value._links.children.href);
                 }, vm.subcategories);
                 if (!vm.subcategories) {
                     setCategory(name);
