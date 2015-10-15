@@ -58,7 +58,7 @@
                 if (search && data.totalItems > 0) { //assigning appropriate value to search label
                     vm.searchLabel = 'За Вашим запитом знайдено потреб: ' + data.totalItems;
                 } else if (search && data.totalItems === 0) {
-                    vm.searchLabel = 'Нажаль за Вашим запитом нічого не знайдено.';
+                    vm.searchLabel = 'На жаль за Вашим запитом нічого не знайдено.';
                 } else {
                     vm.searchLabel = 'Усі потреби:';
                 }
