@@ -5,9 +5,9 @@
         .module('app.core')
         .controller('LocationSearchController', LocationSearchController);
 
-    LocationSearchController.$inject = ['LocationFactory'];
+    LocationSearchController.$inject = ['LocationFactory', 'SharedFactory'];
 
-    function LocationSearchController(LocationFactory) {
+    function LocationSearchController(LocationFactory, SharedFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'LocationSearchController';
