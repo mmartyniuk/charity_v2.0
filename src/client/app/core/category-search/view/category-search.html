@@ -5,17 +5,17 @@
         </button>
         <div class="dropdown-menu" role="menu" aria-labelledby="single-button">
             <div class="category" ng-show="vm.showCategory">
-                <span ng-repeat="category in vm.categories" ng-if="category.parentId == '0'">
-                    <a href="#" ng-click="vm.setCurrentCategory(category.id)">{{category.name}}</a>
+                <span ng-repeat="category in vm.categories">
+                    <a href="#" ng-click="vm.showSubCategories(category._links.children.href, category.name)">{{category.name}}</a>
                 </span>
             </div>
             <div class="sub" ng-show="vm.showSubCategory">
-                <span ng-repeat="sub in vm.categories" ng-if="sub.parentId == vm.currentCategory">
-                    <a href="#" ng-click="vm.setCurrentSubCategory(sub.id, sub.name)">{{sub.name}}</a>
+                <span ng-repeat="sub in vm.subcategories">
+                    <a href="#" ng-click="vm.showSubSubCategories(sub._links.children.href, sub.name)">{{sub.name}}</a>
                 </span>
             </div>
             <div class="subsub" ng-show="vm.showSubSubCategory">
-                <span ng-repeat="subsub in vm.categories" ng-if="subsub.parentId == vm.currentSubCategory">
+                <span ng-repeat="subsub in vm.subsubcategories">
                     <a href="#" ng-click="vm.setCategory(subsub.name)">{{subsub.name}}</a>
                 </span>
             </div>

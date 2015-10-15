@@ -12,8 +12,8 @@
         var vm = this;
         vm.title = 'CategorySearchController';
         vm.setCategory = setCategory;
-        vm.setCurrentCategory = setCurrentCategory;
-        vm.setCurrentSubCategory = setCurrentSubCategory;
+        vm.showSubCategories = showSubCategories;
+        vm.showSubSubCategories = showSubSubCategories;
         vm.showCategory = true;
         vm.showSubCategory = false;
         vm.showSubSubCategory = false;
@@ -24,31 +24,42 @@
 
         activate();
 
+        function activate() {
+            CategoryFactory.getCategories().then(function(data) {
+                vm.categories = data.categories;
+                angular.forEach(vm.categories, function(value) {
+                    value._links.children.href = value._links.children.href.slice(21);
+                }, vm.categories);
+            });
+        }
+
         //function to identify current category and set child category
-        function setCurrentCategory(id) {
-            vm.currentCategory = id;
+        function showSubCategories(api, name) {
+            CategoryFactory.getSubCategories(api).then(function(data) {
+                vm.subcategories = data.subcategories;
+                angular.forEach(vm.subcategories, function(value) {
+                    value._links.children.href = value._links.children.href.slice(21);
+                }, vm.subcategories);
+                if (!vm.subcategories) {
+                    setCategory(name);
+                    return false;
+                }
+            });
             vm.showCategory = false;
             vm.showSubCategory = true;
         }
 
         //function to identify current category and set child category
-        function setCurrentSubCategory(id, name) {
-            vm.currentSubCategory = id;
-            var temp = [];
-            angular.forEach(vm.categories, function(value, key) {
-                if (value.parentId === vm.currentSubCategory) {
-                    this.push(key + ': ' + value);
+        function showSubSubCategories(api, name) {
+            CategoryFactory.getSubSubCategories(api).then(function(data) {
+                vm.subsubcategories = data.subsubcategories;
+                if (!vm.subsubcategories) {
+                    setCategory(name);
+                    return false;
                 }
-            }, temp);
-            if (!temp.length) {
-                vm.setCategory(name);
-            }
+            });
             vm.showSubCategory = false;
             vm.showSubSubCategory = true;
-        }
-
-        function activate() {
-            vm.categories = CategoryFactory.getCategories();
         }
 
         function setCategory(category) {
