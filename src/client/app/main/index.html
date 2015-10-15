@@ -10,12 +10,12 @@
         <div class="container">
 
             <div class="col-xs-12 col-sm-11 no-gutter">
-                <div class="search-input-wrap col-xs-6 no-gutter margin-bottom-20">
+                <div class="col-xs-6 no-gutter margin-bottom-20">
                     <input id="key-search" type="search" class="form-control " placeholder="Що ви шукаєте...">
                 </div>
                 <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
-                <div class="col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                <div class="search-input-wrap col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
                     <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType" ng-disabled="disabled" placeholder="Потреби"  readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
@@ -94,19 +94,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter">
+                    <div class=" col-xs-12 col-sm-6 col-md-3 no-gutter">
                         <div class="post-panel">
                             <div class="post-image">
                                 <img src="../../images/shoes_bk.png" alt="computer" class="img-responsive center-block">
                             </div>
-                            <div class="post-description test">
+                            <div class="post-description test-layout">
                                 <h5><a ui-sref="needs.created">Взуття 43 розміру для офіцерів першого добровольчого полку</a></h5>
-                                <div class="details row">
-                                    <div class="col-xs-6 text-right">
+                                <div class="details row text-center">
+                                    <div>
                                         <strong class="clipped-text">Івано-Франківськ</strong>
                                         <span>11-06-2015</span>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div>
                                         <strong>Автор: </strong>
                                         <a ui-sref="profile.user">Степан Чиж</a>
                                     </div>

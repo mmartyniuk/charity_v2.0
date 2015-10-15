@@ -1,3 +1,5 @@
+@import url("/styles/custom/custom-paper-theme.css");
+
 html {
     overflow-x: hidden;
 }
@@ -316,6 +318,16 @@ a {
                 }
                 a {
                     color: @gray;
+                }
+            }
+            &.test-layout {
+                .details {
+                    div {
+                        margin-bottom: 10px;
+                        strong {
+                            display: inline;
+                        }
+                    }
                 }
             }
         }
