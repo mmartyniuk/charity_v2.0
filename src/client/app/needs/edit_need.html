@@ -9,26 +9,26 @@
                 <form editable-form name="editNeedForm" onaftersave="vm.saveEditedNeed()">
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Назва:</label>
+
                         <div class="col-sm-10">
                             <div>
-                                <span editable-text="vm.editedNeed.title" e-name="name" onbeforesave="updateNeed($data)" e-required>{{ vm.editedNeed.title }}</span>
+                                <span editable-text="vm.editedNeed.title" e-name="name" onbeforesave="updateNeed($data)"
+                                      e-required>{{ vm.editedNeed.title }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Категорія:</label>
+
                         <div class="col-sm-10 col-md-6 col-lg-4">
-                            <!-- here should be pre-filled data from previous page -->
-                            <ol class="breadcrumb">
-                                <li>Одяг</li>
-                                <li>Дитячий одяг</li>
-                                <li>Техніка</li>
-                            </ol>
+                            <category-search class="col-xs-12 no-gutter margin-bottom-20"
+                                             category="vm.category"></category-search>
                         </div>
                     </div>
                     <hr>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Опис потреби:</label>
+
                         <div class="col-sm-10">
                             <div>
                                 <a href="#" editable-textarea="vm.editedNeed.needText" e-rows="7" e-cols="90">
@@ -43,17 +43,22 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть область:</label>
+
                         <div class="col-sm-3">
-                            <span editable-select="vm.region" e-name="region" e-ng-options="region.name for region in vm.regions track by region.id" e-ng-change="vm.setRegion($data);">
+                            <span editable-select="vm.region" e-name="region"
+                                  e-ng-options="region.name for region in vm.regions track by region.id"
+                                  e-ng-change="vm.setRegion($data);">
                                 {{ vm.region.name }}
                             </span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть місто:</label>
+
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
-                            <span editable-select="vm.city" e-name="city" e-ng-options="city.name for city in vm.cities" e-ng-disabled="!editNeedForm.region.$modelValue">
+                            <span editable-select="vm.city" e-name="city" e-ng-options="city.name for city in vm.cities"
+                                  e-ng-disabled="!editNeedForm.region.$modelValue">
                                 {{ vm.city.name }}
                             </span>
                         </div>
@@ -61,8 +66,10 @@
                     <hr>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Адреса:</label>
+
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.address" e-name="street" onbeforesave="updateNeed($data)" id="str">{{ vm.editedNeed.address }}</span>
+                            <span editable-text="vm.editedNeed.address" e-name="street" onbeforesave="updateNeed($data)"
+                                  id="str">{{ vm.editedNeed.address }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -70,15 +77,18 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Зручний час:</label>
+
                         <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.convenientTime" e-name="time" onbeforesave="updateNeed($data)">{{ vm.editedNeed.convenientTime }}</span>
+                            <span editable-text="vm.editedNeed.convenientTime" e-name="time"
+                                  onbeforesave="updateNeed($data)">{{ vm.editedNeed.convenientTime }}</span>
                         </div>
                     </div>
                     <status status="vm.editedNeed.status" statuses="vm.editedNeedStatuses"></status>
                     <!-- button to show form -->
                     <div class="form-group row pull-right">
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-default" ng-click="editNeedForm.$show()" ng-show="!editNeedForm.$visible" ng-init="editNeedForm.$show()">
+                            <button type="button" class="btn btn-default" ng-click="editNeedForm.$show()"
+                                    ng-show="!editNeedForm.$visible" ng-init="editNeedForm.$show()">
                                 Edit
                             </button>
                             <!-- buttons to submit / cancel form -->
@@ -87,9 +97,9 @@
                                   Зберегти
                               </button>
                               <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
-                              <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
-                                  Скасувати
-                              </button> -->
+                                <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
+                                    Скасувати
+                                </button> -->
                             </span>
                         </div>
                     </div>
