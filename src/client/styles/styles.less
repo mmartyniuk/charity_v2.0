@@ -23,14 +23,21 @@ a {
 }
 
 /*  Color variables */
+
 @gray: rgba(70, 70, 70, 0.95);
 @gray-light: rgb(187, 187, 187);
+@brand-primary: #2196F3;
+
 
  /* Mixins */
 .clipped-text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.light-gray-border {
+    border: 1px solid rgba(187, 187, 187, 0.3);
 }
 
 .dropButtons {
@@ -140,6 +147,7 @@ a {
 }
 
 /* <--------------needs.html style--------> */
+
 .topLinks {
     padding-top: 8em;
     text-align: left;
@@ -201,8 +209,6 @@ a {
 
 
 }
-
-
 
 #profileEdit {
     box-shadow: 5px 5px 2px #add8e6;
@@ -296,8 +302,8 @@ a {
 
         margin: 4px;
         background-color: #fff;
-        border: 1px solid @gray-light;
         border-radius: 4px;
+        .light-gray-border;
         .post-image {
             text-align: center;
             margin-bottom: 10px;
@@ -366,6 +372,26 @@ a {
 /* <--------------edit_offer.html END--------> */
 
 /* <--------------offers.html style --------> */
+
+#offers, #needs {
+    .main-filters{
+        background-color: transparent;
+        .container {
+            background-color: @brand-primary;
+            border-radius: 4px;
+            margin-top: 20px; 
+            .btn-success {
+                box-shadow: none;
+            }
+            .search-input-wrap {
+                &:after,
+                .dropdown-menu {
+                    display: none;
+                }
+            }
+        }
+    }
+}
 .check {
     margin: 10px 0 0 0;
 }
@@ -419,7 +445,7 @@ div.form-group.prev-next-buttons {
         }
     }
     .tab-content {
-        border: 1px solid @gray;
+        .light-gray-border;
         border-top: none;
         border-radius: 0 0 4px 4px;
     }
@@ -440,6 +466,9 @@ div.form-group.prev-next-buttons {
         margin: 15px;
         .stats a {
             color: #fff;
+        }
+        .badge {
+            padding: 6px 9px;
         }
         #profile {
             .editable-wrap {
@@ -531,9 +560,41 @@ div.form-group.prev-next-buttons {
 /* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
 
 /* <-------------- Dropdown --------> */
+.search-input-wrap.needs {
+    &:after {
+        content: "\e114";
+        position: absolute;
+        top: 0.9em;
+        left: 7em;
+        /*** standard .glyphicon class styles ***/
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        ft-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        & > li > a {
+            display: inline;
+        }
+    }
+}
+
+.main-filters {
+    .dropdown-menu {
+        .glyphicon {
+            display: inline;
+            color: #ddd;
+    }
+    }
+}
+
 location-search .dropdown-menu {
-    width: 1140px;
-    right: -95px;
+    width: 1045px;
+    right: -175px;
     left: auto;
     padding-left: 10px;
 }
@@ -553,17 +614,14 @@ location-search .btn-group {
 
 .cities span, .regions span, category-search span {
     display: inline-block;
+    margin-bottom: 5px;
 }
 
 category-search span {
     width: 100%;
 }
 
-.cities span {
-    width: 210px;
-}
-
-.regions span {
-    width: 185px;
+.regions span, .cities span {
+    width: 20%;
 }
 /* <-------------- Dropdown  END--------> */

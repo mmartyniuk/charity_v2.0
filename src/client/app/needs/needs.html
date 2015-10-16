@@ -1,20 +1,33 @@
-<section>
-    <div class="contentWrapper container">
-        <div class="row">
-            <category-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" category="vm.category"></category-search>
-            <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" location="vm.location"></location-search>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode === 13 && vm.setSearch(vm.preSearch)">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
-                    </span>
+<section id="needs">
+    <section class="main-filters">
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-11 no-gutter">
+                <div class="col-xs-6 no-gutter margin-bottom-20">
+                    <input id="key-search" type="search" ng-model="vm.preSearch"
+                           ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.preSearch, vm.category, vm.location)"
+                           class="form-control" placeholder="Що ви шукаєте...">
+                </div>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
+                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
+                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                    <input type="text" class="form-control" dropdown-toggle ng-init="vm.contentType = 'Потреби'" ng-model="vm.contentType"
+                           ng-disabled="disabled" placeholder="Потреби" readonly/>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                        <li role="menuitem">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search"
+                    ng-click="vm.submitCategorySearch(vm.category, vm.location)">
+            </button>
+
         </div>
-    </div>
-    <div class="container search-result">
-        <hr>
+    </section>
+    <div class="container search-result well top">
         <h2>За Вашим запитом знайдено {{ vm.totalItems }} потреб:</h2>
         <hr>
         <div ng-repeat="need in vm.needs">
