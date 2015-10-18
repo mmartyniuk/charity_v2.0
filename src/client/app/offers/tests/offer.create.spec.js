@@ -1,6 +1,3 @@
-/**
- * Created by mmartin on 10/18/2015.
- */
 /*jshint expr: true, multistr: true*/
 /*globals $state, SharedFactory, OffersFactory, $stateParams */
 //CreatedOfferController
