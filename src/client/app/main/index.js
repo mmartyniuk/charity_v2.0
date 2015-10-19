@@ -34,18 +34,18 @@
             vm.contentType = value;
         }
 
-        function submitCategorySearch(preSearch, category, location) {
-            vm.preSearch = preSearch;
+        function submitCategorySearch(searchValue, category, location) {
+            vm.searchValue = searchValue;
             vm.category = category;
             vm.location = location;
             // some ui validation should be applied here, tbd in future
             if (vm.contentType === 'Потреби') {
-                vm.needs.preSearch = vm.preSearch;
+                vm.needs.searchValue = vm.searchValue;
                 vm.needs.category = vm.category;
                 vm.needs.location = vm.location;
                 $state.go('needs.home', {prefilled: vm.needs});
             } else if (vm.contentType === 'Пропозиції') {
-                vm.offers.preSearch = vm.preSearch;
+                vm.offers.searchValue = vm.searchValue;
                 vm.offers.category = vm.category;
                 vm.offers.location = vm.location;
                 $state.go('offers.home', {prefilled: vm.offers});

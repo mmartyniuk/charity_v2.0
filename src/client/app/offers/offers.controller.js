@@ -32,32 +32,31 @@
 
         vm.itemsPerPage = 5;
         vm.searchLabel = 'Усі пропозиції:';
-        vm.preSearch = $state.params.prefilled.preSearch;
+        vm.searchValue = $state.params.prefilled.searchValue;
         vm.category = $state.params.prefilled.category;
         vm.location = $state.params.prefilled.location;
 
         activate();
 
         function activate() {
-            setSearch(vm.preSearch);
+            setSearch();
         }
 
-        function setSearch(value) {
-            vm.search = value;
+        function setSearch() {
             vm.currentPage = 0;
-            getSearchData(vm.search);
+            getSearchData();
         }
 
-        function getSearchData(search) {
-            OffersFactory.getSearchOffers(vm.currentPage, vm.itemsPerPage, search)
-                .then(function(data) {
+        function getSearchData() {
+            OffersFactory.getSearchOffers(vm.currentPage, vm.itemsPerPage,
+                vm.searchValue, vm.region, vm.location, vm.category).then(function(data) {
                 vm.offers = data.offers;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
-                if (search && data.totalItems > 0) { //assigning appropriate value to search label
+                if (vm.searchValue && data.totalItems > 0) { //assigning appropriate value to search label
                     vm.searchLabel = 'За Вашим запитом знайдено пропозицій: ' + data.totalItems;
-                } else if (search && data.totalItems === 0) {
+                } else if (vm.searchValue && data.totalItems === 0) {
                     vm.searchLabel = 'На жаль за Вашим запитом нічого не знайдено.';
                 } else {
                     vm.searchLabel = 'Усі пропозиції:';
@@ -73,7 +72,7 @@
         function setItemsPerPage(index) {
             vm.currentPage = 0;
             vm.itemsPerPage = vm.perPageDropdownItems[index].value;
-            getSearchData(vm.search);
+            getSearchData();
         }
     }
 })();
