@@ -54,7 +54,6 @@
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
-                    console.log(data.totalItems);
                 if ((vm.searchValue || vm.location || vm.category) && data.totalItems > 0) { //assigning appropriate value to search label
                     vm.searchLabel = 'За Вашим запитом знайдено потреб: ' + data.totalItems;
                 } else if (data.totalItems === 0) {
