@@ -29,7 +29,7 @@
         </div>
     </section>
     <div class="container search-result well top">
-        <h2>За Вашим запитом знайдено {{ vm.totalItems }} пропозицій:</h2>
+        <h2>{{vm.searchLabel}}</h2>
         <hr>
         <div ng-repeat="offer in vm.offers">
             <div class="row">
@@ -88,7 +88,7 @@
                 </li>
             </ul>
         </div>
-        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData(vm.preSearch)"
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData()"
                     max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
                     previous-text="Попередня" next-text="Наступна"></pagination>
     </div>

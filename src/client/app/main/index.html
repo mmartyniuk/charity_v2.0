@@ -11,8 +11,8 @@
 
             <div class="col-xs-12 col-sm-11 no-gutter">
                 <div class="col-xs-6 no-gutter margin-bottom-20">
-                    <input id="key-search" type="search" ng-model="vm.preSearch"
-                           ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.preSearch, vm.category, vm.location)"
+                    <input id="key-search" type="search" ng-model="vm.searchValue"
+                           ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.searchValue, vm.category, vm.location)"
                            class="form-control" placeholder="Що ви шукаєте...">
                 </div>
                 <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
@@ -33,8 +33,7 @@
                 </div>
             </div>
             <button class="col-xs-12 col-sm-1 btn btn-success glyphicon glyphicon-search"
-                    ng-click="vm.submitCategorySearch(vm.category, vm.location)">
-            </button>
+                    ng-click="vm.submitCategorySearch(vm.searchValue, vm.category, vm.location)"></button>
 
         </div>
     </section>
