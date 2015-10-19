@@ -66,6 +66,9 @@
 
         function setCategory(value) {
             vm.category = value;
+            vm.searchValue = '';
+            vm.location = '';
+            setSearch();
         }
 
         //setting itemsPerPage to value that was selected by user in the dropdown menu
