@@ -5,9 +5,9 @@
             <location-search class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom" location="vm.location"></location-search>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 marginBottom">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.preSearch" ng-keyup="$event.keyCode === 13 && vm.setSearch(vm.preSearch)">
+                    <input type="text" class="form-control" placeholder="Я шукаю..." ng-model="vm.searchValue" ng-keyup="$event.keyCode === 13 && vm.setSearch()">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="vm.setSearch(vm.preSearch)">Go!</button>
+                        <button class="btn btn-default" type="button" ng-click="vm.setSearch()">Go!</button>
                     </span>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 </li>
             </ul>
         </div>
-        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData(vm.preSearch)"
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData()"
                     max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
                     previous-text="Попередня" next-text="Наступна"></pagination>
     </div>

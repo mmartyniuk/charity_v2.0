@@ -5,7 +5,7 @@
         .module('app.needs')
         .controller('NeedsController', NeedsController);
 
-    NeedsController.$inject = ['$location','NeedsFactory', '$state'];
+    NeedsController.$inject = ['$location', 'NeedsFactory', '$state'];
 
     function NeedsController($location,NeedsFactory, $state) {
         /* jshint validthis:true */
@@ -31,25 +31,24 @@
         }];
 
         vm.itemsPerPage = 5;
-        vm.preSearch = $state.params.prefilled.preSearch;
+        vm.searchValue = $state.params.prefilled.searchValue;
         vm.category = $state.params.prefilled.category;
         vm.location = $state.params.prefilled.location;
 
         activate();
 
         function activate() {
-            setSearch(vm.preSearch);
+            setSearch();
         }
 
-        function setSearch(value) {
-            vm.search = value;
+        function setSearch() {
             vm.currentPage = 0;
-            getSearchData(vm.search);
+            getSearchData();
         }
 
-        function getSearchData(search) {
-            NeedsFactory.getSearchNeeds(vm.currentPage, vm.itemsPerPage, search)
-                .then(function(data) {
+        function getSearchData() {
+            NeedsFactory.getSearchNeeds(vm.currentPage, vm.itemsPerPage,
+                vm.searchValue, vm.region, vm.location, vm.category).then(function(data) {
                 vm.needs = data.needs;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
@@ -65,7 +64,7 @@
         function setItemsPerPage(index) {
             vm.currentPage = 0;
             vm.itemsPerPage = vm.perPageDropdownItems[index].value;
-            getSearchData(vm.search);
+            getSearchData();
         }
     }
 })();
