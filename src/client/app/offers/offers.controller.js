@@ -10,7 +10,7 @@
     function OffersController($location, OffersFactory, $state) {
         /* jshint validthis:true */
         var vm = this;
-        vm.contentType = 'Пропозиції'
+        vm.contentType = 'Пропозиції';
         vm.title = 'OffersController';
         vm.setSearch = setSearch;
         vm.setCategory = setCategory;
