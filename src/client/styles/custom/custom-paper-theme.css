@@ -3539,7 +3539,6 @@ tbody.collapse.in {
   transition-timing-function: ease;
 }
 .caret {
-  font-size: 1.5em;
   display: inline-block;
   width: 0;
   height: 0;
