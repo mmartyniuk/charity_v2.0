@@ -10,6 +10,7 @@
     function NeedsController($location,NeedsFactory, $state) {
         /* jshint validthis:true */
         var vm = this;
+        vm.contentType = 'Потреби';
         vm.title = 'NeedsController';
         vm.setSearch = setSearch;
         vm.setCategory = setCategory;

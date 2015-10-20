@@ -17,12 +17,18 @@
                 </div>
                 <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
-                <div class="search-input-wrap col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
                     <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"
                            ng-disabled="disabled" placeholder="Потреби" readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
-                        <li role="menuitem"><a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a></li>
-                        <li role="menuitem"><a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a></li>
+                        <li role="menuitem">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a>
+                        </li>
+                        <li role="menuitem">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a>
+                        </li>
                     </ul>
                 </div>
             </div>
