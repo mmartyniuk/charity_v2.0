@@ -9,7 +9,6 @@
 
     function RemoveOfferModalInstanceController($modalInstance, data) {
 
-        //return selected value to correct parent scope
         data.ok = function () {
             $modalInstance.close();
         };

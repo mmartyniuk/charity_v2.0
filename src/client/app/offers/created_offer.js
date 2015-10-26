@@ -75,10 +75,10 @@
             vm.tempAddressUser = SharedFactory.sliceLink(vm.currentOffer._links.userCreated.href);
             vm.tempAddressCategory = SharedFactory.sliceLink(vm.currentOffer._links.category.href);
             // making here next call to api, to get user
-            // this is offered to check if current user is owner of this offer
+            // this is needed to check if current user is owner of this offer
             // if so - edit and close buttons will be available and user will see responses from other users
             // if not - respond button will be available
-            // api/core/api.core.shared.service.js - factory for reusable components for offers and offers
+            // api/core/api.core.shared.service.js - factory for reusable components for needs and offers
             // please use it when you'll work with offer
 
             SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function() {
