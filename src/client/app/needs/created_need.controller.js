@@ -7,10 +7,10 @@
         .controller('CreatedNeedController', CreatedNeedController);
 
     CreatedNeedController.$inject = ['$stateParams', 'NeedsFactory',
-        '$sessionStorage', 'SharedFactory', '$state'];
+        '$sessionStorage', 'SharedFactory', '$state', '$modal', '$scope'];
 
     function CreatedNeedController($stateParams, NeedsFactory,
-                                   $sessionStorage, SharedFactory, $state) {
+                                   $sessionStorage, SharedFactory, $state, $modal, $scope) {
 
         var vm = this;
         vm.title = 'CreatedNeedController';
@@ -243,6 +243,31 @@
             NeedsFactory.patchResponse(vm.accept.id,
                 vm.accept.status, refreshResponses, function() {
                 console.log('something wrong');
+            });
+        };
+
+        function successDeleteNeed() {
+            $state.go('needs.home');
+        }
+
+        vm.deleteCurrentNeed = function(needId) {
+            var init = $modal.open({
+                animation: true,
+                templateUrl: 'remove-need-modal.html',
+                controller: 'RemoveNeedModalInstanceController',
+                scope: $scope,
+                resolve: {
+                    data: function () {
+                        return vm; // post scope to modal window
+                    }
+                }
+            });
+
+            //remove item when OK button is clicked
+            init.result.then(function () {
+                NeedsFactory.deleteNeed(needId, successDeleteNeed, function() {
+                    console.log('Need wasn\'t deleted');
+                });
             });
         };
 

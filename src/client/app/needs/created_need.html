@@ -67,9 +67,11 @@
                 <div ng-show="vm.currentNeed.open">
                     <div class="row pull-right marginBottom">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
-                            <a ui-sref="needs.home" class="btn btn-primary">Редагувати</a>
+                            <a ui-sref="needs.edit({id: vm.currentNeed.id})" class="btn btn-primary">Редагувати</a>
                             <a href="/" class="btn btn-default">Закрити</a>
+                            <a ng-click="vm.deleteCurrentNeed(vm.currentNeed.id)" class="btn btn-danger">Видалити</a>
                         </div>
+                        <remove-need-modal-directive></remove-need-modal-directive>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
                             <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
                         </div>

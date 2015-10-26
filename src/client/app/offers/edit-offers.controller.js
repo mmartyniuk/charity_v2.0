@@ -15,6 +15,7 @@
         vm.saveEditedOffer = saveEditedOffer;
         vm.currentOffer = {};
         vm.editedOffer = {};
+        vm.offerId = $stateParams.id;
         vm.date = {};
         vm.editedOffer.status = 0;
         vm.editedOfferStatuses = [{
@@ -57,10 +58,9 @@
         };
 
         function saveEditedOffer() {
-            var offerId = $stateParams.id;
             vm.editedOffer.date = vm.dt;
 
-            return $http.patch('/api/offers/' + offerId, {
+            return $http.patch('/api/offers/' + vm.offerId, {
                 'name': vm.editedOffer.title,
                 'description': vm.editedOffer.offerText,
                 'address': vm.editedOffer.address,
@@ -69,12 +69,12 @@
                 'formattedActualTo': vm.editedOffer.date
 
             }).then(function () {
-                $state.go('offers.created', {id: offerId});
+                $state.go('offers.created', {id: vm.offerId});
             });
         }
 
         vm.cancel = function () {
-            $state.go($rootScope.previousState);
+            $state.go($rootScope.previousState, {id: vm.offerId});
         };
 
     }

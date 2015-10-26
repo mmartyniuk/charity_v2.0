@@ -7,10 +7,10 @@
         .controller('CreatedOfferController', CreatedOfferController);
 
     CreatedOfferController.$inject = ['$stateParams', 'OffersFactory',
-        '$sessionStorage', 'SharedFactory'];
+        '$sessionStorage', 'SharedFactory', '$state', '$modal', '$scope'];
 
     function CreatedOfferController($stateParams, OffersFactory,
-                                    $sessionStorage, SharedFactory) {
+                                    $sessionStorage, SharedFactory, $state, $modal, $scope) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'CreatedOfferController';
@@ -75,10 +75,10 @@
             vm.tempAddressUser = SharedFactory.sliceLink(vm.currentOffer._links.userCreated.href);
             vm.tempAddressCategory = SharedFactory.sliceLink(vm.currentOffer._links.category.href);
             // making here next call to api, to get user
-            // this is needed to check if current user is owner of this offer
+            // this is offered to check if current user is owner of this offer
             // if so - edit and close buttons will be available and user will see responses from other users
             // if not - respond button will be available
-            // api/core/api.core.shared.service.js - factory for reusable components for needs and offers
+            // api/core/api.core.shared.service.js - factory for reusable components for offers and offers
             // please use it when you'll work with offer
 
             SharedFactory.getOwner(vm.tempAddressUser, succeedGetOwner, function() {
@@ -118,7 +118,7 @@
             if (data._embedded.offer_response)   {
                 vm.responsesObj = data._embedded.offer_response; // array with responses objects
                 for (var i = 0, len = vm.responsesObj.length; i < len; i++) {
-                    if (vm.responsesObj[i].userId === vm.authorizedUser.id) { // if user has already responded to this need
+                    if (vm.responsesObj[i].userId === vm.authorizedUser.id) { // if user has already responded to this offer
                         vm.userRespondedToOffer = true; // then we disable 'respond' button
                         vm.linkToMyResponse = vm.responsesObj[i]._links.self.href; // getting link to response
                         break;
@@ -243,6 +243,31 @@
                 vm.accept.status, refreshResponses, function() {
                     console.log('something wrong');
                 });
+        };
+
+        function successDeleteOffer() {
+            $state.go('offers.home');
+        }
+
+        vm.deleteCurrentOffer = function(offerId) {
+            var init = $modal.open({
+                animation: true,
+                templateUrl: 'remove-offer-modal.html',
+                controller: 'RemoveOfferModalInstanceController',
+                scope: $scope,
+                resolve: {
+                    data: function () {
+                        return vm; // post scope to modal window
+                    }
+                }
+            });
+
+            //remove item when OK button is clicked
+            init.result.then(function () {
+                OffersFactory.deleteOffer(offerId, successDeleteOffer, function() {
+                    console.log('Offer wasn\'t deleted');
+                });
+            });
         };
 
         function activate() {
