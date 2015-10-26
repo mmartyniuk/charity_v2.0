@@ -17,6 +17,7 @@
         vm.saveEditedNeed = saveEditedNeed;
         vm.currentNeed = {};
         vm.editedNeed = {};
+        vm.needId = $stateParams.id;
         vm.date = {};
         vm.editedNeed.status = 0;
         vm.editedNeedStatuses = [{
@@ -57,10 +58,9 @@
         };
 
         function saveEditedNeed() {
-            var needId = $stateParams.id;
             vm.editedNeed.date = vm.dt;
 
-            return $http.patch('/api/needs/' + needId, {
+            return $http.patch('/api/needs/' + vm.needId, {
                 'name': vm.editedNeed.title,
                 'description': vm.editedNeed.needText,
                 'address': vm.editedNeed.address,
@@ -69,12 +69,12 @@
                 'formattedActualTo': vm.editedNeed.date
 
             }).then(function () {
-                $state.go('needs.created', {id: needId});
+                $state.go('needs.created', {id: vm.needId});
             });
         }
 
         vm.cancel = function () {
-            $state.go($rootScope.previousState);
+            $state.go($rootScope.previousState, {id: vm.needId});
         };
 
     }

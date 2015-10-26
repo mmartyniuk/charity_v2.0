@@ -74,6 +74,9 @@
             getUserToContactWith: function(id, success, error) {
                 return $http.get('api/needResponses/' +
                     id + '/user').success(success).error(error);
+            },
+            deleteNeed: function(id, success, error) {
+                $http.delete('/api/needs/' + id).success(success).error(error);
             }
         };
     }

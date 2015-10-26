@@ -55,7 +55,8 @@
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
                 vm.itemsPerPage = data.itemsPerPage;
-                if ((vm.searchValue || vm.location || vm.category) && data.totalItems > 0) { //assigning appropriate value to search label
+                if ((vm.searchValue || vm.location || vm.category) &&
+                    data.totalItems > 0) { //assigning appropriate value to search label
                     vm.searchLabel = 'За Вашим запитом знайдено потреб: ' + data.totalItems;
                 } else if (data.totalItems === 0) {
                     vm.searchLabel = 'На жаль за Вашим запитом нічого не знайдено.';
