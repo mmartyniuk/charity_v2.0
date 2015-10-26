@@ -28,15 +28,22 @@
                     }).error(reject);
                 });
             },
-            getSearchOffers: function(pageNumber, itemsPerPage, query) {
+            getSearchOffers: function(pageNumber, itemsPerPage, query, region, city, category) {
                 query = query || '';
+                region = region || '';
+                city = city || '';
+                category = category || '';
                 return $q(function (resolve, reject) {
                     $http.get('/api/search/offers', {
                         params: {
                             page: pageNumber > 0 ? pageNumber - 1 : 0,
                             size: itemsPerPage,
                             projection: 'inLine',
-                            query: query
+                            wildcard: true,
+                            query: query,
+                            region: region,
+                            city: city,
+                            category: category
                         }
                     }).success(function (response) {
                         resolve({

@@ -5,9 +5,9 @@
         .module('app.core')
         .controller('LocationSearchController', LocationSearchController);
 
-    LocationSearchController.$inject = ['LocationFactory'];
+    LocationSearchController.$inject = ['LocationFactory', 'SharedFactory'];
 
-    function LocationSearchController(LocationFactory) {
+    function LocationSearchController(LocationFactory, SharedFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'LocationSearchController';
@@ -48,7 +48,8 @@
         function successGetRegions(data) {
             vm.regions = data._embedded.regions;
             angular.forEach(vm.regions, function(value) {
-                value._links.cities.href = value._links.cities.href.slice(21);
+                value._links.cities.href = SharedFactory
+                    .sliceLink(value._links.cities.href);
             }, vm.regions);
         }
 

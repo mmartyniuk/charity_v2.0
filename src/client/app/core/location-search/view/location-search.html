@@ -4,11 +4,13 @@
         <div class="dropdown-menu" role="menu" aria-labelledby="single-button">
             <div class="regions" ng-show="vm.showRegions">
                 <span ng-repeat="region in vm.regions">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
                     <a href="#" ng-click="vm.enableShowCities(region._links.cities.href)">{{ region.name }}</a>
                 </span>
             </div>
             <div class="cities" ng-show="vm.showCities">
                 <span ng-repeat="city in vm.cities | orderBy: 'name'">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
                     <a href="#" ng-click="vm.setLocation(city.name)">{{ city.name }}</a>
                 </span>
             </div>
