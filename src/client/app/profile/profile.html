@@ -319,7 +319,7 @@
                     <div class="row" id="profile">
 
                         <div class="col-xs-12 col-md-6">
-                            <form editable-form name="editUser">
+                            <form editable-form name="editUser" onaftersave="vm.saveUser()">
                                 <address class>
                                     <p>
                                         <strong title="ім'я">Ваше ім&#180;я:</strong>
@@ -340,17 +340,16 @@
                                     </p>
                                     <strong>Хто Ви: </strong><span>{{vm.users.status}}</span>
                                 </address>
-                            </form>
-                            <div>
-                                <!-- button to show form -->
-                                <button type="button" title="Редагувати" class="btn btn-primary"
-                                        ng-click="editUser.$show()" ng-show="!editUser.$visible">
-                                    Редагувати
-                                </button>
-                                <!-- buttons to submit / cancel form -->
+                                <div>
+                                    <!-- button to show form -->
+                                    <button type="button" title="Редагувати" class="btn btn-primary"
+                                            ng-click="editUser.$show()" ng-show="!editUser.$visible">
+                                        Редагувати
+                                    </button>
+                                    <!-- buttons to submit / cancel form -->
                                 <span ng-show="editUser.$visible">
                                     <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting"
-                                            ng-click="editUser.$cancel()">
+                                            ng-click="saveUser()">
                                         Зберегти
                                     </button>
                                     <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting"
@@ -358,7 +357,8 @@
                                         Відмінити
                                     </button>
                                 </span>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="statistics col-xs-12 col-md-6">
                             <ul class="list-group">
