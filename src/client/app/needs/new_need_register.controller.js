@@ -23,6 +23,7 @@
         vm.need.categories[0] = $state.params.prefilled.mainCategory;
         vm.need.categories[1] = $state.params.prefilled.subcategory;
         vm.need.categories[2] = $state.params.prefilled.category;
+        vm.filesObj = {};
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
@@ -41,7 +42,8 @@
             vm.need.actualDate = vm.dt.getDate() + '/' +
             parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
-            vm.need.images = vm.upload;
+            vm.uploadUrl = '/api/createNeed';
+            SharedFactory.postImage(vm.uploadUrl, vm.filesObj);
             //this will be shown when there will be entries on server to post this data
             /*$http({
              url: '/api/new_need',
@@ -53,8 +55,7 @@
              },
              function(response) { // optional
              // failed
-             });
-             };*/
+             });*/
 
             //here will be additional ajax call to server to get only needed cities by id
         };
