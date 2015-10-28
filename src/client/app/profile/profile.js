@@ -11,14 +11,14 @@
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
-
+        vm.saveUser = saveUser;
         vm.tabs = {
-            myNeeds : {},
-            myOffers : {},
-            supNeeds : {},
-            supOffers : {},
-            messages : {},
-            profile : {}
+            myNeeds: {},
+            myOffers: {},
+            supNeeds: {},
+            supOffers: {},
+            messages: {},
+            profile: {}
         };
 
         activate();
@@ -28,12 +28,22 @@
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             } else {
-                Users.getUsers().then(function(data) {
+                Users.getUsers().then(function (data) {
                     vm.users = data;
-                }).catch(function() {
+                }).catch(function () {
                     console.log('Something wrong !!!');
                 });
             }
+        }
+
+        function saveUser() {
+            //Needs current user api implementation
+            /*            return $http.patch('/api/currentUser/' + vm.profileId, {
+             'name': vm.users.name,
+             'phone': vm.users.phone,
+             'email': vm.users.email,
+             'status': vm.user.status
+             })*/
         }
 
     }
