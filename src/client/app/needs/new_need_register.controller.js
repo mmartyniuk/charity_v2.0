@@ -18,10 +18,11 @@
         activate();
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
-        vm.need.title = $state.params.prefilled.title;  //---> commented for testing
-        vm.need.category = $state.params.prefilled.category;  //---> commented for testing
-        //vm.need.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
-        //vm.need.category = 'Дитячі куртки'; // ---> static data for testing
+        vm.need.categories = [];
+        vm.need.title = $state.params.prefilled.title;
+        vm.need.categories[0] = $state.params.prefilled.mainCategory;
+        vm.need.categories[1] = $state.params.prefilled.subcategory;
+        vm.need.categories[2] = $state.params.prefilled.category;
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;

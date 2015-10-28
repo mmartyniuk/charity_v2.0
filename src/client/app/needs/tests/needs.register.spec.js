@@ -183,7 +183,7 @@ describe('NewNeedRegisterController', function() {
             var vm = controller;
             expect(vm.need).to.be.an('object');
             expect(vm.need).not.to.be.empty;
-            expect(vm.need).to.have.all.keys('title', 'category');
+            expect(vm.need).to.have.all.keys('title', 'categories');
         });
 
         it('getChecked should be false by default', function () {

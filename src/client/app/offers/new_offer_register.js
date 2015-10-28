@@ -14,12 +14,12 @@
 
         var vm = this;
         vm.title = 'NewOfferRegisterController';
-        vm.offer = {};
-        //offer data from form will be stored here
+        vm.offer = {}; //offer data from form will be stored here
+        vm.offer.categories = [];
         vm.offer.title = $state.params.prefilled.title;  //---> comment for testing
-        vm.offer.category = $state.params.prefilled.category;  //---> comment for testing
-        //vm.offer.title = 'Куртка в дитячий будинок, інфа - 100%'; // ---> static data for testing
-        //vm.offer.category = 'Дитячі куртки'; // ---> static data for testing
+        vm.offer.categories[0] = $state.params.prefilled.mainCategory;  //---> commented for testing
+        vm.offer.categories[1] = $state.params.prefilled.subcategory;
+        vm.offer.categories[2] = $state.params.prefilled.category;
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
