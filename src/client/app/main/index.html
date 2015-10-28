@@ -15,7 +15,7 @@
                            ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.searchValue, vm.category, vm.location)"
                            class="form-control" placeholder="Що ви шукаєте...">
                 </div>
-                <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" main-category="vm.mainCategory" subcategory="vm.subcategory" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
                 <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
                     <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"

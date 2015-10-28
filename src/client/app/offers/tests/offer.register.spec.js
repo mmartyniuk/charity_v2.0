@@ -43,7 +43,7 @@ describe('NewOfferRegisterController', function() {
             var vm = controller;
             expect(vm.offer).to.be.an('object');
             expect(vm.offer).not.to.be.empty;
-            expect(vm.offer).to.have.all.keys('title', 'category');
+            expect(vm.offer).to.have.all.keys('title', 'categories');
         });
 
         it('getChecked should be false by default', function () {
