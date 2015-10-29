@@ -39,9 +39,12 @@
                 var fd = new FormData();
                 for(var key in data)
                     fd.append(key, data[key]);
-                $http.post(uploadUrl, fd, {
+                $http.post(uploadUrl, {
                     transformRequest: angular.indentity,
-                    headers: { 'Content-Type': undefined }
+                    headers: { 'Content-Type': undefined },
+                    params: {
+                        files: fd
+                    }
                 });
             }
         };
