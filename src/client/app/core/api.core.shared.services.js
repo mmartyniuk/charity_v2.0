@@ -35,7 +35,7 @@
             sliceLink: function(link) {
                 return link.slice(link.search('/api'), link.length);
             },
-            postImage: function(uploadUrl, data) {
+            postItem: function(uploadUrl, data) {
                 var fd = new FormData();
                 for(var key in data) {
                     fd.append(key, data[key]);
