@@ -34,7 +34,15 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
                 <!--file-upload-directive upload="vm.upload"></file-upload-directive-->
-                <input type="file" id="inputFile" file-model="vm.images[0]">
+                <div class="file-upload btn btn-primary">
+                    <span>Вибрати зображення</span>
+                    <input type="file" class="upload" file-model="vm.image">
+                </div>
+                <span class="btn btn-primary" ng-click="vm.addImage(vm.image)" ng-show="vm.image && (vm.images.length < 7)">Завантажити</span>
+                <div class="uploaded-images" ng-repeat="image in vm.images">
+                    <img src="{{ image.preview }}" alt="{{ image.name }}"/>
+                    <span ng-click="vm.removeImage($index)">X</span>
+                </div>
             </div>
             <!-- <div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>

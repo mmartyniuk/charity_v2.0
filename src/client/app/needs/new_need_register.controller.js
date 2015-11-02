@@ -6,10 +6,10 @@
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
     NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
-        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory'];
+        '$sessionStorage', '$rootScope', '$timeout', 'CreateNeedAddressFactory', 'SharedFactory'];
 
     function NewNeedRegisterController($state,CreateNeedFactory, $http,
-                                       $sessionStorage, $rootScope,
+                                       $sessionStorage, $rootScope, $timeout,
                                        CreateNeedAddressFactory, SharedFactory) {
 
         /* jshint validthis:true */
@@ -38,41 +38,49 @@
             vm.cities = region._embedded.cities;
         }
 
+        vm.addImage = function(image) {
+            var fileReader = new FileReader();
+
+            if (image) {
+                fileReader.readAsDataURL(image);
+            }
+
+            fileReader.onloadend = function () {
+                image.preview = fileReader.result;
+                vm.images.push(image);
+                //reset file input
+                document.getElementsByClassName("upload")[0].value = "";
+                vm.image = null;
+                console.log(vm.images);
+                console.log(vm.image);
+            };
+        };
+
+        vm.removeImage = function(index) {
+            vm.images.splice(index, 1);
+        };
+
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
-            parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
+                parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
-            vm.uploadUrl = '/api/createNeed';
+            vm.postUrl = '/api/createNeed';
             // data that is going to be sent to backend
             vm.data = {
                 'name': vm.need.title,
                 'categories': vm.need.categories,
                 'description': vm.need.description,
-                'image1': vm.images[0],
-                'image2': vm.images[1],
-                'image3': vm.images[2],
-                'image4': vm.images[3],
+                'images[0]': vm.images[0],
+                'images[1]': vm.images[1],
+                'images[2]': vm.images[2],
+                'images[3]': vm.images[3],
                 'city': JSON.stringify(vm.need.city),
                 'address': vm.address.location,
                 'topicality': vm.need.actualDate, // Date format: dd/mm/yyyy
                 'convenientTime': vm.need.suitableTime,
                 'pickup': vm.getChecked
-            }
-            SharedFactory.postItem(vm.uploadUrl, vm.data);
-            //this will be shown when there will be entries on server to post this data
-            /*$http({
-             url: '/api/new_need',
-             method: "GET",
-             data: { 'message' : vm.need }
-             })
-             .then(function(response) {
-             // success
-             },
-             function(response) { // optional
-             // failed
-             });*/
-
-            //here will be additional ajax call to server to get only needed cities by id
+            };
+            SharedFactory.postItem(vm.postUrl, vm.data);
         };
 
         function activate() {
