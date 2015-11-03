@@ -76,8 +76,6 @@
             if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
-            } else {
-                vm.categories = CreateNeedFactory.getCategories();
             }
         }
     }

@@ -33,7 +33,7 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <file-upload-directive upload="vm.upload"></file-upload-directive>
+                <file-upload-directive images="vm.images"></file-upload-directive>
             </div>
             <!-- <div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
@@ -54,7 +54,7 @@
             <div class="form-group row">
                 <label class="control-label col-sm-2">Виберіть область:</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="region" ng-change="vm.setRegion(region);">
+                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="vm.need.region" ng-change="vm.setRegion(vm.need.region);">
                     </select>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <label class="control-label col-sm-2">Виберіть місто:</label>
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
-                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(region)"></select>
+                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(vm.need.region)"></select>
                 </div>
             </div>
             <div class="form-group row">
@@ -99,7 +99,7 @@
             <div class="form-group row pull-right">
                 <div class="col-sm-12 ">
                     <a ui-sref="newneed.home" class="btn btn-default" id="myButton0">Відмінити</a>
-                    <a ui-sref="needs.created" class="btn btn-primary">Опублікувати</a>
+                    <input type="submit" class="btn btn-primary" value="Опублікувати">
                 </div>
             </div>
         </form>

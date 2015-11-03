@@ -6,16 +6,15 @@
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
     NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
-        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory'];
+        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory', '$scope'];
 
     function NewNeedRegisterController($state,CreateNeedFactory, $http,
                                        $sessionStorage, $rootScope,
-                                       CreateNeedAddressFactory, SharedFactory) {
+                                       CreateNeedAddressFactory, SharedFactory, $scope) {
 
         /* jshint validthis:true */
 
         var vm = this;
-        activate();
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
         vm.need.categories = [];
@@ -23,9 +22,12 @@
         vm.need.categories[0] = $state.params.prefilled.mainCategory;
         vm.need.categories[1] = $state.params.prefilled.subcategory;
         vm.need.categories[2] = $state.params.prefilled.category;
+        vm.images = [];
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
+
+        activate();
 
         function getRegion() {
             SharedFactory.getRegions().then(function (regions) {
@@ -39,25 +41,36 @@
 
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
-            parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
+                parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
-            vm.need.images = vm.upload;
-            //this will be shown when there will be entries on server to post this data
-            /*$http({
-             url: '/api/new_need',
-             method: "GET",
-             data: { 'message' : vm.need }
-             })
-             .then(function(response) {
-             // success
-             },
-             function(response) { // optional
-             // failed
-             });
-             };*/
-
-            //here will be additional ajax call to server to get only needed cities by id
+            vm.postUrl = '/api/createNeed';
+            // data that is going to be sent to backend
+            vm.data = {
+                'name': vm.need.title,
+                'categories': vm.need.categories,
+                'description': vm.need.description,
+                'images[0]': vm.images[0],
+                'images[1]': vm.images[1],
+                'images[2]': vm.images[2],
+                'images[3]': vm.images[3],
+                'images[4]': vm.images[4],
+                'images[5]': vm.images[5],
+                'city': JSON.stringify(vm.need.city),
+                'address': vm.address.location,
+                'topicality': vm.need.actualDate, // Date format: dd/mm/yyyy
+                'convenientTime': vm.need.suitableTime,
+                'pickup': vm.getChecked
+            };
+            SharedFactory.postItem(vm.postUrl, vm.data, successSubmitNeed, errorSubmitNeed);
         };
+
+        function successSubmitNeed() {
+            $state.go('needs.home');
+        }
+
+        function errorSubmitNeed() {
+            console.log('Something went wrong :(');
+        }
 
         function activate() {
 

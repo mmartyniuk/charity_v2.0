@@ -1,15 +1,9 @@
-<div class="col-sm-6 file-upload" flow-init ng-model="vm.upload">
-    <div flow-init="{target: '/home'}">
-        <span class="btn btn-primary" flow-btn ng-click="vm.message = false">Виберіть файл(и)</span>
-        <span class="btn btn-primary" ng-click="vm.InsertItems($flow)">Завантажити</span>
-        <ul class="filesupload">
-            <!-- <td>{{$index+1}} </td>
-            <td>{{file.name}}</td>-->
-            <li ng-repeat="file in $flow.files">
-                <img flow-img="$flow.files[$index]"/>
-                <span class="fileClose" ng-click="$flow.removeFile($flow.files[$index])">x</span>
-            </li>
-        </ul>
-        <span ng-show="vm.message" ng-if="$flow.files.length !== 0">Зображення успішно завантажені!</span>
-    </div>
+<div class="file-upload btn btn-primary">
+    <span>Вибрати зображення</span>
+    <input type="file" class="upload" file-model="vm.image">
+</div>
+<span class="btn btn-primary" ng-click="vm.addImage(vm.image)" ng-show="vm.image && (vm.images.length < 6)">Завантажити</span>
+<div class="uploaded-images" ng-repeat="image in vm.images">
+    <img src="{{ image.preview }}" alt="{{ image.name }}"/>
+    <span ng-click="vm.removeImage($index)">X</span>
 </div>

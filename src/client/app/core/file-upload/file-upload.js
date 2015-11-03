@@ -5,17 +5,31 @@
         .module('app.core')
         .controller('FileUploadController', FileUploadController);
 
-    function FileUploadController() {
+    FileUploadController.$inject = ['$scope'];
+
+    function FileUploadController($scope) {
         var vm = this;
-        vm.upload = {};
-        vm.message = false;
-        vm.InsertItems = function(e) {
-            e.upload();
-            vm.upload = e;
-            if (e.files.length !== 0) {
-                vm.message = true;
-                return vm.upload;
+        vm.images = [];
+
+        vm.addImage = function(image) {
+            var fileReader = new FileReader();
+
+            if (image) {
+                fileReader.readAsDataURL(image);
             }
+
+            fileReader.onloadend = function () {
+                image.preview = fileReader.result;
+                vm.images.push(image);
+                //reset file input
+                document.getElementsByClassName('upload')[0].value = '';
+                vm.image = null;
+                $scope.$apply();
+            };
+        };
+
+        vm.removeImage = function(index) {
+            vm.images.splice(index, 1);
         };
     }
 })();
