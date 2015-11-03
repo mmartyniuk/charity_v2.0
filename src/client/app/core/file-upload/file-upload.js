@@ -22,7 +22,7 @@
                 image.preview = fileReader.result;
                 vm.images.push(image);
                 //reset file input
-                document.getElementsByClassName("upload")[0].value = "";
+                document.getElementsByClassName('upload')[0].value = '';
                 vm.image = null;
                 $scope.$apply();
             };

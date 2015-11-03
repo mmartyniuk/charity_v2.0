@@ -67,7 +67,7 @@
         }
 
         function errorSubmitOffer() {
-            console.log("Something went wrong :(");
+            console.log('Something went wrong :(');
         }
 
         function activate() {
