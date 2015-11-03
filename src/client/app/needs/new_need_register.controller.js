@@ -6,16 +6,15 @@
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
     NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
-        '$sessionStorage', '$rootScope', '$timeout', 'CreateNeedAddressFactory', 'SharedFactory'];
+        '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory', '$scope'];
 
     function NewNeedRegisterController($state,CreateNeedFactory, $http,
-                                       $sessionStorage, $rootScope, $timeout,
-                                       CreateNeedAddressFactory, SharedFactory) {
+                                       $sessionStorage, $rootScope,
+                                       CreateNeedAddressFactory, SharedFactory, $scope) {
 
         /* jshint validthis:true */
 
         var vm = this;
-        activate();
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
         vm.need.categories = [];
@@ -28,6 +27,8 @@
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
 
+        activate();
+
         function getRegion() {
             SharedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
@@ -37,28 +38,6 @@
         function setRegion(region) {
             vm.cities = region._embedded.cities;
         }
-
-        vm.addImage = function(image) {
-            var fileReader = new FileReader();
-
-            if (image) {
-                fileReader.readAsDataURL(image);
-            }
-
-            fileReader.onloadend = function () {
-                image.preview = fileReader.result;
-                vm.images.push(image);
-                //reset file input
-                document.getElementsByClassName("upload")[0].value = "";
-                vm.image = null;
-                console.log(vm.images);
-                console.log(vm.image);
-            };
-        };
-
-        vm.removeImage = function(index) {
-            vm.images.splice(index, 1);
-        };
 
         vm.submitNeed = function() {
             vm.need.actualDate = vm.dt.getDate() + '/' +
@@ -74,14 +53,24 @@
                 'images[1]': vm.images[1],
                 'images[2]': vm.images[2],
                 'images[3]': vm.images[3],
+                'images[4]': vm.images[4],
+                'images[5]': vm.images[5],
                 'city': JSON.stringify(vm.need.city),
                 'address': vm.address.location,
                 'topicality': vm.need.actualDate, // Date format: dd/mm/yyyy
                 'convenientTime': vm.need.suitableTime,
                 'pickup': vm.getChecked
             };
-            SharedFactory.postItem(vm.postUrl, vm.data);
+            SharedFactory.postItem(vm.postUrl, vm.data, successSubmitNeed, errorSubmitNeed);
         };
+
+        function successSubmitNeed() {
+            $state.go('needs.home');
+        }
+
+        function errorSubmitNeed() {
+            console.log("Something went wrong :(");
+        }
 
         function activate() {
 

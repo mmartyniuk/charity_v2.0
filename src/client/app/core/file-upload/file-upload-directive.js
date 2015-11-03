@@ -7,7 +7,7 @@ function fileUploadDirective() {
         restrict: 'E',
         templateUrl: '/app/core/file-upload/view/file-upload.html',
         scope: {
-            upload: '=upload'
+            images: '='
         },
         controller: 'FileUploadController',
         controllerAs: 'vm',

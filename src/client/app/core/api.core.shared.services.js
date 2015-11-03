@@ -35,7 +35,7 @@
             sliceLink: function(link) {
                 return link.slice(link.search('/api'), link.length);
             },
-            postItem: function(uploadUrl, data) {
+            postItem: function(uploadUrl, data, success, error) {
                 var fd = new FormData();
                 for(var key in data) {
                     fd.append(key, data[key]);
@@ -43,7 +43,7 @@
                 $http.post(uploadUrl, fd, {
                     transformRequest: angular.indentity,
                     headers: { 'Content-Type': undefined }
-                });
+                }).success(success).error(error);
             }
         };
     }
