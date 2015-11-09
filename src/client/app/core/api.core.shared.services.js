@@ -35,7 +35,7 @@
             sliceLink: function(link) {
                 return link.slice(link.search('/api'), link.length);
             },
-            postItem: function(uploadUrl, data, success, error) {
+            postItem: function(uploadUrl, data, token, success, error) {
                 var fd = new FormData();
                 for (var key in data) {
                     if (data.hasOwnProperty(key)) {
@@ -44,7 +44,10 @@
                 }
                 $http.post(uploadUrl, fd, {
                     transformRequest: angular.indentity,
-                    headers: {'Content-Type': undefined}
+                    headers: {
+                        'Content-Type': undefined,
+                        'x-auth-token': token
+                    }
                 }).success(success).error(error);
             }
         };
