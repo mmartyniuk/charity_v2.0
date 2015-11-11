@@ -30,7 +30,17 @@
                         }
                     }).success(function (response) {
                         resolve({
-                            allUserData: response
+                            allUserData: response,
+                            role: response.roles[0].description,
+                            phone: response.address.phone,
+                            address: response.address.description,
+                            username: response.username,
+                            emailAddress: response.email,
+                            offerResponses: response.offerResponses,
+                            offers: response.offers,
+                            needResponses: response.needResponses,
+                            needs: response.needs
+
                         });
                     }).error(reject);
                 });
