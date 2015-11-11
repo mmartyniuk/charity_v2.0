@@ -20,6 +20,8 @@
         vm.dropdown = {
             isopen: false
         };
+        vm.regions = [];
+        vm.cities = [];
 
         activate();
 
