@@ -61,7 +61,7 @@
                 'convenientTime': vm.need.suitableTime,
                 'pickup': vm.getChecked
             };
-            SharedFactory.postItem(vm.postUrl, vm.data, successSubmitNeed, errorSubmitNeed);
+            SharedFactory.postItem(vm.postUrl, vm.data, $sessionStorage.token, successSubmitNeed, errorSubmitNeed);
         };
 
         function successSubmitNeed() {
