@@ -36,6 +36,10 @@
 
         //function to identify current category and set child category
         function showSubCategories(api, name) {
+            // reset assigned category values if user tries to re-choose category
+            vm.mainCategory = null;
+            vm.subcategory = null;
+            vm.category = null;
             CategoryFactory.getSubCategories(api).then(function(data) {
                 vm.subcategories = data.subcategories;
                 angular.forEach(vm.subcategories, function(value) {
@@ -45,6 +49,8 @@
                 if (!vm.subcategories) {
                     setCategory(name);
                     return false;
+                } else {
+                    vm.mainCategory = name;
                 }
             });
             vm.showCategory = false;
@@ -58,6 +64,8 @@
                 if (!vm.subsubcategories) {
                     setCategory(name);
                     return false;
+                } else {
+                    vm.subcategory = name;
                 }
             });
             vm.showSubCategory = false;

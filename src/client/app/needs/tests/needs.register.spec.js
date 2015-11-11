@@ -50,16 +50,6 @@ describe('NewNeedBeforeRegisterController', function() {
             expect(vm.need).to.be.empty;
         });
 
-        it('category should be array, should not be empty and ' +
-        'it values must be name, id and parent id', function () {
-            var vm = controller;
-            expect(vm.categories).to.be.an('array');
-            expect(vm.categories).to.have.length.above(0);
-            vm.categories.forEach(function(item) {
-                expect(item).to.have.all.keys('name', 'id', 'parentId');
-            });
-        });
-
         //open() functionality should be just initially checked, 3rd party function, angular bootstrap
         describe('open() function', function() {
 
@@ -183,7 +173,7 @@ describe('NewNeedRegisterController', function() {
             var vm = controller;
             expect(vm.need).to.be.an('object');
             expect(vm.need).not.to.be.empty;
-            expect(vm.need).to.have.all.keys('title', 'category');
+            expect(vm.need).to.have.all.keys('title', 'categories');
         });
 
         it('getChecked should be false by default', function () {

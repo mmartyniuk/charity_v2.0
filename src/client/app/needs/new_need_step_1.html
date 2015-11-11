@@ -13,14 +13,12 @@
         <div class="form-group">
             <label class="control-label col-md-1 col-sm-2">Категорія</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="category_name" ng-model="vm.need.category" placeholder="Оберіть категорію" ng-click="vm.open()" required>
+                <category-search main-category="vm.need.mainCategory" subcategory="vm.need.subcategory" category="vm.need.category"></category-search>
             </div>
         </div>
-        <!-- Modal categories -->
-        <need-modal-directive></need-modal-directive>
         <div class="col-md-7 col-sm-8">
             <div class="form-group pull-right prev-next-buttons">
-                <a type="button" href="/" class="btn btn-default">Назад</a>
+                <a type="button" ui-sref="needs.home" class="btn btn-default">Назад</a>
                 <button type="submit" class="btn btn-primary">Далі</button>
             </div>
         </div>

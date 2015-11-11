@@ -12,14 +12,11 @@
             <div class="form-group">
                 <label class="control-label col-md-1 col-sm-2">Категорія</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="category_name" ng-model="vm.offer.category" placeholder="Оберіть категорію" ng-click="vm.open()" required>
-                </div>
+                    <category-search main-category="vm.offer.mainCategory" subcategory="vm.offer.subcategory" category="vm.offer.category"></category-search>                </div>
             </div>
-            <!-- Modal -->
-            <offer-modal></offer-modal>
             <div class="col-md-7 col-sm-8">
                 <div class="form-group pull-right prev-next-buttons">
-                    <a type="button" href="/" class="btn btn-default">Назад</a>
+                    <a type="button" ui-sref="offers.home" class="btn btn-default">Назад</a>
                     <button type="submit" class="btn btn-primary">Далі</button>
                 </div>
             </div>

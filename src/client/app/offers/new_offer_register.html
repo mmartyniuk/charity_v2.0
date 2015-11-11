@@ -17,9 +17,7 @@
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <!-- here should be pre-filled data from previous page -->
                     <ol class="breadcrumb">
-                        <li>Одяг</li>
-                        <li>Дитячий одяг</li>
-                        <li>{{vm.offer.category}}</li>
+                        <li ng-repeat="category in vm.offer.categories track by $index" ng-if="category">{{ category }}</li>
                     </ol>
                 </div>
             </div>
@@ -36,7 +34,7 @@
             </div>
             <div class="form-group row">
                 <label class="control-label col-sm-2">Фото:</label>
-                <file-upload-directive upload="vm.upload"></file-upload-directive>
+                <file-upload-directive images="vm.images"></file-upload-directive>
             </div>
              <!--<div class="form-group row">
                 <label class="control-label col-sm-2">Розмір:</label>
@@ -102,7 +100,7 @@
             <div class="form-group row pull-right">
                 <div class="col-sm-12 ">
                     <a ui-sref="newoffer.home" class="btn btn-default" id="myButton0">Відмінити</a>
-                    <a ui-sref="offers.created" class="btn btn-primary">Опублікувати</a>
+                    <input type="submit" class="btn btn-primary" value="Опублікувати">
                 </div>
             </div>
         </form>
