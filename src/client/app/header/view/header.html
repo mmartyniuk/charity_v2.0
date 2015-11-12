@@ -25,7 +25,7 @@
                     </li>
                     <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
                     <li><a ui-sref="login" class="navbar-link" ng-show="!vm.loggedIn">Залогінитись</a></li>
-                    <li active-sref="profile"><a ui-sref="profile.home" class="navbar-link" ng-show="vm.loggedIn">Мій кабінет</a></li>
+                    <li active-sref="profile"><a ui-sref="profile.home({id:vm.userID})" class="navbar-link" ng-show="vm.loggedIn">Мій кабінет</a></li>
                     <li><a href="#" class="navbar-link" ng-show="vm.loggedIn" ng-click="vm.logOut()">Вийти</a></li>
                 </ul>
             </div>
