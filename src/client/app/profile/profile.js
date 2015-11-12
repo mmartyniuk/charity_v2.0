@@ -5,9 +5,10 @@
         .module('app.profile')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$location', '$rootScope', 'Users', '$sessionStorage', '$state'];
+    ProfileController.$inject = ['$location', '$rootScope', '$sessionStorage',
+        '$state', 'UsersFactory'];
 
-    function ProfileController($location, $rootScope, Users, $sessionStorage, $state) {
+    function ProfileController($location, $rootScope, $sessionStorage, $state, UsersFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
@@ -24,16 +25,37 @@
         activate();
 
         function activate() {
+            authCheck();
+        }
+
+        function authCheck() {
             if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
             } else {
-                Users.getUsers().then(function (data) {
-                    vm.users = data;
-                }).catch(function () {
+                setUserData();
+            }
+        }
+
+        function setUserData() {
+            UsersFactory.getUserID($sessionStorage.token).then(function(user) {
+                vm.userID = '/api/users/' + user.id;
+                UsersFactory.getProfileData(vm.userID).then(function (data) {
+                    vm.user = data;
+                    vm.role = data.role;
+                    vm.phone = data.phone;
+                    vm.address = data.address;
+                    vm.username = data.username;
+                    vm.email = data.emailAddress;
+                    vm.tabs.supOffers = data.offerResponses;
+                    vm.tabs.supNeeds = data.needResponses;
+                    vm.tabs.myNeeds = data.needs;
+                    vm.tabs.myOffers = data.offers;
+
+                }).catch(function() {
                     console.log('Something wrong !!!');
                 });
-            }
+            });
         }
 
         function saveUser() {

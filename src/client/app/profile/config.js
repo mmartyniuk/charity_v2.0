@@ -29,7 +29,7 @@
             {
                 state: 'profile.home',
                 config: {
-                    url: '/profile',
+                    url: '/profile/:id',
                     templateUrl: 'app/profile/profile.html',
                     controller: 'ProfileController',
                     controllerAs: 'vm'

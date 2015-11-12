@@ -324,21 +324,27 @@
                                     <p>
                                         <strong title="ім'я">Ваше ім&#180;я:</strong>
                                         <span editable-text="vm.users.name" e-name="name" e-placeholder="Василь Пупкін"
-                                              e-required> {{vm.users.name}}</span>
+                                              e-required> {{vm.username}}</span>
                                     </p>
 
                                     <p>
                                         <strong title="email">Електронна пошта:</strong>
                                         <span editable-text="vm.users.email" e-name="email"
-                                              e-placeholder="user@gmail.com" e-required>{{vm.users.email}}</span>
+                                              e-placeholder="user@gmail.com" e-required>{{vm.email}}</span>
+                                    </p>
+
+                                    <p>
+                                        <strong title="email">Адреса:</strong>
+                                        <span editable-text="vm.users.email" e-name="address"
+                                              e-placeholder="вул.Шевченка буд.1" e-required>{{vm.address}}</span>
                                     </p>
 
                                     <p>
                                         <strong title="телефон">Телефон:</strong>
                                         <span editable-text="vm.users.phone" e-name="phone" e-placeholder="0959878589"
-                                              e-required>{{vm.users.phone}}</span>
+                                              e-required>{{vm.phone}}</span>
                                     </p>
-                                    <strong>Хто Ви: </strong><span>{{vm.users.status}}</span>
+                                    <strong>Хто Ви: </strong><span>{{vm.role}}</span>
                                 </address>
                                 <div>
                                     <!-- button to show form -->

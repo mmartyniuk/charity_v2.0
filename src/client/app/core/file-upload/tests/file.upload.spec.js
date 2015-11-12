@@ -1,4 +1,4 @@
-/!*jshint expr: true, -W117*!/
+/*jshint expr: true, -W117*/
 describe('FileUploadController', function() {
     var controller, scope;
     beforeEach(function() {

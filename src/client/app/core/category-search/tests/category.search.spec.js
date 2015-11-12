@@ -1,4 +1,4 @@
-﻿/!*jshint expr: true, -W117*!/
+﻿/*jshint expr: true, -W117*/
 describe('CategorySearchController', function() {
     var controller, scope;
     beforeEach(function() {
@@ -10,7 +10,8 @@ describe('CategorySearchController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', 'CategoryFactory', 'SharedFactory', '$httpBackend');
+        bard.inject(this, '$controller', '$rootScope', 'CategoryFactory', 'SharedFactory',
+            '$httpBackend');
         scope = $rootScope.$new();
         controller = $controller('CategorySearchController', {
             $scope: scope
