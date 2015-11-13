@@ -13,7 +13,10 @@
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
-        vm.currentOffer = {};
+        vm.currentOffer = currentOffer;
+        vm.getRegion = getRegion;
+        vm.setRegion = setRegion;
+        vm.cancel = cancel;
         vm.editedOffer = {};
         vm.offerId = $stateParams.id;
         vm.date = {};
@@ -26,7 +29,14 @@
             text: 'Ні'
         }];
 
-        vm.currentOffer = function () {
+        activate();
+
+        function activate() {
+            vm.getRegion();
+            vm.currentOffer();
+        }
+
+        function currentOffer() {
             EditOfferFactory.getConcreteOffer($stateParams.id).then(function (response) {
                 vm.editedOffer.title = response.data.name;
                 vm.editedOffer.offerText = response.data.description;
@@ -38,24 +48,17 @@
                 console.log('something wrong');
             });
 
-        };
+        }
 
-        vm.getRegion = function () {
+        function getRegion() {
             EditOfferFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
-        };
-
-        activate();
-
-        function activate() {
-            vm.getRegion();
-            vm.currentOffer();
         }
 
-        vm.setRegion = function(region) {
+        function setRegion(region) {
             vm.cities = region._embedded.cities;
-        };
+        }
 
         function saveEditedOffer() {
             vm.editedOffer.date = vm.dt;
@@ -73,9 +76,9 @@
             });
         }
 
-        vm.cancel = function () {
+        function cancel() {
             $state.go($rootScope.previousState, {id: vm.offerId});
-        };
+        }
 
     }
 })();

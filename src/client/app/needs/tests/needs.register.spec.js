@@ -15,8 +15,7 @@ describe('NewNeedBeforeRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', '$state',
-            'CreateNeedFactory', '$sessionStorage');
+        bard.inject(this, '$controller', '$rootScope', '$state', '$sessionStorage');
         scope = $rootScope.$new();
         state = $state;
         session = $sessionStorage;
@@ -39,81 +38,10 @@ describe('NewNeedBeforeRegisterController', function() {
             expect(vm.title).to.equal('NewNeedBeforeRegisterController');
         });
 
-        it('should have animations enabled by default', function () {
-            var vm = controller;
-            expect(vm.animationsEnabled).to.be.ok;
-        });
-
         it('should have empty object for needs to post them to another page', function () {
             var vm = controller;
             expect(vm.need).to.be.an('object');
             expect(vm.need).to.be.empty;
-        });
-
-        //open() functionality should be just initially checked, 3rd party function, angular bootstrap
-        describe('open() function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.open).to.be.a('function');
-            });
-
-        });
-
-        //toggleAnimation functionality should be just initially checked, 3rd party function, angular bootstrap
-        describe('toggleAnimation function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.toggleAnimation).to.be.a('function');
-            });
-
-        });
-
-        //setCurrentCategory functionality
-        describe('setCurrentCategory function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCurrentCategory).to.be.a('function');
-            });
-
-            it('currentCategory should be undefined initially, until ' +
-            'user clicks on category field', function () {
-                var vm = controller;
-                expect(vm.currentCategory).to.be.an('undefined');
-            });
-
-            it('checkChild should be false initially, until we pass ' +
-            'an sub category id to setCurrentCategory', function () {
-                var vm = controller;
-                expect(vm.checkChild).not.to.be.ok;
-            });
-
-        });
-
-        //setCurrentSubCategory functionality
-        describe('setCurrentSubCategory function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCurrentSubCategory).to.be.a('function');
-            });
-            it('currentSubCategory should be undefined initially, ' +
-            'until user clicks on category field', function () {
-                var vm = controller;
-                expect(vm.currentSubCategory).to.be.an('undefined');
-            });
-        });
-
-        //setCurrentSubSubCategory functionality
-        describe('setCurrentSubSubCategory function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCurrentSubSubCategory).to.be.a('function');
-            });
-
         });
 
         //submitNeed functionality
@@ -143,8 +71,7 @@ describe('NewNeedRegisterController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$state',
-            'CreateNeedFactory', 'CreateNeedAddressFactory', '$sessionStorage');
+        bard.inject(this, '$controller', '$state', 'CreateNeedFactory', '$sessionStorage');
         stateparams = {title: 'title', category: 'category'};
         state = $state;
         session = $sessionStorage;

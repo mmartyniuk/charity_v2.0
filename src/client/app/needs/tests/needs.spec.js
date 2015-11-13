@@ -31,6 +31,12 @@ describe('NeedsController', function() {
             expect(vm.title).to.equal('NeedsController');
         });
 
+        it('should contain an empty needs object', function () {
+            var vm = controller;
+            expect(vm.needs).to.be.an('object');
+            expect(vm.needs).to.be.empty;
+        });
+
         describe('getSearchData() function', function() {
 
             it('should be a function', function () {
@@ -47,6 +53,11 @@ describe('NeedsController', function() {
                 expect(vm.setSearch).to.be.a('function');
             });
 
+            it('should reset current page, so search results will appear', function () {
+                var vm = controller;
+                expect(vm.currentPage).to.equal(0);
+            });
+
         });
 
         describe('setCategory() function', function() {
@@ -56,26 +67,14 @@ describe('NeedsController', function() {
                 expect(vm.setCategory).to.be.a('function');
             });
 
-        });
-
-        describe('needs object', function() {
-
-            it('should be an object', function () {
+            it('should set category with passed value and reset location and ' +
+                'search value', function () {
                 var vm = controller;
-                expect(vm.needs).to.be.an('object');
+                vm.setCategory('test');
+                expect(vm.category).to.equal('test');
+                expect(vm.location).to.equal('');
+                expect(vm.searchValue).to.equal('');
             });
-
-            /*it('should not be empty', function () {
-                var vm = controller;
-                expect(vm.needs).not.to.be.empty;
-            });
-
-            it('should have \'category\' and \'location\' properties', function () {
-                var vm = controller;
-                expect(vm.needs).to.have.all.keys('category', 'location');
-            });*/
-
         });
-
     });
 });

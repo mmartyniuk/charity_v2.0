@@ -15,17 +15,37 @@
         var vm = this;
         vm.title = 'CreatedOfferController';
 
-        vm.currentOffer = {}; // here we will store all data for offer, which is currently displayed
-        vm.userCreated = {}; // here we will store all data for user, who have created this offer
-        vm.authorizedUser = {}; // here we will store all data for user, who is authorized
-        vm.category = {};
-        vm.respondData = {}; // here we will store data for response
-        vm.userRespondedToOffer = false; // user hasn't responded to this offer by default
-        vm.responsesObj = {};
-        vm.showResponsesToOwner = false;
-        vm.waitingForHelp = false;
-        vm.idResp = $stateParams.id;
-        vm.userInfo = {};
+        vm.currentOffer = currentOffer;
+        vm.userCheck = userCheck;
+        vm.respondToOffer = respondToOffer;
+        vm.allowResponse = allowResponse;
+        vm.cancelResponse = cancelResponse;
+        vm.getAllResponses = getAllResponses;
+        vm.accept = accept;
+        vm.deleteCompletedResponse = deleteCompletedResponse;
+        vm.cancelGettingResponse = cancelGettingResponse;
+        vm.deleteCurrentOffer = deleteCurrentOffer;
+
+        activate();
+
+        function activate() {
+            initialize();
+            vm.currentOffer();
+            vm.userCheck();
+        }
+
+        function initialize() {
+            vm.userCreated = {}; // here we will store all data for user, who have created this offer
+            vm.authorizedUser = {}; // here we will store all data for user, who is authorized
+            vm.category = {};
+            vm.respondData = {}; // here we will store data for response
+            vm.responsesObj = {};
+            vm.userInfo = {};
+            vm.userRespondedToOffer = false; // user hasn't responded to this offer by default
+            vm.showResponsesToOwner = false;
+            vm.waitingForHelp = false;
+            vm.idResp = $stateParams.id;
+        }
 
         // applying data from successful response from API to user api to vm.userCreated variable
         // it will be an object with some data about user
@@ -94,11 +114,11 @@
             }
         }
         // important, getting data from API about this offer
-        vm.currentOffer = function () {
+        function currentOffer() {
             OffersFactory.getConcreteOffer($stateParams.id, successResponse, function() {
                 console.log('something wrong');
             });
-        };
+        }
 
         // getting data about user who is authorized
         function succeedGetAuthorizedUserInfo(data) {
@@ -129,7 +149,7 @@
         }
 
         // getting info about user
-        vm.userCheck = function() {
+        function userCheck() {
             if ($sessionStorage.token) {
                 SharedFactory.getAuthorizedUserInfo($sessionStorage.token,
                     succeedGetAuthorizedUserInfo, function() {
@@ -139,7 +159,7 @@
                     console.log('error');
                 });
             }
-        };
+        }
 
         // action which is performed after respond
         function succeedWithRespond() {
@@ -148,36 +168,37 @@
         }
 
         // sending response options to backend
-        vm.respondToOffer = function() {
+        function respondToOffer() {
             vm.respondData.user = 'http://localhost:8088/api/users/' + vm.authorizedUser.id; // temporary hardcode
             vm.respondData.offer = vm.currentOffer._links.self.href;
             OffersFactory.respondToCurrentOffer(vm.respondData, succeedWithRespond, function () {
                 console.log('respond is not send');
             });
-        };
+        }
 
         // here are conditions when respond button will / will not be shown
-        vm.allowResponse = function () {
+        function allowResponse() {
             if (vm.userCreated.authorized &&
                 !vm.authorizedUser.ifOwner && !vm.userRespondedToOffer) {
                 return true;
             } else {
                 return false;
             }
-        };
+        }
 
         // after deleting the response we allow user to respond again
         function succeedWithDelete () {
             vm.userRespondedToOffer = false;
         }
 
-        vm.cancelResponce = function () {
+        function cancelResponse() {
             vm.linkToRemoveResponse = SharedFactory.sliceLink(vm.linkToMyResponse);
             OffersFactory.cancelUserResponse(vm.linkToRemoveResponse,
                 succeedWithDelete, function () {
                     console.log('respond is not send');
                 });
-        };
+        }
+
         function getContactUser(data) {
             vm.userInfo.name = data.name;
             vm.userInfo.address = data.address.phone;
@@ -202,54 +223,58 @@
                 }
             }
         }
-        vm.getAllResponses = function() {
+
+        function getAllResponses() {
             OffersFactory.getReponsesForThisOffer(vm.idResp, getResponses, function () {
                 console.log('error');
             });
-        };
+        }
+
         function succeedAccept(data) {
             vm.waitingForHelp = true;
             vm.getAllResponses();
         }
 
-        vm.accept = function (id) {
+        function accept(id) {
             vm.accept.status = 1;
             vm.accept.id = id;
             OffersFactory.patchResponse(vm.accept.id, vm.accept.status, succeedAccept, function() {
                 console.log('something wrong');
             });
-        };
+        }
+
         function succeedCompletedResponse() {
             vm.currentOffer.open = false;
         }
-        vm.deleteCompletedResponse = function (id) {
+
+        function deleteCompletedResponse(id) {
             vm.accept.status = 2;
             vm.accept.id = id;
             OffersFactory.patchResponse(vm.accept.id,
                 vm.accept.status, succeedCompletedResponse, function() {
                     console.log('something wrong');
                 });
-        };
+        }
 
         function refreshResponses() {
             vm.waitingForHelp = false;
             vm.getAllResponses();
         }
 
-        vm.cancelGettingResponse = function(id) {
+        function cancelGettingResponse(id) {
             vm.accept.status = 0;
             vm.accept.id = id;
             OffersFactory.patchResponse(vm.accept.id,
                 vm.accept.status, refreshResponses, function() {
                     console.log('something wrong');
                 });
-        };
+        }
 
         function successDeleteOffer() {
             $state.go('offers.home');
         }
 
-        vm.deleteCurrentOffer = function(offerId) {
+        function deleteCurrentOffer(offerId) {
             var init = $modal.open({
                 animation: true,
                 templateUrl: 'remove-offer-modal.html',
@@ -268,13 +293,6 @@
                     console.log('Offer wasn\'t deleted');
                 });
             });
-        };
-
-        function activate() {
-            vm.currentOffer();
-            vm.userCheck();
         }
-
-        activate();
     }
 })();
