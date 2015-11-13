@@ -10,8 +10,7 @@ describe('CategorySearchController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope', 'CategoryFactory', 'SharedFactory',
-            '$httpBackend');
+        bard.inject(this, '$controller', '$rootScope', 'CategoryFactory', 'SharedFactory');
         scope = $rootScope.$new();
         controller = $controller('CategorySearchController', {
             $scope: scope
@@ -47,22 +46,6 @@ describe('CategorySearchController', function() {
                 expect(vm.categories).to.be.an('array');
                 expect(vm.categories).to.be.empty;
             });
-
-            it('shouldn\'t be empty after getting data from backend', function () {
-                var vm = controller;
-                /*$httpBackend.expectGET('/api/categories/1/children').respond(function(method, url, data) {
-                    vm.data = data;
-                    expect(data).to.be.a('object');
-                });*/
-                //$httpBackend.flush();
-                //expect(vm.data).to.be.a('object');
-                /*CategoryFactory.getCategories().then(function(data) {
-                    vm.categories = data.categories;
-                });*/
-                //$rootScope.$apply();
-                //expect(vm.categories).not.to.be.empty;
-            });
-
         });
 
         describe('showSubCategories() function', function() {
