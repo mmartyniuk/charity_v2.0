@@ -5,9 +5,9 @@
         .module('app.offers')
         .controller('OffersController', OffersController);
 
-    OffersController.$inject = ['$location', 'OffersFactory', '$state'];
+    OffersController.$inject = ['OffersFactory', '$state'];
 
-    function OffersController($location, OffersFactory, $state) {
+    function OffersController(OffersFactory, $state) {
         /* jshint validthis:true */
         var vm = this;
         vm.contentType = 'Пропозиції';

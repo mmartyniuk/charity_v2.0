@@ -15,7 +15,10 @@
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
-        vm.currentNeed = {};
+        vm.cancel = cancel;
+        vm.currentNeed = currentNeed;
+        vm.getRegion = getRegion;
+        vm.setRegion = setRegion;
         vm.editedNeed = {};
         vm.needId = $stateParams.id;
         vm.date = {};
@@ -28,7 +31,14 @@
             text: 'Ні'
         }];
 
-        vm.currentNeed = function () {
+        activate();
+
+        function activate() {
+            vm.getRegion();
+            vm.currentNeed();
+        }
+
+        function currentNeed() {
             EditNeedFactory.getConcreteNeed($stateParams.id).then(function (response) {
                 vm.editedNeed.title = response.data.name;
                 vm.editedNeed.needText = response.data.description;
@@ -38,24 +48,17 @@
             }).catch(function () {
                 console.log('something wrong');
             });
-        };
+        }
 
-        vm.getRegion = function () {
+        function getRegion() {
             EditNeedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
             });
-        };
-
-        activate();
-
-        function activate() {
-            vm.getRegion();
-            vm.currentNeed();
         }
 
-        vm.setRegion = function (region) {
+        function setRegion(region) {
             vm.cities = region._embedded.cities;
-        };
+        }
 
         function saveEditedNeed() {
             vm.editedNeed.date = vm.dt;
@@ -73,9 +76,9 @@
             });
         }
 
-        vm.cancel = function () {
+        function cancel() {
             $state.go($rootScope.previousState, {id: vm.needId});
-        };
+        }
 
     }
 })();

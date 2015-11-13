@@ -10,7 +10,7 @@ describe('EditNeedsController', function() {
     });
 
     beforeEach(function () {
-        bard.inject(this, '$controller', '$rootScope');
+        bard.inject('$controller');
         controller = $controller('EditNeedsController', {
         });
     });

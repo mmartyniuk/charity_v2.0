@@ -24,6 +24,7 @@
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
+        vm.submitOffer = submitOffer;
 
         activate();
 
@@ -37,7 +38,7 @@
             vm.cities = region._embedded.cities;
         }
 
-        vm.submitOffer = function() {
+        function submitOffer() {
             vm.offer.actualDate = vm.dt.getDate() + '/' +
                 parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.offer.get = vm.getChecked;
@@ -61,7 +62,7 @@
             };
             SharedFactory.postItem(vm.postUrl, vm.data, $sessionStorage.token,
                 successSubmitOffer, errorSubmitOffer);
-        };
+        }
 
         function successSubmitOffer() {
             $state.go('offers.home');
@@ -83,6 +84,5 @@
             }
 
         }
-
     }
 })();

@@ -27,6 +27,11 @@ describe('IndexController', function() {
             expect(vm.title).to.equal('IndexController');
         });
 
+        it('by default content type should be \'Needs\'', function () {
+            var vm = controller;
+            expect(vm.contentType).to.be.equal('Потреби');
+        });
+
         it('offers should be an empty object', function () {
             var vm = controller;
             expect(vm.offers).to.be.an('object');
@@ -39,6 +44,21 @@ describe('IndexController', function() {
             expect(vm.needs).to.be.empty;
         });
 
+        it('search value should be undefined by default', function () {
+            var vm = controller;
+            expect(vm.searchValue).to.be.undefined;
+        });
+
+        it('category should be undefined by default', function () {
+            var vm = controller;
+            expect(vm.category).to.be.undefined;
+        });
+
+        it('location should be undefined by default', function () {
+            var vm = controller;
+            expect(vm.location).to.be.undefined;
+        });
+
         describe('setContentType() function', function() {
 
             it('should be a function', function () {
@@ -46,9 +66,10 @@ describe('IndexController', function() {
                 expect(vm.setContentType).to.be.a('function');
             });
 
-            it('by default content type should be \'Needs\'', function () {
+            it('should set content type with passed value', function () {
                 var vm = controller;
-                expect(vm.contentType).to.be.equal('Потреби');
+                vm.setContentType('test');
+                expect(vm.contentType).to.be.equal('test');
             });
 
         });
@@ -60,14 +81,27 @@ describe('IndexController', function() {
                 expect(vm.submitCategorySearch).to.be.a('function');
             });
 
-            it('category should be undefined by default', function () {
+            it('should set search parameters', function () {
                 var vm = controller;
-                expect(vm.category).to.be.undefined;
+                vm.submitCategorySearch('searchValue', 'category', 'location');
+                expect(vm.searchValue).to.be.equal('searchValue');
+                expect(vm.category).to.be.equal('category');
+                expect(vm.location).to.be.equal('location');
             });
 
-            it('location should be undefined by default', function () {
+            it('should add search parameters to needs object', function () {
                 var vm = controller;
-                expect(vm.location).to.be.undefined;
+                vm.submitCategorySearch('searchValue', 'category', 'location');
+                expect(vm.needs).not.to.be.empty;
+                expect(vm.needs).to.have.all.keys('searchValue', 'category', 'location');
+            });
+
+            it('should add search parameters to offers object', function () {
+                var vm = controller;
+                vm.contentType = 'Пропозиції';
+                vm.submitCategorySearch('searchValue', 'category', 'location');
+                expect(vm.offers).not.to.be.empty;
+                expect(vm.offers).to.have.all.keys('searchValue', 'category', 'location');
             });
 
         });
@@ -85,6 +119,12 @@ describe('IndexController', function() {
                 expect(vm.needs.category).to.be.undefined;
             });
 
+            it('should set category with passed value', function () {
+                var vm = controller;
+                vm.filterCategoryNeeds('test');
+                expect(vm.category).to.equal('test');
+            });
+
         });
 
         describe('filterCategoryOffers() function', function() {
@@ -98,6 +138,12 @@ describe('IndexController', function() {
             'be undefined by default', function () {
                 var vm = controller;
                 expect(vm.offers.category).to.be.undefined;
+            });
+
+            it('should set category with passed value', function () {
+                var vm = controller;
+                vm.filterCategoryOffers('test');
+                expect(vm.category).to.equal('test');
             });
 
         });
