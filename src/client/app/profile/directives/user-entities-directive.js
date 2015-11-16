@@ -30,7 +30,7 @@
                     var limit = this.limit;
 
                     this.getTitle = function (entity) {
-                        return entity[this.title];
+                        return entity.name;
                     };
 
                     this.getHref = function (entity) {

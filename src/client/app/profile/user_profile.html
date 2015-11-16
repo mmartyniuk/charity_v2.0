@@ -112,32 +112,32 @@
                     </accordion-heading>
                     <div class="row" id="profile">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <span>Ваше ім&#180;я: {{vm.users.name}}</span><br>
+                            <span>Ваше ім&#180;я:&nbsp;{{vm.username}}</span><br>
                             <hr>
-                            <span>Електронна пошта: {{vm.users.email}}</span><br>
+                            <span>Електронна пошта:&nbsp;{{vm.email}}</span><br>
                             <hr>
-                            <span>Телефон: {{vm.users.phone}}</span><br>
+                            <span>Телефон:&nbsp;{{vm.phone}}</span><br>
                             <hr>
-                            <span>Хто Ви:  {{vm.users.status}}</span><br>
+                            <span>Хто Ви:&nbsp;{{vm.role}}</span><br>
                             <hr>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <span>Підтримані потреби:
-                                    <user-entities list="vm.users.supportedNeeds" url="'/needs/{{id}}'"
+                                    <user-entities list="vm.tabs.supNeeds" url="'/needs/createdneed/{{id}}'"
                                                    limit="3"></user-entities>
                                 </span><br>
                             <hr>
                                 <span>Опубліковані Пропозиції:
-                                    <user-entities list="vm.users.offers" url="'/offers/{{id}}'"></user-entities>
+                                    <user-entities list="vm.tabs.myOffers" url="'/offers/createdoffer/{{id}}'"></user-entities>
                                 </span><br>
                             <hr>
                                 <span>Опубліковані Потреби:
-                                    <user-entities list="vm.users.needs" title="customTitle" url="'/needs/{{customId}}'"
+                                    <user-entities list="vm.tabs.myNeeds" title="customTitle" url="'/needs/createdneed/{{id}}'"
                                                    limit="4"></user-entities>
                                 </span><br>
                             <hr>
                                 <span>Підтримані Пропозиції:
-                                    <user-entities list="vm.users.supportedOffers" url="'/offers/{{id}}'"
+                                    <user-entities list="vm.tabs.supOffers" url="'/offers/createdoffer/{{id}}'"
                                                    limit="2"></user-entities>
                                 </span><br>
                             <hr>
