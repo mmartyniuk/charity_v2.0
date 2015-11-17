@@ -5,10 +5,9 @@
         .module('app.profile')
         .controller('ProfileUserController', ProfileUserController);
 
-    ProfileUserController.$inject = ['$location', '$rootScope', '$sessionStorage',
-        '$state', 'UsersFactory'];
+    ProfileUserController.$inject = ['$state', 'UsersFactory'];
 
-    function ProfileUserController($location, $rootScope, $sessionStorage, $state, UsersFactory) {
+    function ProfileUserController($state, UsersFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileUserController';
@@ -17,12 +16,17 @@
             myNeeds: {},
             myOffers: {},
             supNeeds: {},
-            supOffers: {}
+            supOffers: {},
+            profile: {}
         };
 
         activate();
 
-        function activate() {
+        function activate(){
+            getUserData();
+        };
+
+        function getUserData() {
 
             UsersFactory.getProfileData(vm.userID).then(function (data) {
                     vm.user = data;
