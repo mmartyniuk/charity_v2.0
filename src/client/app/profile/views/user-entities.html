@@ -1,8 +1,8 @@
 <ul>
     <li ng-show="vm.list.length === 0">No data</li>
     <li ng-repeat="entity in vm.list | limitTo: vm.limit">
-        <!--<a ng-href="{{vm.getHref(entity)}}">{{vm.getTitle(entity)}}</a>-->
-        <a ng-href="/needs/createdneed">{{vm.getTitle(entity)}}</a>
+        <a ng-href="{{vm.getHref(entity)}}">{{vm.getTitle(entity)}}</a>
+        <!--<a ng-href="/needs/createdneed">{{vm.getTitle(entity)}}</a>-->
     </li>
     <li ng-click="vm.toggleList()">
         <span ng-show="vm.list.length > vm.limit" class="btn-link">більше ...</span>
