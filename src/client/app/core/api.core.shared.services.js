@@ -43,7 +43,7 @@
                     }
                 }
                 $http.post(uploadUrl, fd, {
-                    transformRequest: angular.indentity,
+                    transformRequest: angular.identity,
                     headers: {
                         'Content-Type': undefined,
                         'x-auth-token': token

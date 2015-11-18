@@ -21,6 +21,16 @@
                         resolve(data._embedded.regions);
                     }).error(reject);
                 });
+            },
+            updateCurrentOffer: function (offer) {
+                return $http.patch('/api/offers/' + offer.offerId, {
+                    'name': offer.title,
+                    'description': offer.offerText,
+                    'address': offer.address,
+                    'convenientTime': offer.convenientTime,
+                    'pickup': offer.status,
+                    'formattedActualTo': offer.date
+                })
             }
         };
     }

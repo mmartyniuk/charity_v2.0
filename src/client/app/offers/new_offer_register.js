@@ -45,20 +45,20 @@
             vm.postUrl = '/api/createOffer';
             // data that is going to be sent to backend
             vm.data = {
-                'name': vm.offer.title,
-                'categories': vm.offer.categories,
-                'description': vm.offer.description,
-                'images[0]': vm.images[0],
-                'images[1]': vm.images[1],
+                name: vm.offer.title,
+                categories: vm.offer.categories,
+                description: vm.offer.description,
+                images: vm.images,
+                /*'images[1]': vm.images[1],
                 'images[2]': vm.images[2],
                 'images[3]': vm.images[3],
                 'images[4]': vm.images[4],
-                'images[5]': vm.images[5],
-                'city': JSON.stringify(vm.offer.city),
-                'address': vm.address.location,
-                'topicality': vm.offer.actualDate, // Date format: dd/mm/yyyy
-                'convenientTime': vm.offer.suitableTime,
-                'pickup': vm.getChecked
+                'images[5]': vm.images[5],*/
+                city: JSON.stringify(vm.offer.city),
+                address: vm.address.location,
+                topicality: vm.offer.actualDate, // Date format: dd/mm/yyyy
+                convenientTime: vm.offer.suitableTime,
+                pickup: vm.getChecked
             };
             SharedFactory.postItem(vm.postUrl, vm.data, $sessionStorage.token,
                 successSubmitOffer, errorSubmitOffer);

@@ -40,7 +40,8 @@
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Фото:</label>
-                        <file-upload-directive images="vm.images"></file-upload-directive>
+                        <!--TODO: What does UPLOAD attribute mean, when only IMAGES attribute is provided in directive ?-->
+                        <file-upload-directive upload="vm.upload" images="vm.editedNeed.uploadedImages"></file-upload-directive>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">Виберіть область:</label>
