@@ -24,7 +24,7 @@
 
         function activate(){
             getUserData();
-        };
+        }
 
         function getUserData() {
 
