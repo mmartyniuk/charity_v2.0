@@ -30,7 +30,7 @@
                     'convenientTime': offer.convenientTime,
                     'pickup': offer.status,
                     'formattedActualTo': offer.date
-                })
+                });
             }
         };
     }

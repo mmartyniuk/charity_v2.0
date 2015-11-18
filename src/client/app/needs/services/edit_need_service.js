@@ -30,7 +30,7 @@
                     'convenientTime': need.convenientTime,
                     'pickup': need.status,
                     'formattedActualTo': need.date
-                })
+                });
             }
         };
     }
