@@ -46,8 +46,8 @@
             vm.postUrl = '/api/createNeed';
             // data that is going to be sent to backend
             vm.data = {
-                name: vm.need.title,
-                categories: vm.need.categories,
+                'name': vm.need.title,
+                'categories': vm.need.categories,
                 description: vm.need.description,
                 images: vm.images,
                 //'images[1]': vm.images[1],
@@ -55,11 +55,11 @@
                 //'images[3]': vm.images[3],
                 //'images[4]': vm.images[4],
                 //'images[5]': vm.images[5],
-                city: JSON.stringify(vm.need.city),
-                address: vm.address.location,
-                topicality: vm.need.actualDate, // Date format: dd/mm/yyyy
-                convenientTime: vm.need.suitableTime,
-                pickup: vm.getChecked
+                'city': JSON.stringify(vm.need.city),
+                'address': vm.address.location,
+                'topicality': vm.need.actualDate, // Date format: dd/mm/yyyy
+                'convenientTime': vm.need.suitableTime,
+                'pickup': vm.getChecked
             };
             SharedFactory.postItem(vm.postUrl, vm.data, $sessionStorage.token,
                 successSubmitNeed, errorSubmitNeed);

@@ -43,7 +43,7 @@
                 vm.editedOffer.address = response.data.address;
                 vm.editedOffer.convenientTime = response.data.convenientTime;
                 vm.editedOffer.date = response.data.formattedActualTo;
-                //TODO: apply valid data to vm.upload from backend
+                //TODO: apply valid data to vm.editedOffer.images from backend
                 vm.editedOffer.images = [{name: 'offer.jpg', preview: '"data:image/jpeg;base64,mnknknkjnkjn'},
                     {name: 'offer2.jpg', preview: '"data:image/jpeg;base64,mnknknkfyuktyujnkjn'}];
 

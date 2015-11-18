@@ -45,7 +45,8 @@
                 vm.editedNeed.address = response.data.address;
                 vm.editedNeed.convenientTime = response.data.convenientTime;
                 vm.editedNeed.date = response.data.formattedActualTo;
-                vm.editedNeed.uploadedImages = [{name: 'needs.jpg', preview: '"data:image/jpeg;base64,mnknknkjnkjn'},
+                //TODO: apply valid data to vm.editedNeed.images from backend
+                vm.editedNeed.images = [{name: 'needs.jpg', preview: '"data:image/jpeg;base64,mnknknkjnkjn'},
                     {name: 'needs2.jpg', preview: '"data:image/jpeg;base64,mnknknkfyuktyujnkjn'}];
             }).catch(function () {
                 console.log('something wrong');
