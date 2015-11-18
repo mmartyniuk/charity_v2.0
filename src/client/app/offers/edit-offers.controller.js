@@ -62,16 +62,8 @@
 
         function saveEditedOffer() {
             vm.editedOffer.date = vm.dt;
-
-            return $http.patch('/api/offers/' + vm.offerId, {
-                'name': vm.editedOffer.title,
-                'description': vm.editedOffer.offerText,
-                'address': vm.editedOffer.address,
-                'convenientTime': vm.editedOffer.convenientTime,
-                'pickup': vm.editedOffer.status,
-                'formattedActualTo': vm.editedOffer.date
-
-            }).then(function () {
+            vm.editedOffer.offerId = vm.offerId;
+            return EditOfferFactory.updateCurrentOffer(vm.editedOffer).then(function () {
                 $state.go('offers.created', {id: vm.offerId});
             });
         }

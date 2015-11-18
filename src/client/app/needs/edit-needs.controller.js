@@ -62,16 +62,9 @@
 
         function saveEditedNeed() {
             vm.editedNeed.date = vm.dt;
+            vm.editedNeed.needId = vm.needId;
 
-            return $http.patch('/api/needs/' + vm.needId, {
-                'name': vm.editedNeed.title,
-                'description': vm.editedNeed.needText,
-                'address': vm.editedNeed.address,
-                'convenientTime': vm.editedNeed.convenientTime,
-                'pickup': vm.editedNeed.status,
-                'formattedActualTo': vm.editedNeed.date
-
-            }).then(function () {
+            return EditNeedFactory.updateCurrentNeed(vm.editedNeed).then(function () {
                 $state.go('needs.created', {id: vm.needId});
             });
         }
