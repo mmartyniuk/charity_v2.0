@@ -43,6 +43,9 @@
                 vm.editedOffer.address = response.data.address;
                 vm.editedOffer.convenientTime = response.data.convenientTime;
                 vm.editedOffer.date = response.data.formattedActualTo;
+                //TODO: apply valid data to vm.editedOffer.images from backend
+                vm.editedOffer.images = [{name: 'offer.jpg', preview: '"data:image/jpeg;base64,mnknknkjnkjn'},
+                    {name: 'offer2.jpg', preview: '"data:image/jpeg;base64,mnknknkfyuktyujnkjn'}];
 
             }).catch(function () {
                 console.log('something wrong');
@@ -56,14 +59,15 @@
             });
         }
 
-        function setRegion(region) {
+        vm.setRegion = function (region) {
             vm.cities = region._embedded.cities;
         }
 
         function saveEditedOffer() {
             vm.editedOffer.date = vm.dt;
-
-            return $http.patch('/api/offers/' + vm.offerId, {
+            vm.editedOffer.offerId = vm.offerId;
+            //TODO: remove commented code if not needed
+            /*return $http.patch('/api/offers/' + vm.offerId, {
                 'name': vm.editedOffer.title,
                 'description': vm.editedOffer.offerText,
                 'address': vm.editedOffer.address,
@@ -73,7 +77,10 @@
 
             }).then(function () {
                 $state.go('offers.created', {id: vm.offerId});
-            });
+            });*/
+
+            return EditOfferFactory.updateCurrentOffer(vm.editedNeed)
+                .then($state.go('offers.created', {id: vm.needId}));
         }
 
         function cancel() {

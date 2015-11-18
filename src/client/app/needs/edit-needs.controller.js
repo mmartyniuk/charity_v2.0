@@ -45,6 +45,9 @@
                 vm.editedNeed.address = response.data.address;
                 vm.editedNeed.convenientTime = response.data.convenientTime;
                 vm.editedNeed.date = response.data.formattedActualTo;
+                //TODO: apply valid data to vm.editedNeed.images from backend
+                vm.editedNeed.images = [{name: 'needs.jpg', preview: '"data:image/jpeg;base64,mnknknkjnkjn'},
+                    {name: 'needs2.jpg', preview: '"data:image/jpeg;base64,mnknknkfyuktyujnkjn'}];
             }).catch(function () {
                 console.log('something wrong');
             });
@@ -62,8 +65,9 @@
 
         function saveEditedNeed() {
             vm.editedNeed.date = vm.dt;
-
-            return $http.patch('/api/needs/' + vm.needId, {
+            vm.editedNeed.needId = vm.needId;
+            //TODO: remove commented code if not needed
+            /*return $http.patch('/api/needs/' + vm.needId, {
                 'name': vm.editedNeed.title,
                 'description': vm.editedNeed.needText,
                 'address': vm.editedNeed.address,
@@ -73,7 +77,10 @@
 
             }).then(function () {
                 $state.go('needs.created', {id: vm.needId});
-            });
+            });*/
+
+            return EditNeedFactory.updateCurrentNeed(vm.editedNeed)
+                .then($state.go('needs.created', {id: vm.needId}));
         }
 
         function cancel() {
