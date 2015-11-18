@@ -48,8 +48,8 @@
             vm.data = {
                 'name': vm.need.title,
                 'categories': vm.need.categories,
-                description: vm.need.description,
-                images: vm.images,
+                'description': vm.need.description,
+                'images': vm.images,
                 //'images[1]': vm.images[1],
                 //'images[2]': vm.images[2],
                 //'images[3]': vm.images[3],
