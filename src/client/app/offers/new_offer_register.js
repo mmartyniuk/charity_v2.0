@@ -5,10 +5,10 @@
         .module('app.offers')
         .controller('NewOfferRegisterController', NewOfferRegisterController);
 
-    NewOfferRegisterController.$inject = ['$state','CreateOfferFactory','$http',
+    NewOfferRegisterController.$inject = ['$state', 'CreateOfferFactory', '$http',
         '$rootScope', 'CreateOfferAddressFactory', '$sessionStorage', 'SharedFactory'];
 
-    function NewOfferRegisterController($state,CreateOfferFactory,$http,
+    function NewOfferRegisterController($state, CreateOfferFactory, $http,
                                         $rootScope, CreateOfferAddressFactory,
                                         $sessionStorage, SharedFactory) {
 
@@ -16,15 +16,24 @@
         vm.title = 'NewOfferRegisterController';
         vm.offer = {}; //offer data from form will be stored here
         vm.offer.categories = [];
-        vm.offer.title = $state.params.prefilled.title;  //---> comment for testing
-        vm.offer.categories[0] = $state.params.prefilled.mainCategory;  //---> commented for testing
-        vm.offer.categories[1] = $state.params.prefilled.subcategory;
-        vm.offer.categories[2] = $state.params.prefilled.category;
+        vm.offer.title = $state.params.prefilled ?
+            $state.params.prefilled.title : null;  //---> comment for testing
+        vm.offer.categories[0] = $state.params.prefilled ?
+            $state.params.prefilled.mainCategory : null; //---> comment for testing
+        vm.offer.categories[1] = $state.params.prefilled ?
+            $state.params.prefilled.subcategory : null;
+        vm.offer.categories[2] = $state.params.prefilled ?
+            $state.params.prefilled.category : null;
         vm.images = [];
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
         vm.submitOffer = submitOffer;
+
+        if (!vm.offer.title && $state.$current.includes.newoffer) {
+            $state.go('newoffer.home');
+            return;
+        }
 
         activate();
 

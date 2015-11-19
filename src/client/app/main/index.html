@@ -15,9 +15,11 @@
                            ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.searchValue, vm.category, vm.location)"
                            class="form-control" placeholder="Що ви шукаєте...">
                 </div>
-                <category-search class="col-xs-2 no-gutter margin-bottom-20" main-category="vm.mainCategory" subcategory="vm.subcategory" category="vm.category"></category-search>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20" main-category="vm.mainCategory"
+                                 subcategory="vm.subcategory" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
-                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
+                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown
+                     is-open="status.isopen">
                     <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"
                            ng-disabled="disabled" placeholder="Потреби" readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -45,21 +47,30 @@
             <div class="recent-needs">
                 <div class="row">
 
-                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter" ng-repeat="needs in vm.needsData | orderBy: 'created': true | limitTo: 4">
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter"
+                         ng-repeat="needs in vm.needsData | orderBy: 'created': true | limitTo: 4">
                         <div class="post-panel">
                             <div class="post-image">
-                                <a ui-sref="needs.created({id:{{needs.id}}})"><img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block"/></a>
+                                <a ui-sref="needs.created({id:{{needs.id}}})"><img src="../../images/pants_bk.png"
+                                                                                   alt="computer"
+                                                                                   class="img-responsive center-block"/></a>
                             </div>
                             <div class="post-description">
-                                <h6><strong><a ui-sref="needs.created({id:{{needs.id}}})">{{ needs.name }}</a></strong></h6>
+                                <h6>
+                                    <strong>
+                                        <a ui-sref="needs.created({id:{{needs.id}}})">{{ needs.name }}</a>
+                                    </strong>
+                                </h6>
+
                                 <div class="details row">
                                     <div class="col-xs-6 text-right">
-                                        <strong class="clipped-text">{{ needs.address }}</strong>
+                                        <strong class="clipped-text">{{ needs.city.name }}</strong>
                                         <span>{{ needs.created | date:'dd-MM-yyyy'}}</span>
                                     </div>
                                     <div class="col-xs-6">
                                         <strong>Автор:</strong>
-                                        <a ui-sref="profile.user({id:{{needs.userCreated.id}}})" class="clipped">{{ needs.userCreated.name }}</a>
+                                        <a ui-sref="profile.user({id:{{needs.userCreated.id}}})" class="clipped">{{
+                                            needs.userCreated.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,18 +85,32 @@
 
             <div class="recent-needs">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter" ng-repeat="offers in vm.offersData | orderBy: 'created': true | limitTo: 4">
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-gutter"
+                         ng-repeat="offers in vm.offersData | orderBy: 'created': true | limitTo: 4">
                         <div class="post-panel">
                             <div class="post-image">
-                                <a ui-sref="offers.created({id:{{offers.id}}})"><img src="../../images/pants_bk.png" alt="computer" class="img-responsive center-block"/></a>
+                                <a ui-sref="offers.created({id:{{offers.id}}})"><img src="../../images/pants_bk.png"
+                                                                                     alt="computer"
+                                                                                     class="img-responsive center-block"/></a>
                             </div>
                             <div class="post-description">
-                                <h6><strong><a ui-sref="offers.created({id:{{offers.id}}})">{{ offers.name }}</a></strong></h6>
-                                <strong>{{ offers.address }}</strong>
-                                <small> /</small>
-                                <strong>{{ offers.created | date:'dd-MM-yyyy'}}</strong>
+                                <h6>
+                                    <strong>
+                                        <a ui-sref="offers.created({id:{{offers.id}}})">{{ offers.name }}</a>
+                                    </strong>
+                                </h6>
 
-                                <p><strong>Автор:</strong> <a ui-sref="profile.user({id:{{offers.userCreated.id}}})">{{ offers.userCreated.name }}</a></p>
+                                <div class="details row">
+                                    <div class="col-xs-6 text-right">
+                                        <strong>{{ offers.city.name }}</strong>
+                                        <strong>{{ offers.created | date:'dd-MM-yyyy'}}</strong>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <strong>Автор:</strong>
+                                        <a ui-sref="profile.user({id:{{offers.userCreated.id}}})" class="clipped">{{
+                                            offers.userCreated.name }}</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

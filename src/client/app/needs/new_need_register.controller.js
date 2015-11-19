@@ -5,10 +5,10 @@
         .module('app.needs')
         .controller('NewNeedRegisterController', NewNeedRegisterController);
 
-    NewNeedRegisterController.$inject = ['$state','CreateNeedFactory','$http',
+    NewNeedRegisterController.$inject = ['$state', 'CreateNeedFactory', '$http',
         '$sessionStorage', '$rootScope', 'CreateNeedAddressFactory', 'SharedFactory', '$scope'];
 
-    function NewNeedRegisterController($state,CreateNeedFactory, $http,
+    function NewNeedRegisterController($state, CreateNeedFactory, $http,
                                        $sessionStorage, $rootScope,
                                        CreateNeedAddressFactory, SharedFactory, $scope) {
 
@@ -18,15 +18,23 @@
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
         vm.need.categories = [];
-        vm.need.title = $state.params.prefilled.title;
-        vm.need.categories[0] = $state.params.prefilled.mainCategory;
-        vm.need.categories[1] = $state.params.prefilled.subcategory;
-        vm.need.categories[2] = $state.params.prefilled.category;
+        vm.need.title = $state.params.prefilled ?
+            $state.params.prefilled.title : null;
+        vm.need.categories[0] = $state.params.prefilled ?
+            $state.params.prefilled.mainCategory : null;
+        vm.need.categories[1] = $state.params.prefilled ?
+            $state.params.prefilled.subcategory : null;
+        vm.need.categories[2] = $state.params.prefilled ?
+            $state.params.prefilled.category : null;
         vm.images = [];
         vm.getChecked = false;
         vm.getRegion = getRegion;
         vm.setRegion = setRegion;
 
+        if (!vm.need.title && $state.$current.includes.newneed) {
+            $state.go('newneed.home');
+            return;
+        }
         activate();
 
         function getRegion() {
@@ -39,7 +47,7 @@
             vm.cities = region._embedded.cities;
         }
 
-        vm.submitNeed = function() {
+        vm.submitNeed = function () {
             vm.need.actualDate = vm.dt.getDate() + '/' +
                 parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
@@ -80,7 +88,7 @@
                 $state.go('login');
             } else {
                 getRegion();
-                CreateNeedAddressFactory.getAddress().then(function(address) {
+                CreateNeedAddressFactory.getAddress().then(function (address) {
                     vm.address = address;
                 });
             }
