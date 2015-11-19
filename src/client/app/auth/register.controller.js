@@ -34,7 +34,7 @@
 
         function signup(isValid) {
             if (isValid) {
-                vm.address.city = vm.city._links.self.href;
+                vm.address.city = vm.city ? vm.city._links.self.href : null;
                 var formData = {
                     name: vm.name,
                     username: vm.username,
