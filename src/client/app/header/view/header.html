@@ -14,15 +14,17 @@
             </div>
             <div class="collapse navbar-collapse" collapse="!isCollapsed" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">Потреби</a></li>
-                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">Пропозиції</a></li>
-                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">Додати Потребу</a></li>
-                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">Додати Пропозицію</a></li>
+                    <li active-sref="needs"><a ui-sref="needs.home" class="navbar-link">{{ 'header.needs' | translate }}</a></li>
+                    <li active-sref="offers"><a ui-sref="offers.home" class="navbar-link">{{ 'header.offers' | translate }}</a></li>
+                    <li active-sref="newneed"><a ui-sref="newneed.home" class="navbar-link">{{ 'header.addNeed' | translate }}</a></li>
+                    <li active-sref="newoffer"><a ui-sref="newoffer.home" class="navbar-link">{{ 'header.addOffer' | translate }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <hr class="divider hidden-lg hidden-md hidden-sm">
                     </li>
+                    <li><a ng-click="vm.changeLanguage('ru')" ng-hide="vm.language === 'ru'">{{ 'header.russian' | translate }}</a></li>
+                    <li><a ng-click="vm.changeLanguage('ua')" ng-hide="vm.language === 'ua'">{{ 'header.ukrainian' | translate}}</a></li>
                     <li active-sref="about"><a ui-sref="about" class="navbar-link">Про нас</a></li>
                     <li><a ui-sref="login" class="navbar-link" ng-show="!vm.loggedIn">Залогінитись</a></li>
                     <li active-sref="profile"><a ui-sref="profile.home({id:vm.userID})" class="navbar-link" ng-show="vm.loggedIn">Мій кабінет</a></li>

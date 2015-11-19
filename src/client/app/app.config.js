@@ -7,15 +7,24 @@
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
-    config.$inject = ['$httpProvider'];
+    config.$inject = ['$httpProvider', '$translateProvider'];
 
     /* @ngInject */
     function appRun(routerHelper) {
         routerHelper.configureStates(getStates());
     }
 
-    function config($httpProvider) {
+    function config($httpProvider, $translateProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
+        $translateProvider.translations('ua', {
+            contacts : 'Контакти',
+            confidential: 'Конфіденційність'
+        });
+        $translateProvider.translations('ru', {
+            contacts : 'Контакти',
+            confidential: 'Конфиденциальность'
+        });
+        $translateProvider.preferredLanguage('ua');
     }
 
     function getStates() {
