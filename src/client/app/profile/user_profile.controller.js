@@ -22,9 +22,9 @@
 
         activate();
 
-        function activate(){
+        function activate() {
             getUserData();
-        };
+        }
 
         function getUserData() {
 
