@@ -5,11 +5,17 @@
         .module('app.header')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$sessionStorage', '$rootScope', '$state', 'SharedFactory'];
+    HeaderController.$inject = ['$sessionStorage',
+        '$rootScope',
+        '$state',
+        'SharedFactory',
+        '$translate'
+    ];
 
-    function HeaderController($sessionStorage, $rootScope, $state, SharedFactory) {
+    function HeaderController($sessionStorage, $rootScope, $state, SharedFactory, $translate) {
         var vm = this;
-
+        vm.language = 'ua';
+        vm.changeLanguage = changeLanguage;
         vm.loggedIn = !!$sessionStorage.token || false; // this value is impacting view, if user is logged in some
         // elements from nav menu will be displayed
         $rootScope.$on('$stateChangeStart',
@@ -32,5 +38,9 @@
             vm.userID = data.id;
         }
 
+        function changeLanguage(key) {
+            vm.language = key;
+            $translate.use(key);
+        }
     }
 })();
