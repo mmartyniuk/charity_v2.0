@@ -33,6 +33,8 @@
         }
 
         function signup(isValid) {
+            vm.validationError = null;
+            vm.emailError = null;
             if (isValid) {
                 vm.address.city = vm.city ? vm.city._links.self.href : null;
                 var formData = {
@@ -45,11 +47,13 @@
                 Auth.signup(formData).then(function(data, status, headers) {
                     $log.debug(data, status, headers);
                     $state.go('login');
-                }, function () {
-                    $rootScope.error = 'Failed to signup';
+                }, function (data) {
+                    if (data.status === 409) {
+                        vm.emailError = true;
+                    }
                 });
             } else {
-                console.log('Some data is missing!');
+                vm.validationError = true;
             }
         }
     }
