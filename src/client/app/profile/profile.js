@@ -5,10 +5,10 @@
         .module('app.profile')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$location', '$rootScope', '$sessionStorage',
+    ProfileController.$inject = ['$rootScope', '$sessionStorage',
         '$state', 'UsersFactory'];
 
-    function ProfileController($location, $rootScope, $sessionStorage, $state, UsersFactory) {
+    function ProfileController($rootScope, $sessionStorage, $state, UsersFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
@@ -29,6 +29,7 @@
         }
 
         function authCheck() {
+            //checking if the user is logged in
             if (!$sessionStorage.token) {
                 $rootScope.savePreviousState = $state.$current.name;
                 $state.go('login');
@@ -38,19 +39,21 @@
         }
 
         function setUserData() {
+            //setting API link for concrete user
             UsersFactory.getUserID($sessionStorage.token).then(function(user) {
                 vm.userID = '/api/users/' + user.id;
-                UsersFactory.getProfileData(vm.userID).then(function (data) {
+                //getting user data
+                UsersFactory.getProfileData(vm.userID).then(function(data) {
                     vm.user = data;
                     vm.role = data.role;
                     vm.phone = data.phone;
                     vm.address = data.address;
                     vm.username = data.username;
                     vm.email = data.emailAddress;
-                    vm.tabs.supOffers = data.offerResponses;
-                    vm.tabs.supNeeds = data.needResponses;
-                    vm.tabs.myNeeds = data.needs;
-                    vm.tabs.myOffers = data.offers;
+                    vm.supOffers = data.offerResponses;
+                    vm.supNeeds = data.needResponses;
+                    vm.myNeeds = data.needs;
+                    vm.myOffers = data.offers;
 
                 }).catch(function() {
                     console.log('Something wrong !!!');

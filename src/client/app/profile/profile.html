@@ -21,20 +21,21 @@
 
                     <table class="table table-striped">
                         <tr>
-                            <th>Назва</th>
-                            <th class="text-center">Відгукнулись</th>
-                            <th class="text-center">Опубліковано</th>
-                            <th class="text-center">Актуально до</th>
-                            <th class="text-right">Керування</th>
+                            <th>Назва:</th>
+                            <th class="text-center">Відгуків:</th>
+                            <th class="text-center">Опубліковано:</th>
+                            <th class="text-center">Актуально до:</th>
+                            <th class="text-right">Керування:</th>
                         </tr>
 
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
+
+                        <tr ng-repeat="need in vm.myNeeds">
+                            <td><a ui-sref="needs.created({id:need.id})">{{need.name}}</a></td>
+                            <td class="text-center"><a ui-sref="needs.created({id:need.id})">5</a></td>
+                            <td class="text-center"><span>{{need.created | date:'yyyy-MM-dd'}}</span></td>
+                            <td class="text-center"><span>{{need.formattedActualTo | date:'yyyy-MM-dd'}}</span></td>
                             <td class="text-right">
-                                <a href="/needs/edit/1">
+                                <a ui-sref="needs.edit({id:need.id})">
                                     <button type="button" title="Редагувати"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
@@ -44,41 +45,6 @@
                                 </a>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">6 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
-                            <td class="text-right">
-                                <a href="/needs/edit/1">
-                                    <button type="button" title="Редагувати"
-                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
-                                </a>
-                                <a>
-                                    <button type="button" title="Закрити"
-                                            class="btn btn-default glyphicon glyphicon-remove"></button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
-                            <td class="text-right">
-                                <a href="/needs/edit/1">
-                                    <button type="button" title="Редагувати"
-                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
-                                </a>
-                                <a>
-                                    <button type="button" title="Закрити"
-                                            class="btn btn-default glyphicon glyphicon-remove"></button>
-                                </a>
-                            </td>
-                        </tr>
-
 
                     </table>
 
@@ -151,66 +117,33 @@
                     <span><a href="#">Завершені</a></span>
                 </div>
                 <div class="contentWrapper">
+
                     <table class="table table-striped">
                         <tr>
-                            <th>Назва</th>
-                            <th class="text-center">Відгукнулись</th>
-                            <th class="text-center">Опубліковано</th>
-                            <th class="text-center">Актуально до</th>
-                            <th class="text-right">Керування</th>
+                            <th>Назва:</th>
+                            <th class="text-center">Відгуків:</th>
+                            <th class="text-center">Опубліковано:</th>
+                            <th class="text-center">Актуально до:</th>
+                            <th class="text-right">Керування:</th>
                         </tr>
 
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
+
+                        <tr ng-repeat="offer in vm.myOffers">
+                            <td><a ui-sref="offers.created({id:offer.id})">{{offer.name}}</a></td>
+                            <td class="text-center"><a ui-sref="offers.created({id:offer.id})">5</a></td>
+                            <td class="text-center"><span>{{offer.created | date:'yyyy-MM-dd'}}</span></td>
+                            <td class="text-center"><span>{{offer.formattedActualTo | date:'yyyy-MM-dd'}}</span></td>
                             <td class="text-right">
-                                <a href="/needs/edit/1">
+                                <a ui-sref="offers.edit({id:offer.id})">
                                     <button type="button" title="Редагувати"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
-                                <a>
+                                <a ui-sref="vm.deleteCurrentNeed(vm.currentNeed.id)">
                                     <button type="button" title="Закрити"
                                             class="btn btn-default glyphicon glyphicon-remove"></button>
                                 </a>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
-                            <td class="text-right">
-                                <a href="/needs/edit/1">
-                                    <button type="button" title="Редагувати"
-                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
-                                </a>
-                                <a>
-                                    <button type="button" title="Закрити"
-                                            class="btn btn-default glyphicon glyphicon-remove"></button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                            <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                            <td class="text-center"><span>06/01/2014</span></td>
-                            <td class="text-center"><span>10/07/2016</span></td>
-                            <td class="text-right">
-                                <a href="/needs/edit/1">
-                                    <button type="button" title="Редагувати"
-                                            class="btn btn-primary glyphicon glyphicon-pencil"></button>
-                                </a>
-                                <a>
-                                    <button type="button" title="Закрити"
-                                            class="btn btn-default glyphicon glyphicon-remove"></button>
-                                </a>
-                            </td>
-                        </tr>
-
 
                     </table>
 
@@ -368,22 +301,22 @@
                         <div class="statistics col-xs-12 col-md-6">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <span class="badge stats"><a ng-click="vm.tabs.my_needs.active = true" href="">3</a></span>
+                                    <span class="badge stats"><a ng-click="vm.tabs.my_needs.active = true" href="">{{vm.myNeeds.length}}</a></span>
                                     Опубліковані Потреби:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.sup_needs.active = true"
-                                                                 href="">3</a></span>
+                                                                 href="">{{vm.supNeeds.length}}</a></span>
                                     Підтримані потреби:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.my_offers.active = true"
-                                                                 href="">3</a></span>
+                                                                 href="">{{vm.myOffers.length}}</a></span>
                                     Опубліковані Пропозиції:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.sup_offers.active = true"
-                                                                 href="">3</a></span>
+                                                                 href="">{{vm.supOffers.length}}</a></span>
                                     Підтримані Пропозиції:
                                 </li>
                             </ul>
