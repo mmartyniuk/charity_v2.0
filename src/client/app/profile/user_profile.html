@@ -1,150 +1,181 @@
-<section>
-    <div class="row">
-        <div
-            class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-xs-offset-2 col-sm-offset-2">
-            <div class="row">&nbsp;</div>
-            <accordion class="accorion-with-chevron">
-                <accordion-group>
-                    <accordion-heading>
-                        Опубліковані потреби <i class="pull-right glyphicon chevron-icon"></i>
-                    </accordion-heading>
-                    <div>
-                        <form role="form">
-                            <label class="radio-inline">
-                                <input disabled="disabled" type="radio" name="optradio" checked>Потреби
-                            </label>
-                            <label class="radio-inline">
-                                <input disabled="disabled" type="radio" name="optradio">Проекти
-                            </label>
-                        </form>
+<section class="user-profile container well top">
+
+    <tabset>
+        <tab heading="Опубліковані потреби" active="vm.tabs.my_needs.active" class="wide">
+            <div class="status">
+                <span><a href="#" class="currneLink">Активні</a></span>
+                <span><a href="#">Завершені</a></span>
+            </div>
+            <div class="publication-type">
+                <form role="form">
+                    <label class="radio-inline">
+                        <input disabled="disabled" type="radio" name="optradio" checked>Потреби
+                    </label>
+                    <label class="radio-inline">
+                        <input disabled="disabled" type="radio" name="optradio">Проекти
+                    </label>
+                </form>
+            </div>
+            <div class="contentWrapper">
+
+                <user-entities list="vm.tabs.myNeeds" title="customTitle" url="'/needs/createdneed/{{id}}'" limit="4"></user-entities>
+
+            </div>
+        </tab>
+
+        <tab heading="Підтримані потреби" active="vm.tabs.sup_needs.active" class="wide">
+            <div class="status">
+                <span><a href="#" class="currneLink">Активні</a></span>
+                <span><a href="#">Завершені</a></span>
+            </div>
+            <div class="contentWrapper">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Назва</th>
+                        <th class="text-center">Автор</th>
+                        <th class="text-center">Опубліковано</th>
+                        <th class="text-center">Актуально до</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                </table>
+            </div>
+        </tab>
+
+        <tab heading="Опубліковані пропозиції" active="vm.tabs.my_offers.active" class="wide">
+            <div class="status">
+                <span><a href="#" class="currneLink">Активні</a></span>
+                <span><a href="#">Завершені</a></span>
+            </div>
+            <div class="contentWrapper">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Назва</th>
+                        <th class="text-center">Відгукнулись</th>
+                        <th class="text-center">Опубліковано</th>
+                        <th class="text-center">Актуально до</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </tab>
+
+        <tab heading="Підтримані пропозиції" active="vm.tabs.sup_offers.active" class="wide">
+            <div class="status">
+                <span><a href="#" class="currneLink">Активні</a></span>
+                <span><a href="#">Завершені</a></span>
+            </div>
+            <div class="contentWrapper">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Назва</th>
+                        <th class="text-center">Автор</th>
+                        <th class="text-center">Опубліковано</th>
+                        <th class="text-center">Актуально до</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>29/07/2016</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
+                        <td class="text-center"><span>06/01/2014</span></td>
+                        <td class="text-center"><span>10/07/2016</span></td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </tab>
+
+        <tab heading="Профіль" active="true" class="wide">
+            <div class="status">
+                <span><a href="#">Дані користувача</a></span>
+            </div>
+            <div class="contentWrapper user-profile">
+                <div class="row" id="profile">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <p>
+                            <strong title="name">Ваше ім&#180;я:</strong>
+                            <span> {{vm.username}}</span>
+                        </p>
+                        <p>
+                            <strong title="email">Електронна пошта:</strong>
+                            <span> {{vm.email}}</span>
+                        </p>
+                        <p>
+                            <strong title="address">Адреса</strong>
+                            <span> {{vm.address}}</span>
+                        </p>
+                        <p>
+                            <strong title="phone">Телефон:</strong>
+                            <span> {{vm.phone}}</span>
+                        </p>
+                        <p>
+                            <strong title="role">Хто Ви:</strong>
+                            <span> {{vm.role}}</span>
+                        </p>
+
                     </div>
-                    <div class="status">
-                        <span><a href="#" class="currneLink">Активні</a></span>
-                        <span><a href="#">Завершені</a></span>
-                    </div>
-                    <div class="contentWrapper">
-                        <div class="date">
-                            <div class="dateCreating">10/07/2015</div>
-                            <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a
-                                    href="/needs/createdneed">Кольорові олівці</a></div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя
-                                    Єдинорог</a></div>
-                                <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </accordion-group>
-                <accordion-group>
-                    <accordion-heading>
-                        Підтримані потреби <i class="pull-right glyphicon chevron-icon"></i>
-                    </accordion-heading>
-                    <!--                    <div class="status">
-                                            <span><a href="#" class="currneLink">Активні</a></span>
-                                            <span><a href="#">Завершені</a></span>
-                                        </div>-->
-                    <div class="contentWrapper">
-                        <div class="date">
-                            <div class="dateCreating">10/07/2015</div>
-                            <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a
-                                    href="/needs/createdneed">Кольорові олівці</a></div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя
-                                    Єдинорог</a></div>
-                                <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                            </div>
-                        </div>
-                        <!--                        <div class="check">
-                                                    <span><a href="#">Переглянути</a></span>
-                                                    <span><a href="#">Відмінити</a></span>
-                                                </div>-->
-                        <hr>
-                    </div>
-                </accordion-group>
-                <accordion-group>
-                    <accordion-heading>
-                        Опубліковані пропозиції <i class="pull-right glyphicon chevron-icon"></i>
-                    </accordion-heading>
-                    <div class="status">
-                        <span><a href="#" class="currneLink">Активні</a></span>
-                        <span><a href="#">Завершені</a></span>
-                    </div>
-                    <div class="contentWrapper">
-                        <div class="date">
-                            <div class="dateCreating">10/07/2015</div>
-                            <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a
-                                    href="/offers/createdoffer">Кольорові олівці</a></div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя
-                                    Єдинорог</a></div>
-                                <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </accordion-group>
-                <accordion-group>
-                    <accordion-heading>
-                        Підтримані пропозиції <i class="pull-right glyphicon chevron-icon"></i>
-                    </accordion-heading>
-                    <div class="status">
-                        <span><a href="#" class="currneLink">Активні</a></span>
-                        <span><a href="#">Завершені</a></span>
-                    </div>
-                    <div class="contentWrapper">
-                        <div class="date">
-                            <div class="dateCreating">10/07/2015</div>
-                            <div class="row">
-                                <div class="activeNeed col-xs-12 col-sm-4 col-md-4 col-lg-4"><a
-                                    href="/offers/createdoffer">Кольорові олівці</a></div>
-                                <div class="user_name col-xs-12 col-sm-4 col-md-4 col-lg-4"><a href="/profile/user">Катя
-                                    Єдинорог</a></div>
-                                <div class="user_committed_date col-xs-12 col-sm-4 col-md-4 col-lg-4">(10/07/2015)</div>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </accordion-group>
-                <accordion-group is-open="true">
-                    <accordion-heading>
-                        Профіль <i class="pull-right glyphicon chevron-icon"></i>
-                    </accordion-heading>
-                    <div class="row" id="profile">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <span>Ваше ім&#180;я:&nbsp;{{vm.username}}</span><br>
-                            <hr>
-                            <span>Електронна пошта:&nbsp;{{vm.email}}</span><br>
-                            <hr>
-                            <span>Телефон:&nbsp;{{vm.phone}}</span><br>
-                            <hr>
-                            <span>Хто Ви:&nbsp;{{vm.role}}</span><br>
-                            <hr>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <span>Підтримані потреби:
-                                    <user-entities list="vm.tabs.supNeeds" url="'/needs/createdneed/{{id}}'"
-                                                   limit="3"></user-entities>
-                                </span><br>
-                            <hr>
-                                <span>Опубліковані Пропозиції:
-                                    <user-entities list="vm.tabs.myOffers" url="'/offers/createdoffer/{{id}}'"></user-entities>
-                                </span><br>
-                            <hr>
-                                <span>Опубліковані Потреби:
-                                    <user-entities list="vm.tabs.myNeeds" title="customTitle" url="'/needs/createdneed/{{id}}'"
-                                                   limit="4"></user-entities>
-                                </span><br>
-                            <hr>
-                                <span>Підтримані Пропозиції:
-                                    <user-entities list="vm.tabs.supOffers" url="'/offers/createdoffer/{{id}}'"
-                                                   limit="2"></user-entities>
-                                </span><br>
-                            <hr>
-                        </div>
-                    </div>
-                </accordion-group>
-            </accordion>
-        </div>
-    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+
 </section>

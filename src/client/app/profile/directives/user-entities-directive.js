@@ -33,6 +33,15 @@
                         return entity.name;
                     };
 
+                    this.getCreatedDate = function(entity) {
+                        return entity.created;
+
+                    };
+
+                    this.getFinalDate = function(entity) {
+                        return entity.formattedActualTo;
+                    };
+
                     this.getHref = function (entity) {
                         return angular.isFunction(url) ? url(entity) : '';
                     };

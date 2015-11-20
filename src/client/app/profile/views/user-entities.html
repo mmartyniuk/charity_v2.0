@@ -1,11 +1,17 @@
-<ul>
-    <li ng-show="vm.list.length === 0">No data</li>
-    <li ng-repeat="entity in vm.list | limitTo: vm.limit">
-        <a ng-href="{{vm.getHref(entity)}}">{{vm.getTitle(entity)}}</a>
-        <!--<a ng-href="/needs/createdneed">{{vm.getTitle(entity)}}</a>-->
-    </li>
-    <li ng-click="vm.toggleList()">
-        <span ng-show="vm.list.length > vm.limit" class="btn-link">більше ...</span>
-        <span ng-show="vm.list.length == vm.limit" class="btn-link">... менше</span>
-    </li>
-</ul>
+<table class="table table-striped">
+    <tr>
+        <th>Назва</th>
+        <th class="text-center">Відгукнулись</th>
+        <th class="text-center">Опубліковано</th>
+        <th class="text-center">Актуально до</th>
+    </tr>
+    <tr ng-show="vm.list.length === 0">
+        <td colspan="3">No data</td>
+    </tr>
+    <tr ng-repeat="entity in vm.list | limitTo: vm.limit">
+        <td><a ng-href="{{vm.getHref(entity)}}">{{vm.getTitle(entity)}}</a>
+        <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+        <td class="text-center"><span>{{vm.getCreatedDate(entity) | date:'dd-MMM-yyyy'}}</span></td>
+        <td class="text-center"><span>{{vm.getFinalDate(entity) | date:'dd-MM-yyyy'}}</span></td>
+    </tr>
+</table>
