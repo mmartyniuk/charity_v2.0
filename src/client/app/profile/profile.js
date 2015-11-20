@@ -61,8 +61,6 @@
             });
         }
 
-
-
         function saveUser() {
             //Needs current user api implementation
             /*            return $http.patch('/api/currentUser/' + vm.profileId, {
