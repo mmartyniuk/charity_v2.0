@@ -1,4 +1,4 @@
-<section>
+<section id="register">
     <div ng-view="" class="container ng-scope">
         <div class="row ng-scope">
             <div class="col-lg-6 col-lg-offset-3">
@@ -7,6 +7,8 @@
                         <strong>Зареєструватися</strong>
                     </div>
                     <div class="panel-body">
+                        <div class="alert alert-danger" ng-show="vm.validationError">Деякі обов'язкові поля не заповнені!</div>
+                        <div class="alert alert-danger" ng-show="vm.emailError">Дана електронна адреса вже використовується!</div>
                         <div class="text-right"><span class="text-danger">*</span> обов'язкове поле для заповнення</div>
                         <form name="registerForm" ng-submit="vm.signup(registerForm.$valid)" role="form"
                               class="form-horizontal" novalidate>
@@ -16,7 +18,7 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input ng-model="vm.name" placeholder="Ім'я Прізвище"
-                                           name="name" id="name" class="form-control" ng-minlength="6" required>
+                                           name="name" id="name" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group">
