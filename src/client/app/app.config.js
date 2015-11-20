@@ -21,7 +21,7 @@
             confidential: 'Конфіденційність'
         });
         $translateProvider.translations('ru', {
-            contacts : 'Контакти',
+            contacts : 'Контакты',
             confidential: 'Конфиденциальность'
         });
         $translateProvider.preferredLanguage('ua');

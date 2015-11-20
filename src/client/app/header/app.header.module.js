@@ -9,7 +9,7 @@
         $translateProvider.translations('ua', {
             header: {
                 'russian': 'Російська',
-                'ukrainian': 'Український',
+                'ukrainian': 'Українська',
                 'needs' : 'Потреби',
                 'offers': 'Пропозиції',
                 'addNeed': 'Додати Потребу',
@@ -23,7 +23,7 @@
                 'needs' : 'Потребности',
                 'offers': 'Предложения',
                 'addNeed': 'Добавить Потребность',
-                'addOffer': 'Добавить Передложение'
+                'addOffer': 'Добавить Предложение'
             }
         });
     }
