@@ -428,7 +428,7 @@ div.form-group.prev-next-buttons {
     }
 }
 
-.my-cabinet {
+.my-cabinet, .user-profile {
     .nav-tabs > li {
         width: 12%;
         &.wide {
@@ -487,7 +487,13 @@ div.form-group.prev-next-buttons {
     }
 
 }
-
+.user-profile {
+    .nav-tabs > li {
+        &.wide {
+            width: 20%;
+        }
+    }
+}
 /* <--------------profile.html style  END--------> */
 
 /* <-------------- newNeed(Offer)beforeRegisterl style --------> */
@@ -648,3 +654,19 @@ category-search span {
     max-height: 100px;
 }
 /* <-------------- File Upload END--------> */
+
+/* <-------------- Register page --------> */
+#register {
+    margin-top: 25px;
+}
+
+#register .alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+#register .ng-submitted .ng-invalid-required, #register .ng-submitted .ng-invalid-email {
+    box-shadow: 0 -2px 0 red inset;
+}
+/* <-------------- Register page END--------> */

@@ -11,7 +11,7 @@
 
         return {
             signup: function (data) {
-                return $http.post('/api/users/register', data);
+                return $http.post('/api/users', data);
             },
             signin: function (data, success, error) {
                 $http.post('/api/auth', data).success(success).error(error);

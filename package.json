@@ -84,7 +84,6 @@
     "yargs": "^3.15.0"
   },
   "pre-commit": [
-    "validate",
     "test"
   ]
 }
