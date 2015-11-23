@@ -43,7 +43,7 @@
                 state: 'about',
                 config: {
                     url: '/about',
-                    templateUrl: 'app/main/about_us.html',
+                    templateUrl: 'app/main/about-us.html',
                     title: 'about'
                 }
             }

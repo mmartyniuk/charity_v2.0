@@ -41,7 +41,7 @@
                 state: 'sitemap',
                 config: {
                     url: '/sitemap',
-                    templateUrl: 'app/footer/views/site_map.html',
+                    templateUrl: 'app/footer/views/site-map.html',
                     title: 'Site Map',
                     /*settings: {
                      nav: 2,
@@ -53,7 +53,7 @@
                 state: 'terms',
                 config: {
                     url: '/terms',
-                    templateUrl: 'app/footer/views/terms_of_use.html',
+                    templateUrl: 'app/footer/views/terms-of-use.html',
                     title: 'Terms of Use',
                     /*settings: {
                      nav: 2,

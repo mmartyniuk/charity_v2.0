@@ -3,14 +3,14 @@
 
     angular
         .module('app.profile')
-        .controller('ProfileUserController', ProfileUserController);
+        .controller('UserProfileController', UserProfileController);
 
-    ProfileUserController.$inject = ['$state', 'UsersFactory'];
+    UserProfileController.$inject = ['$state', 'UsersFactory'];
 
-    function ProfileUserController($state, UsersFactory) {
+    function UserProfileController($state, UsersFactory) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'ProfileUserController';
+        vm.title = 'UserProfileController';
         vm.userID = '/api/users/' + $state.params.id;
         vm.tabs = {
             myNeeds: {},
