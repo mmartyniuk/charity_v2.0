@@ -30,7 +30,7 @@
                 state: 'profile.home',
                 config: {
                     url: '/profile/:id',
-                    templateUrl: 'app/profile/my-my-profile.html',
+                    templateUrl: 'app/profile/my-profile.html',
                     controller: 'ProfileController',
                     controllerAs: 'vm'
                     /*settings: {
@@ -43,7 +43,7 @@
                 state: 'profile.user',
                 config: {
                     url: '/profile/user/:id',
-                    templateUrl: 'app/profile/user-my-profile.html',
+                    templateUrl: 'app/profile/user-profile.html',
                     title: 'userProfile',
                     controller: 'UserProfileController',
                     controllerAs: 'vm'
