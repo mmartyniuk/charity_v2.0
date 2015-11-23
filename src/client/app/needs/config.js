@@ -44,7 +44,7 @@
                 state: 'needs.edit',
                 config: {
                     url: '/edit/:id',
-                    templateUrl: 'app/needs/edit_need.html',
+                    templateUrl: 'app/needs/edit-need.html',
                     controller: 'EditNeedsController',
                     controllerAs: 'vm',
                     title: 'editNeed'
@@ -58,7 +58,7 @@
                 state: 'needs.created',
                 config: {
                     url: '/createdneed/:id',
-                    templateUrl: 'app/needs/created_need.html',
+                    templateUrl: 'app/needs/created-need.html',
                     controller: 'CreatedNeedController',
                     controllerAs: 'vm',
                     title: 'CreatedNeed'
@@ -86,7 +86,7 @@
                 state: 'newneed.register',
                 config: {
                     url: '/newneedregister',
-                    templateUrl: 'app/needs/new_need_register.html',
+                    templateUrl: 'app/needs/new-need-register.html',
                     controller: 'NewNeedRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedRegisterController',
@@ -110,7 +110,7 @@
                 state: 'newneed.home',
                 config: {
                     url: '',
-                    templateUrl: 'app/needs/new_need_step_1.html',
+                    templateUrl: 'app/needs/new-need-step-1.html',
                     controller: 'NewNeedBeforeRegisterController',
                     controllerAs: 'vm',
                     title: 'NewNeedBeforeRegisterController'
@@ -123,8 +123,8 @@
             {
                 state: 'newproject',
                 config: {
-                    url: '/new_project.html',
-                    templateUrl: 'app/needs/new_project.html',
+                    url: '/new-project.html',
+                    templateUrl: 'app/needs/new-project.html',
                     controller: 'NewProjectController',
                     controllerAs: 'vm',
                     title: 'NewProject'
