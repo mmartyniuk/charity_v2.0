@@ -5,9 +5,15 @@
         .module('app.main')
         .controller('IndexController', IndexController);
 
-    IndexController.$inject = ['$location', 'NeedsFactory', 'OffersFactory', '$state', '$translate', '$rootScope'];
+    IndexController.$inject = [
+        'NeedsFactory',
+        'OffersFactory',
+        '$state',
+        '$translate',
+        '$rootScope'
+    ];
 
-    function IndexController($location, NeedsFactory, OffersFactory, $state, $translate, $rootScope) {
+    function IndexController(NeedsFactory, OffersFactory, $state, $translate, $rootScope) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'IndexController';

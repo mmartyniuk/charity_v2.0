@@ -29,7 +29,7 @@ describe('IndexController', function() {
 
         it('by default content type should be \'Needs\'', function () {
             var vm = controller;
-            expect(vm.contentType).to.be.equal('Потреби');
+            expect(vm.contentType).to.be.equal('needs');
         });
 
         it('offers should be an empty object', function () {
@@ -98,7 +98,7 @@ describe('IndexController', function() {
 
             it('should add search parameters to offers object', function () {
                 var vm = controller;
-                vm.contentType = 'Пропозиції';
+                vm.contentType = 'offers';
                 vm.submitCategorySearch('searchValue', 'category', 'location');
                 expect(vm.offers).not.to.be.empty;
                 expect(vm.offers).to.have.all.keys('searchValue', 'category', 'location');
