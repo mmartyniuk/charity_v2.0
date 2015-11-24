@@ -1,8 +1,12 @@
 <div class="file-upload btn btn-primary">
-    <span>Вибрати зображення</span>
+    <span>{{'newNeedRegister.selectImageButton' | translate}}</span>
     <input type="file" class="upload" file-model="vm.image">
 </div>
-<span class="btn btn-primary" ng-click="vm.addImage(vm.image)" ng-show="vm.image && (vm.images.length < 6)">Завантажити</span>
+<span class="btn btn-primary"
+      ng-click="vm.addImage(vm.image)"
+      ng-show="vm.image && (vm.images.length < 6)">
+    {{'newNeedRegister.uploadButton' | translate}}
+</span>
 <div class="uploaded-images" ng-repeat="image in vm.images">
     <img src="{{ image.preview }}" alt="{{ image.name }}"/>
     <span ng-click="vm.removeImage($index)">X</span>

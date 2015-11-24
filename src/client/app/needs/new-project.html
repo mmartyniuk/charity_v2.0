@@ -2,31 +2,49 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="text-left">Новий проект</h2>
+            <h2 class="text-left">{{'newProject.newProjectTitle' | translate}}</h2>
         </div>
         <form class="form-horizontal">
             <div class="form-group row">
-                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">Назва:</label>
+                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">{{'newProject.name' |
+                    translate}}:</label>
+
                 <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" name="heading" placeholder="Благодійна акція на день святого Миколая">
+                    <input type="text"
+                           class="form-control"
+                           name="heading"
+                           placeholder="{{'newProject.textPlaceholder' | translate}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">Опис проекту:</label>
+                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                    {{'newProject.projectDescription' | translate}}:
+                </label>
+
                 <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
-                    <textarea class="form-control" rows="4" placeholder="Опишіть ваш проект"></textarea>
+                    <textarea class="form-control"
+                              rows="4"
+                              placeholder="{{'newProject.describeProjectPlaceholder' | translate}}">
+                    </textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">Фото:</label>
+                <label class="control-label col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                    {{'newProject.photo' | translate}}:
+                </label>
+
                 <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
                     <input type="file" id="exampleInputFile"> <!-- tbd, not working in ff and ie -->
                 </div>
             </div>
             <div class="btn-group row pull-right">
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-default">Назад</button>
-                    <button type="submit" class="btn btn-primary col-sm-offset-1">Далі</button>
+                    <button type="button" class="btn btn-default">
+                        {{'newProject.backButton' | translate}}
+                    </button>
+                    <button type="submit" class="btn btn-primary col-sm-offset-1">
+                        {{'newProject.furtherButton' | translate}}
+                    </button>
                 </div>
             </div>
         </form>

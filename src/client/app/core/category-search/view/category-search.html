@@ -1,6 +1,11 @@
 <div class="category-search">
     <div class="search-input-wrap" dropdown is-open="vm.dropdown.isopen" auto-close="outsideClick">
-        <input type="text" ng-model="vm.category" placeholder="Виберіть категорію" class="form-control" dropdown-toggle readonly/>
+        <input type="text"
+               ng-model="vm.category"
+               placeholder="{{'newNeedRegister.selectCategoryPlaceholder' | translate}}"
+               class="form-control"
+               dropdown-toggle
+               readonly/>
         <div class="dropdown-menu" role="menu" aria-labelledby="single-button">
             <div class="category" ng-show="vm.showCategory">
                 <span ng-repeat="category in vm.categories">
