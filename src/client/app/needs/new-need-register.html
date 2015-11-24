@@ -2,21 +2,24 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="text-left">Нова потреба</h2>
+            <h2 class="text-left">{{'newNeedRegister.newNeed' | translate}}</h2>
             <hr>
         </div>
         <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
-                <label class="control-label col-sm-2 title-label">Назва</label>
-                        <!-- here should be pre-filled data from newneedstep1.html -->
+                <label class="control-label col-sm-2 title-label">{{'newNeedRegister.name' | translate}}</label>
+                <!-- here should be pre-filled data from newneedstep1.html -->
                 <h3 class="col-sm-10">{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Категорія</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.category' | translate}}</label>
+
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <!-- here should be pre-filled data from previous page -->
                     <ol class="breadcrumb">
-                        <li ng-repeat="category in vm.need.categories track by $index" ng-if="category">{{ category }}</li>
+                        <li ng-repeat="category in vm.need.categories track by $index"
+                            ng-if="category">{{ category }}
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -26,13 +29,19 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Опис потреби</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.newNeedDescription' | translate}}</label>
+
                 <div class="col-sm-6">
-                    <textarea class="form-control" rows="4" placeholder="Опишіть вашу потребу" ng-model="vm.need.description"></textarea>
+                    <textarea class="form-control"
+                              rows="4"
+                              placeholder="{{'newNeedRegister.describeNeedPlaceholder' | translate}}"
+                              ng-model="vm.need.description">
+
+                    </textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Фото:</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.photo' | translate}}:</label>
                 <file-upload-directive images="vm.images"></file-upload-directive>
             </div>
             <!-- <div class="form-group row">
@@ -52,23 +61,38 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Виберіть область:</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.selectRegion' | translate}}:</label>
+
                 <div class="col-sm-3">
-                    <select class="form-control" ng-options="region.name for region in vm.regions track by region.id" ng-model="vm.need.region" ng-change="vm.setRegion(vm.need.region);">
+                    <select class="form-control"
+                            ng-options="region.name for region in vm.regions track by region.id"
+                            ng-model="vm.need.region"
+                            ng-change="vm.setRegion(vm.need.region);">
                     </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Виберіть місто:</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.selectCity' | translate}}:</label>
+
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
-                    <select class="form-control" id="cities" ng-options="city.name for city in vm.cities" ng-model="vm.need.city" ng-disabled="!(vm.need.region)"></select>
+                    <select id="cities"
+                            class="form-control"
+                            ng-options="city.name for city in vm.cities"
+                            ng-model="vm.need.city"
+                            ng-disabled="!(vm.need.region)">
+
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Адреса:</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.address' | translate}}:</label>
+
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="address" ng-model="vm.address.location">
+                    <input type="text"
+                           class="form-control"
+                           name="address"
+                           ng-model="vm.address.location">
                 </div>
             </div>
             <div class="row">
@@ -80,26 +104,46 @@
                 <date-picker date="vm.dt"></date-picker>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Зручний час</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.convenientTime' | translate}}</label>
+
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="s_time" ng-model="vm.need.suitableTime" placeholder="Пн-Пт, 10:00 - 19:00;">
+                    <input id="s_time"
+                           class="form-control"
+                           type="text"
+                           ng-model="vm.need.suitableTime"
+                           placeholder="{{'newNeedRegister.dateTimePlaceholder' | translate}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">Зможу забрати:</label>
+                <label class="control-label col-sm-2">{{'newNeedRegister.canTake' | translate}}:</label>
+
                 <div class="col-sm-6">
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" value="option1" ng-model="vm.getChecked" ng-value="true">Так
+                        <input type="radio"
+                               name="canGet"
+                               value="option1"
+                               ng-model="vm.getChecked"
+                               ng-value="true">{{'newNeedRegister.yesRButton' | translate}}
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="canGet" value="option2" ng-model="vm.getChecked" ng-value="false" checked>Ні
+                        <input type="radio"
+                               name="canGet"
+                               value="option2"
+                               ng-model="vm.getChecked"
+                               ng-value="false"
+                               checked>{{'newNeedRegister.noRButton' | translate}}
                     </label>
                 </div>
             </div>
             <div class="form-group row pull-right">
                 <div class="col-sm-12 ">
-                    <a ui-sref="newneed.home" class="btn btn-default" id="myButton0">Відмінити</a>
-                    <input type="submit" class="btn btn-primary" value="Опублікувати">
+                    <a ui-sref="newneed.home"
+                       id="myButton0"
+                       class="btn btn-default">{{'newNeedRegister.cancel' | translate}}
+                    </a>
+                    <input type="submit"
+                           class="btn btn-primary"
+                           value="{{'newNeedRegister.publishButton' | translate}}">
                 </div>
             </div>
         </form>

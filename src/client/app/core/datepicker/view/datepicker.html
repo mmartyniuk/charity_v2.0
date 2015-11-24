@@ -1,7 +1,20 @@
-<label class="control-label col-sm-2">Актуальність: </label>
+<label class="control-label col-sm-2">{{'newNeedRegister.actuality' | translate}}: </label>
 <div id="date-picker" class="input-group col-sm-3">
-    <input type="text" class="form-control" datepicker-popup="{{vm.format}}" ng-model="vm.date" is-open="vm.status.opened" min-date="vm.minDate" max-date="'2020-06-22'" datepicker-options="vm.dateOptions" date-disabled="vm.disabled(date, mode)" close-text="Закрити"/>
+    <input type="text"
+           class="form-control"
+           datepicker-popup="{{vm.format}}"
+           ng-model="vm.date"
+           is-open="vm.status.opened"
+           min-date="vm.minDate"
+           max-date="'2020-06-22'"
+           datepicker-options="vm.dateOptions"
+           date-disabled="vm.disabled(date, mode)"
+           close-text="Закрити"/>
     <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        <button type="button"
+                class="btn btn-default"
+                ng-click="vm.open($event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+        </button>
     </span>
 </div>

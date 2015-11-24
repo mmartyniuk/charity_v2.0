@@ -4,18 +4,36 @@
 
             <div class="col-xs-12 col-sm-11 no-gutter">
                 <div class="col-xs-6 no-gutter margin-bottom-20">
-                    <input id="key-search" type="search" class="form-control" placeholder="Що ви шукаєте..."
-                    ng-model="vm.searchValue" ng-keyup="$event.keyCode === 13 && vm.setSearch()">
+                    <input id="key-search"
+                           class="form-control"
+                           type="search"
+                           placeholder="{{'needs.lookingFor' | translate}}..."
+                           ng-model="vm.searchValue"
+                           ng-keyup="$event.keyCode === 13 && vm.setSearch()">
                 </div>
-                <category-search class="col-xs-2 no-gutter margin-bottom-20" main-category="vm.mainCategory" subcategory="vm.subcategory" category="vm.category"></category-search>
-                <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
-                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown is-open="status.isopen">
-                    <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"
-                           ng-disabled="disabled" placeholder="Потреби" readonly/>
+                <category-search class="col-xs-2 no-gutter margin-bottom-20"
+                                 main-category="vm.mainCategory"
+                                 subcategory="vm.subcategory"
+                                 category="vm.category">
+
+                </category-search>
+                <location-search class="col-xs-2 no-gutter margin-bottom-20"
+                                 location="vm.location">
+
+                </location-search>
+                <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown
+                     is-open="status.isopen">
+                    <input type="text"
+                           class="form-control"
+                           dropdown-toggle
+                           ng-model="vm.contentType"
+                           ng-disabled="disabled"
+                           placeholder="{{'needs.needs' | translate}}"
+                           readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem">
                             <span class="glyphicon glyphicon-chevron-right"></span>
-                            <a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a>
+                            <a href="#" ng-click="vm.setContentType('Потреби')">{{'needs.needsTitle' | translate}}</a>
                         </li>
                     </ul>
                 </div>
@@ -37,6 +55,7 @@
                 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-7">
                     <div>
                         <strong><a ui-sref="needs.created({id:{{need.id}}})">{{ need.name }}</a></strong>
+
                         <p>
                             {{ need.description }}
                         </p>
@@ -44,7 +63,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <strong>{{ need.address }}</strong>
-                            <small> / </small>
+                            <small> /</small>
                             <strong>{{ need.formattedActualTo }}</strong>
                         </div>
                     </div>
@@ -52,7 +71,7 @@
                 <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-4">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <p><b>Автор: </b></p>
+                            <p><b>{{'needs.author' | translate}}: </b></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
@@ -62,12 +81,15 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <p><b>Категорія: </b></p>
+                            <p><b>{{'needs.category' | translate}}: </b></p>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <p>
                                 <a href="#" ng-click="vm.setCategory(need.category.name)">{{ need.category.name }}</a>
-                                <div><a ui-sref="needs.edit({id:{{need.id}}})">Редагувати</a></div>
+
+                            <div>
+                                <a ui-sref="needs.edit({id:{{need.id}}})">{{'needs.edit' | translate}}</a>
+                            </div>
                             </p>
                         </div>
                     </div>
@@ -77,17 +99,29 @@
             <hr>
         </div>
         <div id="itemsPerPageWrapper" class="btn-group pull-left" dropdown>
-            <button id="itemsPerPageButton" dropdown-toggle type="button" class="btn btn-sm btn-default">
-                Відображати <span class="caret"></span>
+            <button id="itemsPerPageButton"
+                    class="btn btn-sm btn-default"
+                    dropdown-toggle type="button">
+                {{'needs.display' | translate}} <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="itemsPerPageButton">
-                <li role="menuitem" ng-repeat="choice in vm.perPageDropdownItems track by $index" ng-click="vm.setItemsPerPage($index)">
+                <li role="menuitem"
+                    ng-repeat="choice in vm.perPageDropdownItems track by $index"
+                    ng-click="vm.setItemsPerPage($index)">
                     <a href="">{{choice.label}}</a>
                 </li>
             </ul>
         </div>
-        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage" ng-change="vm.getSearchData()"
-                    max-size="5" boundary-links="true" class="pagination-sm" first-text="Перша" last-text="Остання"
-                    previous-text="Попередня" next-text="Наступна"></pagination>
+        <pagination total-items="vm.totalItems"
+                    ng-model="vm.currentPage"
+                    items-per-page="vm.itemsPerPage"
+                    ng-change="vm.getSearchData()"
+                    max-size="5"
+                    boundary-links="true"
+                    class="pagination-sm"
+                    first-text="{{'needs.firstPage' | translate}}"
+                    last-text="{{'needs.lastPage' | translate}}"
+                    previous-text="{{'needs.previousPage' | translate}}"
+                    next-text="{{'needs.nextPage' | translate}}"></pagination>
     </div>
 </section>
