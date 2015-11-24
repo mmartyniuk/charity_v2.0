@@ -1,7 +1,7 @@
 <section class="user-profile container well top">
 
     <tabset>
-        <tab heading="Опубліковані потреби" active="vm.tabs.my_needs.active" class="wide">
+        <tab heading="Опубліковані потреби" class="wide">
             <div class="status">
                 <span><a href="#" class="currneLink">Активні</a></span>
                 <span><a href="#">Завершені</a></span>
@@ -18,12 +18,25 @@
             </div>
             <div class="contentWrapper">
 
-                <user-entities list="vm.tabs.myNeeds" title="customTitle" url="'/needs/createdneed/{{id}}'" limit="4"></user-entities>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Назва</th>
+                        <th class="text-center">Відгукнулись</th>
+                        <th class="text-center">Опубліковано</th>
+                        <th class="text-center">Актуально до</th>
+                    </tr>
+                    <tr ng-repeat="myNeed in vm.tabs.myNeeds | limitTo: vm.limit">
+                        <td><a ng-href="needs/createdneed/{{myNeed.id}}">{{myNeed.name}}</a></td>
+                        <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                        <td class="text-center"><span>{{myNeed.created | date:'dd-MM-yyyy'}}</span></td>
+                        <td class="text-center"><span>{{myNeed.formattedActualTo | date:'dd-MM-yyyy'}}</span></td>
+                    </tr>
+                </table>
 
             </div>
         </tab>
 
-        <tab heading="Підтримані потреби" active="vm.tabs.sup_needs.active" class="wide">
+        <tab heading="Підтримані потреби" class="wide">
             <div class="status">
                 <span><a href="#" class="currneLink">Активні</a></span>
                 <span><a href="#">Завершені</a></span>
@@ -36,33 +49,17 @@
                         <th class="text-center">Опубліковано</th>
                         <th class="text-center">Актуально до</th>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
+                    <tr ng-repeat="supNeed in vm.tabs.supNeeds | limitTo: vm.limit">
+                        <td><a ng-href="offers/createdneed/{{supNeed.id}}">{{supNeed.name}}</a></td>
+                        <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                        <td class="text-center"><span>{{supNeed.created | date:'dd-MM-yyyy'}}</span></td>
+                        <td class="text-center"><span>{{supNeed.formattedActualTo | date:'dd-MM-yyyy'}}</span></td>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
-                    </tr>
-
                 </table>
             </div>
         </tab>
 
-        <tab heading="Опубліковані пропозиції" active="vm.tabs.my_offers.active" class="wide">
+        <tab heading="Опубліковані пропозиції" class="wide">
             <div class="status">
                 <span><a href="#" class="currneLink">Активні</a></span>
                 <span><a href="#">Завершені</a></span>
@@ -75,35 +72,18 @@
                         <th class="text-center">Опубліковано</th>
                         <th class="text-center">Актуально до</th>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
+                    <tr ng-repeat="myOffer in vm.tabs.myOffers | limitTo: vm.limit">
+                        <td><a ng-href="offers/createdoffer/{{myOffer.id}}">{{myOffer.name}}</a>
                         <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
+                        <td class="text-center"><span>{{myOffer.created | date:'dd-MM-yyyy'}}</span></td>
+                        <td class="text-center"><span>{{myOffer.formattedActualTo | date:'dd-MM-yyyy'}}</span></td>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">0 користувачів</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
-                    </tr>
-
-
                 </table>
 
             </div>
         </tab>
 
-        <tab heading="Підтримані пропозиції" active="vm.tabs.sup_offers.active" class="wide">
+        <tab heading="Підтримані пропозиції" class="wide">
             <div class="status">
                 <span><a href="#" class="currneLink">Активні</a></span>
                 <span><a href="#">Завершені</a></span>
@@ -116,29 +96,12 @@
                         <th class="text-center">Опубліковано</th>
                         <th class="text-center">Актуально до</th>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
+                    <tr ng-repeat="supOffer in vm.tabs.supOffers | limitTo: vm.limit">
+                        <td><a ng-href="needs/createdoffer/{{supOffer.id}}">{{supOffer.name}}</a></td>
+                        <td class="text-center"><a href="/profile/user">5 користувачів</a></td>
+                        <td class="text-center"><span>{{supOffer.created | date:'dd-MM-yyyy'}}</span></td>
+                        <td class="text-center"><span>{{supOffer.formattedActualTo | date:'dd-MM-yyyy'}}</span></td>
                     </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>29/07/2016</span></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="/needs/createdneed">Кольорові олівці</a></td>
-                        <td class="text-center"><a href="/profile/user">Катя Єдинорог</a></td>
-                        <td class="text-center"><span>06/01/2014</span></td>
-                        <td class="text-center"><span>10/07/2016</span></td>
-                    </tr>
-
-
                 </table>
 
             </div>
@@ -171,7 +134,6 @@
                             <strong title="role">Хто Ви:</strong>
                             <span> {{vm.role}}</span>
                         </p>
-
                     </div>
                 </div>
             </div>

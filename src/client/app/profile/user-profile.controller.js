@@ -19,6 +19,8 @@
             supOffers: {},
             profile: {}
         };
+        //will be changed during pagination implementation
+        vm.limit = 4;
 
         activate();
 
