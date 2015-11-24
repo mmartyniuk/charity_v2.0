@@ -42,7 +42,7 @@
                 phoneNumber: 'Телефон',
                 recieve: 'Отримати',
                 confirmAssistance: 'Підтвердити отримання допомоги',
-                cancelAssistanceFromUser: 'Відмінити підтримання допомоги від цього користувача',
+                cancelAssistanceFromUser: 'Відмовитися від допомоги цього користувача',
                 needIsClosed: 'Ця потреба закрита'
             },
             removeNeed: {
@@ -136,7 +136,7 @@
                 phoneNumber: 'Телефон',
                 recieve: 'Получить',
                 confirmAssistance: 'Подтвердить получение помощи',
-                cancelAssistanceFromUser: 'Отменить поддержания помощи от пользователя',
+                cancelAssistanceFromUser: 'Отказаться от помощи этого пользователя',
                 needIsClosed: 'Эта потребность закрыта'
 
             },
