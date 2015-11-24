@@ -2,13 +2,13 @@
 <section>
     <div class="container edit-need">
         <div>
-            <h2 class="text-left">Редагування потреби</h2>
+            <h2 class="text-left">{{'editNeed.editingOfNeed' | translate}}</h2>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
                 <form editable-form name="editNeedForm" onaftersave="vm.saveEditedNeed()">
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Назва:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.needName' | translate}}:</label>
 
                         <div class="col-sm-10">
                             <div>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Категорія:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.category' | translate}}:</label>
 
                         <div class="col-sm-10 col-md-6 col-lg-4">
                             <category-search class="col-xs-12 no-gutter margin-bottom-20"
@@ -28,7 +28,7 @@
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Опис потреби:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.needDescription' | translate}}:</label>
 
                         <div class="col-sm-10">
                             <div>
@@ -39,11 +39,11 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Фото:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.photo' | translate}}:</label>
                         <file-upload-directive images="vm.images"></file-upload-directive>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Виберіть область:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.selectRegion' | translate}}:</label>
 
                         <div class="col-sm-3">
                             <span editable-select="vm.region" e-name="region"
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Виберіть місто:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.selectCity' | translate}}:</label>
 
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
@@ -66,7 +66,7 @@
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Адреса:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.address' | translate}}:</label>
 
                         <div class="col-sm-3">
                             <span editable-text="vm.editedNeed.address" e-name="street" onbeforesave="updateNeed($data)"
@@ -77,7 +77,7 @@
                         <date-picker date="vm.dt">{{vm.editedNeed.date}}</date-picker>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Зручний час:</label>
+                        <label class="control-label col-sm-2">{{'editNeed.convenientTime' | translate}}:</label>
 
                         <div class="col-sm-3">
                             <span editable-text="vm.editedNeed.convenientTime" e-name="time"
@@ -90,14 +90,14 @@
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-default" ng-click="editNeedForm.$show()"
                                     ng-show="!editNeedForm.$visible" ng-init="editNeedForm.$show()">
-                                Edit
+                                {{'editNeed.edit' | translate}}
                             </button>
                             <!-- buttons to submit / cancel form -->
                             <span ng-show="editNeedForm.$visible">
                               <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting">
-                                  Зберегти
+                                  {{'editNeed.save' | translate}}
                               </button>
-                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
+                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">{{'editNeed.cancel' | translate}}</a>
                                 <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
                                     Скасувати
                                 </button> -->

@@ -1,7 +1,8 @@
 <section>
     <div class="container">
         <div class="row heading">
-            <h2 class="col-xs-12 col-md-2">Потреба:</h2>
+            <h2 class="col-xs-12 col-md-2">{{'createdNeed.need' | translate}}:</h2>
+
             <h2 class="col-xs-12 col-md-8 col-md-offset-2">{{vm.currentNeed.name}}</h2>
         </div>
         <div class="row">
@@ -25,13 +26,14 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">Автор</dt>
+                    <dt class="col-xs-3">{{'createdNeed.author' | translate}}</dt>
                     <dd><a href="/">{{vm.userCreated.name}}</a></dd>
 
-                    <dt class="col-xs-3">Опубліковано:</dt>
-                    <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}</dd>
+                    <dt class="col-xs-3">{{'createdNeed.published' | translate}}:</dt>
+                    <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}
+                    </dd>
 
-                    <dt class="col-xs-3">Категорія:</dt>
+                    <dt class="col-xs-3">{{'createdNeed.category' | translate}}:</dt>
                     <dd>
                         <ol class="breadcrumb">
                             <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
@@ -42,67 +44,103 @@
                 </dl>
 
                 <hr>
-                <h3>Опис потреби:</h3>
+                <h3>{{'createdNeed.needDescription' | translate}}:</h3>
 
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">Опис: </dt>
-                    <dd> <a href="/">{{vm.currentNeed.description}}</a></dd>
+                    <dt class="col-xs-3">{{'createdNeed.description' | translate}}:</dt>
+                    <dd><a href="/">{{vm.currentNeed.description}}</a></dd>
 
-                    <dt class="col-xs-3">Актуальність: </dt>
+                    <dt class="col-xs-3">{{'createdNeed.actuality' | translate}}:</dt>
                     <dd>до <strong>{{vm.currentNeed.formattedActualTo}}</strong></dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">Адреса:</dt>
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">{{'createdNeed.address' | translate}}:</dt>
                     <dd ng-show="vm.currentNeed.address">
                         <span class='street'>{{vm.currentNeed.address}}</span>
                     </dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">Зручний час:</dt>
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">{{'createdNeed.convenientTime' |
+                        translate}}:
+                    </dt>
                     <dd ng-show="vm.currentNeed.convenientTime">{{vm.currentNeed.convenientTime}}</dd>
 
-                    <dt class="col-xs-3">Зможу забрати:</dt>
+                    <dt class="col-xs-3">{{'createdNeed.canTake' | translate}}:</dt>
                     <dd>{{vm.currentNeed.pickup}}</dd>
                 </dl>
 
                 <hr>
                 <div ng-show="vm.currentNeed.open">
                     <div class="row pull-right marginBottom">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
-                            <a ui-sref="needs.edit({id: vm.currentNeed.id})" class="btn btn-primary">Редагувати</a>
-                            <a href="/" class="btn btn-default">Закрити</a>
-                            <a ng-click="vm.deleteCurrentNeed(vm.currentNeed.id)" class="btn btn-danger">Видалити</a>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                             ng-show="vm.authorizedUser.ifOwner">
+                            <a ui-sref="needs.edit({id: vm.currentNeed.id})"
+                               class="btn btn-primary">{{'createdNeed.edit' | translate}}
+                            </a>
+                            <a href="/"
+                               class="btn btn-default">{{'createdNeed.close' | translate}}
+                            </a>
+                            <a ng-click="vm.deleteCurrentNeed(vm.currentNeed.id)"
+                               class="btn btn-danger">{{'createdNeed.delete' | translate}}
+                            </a>
                         </div>
                         <remove-need-modal-directive></remove-need-modal-directive>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
-                            <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
+                            <button class="btn btn-primary"
+                                    ng-click="isCollapsed = !isCollapsed">
+                                {{'createdNeed.respond' | translate}}
+                            </button>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToNeed">
-                            <button class="btn btn-default" ng-click="vm.cancelResponce()">Відмінити відгук</button>
+                            <button class="btn btn-default" ng-click="vm.cancelResponce()">
+                                {{'createdNeed.cancelResponse' | translate}}
+                            </button>
                         </div>
                     </div>
                     <div collapse="!isCollapsed" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <button type="button" class="close" aria-label="Close" ng-click="isCollapsed = !isCollapsed"><span aria-hidden="true" >&times;</span></button>
+                        <button type="button"
+                                class="close"
+                                aria-label="Close"
+                                ng-click="isCollapsed = !isCollapsed">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <form ng-submit="vm.respondToNeed()">
                             <div class="form-group">
-                                <label for="details">Деталі</label>
-                                <textarea class="form-control" id="details" placeholder="Введіть будь ласка деталі" ng-model="vm.respondData.description"></textarea>
+                                <label for="details">{{'createdNeed.details' | translate}}</label>
+                                <textarea class="form-control" id="details"
+                                          placeholder="{{'createdNeed.typeDetailsPlaceholder' | translate}}"
+                                          ng-model="vm.respondData.description"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">Підтвердити</button>
+                            <button type="submit"
+                                    class="btn btn-primary text-left"
+                                    ng-click="isCollapsed = !isCollapsed">{{'createdNeed.submit' | translate}}
+                            </button>
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
                         <ul>
                             <li ng-repeat="response in vm.currentResponses">
-                                <div><b>Опис:</b> {{response.description}}</div>
-                                <div ng-show="vm.waitingForHelp"><b>Ім'я користувача:</b> {{vm.userInfo.name}}</div>
-                                <div ng-show="vm.waitingForHelp"><b>Телефон:</b> {{vm.userInfo.address}}</div>
-                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">Отримати</button>
-                                <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">Підтвердити отримання допомоги</button>
-                                <button class="btn btn-primary text-left" ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">Відмінити підтримання допомоги від цього користувача</button>
+                                <div><b>{{'createdNeed.description' | translate}}:</b> {{response.description}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>{{'createdNeed.userName' | translate}}:</b>
+                                    {{vm.userInfo.name}}
+                                </div>
+                                <div ng-show="vm.waitingForHelp"><b>{{'createdNeed.phoneNumber' | translate}}:</b>
+                                    {{vm.userInfo.address}}
+                                </div>
+                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)"
+                                        ng-show="!vm.waitingForHelp">{{'createdNeed.recieve' | translate}}
+                                </button>
+                                <button class="btn btn-primary text-left"
+                                        ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">
+                                    {{'createdNeed.confirmAssistance' | translate}}
+                                </button>
+                                <button class="btn btn-primary text-left"
+                                        ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">
+                                    {{'createdNeed.cancelAssistanceFromUser' | translate}}
+                                </button>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div ng-show="!vm.currentNeed.open">Ця потреба закрита!!</div>
+                <div ng-show="!vm.currentNeed.open">{{'createdNeed.needIsClosed' | translate}}!!</div>
             </div>
         </div>
     </div>
