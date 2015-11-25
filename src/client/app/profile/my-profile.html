@@ -39,10 +39,11 @@
                                     <button type="button" title="Редагувати"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
-                                <a>
-                                    <button type="button" title="Закрити"
+                                <a ng-click="vm.deleteCurrentNeed(need.id)">
+                                    <button type="button" title="Видалити"
                                             class="btn btn-default glyphicon glyphicon-remove"></button>
                                 </a>
+                                <remove-need-modal-directive></remove-need-modal-directive>
                             </td>
                         </tr>
 
@@ -138,10 +139,11 @@
                                     <button type="button" title="Редагувати"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
-                                <a ui-sref="vm.deleteCurrentNeed(vm.currentNeed.id)">
-                                    <button type="button" title="Закрити"
+                                <a  ng-click="vm.deleteCurrentOffer(offer.id)">
+                                    <button type="button" title="Видалити"
                                             class="btn btn-default glyphicon glyphicon-remove"></button>
                                 </a>
+                                <remove-offer-modal-directive></remove-offer-modal-directive>
                             </td>
                         </tr>
 
