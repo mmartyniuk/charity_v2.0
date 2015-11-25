@@ -1,23 +1,50 @@
 ﻿/*jshint expr: true, -W117*/
-describe('CategorySearchController', function() {
-    var controller, scope;
-    beforeEach(function() {
-        controller = undefined;
-    });
+describe('CategorySearchController', function () {
+    var controller,
+        scope,
+        CategoryFactory,
+        params;
 
-    beforeEach(function() {
+    beforeEach(function () {
         module('app.core');
+
+        params = {
+            categories: [
+                {
+                    id: 1,
+                    name: 'foo',
+                    children: [{}, {}]
+                },
+                {
+                    id: 1,
+                    name: 'boo',
+                    children: []
+                }
+            ]
+        };
+
+        CategoryFactory = {
+            getCategories: function () {
+                return {
+                    then: function (callback) {
+                        return callback(params);
+                    }
+                };
+            }
+        };
+
     });
 
     beforeEach(function () {
         bard.inject(this, '$controller', '$rootScope', 'CategoryFactory', 'SharedFactory');
         scope = $rootScope.$new();
         controller = $controller('CategorySearchController', {
-            $scope: scope
+            $scope: scope,
+            CategoryFactory: CategoryFactory
         });
     });
 
-    describe('category search controller', function() {
+    describe('category search controller', function () {
         it('should be created successfully', function () {
             expect(controller).to.be.defined;
         });
@@ -26,68 +53,29 @@ describe('CategorySearchController', function() {
             var vm = controller;
             expect(vm.title).to.equal('CategorySearchController');
         });
-
-        it('should have some methods from factory available', function () {
-            expect(CategoryFactory.getCategories).to.be.ok;
-            expect(CategoryFactory.getSubCategories).to.be.ok;
-            expect(CategoryFactory.getSubSubCategories).to.be.ok;
-            expect(SharedFactory.sliceLink).to.be.ok;
-        });
-
-        describe('categories array', function() {
-
-            it('should be defined', function () {
-                var vm = controller;
-                expect(vm.categories).to.be.defined;
-            });
-
-            it('should be empty', function () {
-                var vm = controller;
-                expect(vm.categories).to.be.an('array');
-                expect(vm.categories).to.be.empty;
-            });
-        });
-
-        describe('showSubCategories() function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.showSubCategories).to.be.a('function');
-            });
-        });
-
-        describe('showSubSubCategories() function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.showSubSubCategories).to.be.a('function');
-            });
-
-            it('current subcategory should be undefined by default', function () {
-                var vm = controller;
-                expect(vm.currentSubCategory).to.be.undefined;
-            });
-
-        });
-
-        describe('setCategory() function', function() {
-
-            it('should be a function', function () {
-                var vm = controller;
-                expect(vm.setCategory).to.be.a('function');
-            });
-
-            it('category should be undefined by default', function () {
-                var vm = controller;
-                expect(vm.category).to.be.undefined;
-            });
-
-            it('category should be set with passed value', function () {
-                var vm = controller;
-                vm.setCategory('test');
-                expect(vm.category).to.equal('test');
-            });
-
-        });
     });
-});
+
+    describe('should call functions', function () {
+        it('selected category should have a subcategory', function () {
+            var vm = controller;
+            var param = {
+                name: 'boofoo',
+                children: [{}, {}]
+            };
+            vm.showSubcategory(param);
+            expect(vm.selectedCategory).to.eql([{}, {}]);
+        });
+
+        it('selected category should NOT have a subcategory', function () {
+            var vm = controller;
+            var param = {
+                name: 'boo foo',
+                children: []
+            };
+            vm.showSubcategory(param);
+            expect(vm.selectedCategory).to.be.null;
+        });
+
+    });
+})
+;
