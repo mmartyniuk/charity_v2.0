@@ -44,6 +44,12 @@
                         });
                     }).error(reject);
                 });
+            },
+            deleteOffer: function(id, success, error) {
+                $http.delete('/api/offers/' + id).success(success).error(error);
+            },
+            deleteNeed: function(id, success, error) {
+                $http.delete('/api/needs/' + id).success(success).error(error);
             }
         };
     }

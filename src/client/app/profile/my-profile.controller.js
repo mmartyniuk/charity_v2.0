@@ -6,13 +6,15 @@
         .controller('ProfileController', ProfileController);
 
     ProfileController.$inject = ['$rootScope', '$sessionStorage',
-        '$state', 'UsersFactory'];
+        '$state', '$modal', '$scope', 'UsersFactory'];
 
-    function ProfileController($rootScope, $sessionStorage, $state, UsersFactory) {
+    function ProfileController($rootScope, $sessionStorage, $state, $modal, $scope, UsersFactory) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'ProfileController';
         vm.saveUser = saveUser;
+        vm.deleteCurrentNeed = deleteCurrentNeed;
+        vm.deleteCurrentOffer = deleteCurrentOffer;
         vm.tabs = {
             myNeeds: {},
             myOffers: {},
@@ -59,6 +61,50 @@
                     console.log('Something wrong !!!');
                 });
             });
+        }
+
+        function deleteCurrentNeed(needId) {
+            var init = $modal.open({
+                animation: true,
+                templateUrl: 'remove-need-modal.html',
+                controller: 'RemoveNeedModalInstanceController',
+                scope: $scope,
+                resolve: {
+                    data: function () {
+                        return vm; // post scope to modal window
+                    }
+                }
+            });
+            //remove item when OK button is clicked
+            init.result.then(function () {
+                UsersFactory.deleteNeed(needId, successDelete, function() {
+                    console.log('Need wasn\'t deleted');
+                });
+            });
+        }
+
+        function deleteCurrentOffer(offerId) {
+            var init = $modal.open({
+                animation: true,
+                templateUrl: 'remove-offer-modal.html',
+                controller: 'RemoveOfferModalInstanceController',
+                scope: $scope,
+                resolve: {
+                    data: function () {
+                        return vm; // post scope to modal window
+                    }
+                }
+            });
+            //remove item when OK button is clicked
+            init.result.then(function () {
+                UsersFactory.deleteOffer(offerId, successDelete, function () {
+                    console.log('Offer wasn\'t deleted');
+                });
+            });
+        }
+
+        function successDelete() {
+            $state.reload();
         }
 
         function saveUser() {
