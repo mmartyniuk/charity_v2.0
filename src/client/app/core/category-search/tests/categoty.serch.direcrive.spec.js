@@ -1,3 +1,4 @@
+/*jshint expr: true, -W117*/
 describe('categorySearch directive Test: ', function () {
     var scope,
         compile,

@@ -9,7 +9,7 @@
 
     function CategoryFactory($http, $q) {
         return {
-            getCategories: function() {
+            getCategories: function () {
                 return $q(function (resolve, reject) {
                     $http.get('/api/category/root').success(function (response) {
                         resolve({

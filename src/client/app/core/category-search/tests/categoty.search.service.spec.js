@@ -1,8 +1,9 @@
-describe('CategoryFactory service Test: ', function(){
-   var CategoryFactory,
-       httpBackend,
-       http,
-       q;
+/*jshint expr: true, -W117*/
+describe('CategoryFactory service Test: ', function () {
+    var CategoryFactory,
+        httpBackend,
+        http,
+        q;
     beforeEach(module('app.core'));
 
     beforeEach(inject(function (_CategoryFactory_, $http, $q, $httpBackend) {
@@ -18,7 +19,7 @@ describe('CategoryFactory service Test: ', function(){
 
     it('should make call backend', function () {
         CategoryFactory.getCategories();
-        httpBackend.expectGET('/api/category/root').respond({children:[]});
+        httpBackend.expectGET('/api/category/root').respond({children: []});
         httpBackend.flush();
     });
 });

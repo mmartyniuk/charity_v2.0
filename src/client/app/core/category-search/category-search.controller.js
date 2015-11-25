@@ -5,7 +5,7 @@
         .module('app.core')
         .controller('CategorySearchController', CategorySearchController);
 
-    CategorySearchController.$inject = ['CategoryFactory', 'SharedFactory'];
+    CategorySearchController.$inject = ['CategoryFactory'];
 
     function CategorySearchController(CategoryFactory) {
         /* jshint validthis:true */
