@@ -1,11 +1,11 @@
 angular
-    .module('app.offers')
+    .module('app.core')
     .directive('removeOfferModalDirective', removeOfferModal);
 
 function removeOfferModal() {
     return {
         restrict: 'E',
-        templateUrl: '/app/offers/views/remove-offer-modal.html',
+        templateUrl: '/app/core/delete-need-offer/views/remove-offer-modal.html',
         bindToController: true
     };
 }

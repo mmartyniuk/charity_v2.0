@@ -1,11 +1,11 @@
 angular
-    .module('app.needs')
+    .module('app.core')
     .directive('removeNeedModalDirective', removeNeedModal);
 
 function removeNeedModal() {
     return {
         restrict: 'E',
-        templateUrl: '/app/needs/views/remove-need-modal.html',
+        templateUrl: '/app/core/delete-need-offer/views/remove-need-modal.html',
         bindToController: true
     };
 }

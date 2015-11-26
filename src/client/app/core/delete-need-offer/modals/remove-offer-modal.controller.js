@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.offers')
+        .module('app.core')
         .controller('RemoveOfferModalInstanceController', RemoveOfferModalInstanceController);
 
     RemoveOfferModalInstanceController.$inject = ['$modalInstance', 'data'];
