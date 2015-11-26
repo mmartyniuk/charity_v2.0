@@ -50,7 +50,7 @@
 
         function getSearchData() {
             NeedsFactory.getSearchNeeds(vm.currentPage, vm.itemsPerPage,
-                vm.searchValue, vm.region, vm.location, vm.category).then(function(data) {
+                vm.searchValue, vm.region, vm.location, vm.categoryHierarchy).then(function(data) {
                 vm.needs = data.needs;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;
