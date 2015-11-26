@@ -13,22 +13,22 @@
                 <div class="col-xs-6 no-gutter margin-bottom-20">
                     <input id="key-search" type="search" ng-model="vm.searchValue"
                            ng-keyup="$event.keyCode === 13 && vm.submitCategorySearch(vm.searchValue, vm.category, vm.location)"
-                           class="form-control" placeholder="Що ви шукаєте...">
+                           class="form-control" placeholder="Що ви шукаєте..." translate translate-attr-placeholder="main.whatAreYouLookingFor">
                 </div>
                 <category-search class="col-xs-2 no-gutter margin-bottom-20" category="vm.category"></category-search>
                 <location-search class="col-xs-2 no-gutter margin-bottom-20" location="vm.location"></location-search>
                 <div class="search-input-wrap needs col-xs-2 no-gutter margin-bottom-20" dropdown
                      is-open="status.isopen">
-                    <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentType"
-                           ng-disabled="disabled" placeholder="Потреби" readonly/>
+                    <input type="text" class="form-control" dropdown-toggle ng-model="vm.contentTypeTitle"
+                           ng-disabled="disabled" placeholder="Потреби" translate translate-attr-placeholder="main.needs" readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem">
                             <span class="glyphicon glyphicon-chevron-right"></span>
-                            <a href="#" ng-click="vm.setContentType('Потреби')">Потреби</a>
+                            <a href="#" ng-click="vm.setContentType('needs')">{{ 'main.needs' | translate }}</a>
                         </li>
                         <li role="menuitem">
                             <span class="glyphicon glyphicon-chevron-right"></span>
-                            <a href="#" ng-click="vm.setContentType('Пропозиції')">Пропозиції</a>
+                            <a href="#" ng-click="vm.setContentType('offers')">{{ 'main.offers' | translate }}</a>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@
     <section class="recent-publications container">
 
         <div class="well">
-            <h3 class="text-center">Останні потреби</h3>
+            <h3 class="text-center">{{ 'main.lastNeeds' | translate }}</h3>
 
             <div class="recent-needs">
                 <div class="row">
@@ -67,7 +67,7 @@
                                         <span>{{ needs.created | date:'dd-MM-yyyy'}}</span>
                                     </div>
                                     <div class="col-xs-6">
-                                        <strong>Автор:</strong>
+                                        <strong>{{ 'main.author' | translate }}</strong>
                                         <a ui-sref="profile.user({id:{{needs.userCreated.id}}})" class="clipped">{{
                                             needs.userCreated.name }}</a>
                                     </div>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="well">
-            <h3 class="text-center">Останні пропозиції</h3>
+            <h3 class="text-center">{{ 'main.lastOffers' | translate }}</h3>
 
             <div class="recent-needs">
                 <div class="row">
