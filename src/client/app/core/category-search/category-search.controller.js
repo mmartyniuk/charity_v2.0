@@ -34,6 +34,7 @@
                 vm.categoryHierarchy = vm.selectedCategories;
                 vm.selectedCategories = [];
                 vm.selectedCategory = null;
+                return;
             }
             vm.selectedCategory = category.children;
             setCategory(category.name);
