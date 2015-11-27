@@ -56,7 +56,11 @@
                 });
             },
             getConcreteOffer: function(id, success, error) {
-                return $http.get('/api/offers/' + id).success(success).error(error);
+                return $http.get('/api/offers/' + id, {
+                    params: {
+                        projection: 'inLine'
+                    }
+                }).success(success).error(error);
             },
             respondToCurrentOffer: function(data, success, error) {
                 $http.post('/api/offerResponses', data).success(success).error(error);

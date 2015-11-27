@@ -56,7 +56,11 @@
                 });
             },
             getConcreteNeed: function(id, success, error) {
-                return $http.get('/api/needs/' + id).success(success).error(error);
+                return $http.get('/api/needs/' + id, {
+                    params: {
+                        projection: 'inLine'
+                    }
+                }).success(success).error(error);
             },
             respondToCurrentNeed: function(data, success, error) {
                 $http.post('/api/needResponses', data).success(success).error(error);
