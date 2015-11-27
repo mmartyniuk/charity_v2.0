@@ -43,8 +43,8 @@
                     <dt class="col-xs-3">Категорія:</dt>
                     <dd>
                         <ol class="breadcrumb">
-                            <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
-                            <li>{{vm.parentCategory}}</li>
+                            <li ng-show="vm.mainCategory !== 'root'">{{vm.mainCategory}}</li>
+                            <li ng-show="vm.parentCategory !== 'root'">{{vm.parentCategory}}</li>
                             <li>{{vm.category}}</li>
                         </ol>
                     </dd>

@@ -49,6 +49,15 @@
                         'x-auth-token': token
                     }
                 }).success(success).error(error);
+            },
+            cleanArray: function(array, removeValue) {
+                for (var i = 0, len = array.length; i < len; i++) {
+                    if (array[i] === removeValue) {
+                        array.splice(i, 1);
+                        i--;
+                    }
+                }
+                return array;
             }
         };
     }
