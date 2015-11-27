@@ -52,8 +52,6 @@
                 parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.offer.get = vm.getChecked;
             vm.postUrl = '/api/createOffer';
-            //remove null values from categories array
-            vm.offer.categories = SharedFactory.cleanArray(vm.offer.categories, null);
             // data that is going to be sent to backend
             vm.data = {
                 'name': vm.offer.title,

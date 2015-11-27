@@ -52,8 +52,6 @@
                 parseInt(vm.dt.getMonth() + 1) + '/' + vm.dt.getFullYear();
             vm.need.get = vm.getChecked;
             vm.postUrl = '/api/createNeed';
-            //remove null values from categories array
-            vm.need.categories = SharedFactory.cleanArray(vm.need.categories, null);
             // data that is going to be sent to backend
             vm.data = {
                 'name': vm.need.title,
