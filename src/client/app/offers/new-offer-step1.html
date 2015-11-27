@@ -5,14 +5,20 @@
         <form class="form-horizontal" name="NewOffer" ng-submit="vm.submitOffer()">
             <div class="form-group">
                 <label class="control-label col-md-1 col-sm-2">Назва</label>
+
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="offerTitle" ng-model="vm.offer.title" placeholder="Назва пропозиції" required>
+                    <input type="text" class="form-control" name="offerTitle" ng-model="vm.offer.title"
+                           placeholder="Назва пропозиції" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-1 col-sm-2">Категорія</label>
+
                 <div class="col-sm-6">
-                    <category-search main-category="vm.offer.mainCategory" subcategory="vm.offer.subcategory" category="vm.offer.category"></category-search>                </div>
+                    <category-search category-hierarchy="vm.offer.categoryHierarchy"
+                                     category="vm.offer.category">
+                    </category-search>
+                </div>
             </div>
             <div class="col-md-7 col-sm-8">
                 <div class="form-group pull-right prev-next-buttons">

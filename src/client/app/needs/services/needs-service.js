@@ -28,11 +28,11 @@
                     }).error(reject);
                 });
             },
-            getSearchNeeds: function(pageNumber, itemsPerPage, query, region, city, category) {
+            getSearchNeeds: function(pageNumber, itemsPerPage, query, region, city, categories) {
                 query = query || '';
                 region = region || '';
                 city = city || '';
-                category = category || '';
+                categories = (categories && Array.isArray(categories))? categories.join(): '';
                 return $q(function (resolve, reject) {
                     $http.get('/api/search/needs', {
                         params: {
@@ -43,7 +43,7 @@
                             query: query,
                             region: region,
                             city: city,
-                            category: category
+                            category: categories
                         }
                     }).success(function (response) {
                         resolve({

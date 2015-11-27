@@ -15,15 +15,10 @@
         var vm = this;
         vm.title = 'NewOfferRegisterController';
         vm.offer = {}; //offer data from form will be stored here
-        vm.offer.categories = [];
         vm.offer.title = $state.params.prefilled ?
-            $state.params.prefilled.title : null;  //---> comment for testing
-        vm.offer.categories[0] = $state.params.prefilled ?
-            $state.params.prefilled.mainCategory : null; //---> comment for testing
-        vm.offer.categories[1] = $state.params.prefilled ?
-            $state.params.prefilled.subcategory : null;
-        vm.offer.categories[2] = $state.params.prefilled ?
-            $state.params.prefilled.category : null;
+            $state.params.prefilled.title : '';  //---> comment for testing
+        vm.offer.categories = $state.params.prefilled ?
+            $state.params.prefilled.categoryHierarchy : []; //---> comment for testing
         vm.images = [];
         vm.getChecked = false;
         vm.getRegion = getRegion;

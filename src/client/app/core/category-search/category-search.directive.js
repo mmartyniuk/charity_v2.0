@@ -7,7 +7,8 @@ function categorySearch() {
         restrict: 'EA',
         templateUrl: '/app/core/category-search/view/category-search.html',
         scope: {
-            category: '='
+            category: '=',
+            categoryHierarchy: '=?'
         },
         controller: 'CategorySearchController',
         controllerAs: 'vm',
