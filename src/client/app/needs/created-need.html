@@ -27,7 +27,7 @@
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <dl class="dl-horizontal">
                     <dt class="col-xs-3">{{'createdNeed.author' | translate}}</dt>
-                    <dd><a href="/">{{vm.userCreated.name}}</a></dd>
+                    <dd><a ui-sref="profile.user({id: vm.currentNeed.userCreated.id})">{{vm.currentNeed.userCreated.name}}</a></dd>
 
                     <dt class="col-xs-3">{{'createdNeed.published' | translate}}:</dt>
                     <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}
