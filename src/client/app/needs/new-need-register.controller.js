@@ -17,15 +17,10 @@
         var vm = this;
         vm.title = 'NewNeedRegisterController';
         vm.need = {}; //need data from form will be stored here
-        vm.need.categories = [];
         vm.need.title = $state.params.prefilled ?
-            $state.params.prefilled.title : null;
-        vm.need.categories[0] = $state.params.prefilled ?
-            $state.params.prefilled.mainCategory : null;
-        vm.need.categories[1] = $state.params.prefilled ?
-            $state.params.prefilled.subcategory : null;
-        vm.need.categories[2] = $state.params.prefilled ?
-            $state.params.prefilled.category : null;
+            $state.params.prefilled.title : '';
+        vm.need.categories = $state.params.prefilled ?
+            $state.params.prefilled.categoryHierarchy : [];
         vm.images = [];
         vm.getChecked = false;
         vm.getRegion = getRegion;

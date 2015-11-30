@@ -28,11 +28,11 @@
                     }).error(reject);
                 });
             },
-            getSearchOffers: function(pageNumber, itemsPerPage, query, region, city, category) {
+            getSearchOffers: function(pageNumber, itemsPerPage, query, region, city, categories) {
                 query = query || '';
                 region = region || '';
                 city = city || '';
-                category = category || '';
+                categories = (categories && Array.isArray(categories))? categories.join(): '';
                 return $q(function (resolve, reject) {
                     $http.get('/api/search/offers', {
                         params: {
@@ -43,7 +43,7 @@
                             query: query,
                             region: region,
                             city: city,
-                            category: category
+                            category: categories
                         }
                     }).success(function (response) {
                         resolve({
@@ -56,7 +56,11 @@
                 });
             },
             getConcreteOffer: function(id, success, error) {
-                return $http.get('/api/offers/' + id).success(success).error(error);
+                return $http.get('/api/offers/' + id, {
+                    params: {
+                        projection: 'inLine'
+                    }
+                }).success(success).error(error);
             },
             respondToCurrentOffer: function(data, success, error) {
                 $http.post('/api/offerResponses', data).success(success).error(error);

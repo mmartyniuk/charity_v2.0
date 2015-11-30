@@ -13,6 +13,7 @@
         vm.title = 'CategorySearchController';
         vm.showSubcategory = showSubcategory;
         vm.categories = [];
+        vm.selectedCategories = [];
         vm.categoryButton = vm.category || 'Виберіть категорію';
         vm.dropdown = {
             isOpened: false
@@ -27,13 +28,20 @@
         }
 
         function showSubcategory(category) {
-            vm.selectedCategory = category.children;
-            setCategory(category.name);
-            vm.dropdown.isOpened = true;
             if (!category.children.length) {
                 setCategory(category.name);
+                vm.selectedCategories.push(category.name);
+                vm.categoryHierarchy = vm.selectedCategories;
+                vm.selectedCategories = [];
                 vm.selectedCategory = null;
+                return;
             }
+            vm.selectedCategory = category.children;
+            setCategory(category.name);
+            vm.selectedCategories.push(category.name);
+            vm.categoryHierarchy = vm.selectedCategories;
+            vm.dropdown.isOpened = true;
+
         }
 
         function setCategory(category) {

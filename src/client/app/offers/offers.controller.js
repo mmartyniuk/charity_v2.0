@@ -50,7 +50,7 @@
 
         function getSearchData() {
             OffersFactory.getSearchOffers(vm.currentPage, vm.itemsPerPage,
-                vm.searchValue, vm.region, vm.location, vm.category).then(function(data) {
+                vm.searchValue, vm.region, vm.location, vm.categoryHierarchy).then(function(data) {
                 vm.offers = data.offers;
                 vm.currentPage = data.currentPage;
                 vm.totalItems = data.totalItems;

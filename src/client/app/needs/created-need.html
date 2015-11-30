@@ -27,7 +27,7 @@
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <dl class="dl-horizontal">
                     <dt class="col-xs-3">{{'createdNeed.author' | translate}}</dt>
-                    <dd><a href="/">{{vm.userCreated.name}}</a></dd>
+                    <dd><a ui-sref="profile.user({id: vm.currentNeed.userCreated.id})">{{vm.currentNeed.userCreated.name}}</a></dd>
 
                     <dt class="col-xs-3">{{'createdNeed.published' | translate}}:</dt>
                     <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}
@@ -36,8 +36,8 @@
                     <dt class="col-xs-3">{{'createdNeed.category' | translate}}:</dt>
                     <dd>
                         <ol class="breadcrumb">
-                            <li ng-show="vm.mainCategory">{{vm.mainCategory}}</li>
-                            <li>{{vm.parentCategory}}</li>
+                            <li ng-show="vm.mainCategory !== 'root'">{{vm.mainCategory}}</li>
+                            <li ng-show="vm.parentCategory !== 'root'">{{vm.parentCategory}}</li>
                             <li>{{vm.category}}</li>
                         </ol>
                     </dd>
@@ -48,7 +48,7 @@
 
                 <dl class="dl-horizontal">
                     <dt class="col-xs-3">{{'createdNeed.description' | translate}}:</dt>
-                    <dd><a href="/">{{vm.currentNeed.description}}</a></dd>
+                    <dd><span>{{vm.currentNeed.description}}</span></dd>
 
                     <dt class="col-xs-3">{{'createdNeed.actuality' | translate}}:</dt>
                     <dd>до <strong>{{vm.currentNeed.formattedActualTo}}</strong></dd>
