@@ -5,7 +5,7 @@
             <tab heading="{{ 'profile.publishedNeeds' | translate }}" active="vm.tabs.my_needs.active" class="wide">
                 <div class="status">
                     <span><a href="#" class="currneLink">{{ 'profile.active' | translate }}</a></span>
-                    <span><a href="#">Завершені</a></span>
+                    <span><a href="#">{{ 'profile.finished' | translate }}</a></span>
                 </div>
                 <div class="publication-type">
                     <form role="form">
@@ -314,12 +314,12 @@
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.my_offers.active = true"
                                                                  href="">{{vm.myOffers.length}}</a></span>
-                                    {{ 'profile.publishedNeeds' | translate }}:
+                                    {{ 'profile.publishedOffers' | translate }}:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.sup_offers.active = true"
                                                                  href="">{{vm.supOffers.length}}</a></span>
-                                    {{ 'profile.publishedOffers' | translate }}:
+                                    {{ 'profile.supportedOffers' | translate }}:
                                 </li>
                             </ul>
                         </div>

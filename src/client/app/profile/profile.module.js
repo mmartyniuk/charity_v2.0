@@ -42,7 +42,43 @@
                 'date': 'Дата',
                 'subject': 'Тема',
                 'profile': 'Профіль'
+            }
+        });
 
+        $translateProvider.translations('ru', {
+            'profile': {
+                'active': 'Активные',
+                'finished': 'Завершенные',
+                'needs': 'Потребности',
+                'projects': 'Проекты',
+                'responded': 'Отозвались',
+                'responds': 'Отзывов',
+                'published': 'Опубликовано',
+                'actualTo': 'Актуально до',
+                'users': '{{count}} пользователей',
+                'name': 'Название',
+                'userData': 'Данные пользователя',
+                'yourName': 'Ваше имя',
+                'email': 'Электронная почта',
+                'address': 'Адрес',
+                'phone': 'Телефон',
+                'role': 'Кто Ви',
+                'author': 'Автор',
+
+                'publishedNeeds': 'Опубликованные потребности',
+                'publishedOffers': 'Опубликованные предложения',
+                'control': 'Управление',
+                'supportedNeeds': 'Поддержанные потребности',
+                'supportedOffers': 'Поддержанные предложения',
+                'edit': 'Редактировать',
+                'delete': 'Удалить',
+                'save': 'Сохранить',
+                'cancel': 'Отменить',
+                'messages': 'Сообщения',
+                'messageHistory': 'История сообщений',
+                'date': 'Дата',
+                'subject': 'Тема',
+                'profile': 'Профиль'
             }
         });
     }
