@@ -2,18 +2,18 @@
     <section>
 
         <tabset>
-            <tab heading="Опубліковані потреби" active="vm.tabs.my_needs.active" class="wide">
+            <tab heading="{{ 'profile.publishedNeeds' | translate }}" active="vm.tabs.my_needs.active" class="wide">
                 <div class="status">
-                    <span><a href="#" class="currneLink">Активні</a></span>
-                    <span><a href="#">Завершені</a></span>
+                    <span><a href="#" class="currneLink">{{ 'profile.active' | translate }}</a></span>
+                    <span><a href="#">{{ 'profile.finished' | translate }}</a></span>
                 </div>
                 <div class="publication-type">
                     <form role="form">
                         <label class="radio-inline">
-                            <input disabled="disabled" type="radio" name="optradio" checked>Потреби
+                            <input disabled="disabled" type="radio" name="optradio" checked>{{ 'profile.needs' | translate }}
                         </label>
                         <label class="radio-inline">
-                            <input disabled="disabled" type="radio" name="optradio">Проекти
+                            <input disabled="disabled" type="radio" name="optradio">{{ 'profile.projects' | translate }}
                         </label>
                     </form>
                 </div>
@@ -21,11 +21,11 @@
 
                     <table class="table table-striped">
                         <tr>
-                            <th>Назва:</th>
-                            <th class="text-center">Відгуків:</th>
-                            <th class="text-center">Опубліковано:</th>
-                            <th class="text-center">Актуально до:</th>
-                            <th class="text-right">Керування:</th>
+                            <th>{{ 'profile.name' | translate }}:</th>
+                            <th class="text-center">{{ 'profile.responds' | translate }}:</th>
+                            <th class="text-center">{{ 'profile.published' | translate }}:</th>
+                            <th class="text-center">{{ 'profile.actualTo' | translate }}:</th>
+                            <th class="text-right">{{ 'profile.control' | translate }}:</th>
                         </tr>
 
 
@@ -36,11 +36,11 @@
                             <td class="text-center"><span>{{need.formattedActualTo | date:'yyyy-MM-dd'}}</span></td>
                             <td class="text-right">
                                 <a ui-sref="needs.edit({id:need.id})">
-                                    <button type="button" title="Редагувати"
+                                    <button type="button" title="{{ 'profile.edit' | translate }}"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
                                 <a ng-click="vm.deleteCurrentNeed(need.id)">
-                                    <button type="button" title="Видалити"
+                                    <button type="button" title="{{ 'profile.delete' | translate }}"
                                             class="btn btn-default glyphicon glyphicon-remove"></button>
                                 </a>
                                 <remove-need-modal-directive></remove-need-modal-directive>
@@ -55,17 +55,17 @@
 
             <tab heading="Підтримані потреби" active="vm.tabs.sup_needs.active" class="wide">
                 <div class="status">
-                    <span><a href="#" class="currneLink">Активні</a></span>
-                    <span><a href="#">Завершені</a></span>
+                    <span><a href="#" class="currneLink">{{ 'profile.active' | translate }}</a></span>
+                    <span><a href="#">{{ 'profile.finished' | translate }}</a></span>
                 </div>
                 <div class="contentWrapper">
                     <table class="table table-striped">
                         <tr>
-                            <th>Назва</th>
-                            <th class="text-center">Автор</th>
-                            <th class="text-center">Опубліковано</th>
-                            <th class="text-center">Актуально до</th>
-                            <th class="text-right">Керування</th>
+                            <th>{{ 'profile.name' | translate }}</th>
+                            <th class="text-center">{{ 'profile.author' | translate }}</th>
+                            <th class="text-center">{{ 'profile.published' | translate }}</th>
+                            <th class="text-center">{{ 'profile.actualTo' | translate }}</th>
+                            <th class="text-right">{{ 'profile.control' | translate }}</th>
                         </tr>
 
                         <tr>
@@ -112,20 +112,20 @@
             </tab>
 
 
-            <tab heading="Опубліковані пропозиції" active="vm.tabs.my_offers.active" class="wide">
+            <tab heading="{{ 'profile.publishedOffers' | translate }}" active="vm.tabs.my_offers.active" class="wide">
                 <div class="status">
-                    <span><a href="#" class="currneLink">Активні</a></span>
-                    <span><a href="#">Завершені</a></span>
+                    <span><a href="#" class="currneLink">{{ 'profile.active' | translate }}</a></span>
+                    <span><a href="#">{{ 'profile.control' | translate }}</a></span>
                 </div>
                 <div class="contentWrapper">
 
                     <table class="table table-striped">
                         <tr>
                             <th>Назва:</th>
-                            <th class="text-center">Відгуків:</th>
-                            <th class="text-center">Опубліковано:</th>
-                            <th class="text-center">Актуально до:</th>
-                            <th class="text-right">Керування:</th>
+                            <th class="text-center">{{ 'profile.responds' | translate }}:</th>
+                            <th class="text-center">{{ 'profile.published' | translate }}:</th>
+                            <th class="text-center">{{ 'profile.actualTo' | translate }}:</th>
+                            <th class="text-right">{{ 'profile.control' | translate }}:</th>
                         </tr>
 
 
@@ -136,11 +136,11 @@
                             <td class="text-center"><span>{{offer.formattedActualTo | date:'yyyy-MM-dd'}}</span></td>
                             <td class="text-right">
                                 <a ui-sref="offers.edit({id:offer.id})">
-                                    <button type="button" title="Редагувати"
+                                    <button type="button" title="{{ 'profile.edit' | translate }}"
                                             class="btn btn-primary glyphicon glyphicon-pencil"></button>
                                 </a>
                                 <a  ng-click="vm.deleteCurrentOffer(offer.id)">
-                                    <button type="button" title="Видалити"
+                                    <button type="button" title="{{ 'profile.delete' | translate }}"
                                             class="btn btn-default glyphicon glyphicon-remove"></button>
                                 </a>
                                 <remove-offer-modal-directive></remove-offer-modal-directive>
@@ -153,19 +153,19 @@
             </tab>
 
 
-            <tab heading="Підтримані пропозиції" active="vm.tabs.sup_offers.active" class="wide">
+            <tab heading="{{ 'profile.supportedOffers' | translate }}" active="vm.tabs.sup_offers.active" class="wide">
                 <div class="status">
-                    <span><a href="#" class="currneLink">Активні</a></span>
-                    <span><a href="#">Завершені</a></span>
+                    <span><a href="#" class="currneLink">{{ 'profile.active' | translate }}</a></span>
+                    <span><a href="#">{{ 'profile.finished' | translate }}</a></span>
                 </div>
                 <div class="contentWrapper">
                     <table class="table table-striped">
                         <tr>
                             <th>Назва</th>
-                            <th class="text-center">Автор</th>
-                            <th class="text-center">Опубліковано</th>
-                            <th class="text-center">Актуально до</th>
-                            <th class="text-right">Керування</th>
+                            <th class="text-center">{{ 'profile.author' | translate }}</th>
+                            <th class="text-center">{{ 'profile.published' | translate }}</th>
+                            <th class="text-center">{{ 'profile.actualTo' | translate }}</th>
+                            <th class="text-right">{{ 'profile.control' | translate }}</th>
                         </tr>
 
                         <tr>
@@ -214,16 +214,16 @@
             </tab>
 
 
-            <tab heading="Повідомлення" active="vm.tabs.messages.active" class="">
+            <tab heading="{{ 'profile.messages' | translate }}" active="vm.tabs.messages.active" class="">
                 <div class="status">
-                    <span><a href="#">Історія повідомлень</a></span>
+                    <span><a href="#">{{ 'profile.messageHistory' | translate }}</a></span>
                 </div>
                 <div class="contentWrapper">
 
                     <table class="table">
                         <tr>
-                            <th class="message-date">Дата</th>
-                            <th>Тема</th>
+                            <th class="message-date">{{ 'profile.date' | translate }}</th>
+                            <th>{{ 'profile.subject' | translate }}</th>
                         </tr>
                         <tr class="active">
                             <td><span>10/14/2015</span></td>
@@ -246,9 +246,9 @@
                 </div>
             </tab>
 
-            <tab heading="Профіль" active="true" class="">
+            <tab heading="{{ 'profile.profile' | translate }}" active="true" class="">
                 <div class="status">
-                    <span><a href="#">Дані користувача</a></span>
+                    <span><a href="#">{{ 'profile.userData' | translate }}</a></span>
                 </div>
                 <div class="contentWrapper user-profile">
                     <div class="row" id="profile">
@@ -257,44 +257,44 @@
                             <form editable-form name="editUser" onaftersave="vm.saveUser()">
                                 <address class>
                                     <p>
-                                        <strong title="ім'я">Ваше ім&#180;я:</strong>
+                                        <strong title="ім'я">{{ 'profile.yourName' | translate }}:</strong>
                                         <span editable-text="vm.users.name" e-name="name" e-placeholder="Василь Пупкін"
                                               e-required> {{vm.username}}</span>
                                     </p>
 
                                     <p>
-                                        <strong title="email">Електронна пошта:</strong>
+                                        <strong title="email">{{ 'profile.email' | translate }}:</strong>
                                         <span editable-text="vm.users.email" e-name="email"
                                               e-placeholder="user@gmail.com" e-required>{{vm.email}}</span>
                                     </p>
 
                                     <p>
-                                        <strong title="email">Адреса:</strong>
+                                        <strong title="email">{{ 'profile.address' | translate }}:</strong>
                                         <span editable-text="vm.users.email" e-name="address"
                                               e-placeholder="вул.Шевченка буд.1" e-required>{{vm.address}}</span>
                                     </p>
 
                                     <p>
-                                        <strong title="телефон">Телефон:</strong>
+                                        <strong title="телефон">{{ 'profile.phone' | translate }}:</strong>
                                         <span editable-text="vm.users.phone" e-name="phone" e-placeholder="0959878589"
                                               e-required>{{vm.phone}}</span>
                                     </p>
-                                    <strong>Хто Ви: </strong><span>{{vm.role}}</span>
+                                    <strong>{{ 'profile.role' | translate }}: </strong><span>{{vm.role}}</span>
                                 </address>
                                 <div>
                                     <!-- button to show form -->
-                                    <button type="button" title="Редагувати" class="btn btn-primary"
+                                    <button type="button" title="{{ 'profile.edit' | translate }}" class="btn btn-primary"
                                             ng-click="editUser.$show()" ng-show="!editUser.$visible">
                                         Редагувати
                                     </button>
                                     <!-- buttons to submit / cancel form -->
                                 <span ng-show="editUser.$visible">
                                     <button type="submit" class="btn btn-primary" ng-disabled="editUser.$waiting">
-                                        Зберегти
+                                        {{ 'profile.save' | translate }}
                                     </button>
                                     <button type="button" class="btn btn-default" ng-disabled="editUser.$waiting"
                                             ng-click="editUser.$cancel()">
-                                        Відмінити
+                                        {{ 'profile.cancel' | translate }}
                                     </button>
                                 </span>
                                 </div>
@@ -304,22 +304,22 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.my_needs.active = true" href="">{{vm.myNeeds.length}}</a></span>
-                                    Опубліковані Потреби:
+                                    {{ 'profile.publishedNeeds' | translate }}:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.sup_needs.active = true"
                                                                  href="">{{vm.supNeeds.length}}</a></span>
-                                    Підтримані потреби:
+                                    {{ 'profile.supportedNeeds' | translate }}:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.my_offers.active = true"
                                                                  href="">{{vm.myOffers.length}}</a></span>
-                                    Опубліковані Пропозиції:
+                                    {{ 'profile.publishedOffers' | translate }}:
                                 </li>
                                 <li class="list-group-item">
                                     <span class="badge stats"><a ng-click="vm.tabs.sup_offers.active = true"
                                                                  href="">{{vm.supOffers.length}}</a></span>
-                                    Підтримані Пропозиції:
+                                    {{ 'profile.supportedOffers' | translate }}:
                                 </li>
                             </ul>
                         </div>

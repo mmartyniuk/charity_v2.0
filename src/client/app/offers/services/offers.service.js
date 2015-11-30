@@ -32,7 +32,7 @@
                 query = query || '';
                 region = region || '';
                 city = city || '';
-                categories = (categories && Array.isArray(categories))? categories.join(): '';
+                categories = (categories && Array.isArray(categories)) ? categories.join() : '';
                 return $q(function (resolve, reject) {
                     $http.get('/api/search/offers', {
                         params: {
