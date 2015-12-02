@@ -7,11 +7,11 @@
         .controller('EditNeedsController', EditNeedsController);
 
     EditNeedsController.$inject = [
-        '$http', '$stateParams', 'EditNeedFactory', '$state', '$rootScope'
+        '$http', '$stateParams', 'EditNeedFactory', '$state', '$rootScope', '$scope'
     ];
 
     /* @ngInject */
-    function EditNeedsController($http, $stateParams, EditNeedFactory, $state, $rootScope) {
+    function EditNeedsController($http, $stateParams, EditNeedFactory, $state, $rootScope, $scope) {
         var vm = this;
         vm.title = 'EditNeedsController';
         vm.saveEditedNeed = saveEditedNeed;
@@ -36,15 +36,18 @@
         function activate() {
             vm.getRegion();
             vm.currentNeed();
+
         }
 
         function currentNeed() {
             EditNeedFactory.getConcreteNeed($stateParams.id).then(function (response) {
                 vm.editedNeed.title = response.data.name;
                 vm.editedNeed.needText = response.data.description;
+                vm.editedNeed.region = response.data._embedded.city.region;
+                vm.editedNeed.city = response.data._embedded.city;
                 vm.editedNeed.address = response.data.address;
-                vm.editedNeed.convenientTime = response.data.convenientTime;
-                vm.editedNeed.date = response.data.formattedActualTo;
+                vm.convenientDate = (JSON.parse(response.data.convenientTime) instanceof Object) ?
+                    JSON.parse(response.data.convenientTime) : vm.convenientDate;
             }).catch(function () {
                 console.log('something wrong');
             });
@@ -56,14 +59,15 @@
             });
         }
 
-        function setRegion(region) {
+        function setRegion(region, editNeedForm) {
             vm.cities = region._embedded.cities;
+            editNeedForm.city.$invalid = true;
         }
 
         function saveEditedNeed() {
             vm.editedNeed.date = vm.dt;
             vm.editedNeed.needId = vm.needId;
-
+            vm.editedNeed.convenientTime = JSON.stringify(vm.convenientDate);
             return EditNeedFactory.updateCurrentNeed(vm.editedNeed).then(function () {
                 $state.go('needs.created', {id: vm.needId});
             });
@@ -72,6 +76,11 @@
         function cancel() {
             $state.go($rootScope.previousState, {id: vm.needId});
         }
+
+
+        vm.onCitySelect = function (selectedCity) {
+            vm.editedNeed.city = selectedCity.name;
+        };
 
     }
 })();

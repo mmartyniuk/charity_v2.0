@@ -1,22 +1,72 @@
-<span class="dropdown" dropdown>
-        <a href="" class="dropdown-toggle" dropdown-toggle>
-            Click
-        </a>
-        <ul class="dropdown-menu" dropdown-menu>
-            <li>
-                <a ng-click="action1()">Action1</a>
-            </li>
-            <li>
-                <a ng-click="action2()">Action2</a>
-            </li>
-            <li>
-                <a ng-click="action3()">Action3</a>
-            </li>
-            <li>
-                <a ng-click="action4()">Action4</a>
-            </li>
-            <li>
-                <a ng-click="action5()">Action5</a>
-            </li>
-        </ul>
-      </span>
+<div>
+    <!-- Select days starts-->
+    <div>
+        <div class="col-sm-2">
+            <select class="form-control"
+                    ng-options="day for day in vm.days"
+                    ng-model="vm.convinientTime.dayFrom"
+                    required>
+            </select>
+        </div>
+
+        <span class="col-sm-1 text-bottom">---</span>
+
+        <div class="col-sm-2">
+            <select class="form-control" ng-options="day for day in vm.days" ng-model="vm.convinientTime.dayTo"
+                    required>
+            </select>
+        </div>
+    </div>
+    <!-- Select days ends-->
+    <!-- Time pickers start-->
+    <div class="input-group">
+        <span class="col-sm-1 text-center">від</span>
+
+        <div class="col-sm-4">
+            <input type="text"
+                   class="form-control"
+                   ng-model="vm.convinientTime.timeFrom"
+                   ng-focus="vm.open()"/>
+
+            <div class="input-group-btn pull-right" ng-class='{open: vm.fromTimeBtnIsOpened}'>
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="vm.toggleFromDate()"
+                        dropdown-toggle>
+                    <i class="glyphicon glyphicon-time"></i>
+                </button>
+                <div class='dropdown-menu'>
+                    <timepicker ng-model="vm.timeFrom"
+                                show-meridian="false"
+                                ng-change=" vm.selectFromTime(vm.timeFrom)">
+                    </timepicker>
+                </div>
+            </div>
+        </div>
+
+        <span class="col-sm-1">по</span>
+
+        <div class="col-sm-4">
+            <input type="text"
+                   class="form-control"
+                   ng-model="vm.convinientTime.timeTo"/>
+
+            <div class="input-group-btn pull-right" ng-class="{open: vm.toTimeBtnIsOpened}">
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="vm.toggleToDate()"
+                        dropdown-toggle>
+                    <i class="glyphicon glyphicon-time"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <timepicker ng-model="vm.timeTo"
+                                show-meridian="false"
+                                ng-change="vm.selectToTime(vm.timeTo)">
+                    </timepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Time pickers end-->
+</div>
+

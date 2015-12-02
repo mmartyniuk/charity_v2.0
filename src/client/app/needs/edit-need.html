@@ -46,11 +46,21 @@
                         <label class="control-label col-sm-2">{{'editNeed.selectRegion' | translate}}:</label>
 
                         <div class="col-sm-3">
-                            <span editable-select="vm.region" e-name="region"
+                            <span editable-select="regionjhf"
+                                  e-name="region"
                                   e-ng-options="region.name for region in vm.regions track by region.id"
-                                  e-ng-change="vm.setRegion($data);">
-                                {{ vm.region.name }}
+                                  e-ng-change="vm.setRegion($data,editNeedForm );"
+                                  e-required>
+                                {{ (vm.regions | filter: {id: vm.editedNeed.region.id})[0].name  || 'bal'}}
                             </span>
+                            <!--<select name="region" class="form-control"
+                                    ng-options="region.name for region in vm.regions track by region.id"
+                                    ng-model="vm.editedNeed.region"
+                                    required>
+                            </select>-->
+
+
+                            <span ng-if="editNeedForm.region.$invalid" style="color:red">Виберіть регіон</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,10 +68,23 @@
 
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
-                            <span editable-select="vm.city" e-name="city" e-ng-options="city.name for city in vm.cities"
-                                  e-ng-disabled="!editNeedForm.region.$modelValue">
-                                {{ vm.city.name }}
+                            <span editable-select="vm.city"
+                                  e-name="city"
+                                  e-ng-options="city.name for city in vm.cities"
+                                  e-ng-disabled="!editNeedForm.region.$modelValue"
+                                  e-ng-change="vm.onCitySelect($data, editNeedForm);"
+                                  e-required>
+                                {{ vm.city.name || vm.editedNeed.city.name }}
                             </span>
+
+                            <!--<select name="city" class="form-control"
+                                    ng-options="city.name for city in vm.cities"
+                                    ng-model="vm.editedNeed.city"
+                                    required>
+                            </select>-->
+                            <span
+                                ng-if="editNeedForm.region.$valid && editNeedForm.city.$invalid"
+                                style="color:red">Виберіть місто</span>
                         </div>
                     </div>
                     <hr>
@@ -79,10 +102,8 @@
                     <div class="form-group row">
                         <label class="control-label col-sm-2">{{'editNeed.convenientTime' | translate}}:</label>
 
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedNeed.convenientTime" e-name="time"
-                                  onbeforesave="updateNeed($data)">{{ vm.editedNeed.convenientTime }}</span>
-                        </div>
+                        <day-and-time convinient-time="vm.convenientDate"></day-and-time>
+
                     </div>
                     <status status="vm.editedNeed.status" statuses="vm.editedNeedStatuses"></status>
                     <!-- button to show form -->
@@ -94,10 +115,11 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                             <span ng-show="editNeedForm.$visible">
-                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$waiting">
+                              <button type="submit" class="btn btn-primary" ng-disabled="editNeedForm.$invalid">
                                   {{'editNeed.save' | translate}}
                               </button>
-                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">{{'editNeed.cancel' | translate}}</a>
+                              <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">{{'editNeed.cancel' |
+                                  translate}}</a>
                                 <!-- <button type="button" class="btn btn-default" ng-disabled="editNeedForm.$waiting" ng-click="editNeedForm.$cancel()">
                                     Скасувати
                                 </button> -->

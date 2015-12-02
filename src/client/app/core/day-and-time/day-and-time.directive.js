@@ -6,9 +6,18 @@ function dayAndTimeDirective() {
     return {
         restrict: 'E',
         templateUrl: '/app/core/day-and-time/view/day-and-time.html',
-        scope: {},
+        scope: {
+            convinientTime: '='
+        },
+        controller: 'DayAndTimeController',
+        controllerAs: 'vm',
+        bindToController: true,
+        link: function (scope, elem) {
+            console.log('link', scope);
 
-        bindToController: true
+
+
+        }
     };
 
 }

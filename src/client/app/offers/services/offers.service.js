@@ -10,15 +10,15 @@
 
     function OffersFactory($http, $q) {
         return {
-            getOffers: function(pageNumber, itemsPerPage) {
-                return $q(function(resolve, reject) {
+            getOffers: function (pageNumber, itemsPerPage) {
+                return $q(function (resolve, reject) {
                     $http.get('/api/offers', {
                         params: {
                             page: pageNumber > 0 ? pageNumber - 1 : 0,
                             size: itemsPerPage,
                             projection: 'inLine'
                         }
-                    }).success(function(response) {
+                    }).success(function (response) {
                         resolve({
                             offers: response._embedded.offers,
                             currentPage: response.page.number + 1,
@@ -28,7 +28,7 @@
                     }).error(reject);
                 });
             },
-            getSearchOffers: function(pageNumber, itemsPerPage, query, region, city, categories) {
+            getSearchOffers: function (pageNumber, itemsPerPage, query, region, city, categories) {
                 query = query || '';
                 region = region || '';
                 city = city || '';
@@ -62,24 +62,24 @@
                     }
                 }).success(success).error(error);
             },
-            respondToCurrentOffer: function(data, success, error) {
+            respondToCurrentOffer: function (data, success, error) {
                 $http.post('/api/offerResponses', data).success(success).error(error);
             },
-            getReponsesForThisOffer: function(id, success, error) {
+            getReponsesForThisOffer: function (id, success, error) {
                 $http.get('/api/offers/' + id + '/offerResponses').success(success).error(error);
             },
-            cancelUserResponse: function(link, success, error) {
+            cancelUserResponse: function (link, success, error) {
                 $http.delete(link).success(success).error(error);
             },
-            patchResponse: function(id, accept, success, error) {
+            patchResponse: function (id, accept, success, error) {
                 $http.patch('/api/offerResponses/' + id,
                     {'status': accept}).success(success).error(error);
             },
-            getUserToContactWith: function(id, success, error) {
+            getUserToContactWith: function (id, success, error) {
                 return $http.get('api/offerResponses/' +
                     id + '/user').success(success).error(error);
             },
-            deleteOffer: function(id, success, error) {
+            deleteOffer: function (id, success, error) {
                 $http.delete('/api/offers/' + id).success(success).error(error);
             }
         };
