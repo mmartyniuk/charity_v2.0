@@ -1,5 +1,5 @@
 <div class="form-group row">
-	<label class="control-label col-sm-2">Зможу забрати:</label>
+	<label class="control-label col-sm-2">{{ 'core.canTake' | translate}}:</label>
 	<div class="col-sm-6">
 		<span editable-radiolist="vm.status" e-ng-options="s.value as s.text for s in vm.statuses">
 			{{ vm.showStatus() }}

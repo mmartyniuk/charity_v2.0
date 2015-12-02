@@ -1,11 +1,11 @@
 <div class="file-upload btn btn-primary">
-    <span>{{'newNeedRegister.selectImageButton' | translate}}</span>
+    <span>{{'core.selectImageButton' | translate}}</span>
     <input type="file" class="upload" file-model="vm.image">
 </div>
 <span class="btn btn-primary"
       ng-click="vm.addImage(vm.image)"
       ng-show="vm.image && (vm.images.length < 6)">
-    {{'newNeedRegister.uploadButton' | translate}}
+    {{'core.uploadButton' | translate}}
 </span>
 <div class="uploaded-images" ng-repeat="image in vm.images">
     <img src="{{ image.preview }}" alt="{{ image.name }}"/>

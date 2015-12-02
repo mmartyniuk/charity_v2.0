@@ -6,12 +6,13 @@
         .module('app.core')
         .controller('statusCtrl', statusCtrl);
 
-    statusCtrl.$inject = ['$filter'];
+    statusCtrl.$inject = ['$filter', '$translate'];
 
     /* @ngInject */
-    function statusCtrl($filter) {
+    function statusCtrl($filter, $translate) {
 
         var vm = this;
+        var unknownStatus;
 
         vm.title = 'statusCtrl';
         vm.showStatus = showStatus;
@@ -20,13 +21,22 @@
 
         activate();
 
-        function activate() {}
+        function activate() {
+            translate();
+            $rootScope.$on('$translateChangeSuccess', translate);
+        }
 
         function showStatus() {
             var selected = $filter('filter')(vm.statuses, {
                 value: vm.status
             });
-            return (vm.status && selected.length) ? selected[0].text : 'Невідомо';
+            return (vm.status && selected.length) ? selected[0].text : unknownStatus;
+        }
+
+        function translate() {
+            $translate('core.unknown').then(function(value) {
+                unknownStatus = value;
+            });
         }
     }
 })();
