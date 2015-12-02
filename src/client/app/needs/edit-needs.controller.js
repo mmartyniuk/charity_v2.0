@@ -56,12 +56,20 @@
         function getRegion() {
             EditNeedFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
+                if (vm.editedNeed.region) {
+                    var cities = _.findWhere(vm.regions, vm.editedNeed.region);
+                    vm.cities = cities._embedded.cities;
+                }
+
+                console.log(vm.cities);
+                vm.findCity(vm.editedNeed.region)
             });
         }
 
-        function setRegion(region, editNeedForm) {
+        function setRegion(region, editNeedForm, vmregion) {
             vm.cities = region._embedded.cities;
             editNeedForm.city.$invalid = true;
+            console.log(vmregion);
         }
 
         function saveEditedNeed() {
@@ -77,7 +85,14 @@
             $state.go($rootScope.previousState, {id: vm.needId});
         }
 
+        $scope.$watch('vm.editedNeed.city', function () {
+            /* vm.setRegion(vm.editedNeed.region);
+             vm.findCity(vm.editedNeed.region)*/
+        });
 
+        vm.findCity = function (region) {
+            console.log('region', region)
+        };
         vm.onCitySelect = function (selectedCity) {
             vm.editedNeed.city = selectedCity.name;
         };

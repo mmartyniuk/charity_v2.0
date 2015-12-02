@@ -46,18 +46,19 @@
                         <label class="control-label col-sm-2">{{'editNeed.selectRegion' | translate}}:</label>
 
                         <div class="col-sm-3">
-                            <span editable-select="regionjhf"
-                                  e-name="region"
-                                  e-ng-options="region.name for region in vm.regions track by region.id"
-                                  e-ng-change="vm.setRegion($data,editNeedForm );"
-                                  e-required>
-                                {{ (vm.regions | filter: {id: vm.editedNeed.region.id})[0].name  || 'bal'}}
-                            </span>
-                            <!--<select name="region" class="form-control"
+                            <!-- <span editable-select="vm.editedNeed.region.id"
+                                   e-name="region"
+                                   e-ng-options="region.name for region in vm.regions track by region.id"
+                                   e-ng-change="vm.setRegion($data,editNeedForm, vm.region );"
+                                   e-required>
+                                 {{ (vm.regions | filter: {id: vm.editedNeed.region.id})[0].name  || 'Empty'}}
+                             </span>-->
+                            <select name="region" class="form-control"
                                     ng-options="region.name for region in vm.regions track by region.id"
                                     ng-model="vm.editedNeed.region"
+                                    ng-change="vm.setRegion(vm.editedNeed.region,editNeedForm, vm.region )"
                                     required>
-                            </select>-->
+                            </select>
 
 
                             <span ng-if="editNeedForm.region.$invalid" style="color:red">Виберіть регіон</span>
@@ -68,20 +69,20 @@
 
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
-                            <span editable-select="vm.city"
+                            <!--span editable-select="vm.city"
                                   e-name="city"
                                   e-ng-options="city.name for city in vm.cities"
                                   e-ng-disabled="!editNeedForm.region.$modelValue"
                                   e-ng-change="vm.onCitySelect($data, editNeedForm);"
                                   e-required>
                                 {{ vm.city.name || vm.editedNeed.city.name }}
-                            </span>
+                            </span>-->
 
-                            <!--<select name="city" class="form-control"
+                            <select name="city" class="form-control"
                                     ng-options="city.name for city in vm.cities"
                                     ng-model="vm.editedNeed.city"
                                     required>
-                            </select>-->
+                            </select>
                             <span
                                 ng-if="editNeedForm.region.$valid && editNeedForm.city.$invalid"
                                 style="color:red">Виберіть місто</span>
