@@ -6,13 +6,14 @@
             'ngAnimate', 'ngSanitize',
             'blocks.exception', 'blocks.logger', 'blocks.router',
             'ui.router', 'ngplus', 'ui.bootstrap', 'flow', 'xeditable',
-            'ngStorage', 'angular-loading-bar', 'pascalprecht.translate'
-
+            'ngStorage', 'angular-loading-bar', 'ngCookies', 'pascalprecht.translate'
         ]).config(config);
 
     config.$inject = ['$translateProvider'];
 
     function config($translateProvider) {
+        $translateProvider.useCookieStorage();
+
         $translateProvider.translations('ua', {
             'core': {
                 selectCategoryPlaceholder: 'Виберіть категорію',
