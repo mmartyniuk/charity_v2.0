@@ -61,7 +61,14 @@
                     <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">{{'createdNeed.convenientTime' |
                         translate}}:
                     </dt>
-                    <dd ng-show="vm.currentNeed.convenientTime">{{vm.currentNeed.convenientTime}}</dd>
+                    <dd ng-show="vm.currentNeed.convenientTime">
+                        {{vm.currentNeed.convenientTime.dayFrom }}
+                        -
+                        {{vm.currentNeed.convenientTime.dayTo }}
+                        {{vm.currentNeed.convenientTime.timeFrom }}
+                        :
+                        {{vm.currentNeed.convenientTime.timeTo }}
+                    </dd>
 
                     <dt class="col-xs-3">{{'createdNeed.canTake' | translate}}:</dt>
                     <dd>{{vm.currentNeed.pickup}}</dd>

@@ -72,6 +72,7 @@
         function saveEditedNeed() {
             vm.editedNeed.date = vm.dt;
             vm.editedNeed.needId = vm.needId;
+            vm.editedNeed.cagories = vm.categoryHierarchy;
             vm.editedNeed.convenientTime = JSON.stringify(vm.convenientDate);
             return EditNeedFactory.updateCurrentNeed(vm.editedNeed).then(function () {
                 $state.go('needs.created', {id: vm.needId});

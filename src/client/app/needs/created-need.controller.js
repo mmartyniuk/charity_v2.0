@@ -71,7 +71,7 @@
             vm.currentNeed.dayCreated = vm.currentNeed.dateCreated.getDate();
             vm.currentNeed.monthCreated = vm.currentNeed.dateCreated.getMonth() + 1;
             vm.currentNeed.yearCreated = vm.currentNeed.dateCreated.getFullYear();
-
+            vm.currentNeed.convenientTime = JSON.parse(vm.currentNeed.convenientTime);
             vm.tempAddressUser = SharedFactory.sliceLink(vm.currentNeed._links.userCreated.href);
             vm.tempAddressCategory = SharedFactory.sliceLink(vm.currentNeed._links.category.href);
 

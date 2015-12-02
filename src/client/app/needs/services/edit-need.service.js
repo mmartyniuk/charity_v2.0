@@ -22,6 +22,7 @@
                     }).error(reject);
                 });
             },
+            //TODO: assign all nessecery properties when valid backend is provided
             updateCurrentNeed: function (need) {
                 return $http.patch('/api/needs/' + need.needId, {
                     'name': need.title,
