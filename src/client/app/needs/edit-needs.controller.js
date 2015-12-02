@@ -60,9 +60,6 @@
                     var cities = _.findWhere(vm.regions, vm.editedNeed.region);
                     vm.cities = cities._embedded.cities;
                 }
-
-                console.log(vm.cities);
-                vm.findCity(vm.editedNeed.region)
             });
         }
 
@@ -85,17 +82,6 @@
             $state.go($rootScope.previousState, {id: vm.needId});
         }
 
-        $scope.$watch('vm.editedNeed.city', function () {
-            /* vm.setRegion(vm.editedNeed.region);
-             vm.findCity(vm.editedNeed.region)*/
-        });
-
-        vm.findCity = function (region) {
-            console.log('region', region)
-        };
-        vm.onCitySelect = function (selectedCity) {
-            vm.editedNeed.city = selectedCity.name;
-        };
 
     }
 })();

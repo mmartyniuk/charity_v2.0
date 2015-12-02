@@ -79,7 +79,7 @@
                             </span>-->
 
                             <select name="city" class="form-control"
-                                    ng-options="city.name for city in vm.cities"
+                                    ng-options="city.name for city in vm.cities track by city.name"
                                     ng-model="vm.editedNeed.city"
                                     required>
                             </select>
