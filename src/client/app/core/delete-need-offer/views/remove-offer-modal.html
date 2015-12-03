@@ -2,10 +2,10 @@
     <div class="modal-header">
     </div>
     <div class="modal-body">
-        <span>Ви справді хочете видалити дану пропозицію?</span>
+        <span>{{ 'core.deleteOffer' | translate }}</span>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">{{ 'core.yesButton' | translate }}</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">{{ 'core.cancelButton' | translate }}</button>
     </div>
 </script>
