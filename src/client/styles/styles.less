@@ -27,6 +27,7 @@ a {
 @gray: rgba(70, 70, 70, 0.95);
 @gray-light: rgb(187, 187, 187);
 @brand-primary: #2196F3;
+@red: rgba(255, 0, 0, 0.62);
 
 /* Mixins */
 .clipped-text {
@@ -722,9 +723,13 @@ category-search span {
 
 /* <-------------- Register page END--------> */
 
-/* <--------------Edit-Need START--------> */
+/* <--------------edit-need.html START--------> */
+.error{
+    color: @red;
+    font-weight: bold;
+}
 .edit-need {
-    category-search{
+    category-search {
         margin-bottom: 0px;
     }
     day-and-time {
@@ -740,4 +745,4 @@ category-search span {
 
 }
 
-/* <---------------Edit-Need END--------> */
+/* <---------------edit-need.html END--------> */

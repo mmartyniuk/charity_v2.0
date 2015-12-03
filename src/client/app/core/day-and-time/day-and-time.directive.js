@@ -11,16 +11,7 @@ function dayAndTimeDirective() {
         },
         controller: 'DayAndTimeController',
         controllerAs: 'vm',
-        bindToController: true,
-        link: function (scope, elem, attrs) {
-            console.log('link', scope, elem, attrs);
-            scope.$watch('scope.vm.convenientTime.timeFrom', function () {
-                console.log('dfasffs')
-            })
-
-
-
-        }
+        bindToController: true
     };
 
 }

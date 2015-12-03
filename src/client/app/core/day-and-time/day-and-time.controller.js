@@ -11,7 +11,6 @@
         var vm = this;
         vm.disabledInput = false;
         vm.convenientTime = {};
-
         vm.fromTimeBtnIsOpened = false;
         vm.toTimeBtnIsOpened = false;
         vm.selectFromTime = selectFromTime;
