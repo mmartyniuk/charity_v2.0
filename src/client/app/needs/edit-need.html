@@ -22,9 +22,13 @@
 
                         <div class="col-sm-10 col-md-6 col-lg-4">
                             <category-search class="col-xs-12 no-gutter margin-bottom-20"
+                                             name="categories"
                                              category="vm.category"
-                                             category-hierarchy="vm.categoryHierarchy">
+                                             category-hierarchy="vm.categoryHierarchy"
+                                             ng-model="vm.categoryHierarchy"
+                                             required>
                             </category-search>
+                            <span ng-if="editNeedForm.categories.$invalid" style="color:red">Обов'язкове поле</span>
                         </div>
                     </div>
                     <hr>
@@ -57,12 +61,12 @@
                             <select name="region" class="form-control"
                                     ng-options="region.name for region in vm.regions track by region.id"
                                     ng-model="vm.editedNeed.region"
-                                    ng-change="vm.setRegion(vm.editedNeed.region,editNeedForm, vm.region )"
+                                    ng-change="vm.setRegion(vm.editedNeed.region,editNeedForm)"
                                     required>
                             </select>
 
 
-                            <span ng-if="editNeedForm.region.$invalid" style="color:red">Виберіть регіон</span>
+                            <span ng-if="editNeedForm.region.$invalid" style="color:red">Обов'язкове поле</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -86,7 +90,7 @@
                             </select>
                             <span
                                 ng-if="editNeedForm.region.$valid && editNeedForm.city.$invalid"
-                                style="color:red">Виберіть місто</span>
+                                style="color:red">Обов'язкове поле</span>
                         </div>
                     </div>
                     <hr>
@@ -104,7 +108,8 @@
                     <div class="form-group row">
                         <label class="control-label col-sm-2">{{'editNeed.convenientTime' | translate}}:</label>
 
-                        <day-and-time convinient-time="vm.convenientDate"></day-and-time>
+                        <day-and-time convenient-time="vm.convenientDate"
+                                      ng-model="vm.convenientDate"></day-and-time>
 
                     </div>
                     <status status="vm.editedNeed.status" statuses="vm.editedNeedStatuses"></status>

@@ -9,54 +9,72 @@
 
     function DayAndTimeController($filter, $scope) {
         var vm = this;
-        var d = new Date();
-        d.setHours( 9 );
-        d.setMinutes( 0 );
-        var b = new Date();
-        b.setHours(18 );
-        b.setMinutes( 0 );
-
-        vm.convinientTime = {};
+        vm.disabledInput = false;
+        vm.convenientTime = {};
 
         vm.fromTimeBtnIsOpened = false;
         vm.toTimeBtnIsOpened = false;
+        vm.selectFromTime = selectFromTime;
+        vm.selectToTime = selectToTime;
+        vm.toggleFromDate = toggleFromDate;
+        vm.toggleToDate = toggleToDate;
+        vm.fromTimeOfFocus = fromTimeOfFocus;
+        vm.toTimeOfFocus = toTimeOfFocus;
         vm.days = ['Понеділок', 'Вівторок', 'Середа', 'Червер', 'П\'ятниця', 'Субота', 'Неділя'];
-        vm.convinientTime.timeFrom = vm.convinientTime.timeFrom ? vm.convinientTime.timeFrom :
-            $filter('date')(d, 'HH:mm');
-        vm.convinientTime.timeTo = vm.convinientTime.timeTo ? vm.convinientTime.timeTo :
-            $filter('date')(b, 'HH:mm');
+
+        vm.convenientTime.timeFrom = vm.convenientTime.timeFrom ? vm.convenientTime.timeFrom :
+            $filter('date')(_getDefaultTimeFrom(), 'HH:mm');
+        vm.convenientTime.timeTo = vm.convenientTime.timeTo ? vm.convenientTime.timeTo :
+            $filter('date')(_getDefaultTimeTo(), 'HH:mm');
 
 
+        vm.timeFrom = vm.timeFrom ? vm.timeFrom : _getDefaultTimeFrom();
+        vm.timeTo = vm.timeTo ? vm.timeTo :_getDefaultTimeTo();
 
-        vm.timeFrom = vm.timeFrom ? vm.timeFrom : d;
-        vm.timeTo = vm.timeTo ? vm.timeTo : b;
+        vm.convenientTime.dayFrom = vm.days[0];
+        vm.convenientTime.dayTo = vm.days[6];
 
-        vm.convinientTime.dayFrom = vm.days[0];
-        vm.convinientTime.dayTo = vm.days[6];
+        function _getDefaultTimeFrom() {
+            var time = new Date();
+            time.setHours(9);
+            time.setMinutes(0);
+            return time;
+        }
 
-        vm.selectFromTime = function (time) {
-            vm.convinientTime.timeFrom = $filter('date')(time, 'HH:mm');
-        };
+        function _getDefaultTimeTo() {
+            var time = new Date();
+            time.setHours(18);
+            time.setMinutes(0);
+            return time;
+        }
 
-        vm.selectToTime = function (time) {
-            vm.convinientTime.timeTo = $filter('date')(time, 'HH:mm');
-        };
+        function selectFromTime(time) {
+            vm.convenientTime.timeFrom = $filter('date')(time, 'HH:mm');
+        }
 
-        vm.toggleFromDate = function () {
+        function selectToTime(time) {
+            vm.convenientTime.timeTo = $filter('date')(time, 'HH:mm');
+        }
+
+        function toggleFromDate() {
             vm.fromTimeBtnIsOpened = !vm.fromTimeBtnIsOpened;
-        };
+            vm.toTimeBtnIsOpened = false;
+        }
 
-        vm.toggleToDate = function () {
+        function toggleToDate() {
             vm.toTimeBtnIsOpened = !vm.toTimeBtnIsOpened;
-        };
+            vm.fromTimeBtnIsOpened = false;
 
-        vm.fromTimeOfFocus = function () {
-            vm.fromTimeBtnIsOpened = true;
-        };
+        }
 
-        vm.toTimeOfFocus = function () {
+        function fromTimeOfFocus() {
             vm.fromTimeBtnIsOpened = true;
-        };
+        }
+
+        function toTimeOfFocus() {
+            vm.toTimeBtnIsOpened = true;
+        }
+
 
     }
 })();

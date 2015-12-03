@@ -41,6 +41,7 @@
 
         function currentNeed() {
             EditNeedFactory.getConcreteNeed($stateParams.id).then(function (response) {
+                //TODO: categories of edited need should be provided be backend
                 vm.editedNeed.title = response.data.name;
                 vm.editedNeed.needText = response.data.description;
                 vm.editedNeed.region = response.data._embedded.city.region;
@@ -63,10 +64,10 @@
             });
         }
 
-        function setRegion(region, editNeedForm, vmregion) {
+        function setRegion(region, editNeedForm) {
             vm.cities = region._embedded.cities;
             editNeedForm.city.$invalid = true;
-            console.log(vmregion);
+            console.log(editNeedForm);
         }
 
         function saveEditedNeed() {

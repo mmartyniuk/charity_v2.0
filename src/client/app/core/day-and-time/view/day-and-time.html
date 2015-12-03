@@ -1,41 +1,46 @@
 <div>
     <!-- Select days starts-->
-    <div>
+    <div class="input-group">
         <div class="col-sm-2">
             <select class="form-control"
                     ng-options="day for day in vm.days"
-                    ng-model="vm.convinientTime.dayFrom"
+                    ng-model="vm.convenientTime.dayFrom"
                     required>
             </select>
         </div>
 
-        <span class="col-sm-1 text-bottom">---</span>
+        <span class="col-sm-1 text-center">--</span>
 
         <div class="col-sm-2">
-            <select class="form-control" ng-options="day for day in vm.days" ng-model="vm.convinientTime.dayTo"
+            <select class="form-control"
+                    ng-options="day for day in vm.days"
+                    ng-model="vm.convenientTime.dayTo"
                     required>
             </select>
         </div>
-    </div>
-    <!-- Select days ends-->
-    <!-- Time pickers start-->
-    <div class="input-group">
+
+        <!-- Select days ends-->
+        <!-- Time pickers start-->
+
         <span class="col-sm-1 text-center">від</span>
 
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <input type="text"
+                   name="timeFrom"
                    class="form-control"
-                   ng-model="vm.convinientTime.timeFrom"
-                   ng-focus="vm.open()"/>
+                   ng-model="vm.convenientTime.timeFrom"
+                   ng-readonly="true"
+                   ng-focus="vm.fromTimeOfFocus()"
+                   ng-blur="vm.toggleFromDate()"/>
 
-            <div class="input-group-btn pull-right" ng-class='{open: vm.fromTimeBtnIsOpened}'>
+            <div class="input-group-btn pull-right" ng-class="{open: vm.fromTimeBtnIsOpened}">
                 <button type="button"
                         class="btn btn-default"
                         ng-click="vm.toggleFromDate()"
                         dropdown-toggle>
                     <i class="glyphicon glyphicon-time"></i>
                 </button>
-                <div class='dropdown-menu'>
+                <div class="dropdown-menu">
                     <timepicker ng-model="vm.timeFrom"
                                 show-meridian="false"
                                 ng-change=" vm.selectFromTime(vm.timeFrom)">
@@ -44,14 +49,17 @@
             </div>
         </div>
 
-        <span class="col-sm-1">по</span>
+        <span class="col-sm-1 text-center">по</span>
 
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <input type="text"
                    class="form-control"
-                   ng-model="vm.convinientTime.timeTo"/>
+                   ng-model="vm.convenientTime.timeTo"
+                   ng-readonly="true"
+                   ng-focus="vm.toTimeOfFocus()"
+                   ng-blur="vm.toggleToDate()"/>
 
-            <div class="input-group-btn pull-right" ng-class="{open: vm.toTimeBtnIsOpened}">
+            <div class="input-group-btn" ng-class="{open: vm.toTimeBtnIsOpened}">
                 <button type="button"
                         class="btn btn-default"
                         ng-click="vm.toggleToDate()"
