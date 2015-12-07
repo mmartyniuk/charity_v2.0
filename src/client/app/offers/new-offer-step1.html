@@ -1,10 +1,10 @@
 <section>
     <div class="container well top">
-        <h2 class="text-left text-heading">Нова пропозиція</h2>
+        <h2 class="text-left text-heading">{{ 'offers.newOffer' | translate }}</h2>
         <hr>
         <form class="form-horizontal" name="NewOffer" ng-submit="vm.submitOffer()">
             <div class="form-group">
-                <label class="control-label col-md-1 col-sm-2">Назва</label>
+                <label class="control-label col-md-1 col-sm-2">{{ 'offers.offerName' | translate }}</label>
 
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="offerTitle" ng-model="vm.offer.title"
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-1 col-sm-2">Категорія</label>
+                <label class="control-label col-md-1 col-sm-2">{{ 'offers.category' | translate }}</label>
 
                 <div class="col-sm-6">
                     <category-search category-hierarchy="vm.offer.categoryHierarchy"
@@ -22,8 +22,8 @@
             </div>
             <div class="col-md-7 col-sm-8">
                 <div class="form-group pull-right prev-next-buttons">
-                    <a type="button" ui-sref="offers.home" class="btn btn-default">Назад</a>
-                    <button type="submit" class="btn btn-primary">Далі</button>
+                    <a type="button" ui-sref="offers.home" class="btn btn-default">{{ 'offers.backButton' | translate }}</a>
+                    <button type="submit" class="btn btn-primary">{{ 'offers.furtherButton' | translate }}</button>
                 </div>
             </div>
         </form>

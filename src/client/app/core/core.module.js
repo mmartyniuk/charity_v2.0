@@ -21,13 +21,15 @@
                 deleteNeed: 'Ви справді хочете видалити дану потребу?',
                 deleteOffer: 'Ви справді хочете видалити дану пропозицію?',
                 yesButton: 'Так',
+                noButton: 'Ні',
                 cancelButton: 'Відмінити',
                 close: 'Закрити',
                 unknown: 'Невідомо',
                 selectImageButton: 'Вибрати зображення',
                 uploadButton: 'Завантажити',
                 specifyCity: 'Вкажіть місто',
-                canTake: 'Зможу забрати'
+                canTake: 'Зможу забрати',
+                before: 'до'
             }
         });
 
@@ -38,13 +40,15 @@
                 deleteNeed: 'Вы действительно хотите удалить данную потребность?',
                 deleteOffer: 'Вы действительно хотите удалить данное предложение?',
                 yesButton: 'Да',
+                noButton: 'Нет',
                 cancelButton: 'Отменить',
                 close: 'Закрыть',
                 unknown: 'Неизвестно',
                 selectImageButton: 'Выбрать изображение',
                 uploadButton: 'Загрузить',
                 specifyCity: 'Укажите город',
-                canTake: 'Смогу забрать'
+                canTake: 'Смогу забрать',
+                before: 'до'
             }
         });
     }

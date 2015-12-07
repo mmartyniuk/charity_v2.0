@@ -2,13 +2,13 @@
 <section>
     <div class="container edit-offer">
         <div>
-            <h2 class="text-left">Редагування пропозиції</h2>
+            <h2 class="text-left">{{ 'offers.editingOfOffer' | translate }}</h2>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
                 <form editable-form name="editOfferForm" onaftersave="vm.saveEditedOffer()">
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Назва:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.offerName' | translate }}:</label>
 
                         <div class="col-sm-10">
                             <div>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Категорія:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.category' | translate }}:</label>
 
                         <div class="col-sm-10 col-md-6 col-lg-4">
                             <category-search class="col-xs-12 no-gutter margin-bottom-20"
@@ -28,7 +28,7 @@
                     </div>
                     <hr>
                     <div class="form-group row offer-desc">
-                        <label class="control-label col-sm-2">Опис пропозиції:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.offerDescription' | translate }}:</label>
 
                         <div class="col-sm-10">
                             <div>
@@ -39,11 +39,11 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Фото:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.photo' | translate }}:</label>
                         <file-upload-directive images="vm.images"></file-upload-directive>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Виберіть область:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.selectRegion' | translate }}:</label>
 
                         <div class="col-sm-3">
                             <span editable-select="vm.region" e-name="region"
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Виберіть місто:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.selectCity' | translate }}:</label>
 
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
@@ -66,7 +66,7 @@
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Адреса:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.address' | translate }}:</label>
 
                         <div class="col-sm-3">
                             <span editable-text="vm.editedOffer.address" e-name="street" id="str">{{ vm.editedOffer.address }}</span>
@@ -76,7 +76,7 @@
                         <date-picker date="vm.dt">{{vm.editedNeed.date}}</date-picker>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-sm-2">Зручний час:</label>
+                        <label class="control-label col-sm-2">{{ 'offers.convenientTime' | translate }}:</label>
 
                         <div class="col-sm-3">
                             <span editable-text="vm.editedOffer.convenientTime" e-name="time">{{ vm.editedOffer.convenientTime }}</span>
@@ -88,14 +88,14 @@
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-default" ng-click="editOfferForm.$show()"
                                     ng-show="!editOfferForm.$visible" ng-init="editOfferForm.$show()">
-                                Edit
+                                {{ 'offers.edit' | translate }}
                             </button>
                             <!-- buttons to submit / cancel form -->
                     <span ng-show="editOfferForm.$visible">
                        <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
-                           Зберегти
+                           {{ 'offers.save' | translate }}
                        </button>
-                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">Відмінити</a>
+                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">{{ 'offers.cancel' | translate }}</a>
                         <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                                 ng-click="editOfferForm.$cancel()">
                             Скасувати
