@@ -70,7 +70,8 @@
                     <dd ng-show="vm.currentOffer.convenientTime">{{vm.currentOffer.convenientTime}}</dd>
 
                     <dt class="col-xs-3">{{ 'offers.canTake' | translate }}:</dt>
-                    <dd>{{vm.currentOffer.pickup}}</dd>
+                    <dd ng-show="vm.currentOffer.pickup">{{ 'core.yesButton' | translate }}</dd>
+                    <dd ng-hide="vm.currentOffer.pickup">{{ 'core.noButton' | translate }}</dd>
                 </dl>
                 <hr>
                 <div ng-show="vm.currentOffer.open">

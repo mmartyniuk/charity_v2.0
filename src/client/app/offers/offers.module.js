@@ -59,7 +59,12 @@
                 lastPage: 'Остання',
                 previousPage: 'Попередня',
                 nextPage: 'Наступна',
-                lookingFor: 'Що ви шукаєте'
+                lookingFor: 'Що ви шукаєте',
+
+                offersPaginationLabel: 'пропозицій',
+                allOffers: 'Усі пропозиції',
+                offersFound: 'За Вашим запитом знайдено пропозицій: {{count}}',
+                nothingFound: 'На жаль за Вашим запитом нічого не знайдено.'
             }
         });
         $translateProvider.translations('ru', {
@@ -89,7 +94,7 @@
                 cancelGettingResponseFromUser: 'Отказаться от помощи этого пользователя',
                 offerIsClosed: 'Эта потребность закрыта',
 
-                editingOfOffer: 'Редагування пропозиції',
+                editingOfOffer: 'Редактирование предложения',
                 offerName: 'Название',
                 save: 'Сохранить',
 
@@ -113,7 +118,12 @@
                 lastPage: 'Последняя',
                 previousPage: 'Предидущая',
                 nextPage: 'Следующая',
-                lookingFor: 'Что вы ищете'
+                lookingFor: 'Что вы ищете',
+
+                offersPaginationLabel: 'предложений',
+                allOffers: 'Все предложения',
+                offersFound: 'По Вашему запросу найдено предложений: {{count}}',
+                nothingFound: 'К сожалению по вашему запросу ничего не найдено.'
             }
         });
     }

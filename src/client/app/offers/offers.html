@@ -20,7 +20,7 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem">
                             <span class="glyphicon glyphicon-chevron-right"></span>
-                            <a href="#" ng-click="vm.setContentType('Пропозиції')">{{ 'offers.offers' | translate }}</a>
+                            <a href="#" >{{ 'offers.offers' | translate }}</a>
                         </li>
                     </ul>
                 </div>
@@ -32,7 +32,11 @@
         </div>
     </section>
     <div class="container search-result well top">
-        <h2>{{vm.searchLabel}}</h2>
+        <h2 ng-show="vm.searchResultState === 'initial'">{{ 'offers.allOffers' | translate }}</h2>
+        <h2 ng-show="vm.searchResultState === 'found'">{{ 'offers.offersFound' | translate:{count: vm.totalItems} }}</h2>
+        <h2 ng-show="vm.searchResultState === 'nothing'">{{ 'offers.nothingFound' | translate }}</h2>
+
+        <!--<h2>{{vm.searchLabel}}</h2>-->
         <hr>
         <div ng-repeat="offer in vm.offers">
             <div class="row">
