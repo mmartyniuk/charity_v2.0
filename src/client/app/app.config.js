@@ -18,11 +18,13 @@
         $httpProvider.interceptors.push('AuthInterceptor');
         $translateProvider.translations('ua', {
             contacts : 'Контакти',
-            confidential: 'Конфіденційність'
+            confidential: 'Конфіденційність',
+            termsOfUse: 'Умови користування'
         });
         $translateProvider.translations('ru', {
             contacts : 'Контакты',
-            confidential: 'Конфиденциальность'
+            confidential: 'Конфиденциальность',
+            termsOfUse: 'Условия пользования'
         });
         $translateProvider.preferredLanguage('ua');
     }
