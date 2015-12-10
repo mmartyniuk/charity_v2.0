@@ -60,7 +60,7 @@
                     wednesday: 'Среда',
                     thursday: 'Четверг',
                     friday: 'Пятница',
-                    saturday: 'Субота',
+                    saturday: 'Суббота',
                     sunday: 'Воскресение'
                 }
             }
