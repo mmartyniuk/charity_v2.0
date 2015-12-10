@@ -19,7 +19,6 @@
         vm.toggleToDate = toggleToDate;
         vm.fromTimeOfFocus = fromTimeOfFocus;
         vm.toTimeOfFocus = toTimeOfFocus;
-        vm.days = ['Понеділок', 'Вівторок', 'Середа', 'Червер', 'П\'ятниця', 'Субота', 'Неділя'];
 
         vm.convenientTime.timeFrom = vm.convenientTime.timeFrom ? vm.convenientTime.timeFrom :
             $filter('date')(_getDefaultTimeFrom(), 'HH:mm');
@@ -29,9 +28,6 @@
 
         vm.timeFrom = vm.timeFrom ? vm.timeFrom : _getDefaultTimeFrom();
         vm.timeTo = vm.timeTo ? vm.timeTo :_getDefaultTimeTo();
-
-        vm.convenientTime.dayFrom = vm.days[0];
-        vm.convenientTime.dayTo = vm.days[6];
 
         function _getDefaultTimeFrom() {
             var time = new Date();
