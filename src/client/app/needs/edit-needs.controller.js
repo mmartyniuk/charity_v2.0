@@ -36,7 +36,6 @@
         function activate() {
             vm.getRegion();
             vm.currentNeed();
-
         }
 
         function currentNeed() {
@@ -82,7 +81,6 @@
         function cancel() {
             $state.go($rootScope.previousState, {id: vm.needId});
         }
-
 
     }
 })();

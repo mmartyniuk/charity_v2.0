@@ -30,13 +30,15 @@
                 canTake: 'Зможу забрати',
                 days: {
                     monday: 'Понеділок',
-                    tuesday: 'Віторок',
+                    tuesday: 'Вівторок',
                     wednesday: 'Середа',
                     thursday: 'Четвер',
                     friday: 'П\'ятниця',
                     saturday: 'Субота',
                     sunday: 'Неділя'
-                }
+                },
+                timeFrom:'від',
+                timeTo: 'по'
             }
         });
 
@@ -61,8 +63,10 @@
                     thursday: 'Четверг',
                     friday: 'Пятница',
                     saturday: 'Суббота',
-                    sunday: 'Воскресение'
-                }
+                    sunday: 'Воскресенье'
+                },
+                timeFrom:'c',
+                timeTo: 'до'
             }
         });
     }

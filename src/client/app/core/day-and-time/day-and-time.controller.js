@@ -72,6 +72,5 @@
             vm.toTimeBtnIsOpened = true;
         }
 
-
     }
 })();
