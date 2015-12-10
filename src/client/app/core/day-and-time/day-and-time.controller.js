@@ -25,8 +25,8 @@
         vm.convenientTime.timeTo = vm.convenientTime.timeTo ? vm.convenientTime.timeTo :
             $filter('date')(_getDefaultTimeTo(), 'HH:mm');
 
-        vm.convenientTime.dayFrom = $filter('translate')('core.days.monday');
-        vm.convenientTime.dayTo = $filter('translate')('core.days.sunday');
+        vm.convenientTime.dayFrom = 'monday';
+        vm.convenientTime.dayTo = 'sunday';
 
         vm.timeFrom = vm.timeFrom ? vm.timeFrom : _getDefaultTimeFrom();
         vm.timeTo = vm.timeTo ? vm.timeTo :_getDefaultTimeTo();
