@@ -62,9 +62,9 @@
                         translate}}:
                     </dt>
                     <dd ng-show="vm.currentNeed.convenientTime">
-                        {{vm.currentNeed.convenientTime.dayFrom }}
+                        {{'core.days.'+ vm.currentNeed.convenientTime.dayFrom | translate}}
                         -
-                        {{vm.currentNeed.convenientTime.dayTo }}
+                        {{'core.days.'+ vm.currentNeed.convenientTime.dayTo | translate}}
                         {{vm.currentNeed.convenientTime.timeFrom }}
                         :
                         {{vm.currentNeed.convenientTime.timeTo }}
