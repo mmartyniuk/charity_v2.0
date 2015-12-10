@@ -27,7 +27,8 @@
                                              ng-model="vm.categoryHierarchy"
                                              required>
                             </category-search>
-                            <span ng-if="editNeedForm.categories.$invalid" class="error">Обов'язкове поле</span>
+                            <span ng-if="editNeedForm.categories.$invalid" class="error">
+                                {{'editNeed.requiredField' | translate}}</span>
                         </div>
                     </div>
                     <hr>
@@ -54,7 +55,8 @@
                                     ng-change="vm.setRegion(vm.editedNeed.region,editNeedForm)"
                                     required>
                             </select>
-                            <span ng-if="editNeedForm.region.$invalid" class="error">Обов'язкове поле</span>
+                            <span ng-if="editNeedForm.region.$invalid" class="error">
+                                {{'editNeed.requiredField' | translate}}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -68,7 +70,7 @@
                             </select>
                             <span
                                 ng-if="editNeedForm.region.$valid && editNeedForm.city.$invalid"
-                                class="error">Обов'язкове поле</span>
+                                class="error">{{'editNeed.requiredField' | translate}}</span>
                         </div>
                     </div>
                     <hr>
