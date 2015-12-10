@@ -27,7 +27,16 @@
                 selectImageButton: 'Вибрати зображення',
                 uploadButton: 'Завантажити',
                 specifyCity: 'Вкажіть місто',
-                canTake: 'Зможу забрати'
+                canTake: 'Зможу забрати',
+                days: {
+                    monday: 'Понеділок',
+                    tuesday: 'Віторок',
+                    wednesday: 'Середа',
+                    thursday: 'Четвер',
+                    friday: 'П\'ятниця',
+                    saturday: 'Субота',
+                    sunday: 'Неділя'
+                }
             }
         });
 
@@ -44,7 +53,16 @@
                 selectImageButton: 'Выбрать изображение',
                 uploadButton: 'Загрузить',
                 specifyCity: 'Укажите город',
-                canTake: 'Смогу забрать'
+                canTake: 'Смогу забрать',
+                days: {
+                    monday: 'Понедельник',
+                    tuesday: 'Вторник',
+                    wednesday: 'Среда',
+                    thursday: 'Четверг',
+                    friday: 'Пятница',
+                    saturday: 'Субота',
+                    sunday: 'Восрисение'
+                }
             }
         });
     }

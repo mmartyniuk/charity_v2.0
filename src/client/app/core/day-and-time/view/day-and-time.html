@@ -3,9 +3,15 @@
     <div class="input-group">
         <div class="col-sm-2">
             <select class="form-control"
-                    ng-options="day for day in vm.days"
                     ng-model="vm.convenientTime.dayFrom"
                     required>
+                <option value="{{'core.days.monday' | translate}}" ng-selected="true">{{'core.days.monday' | translate}}</option>
+                <option value="{{'core.days.tuesday' | translate}}">{{'core.days.tuesday' | translate}}</option>
+                <option value="{{'core.days.wednesday' | translate}}">{{'core.days.wednesday' | translate}}</option>
+                <option value="{{'core.days.thursday' | translate}}">{{'core.days.thursday' | translate}}</option>
+                <option value="{{'core.days.friday' | translate}}">{{'core.days.friday' | translate}}</option>
+                <option value="{{'core.days.saturday' | translate}}">{{'core.days.saturday' | translate}}</option>
+                <option value="{{'core.days.sunday' | translate}}">{{'core.days.sunday' | translate}}</option>
             </select>
         </div>
 
@@ -13,9 +19,15 @@
 
         <div class="col-sm-2">
             <select class="form-control"
-                    ng-options="day for day in vm.days"
                     ng-model="vm.convenientTime.dayTo"
                     required>
+                <option value="{{'core.days.monday' | translate}}">{{'core.days.monday' | translate}}</option>
+                <option value="{{'core.days.tuesday' | translate}}">{{'core.days.tuesday' | translate}}</option>
+                <option value="{{'core.days.wednesday' | translate}}">{{'core.days.wednesday' | translate}}</option>
+                <option value="{{'core.days.thursday' | translate}}">{{'core.days.thursday' | translate}}</option>
+                <option value="{{'core.days.friday' | translate}}">{{'core.days.friday' | translate}}</option>
+                <option value="{{'core.days.saturday' | translate}}">{{'core.days.saturday' | translate}}</option>
+                <option value="{{'core.days.sunday' | translate}}" ng-selected="true">{{'core.days.sunday' | translate}}</option>
             </select>
         </div>
 
