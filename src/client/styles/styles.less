@@ -27,9 +27,9 @@ a {
 @gray: rgba(70, 70, 70, 0.95);
 @gray-light: rgb(187, 187, 187);
 @brand-primary: #2196F3;
+@red: rgba(255, 0, 0, 0.62);
 
-
- /* Mixins */
+/* Mixins */
 .clipped-text {
     overflow: hidden;
     white-space: nowrap;
@@ -41,8 +41,9 @@ a {
 }
 
 .dropButtons {
-	width: 90px;
+    width: 90px;
 }
+
 /*.input-group {
 	width: 40%;
 	float: right;
@@ -68,26 +69,32 @@ a {
 #navbar ul li:hover {
     background-color: #ccc;
 }
-.currneLink{
+
+.currneLink {
     text-decoration: underline !important;
 }
+
 .container .control-label {
     text-align: left;
 }
+
 /*secondaryNavigation begin*/
 .secondaryNavigation {
     padding-left: 1em;
     margin: 0;
 }
+
 .secondaryNavigation li {
     list-style: none;
     display: inline-block;
     margin-right: 10px;
 
 }
+
 .secondaryNavigation li.topRow a {
     color: #000000;
 }
+
 .marginBottom {
     margin-bottom: 5px;
 }
@@ -100,23 +107,27 @@ a {
     display: block;
     height: 45px;
 }
+
 .marginRight {
     margin-right: 5px;
 }
+
 .fontWeight {
     font-weight: bold;
 }
+
 .fontWeight.collapsed {
-     font-weight: normal;
+    font-weight: normal;
 }
+
 /*secondaryNavigation end*/
-@media (max-width:720px) {
+@media (max-width: 720px) {
     body {
         padding-bottom: 80px;
     }
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
     body {
         padding-bottom: 90px;
     }
@@ -124,24 +135,27 @@ a {
 
 /* footer style */
 .footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background-color: #f8f8f8;
-	border-color: #e7e7e7;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
     height: 60px;
 }
 
 .text-muted {
-	text-align: center;
+    text-align: center;
 }
+
 .text-muted span a {
-	margin-right: 1em;
+    margin-right: 1em;
 }
+
 #date-picker {
     padding-right: 15px;
     padding-left: 15px;
 }
+
 .file-upload span {
     margin-bottom: 5px;
 }
@@ -154,50 +168,64 @@ a {
     position: relative;
     left: 5%;
 }
+
 .topLinks span {
     margin-right: 5px;
 }
+
 .topLinks span a {
     text-decoration: none;
     color: black;
 }
+
 .status {
     background-color: lightgray;
     padding: 15px;
     margin-bottom: 10px;
 }
+
 .activeNeed {
     font-weight: bold;
 }
+
 .status span {
     margin-right: 2em;
 }
-.status span a{
+
+.status span a {
     color: black;
 }
-.status span a:hover{
+
+.status span a:hover {
     text-decoration: underline;
 }
+
 .search-result {
     margin-bottom: 50px;
 }
+
 .product-images img {
     margin-bottom: 15px;
 }
+
 #itemsPerPageWrapper {
     margin: 25px 20px;
 }
+
 #itemsPerPageWrapper ul {
     z-index: 1031;
 }
+
 #itemsPerPageWrapper ul li a {
     color: #777;
 }
+
 #itemsPerPageWrapper button {
     border-color: #ddd;
     color: #777;
     text-transform: none;
 }
+
 /* <--------------needs.html style END--------> */
 
 /* <--------------created_needs.html and created_offers.html styles--------> */
@@ -206,7 +234,6 @@ a {
     .main_image img, .gallery img {
         width: 100%;
     }
-
 
 }
 
@@ -224,19 +251,24 @@ a {
 #registerModal .registrationForm {
     margin-bottom: 40px;
 }
+
 /* <--------------register.html style END--------> */
 .additional_images {
     padding: 10px 12px 0 0;
 }
+
 .heading {
     padding-bottom: 10px;
 }
+
 .buttons, .space {
     margin-top: 20px;
 }
+
 .offer-info {
     word-break: break-all;
 }
+
 /* <--------------index.html style--------> */
 .no-gutter {
     padding-left: 0;
@@ -294,6 +326,7 @@ a {
 .last-needs {
     clear: left;
 }
+
 .recent-publications {
     .well {
         margin-top: 20px;
@@ -356,8 +389,6 @@ a {
 
 }
 
-
-
 /* <--------------index.html style END--------> */
 /* <--------------edit-offer.html style--------> */
 
@@ -374,7 +405,7 @@ a {
 /* <--------------offers.html style --------> */
 
 #offers, #needs {
-    .main-filters{
+    .main-filters {
         background-color: transparent;
         .container {
             background-color: @brand-primary;
@@ -392,21 +423,27 @@ a {
         }
     }
 }
+
 .check {
     margin: 10px 0 0 0;
 }
+
 .check span {
     margin-right: 20px;
 }
+
 .check span a {
     text-decoration: underline;
 }
+
 div.form-group.prev-next-buttons {
     margin-right: 0;
 }
+
 .title-label {
     margin-top: 15px;
 }
+
 /* <--------------offers.html style END--------> */
 
 /* <--------------my-profile.html style --------> */
@@ -487,6 +524,7 @@ div.form-group.prev-next-buttons {
     }
 
 }
+
 .user-profile {
     .nav-tabs > li {
         &.wide {
@@ -494,6 +532,7 @@ div.form-group.prev-next-buttons {
         }
     }
 }
+
 /* <--------------my-profile.html style  END--------> */
 
 /* <-------------- newNeed(Offer)beforeRegisterl style --------> */
@@ -501,6 +540,7 @@ div.form-group.prev-next-buttons {
     float: left;
     margin: 0 40px 0 0;
 }
+
 .subcategory, .subcategory_child {
     border-left: 1px solid #e5e5e5;
     float: left;
@@ -512,46 +552,55 @@ div.form-group.prev-next-buttons {
 .file-upload ul li {
     list-style-type: none;
 }
+
 .filesupload {
     display: inline;
 }
+
 .fileClose {
     cursor: pointer;
     color: #337ab7;
     padding-bottom: 2px;
 }
+
 .file-upload ul li img {
     width: 65px;
     height: auto;
     border: 1px solid #e5e5e5;
     margin-bottom: 8px;
 }
-/* <-------------- newNeed(Offer)beforeRegisterl style  END--------> */
 
+/* <-------------- newNeed(Offer)beforeRegisterl style  END--------> */
 
 /* <---- NAV BAR MIN-WIDTH FIX NEED TO REMOVE AND FIX IN BOOTSTRAP ! -----> */
 @media (max-width: 1000px) {
     .navbar-header {
         float: none;
     }
+
     .navbar-toggle {
         display: block;
     }
+
     .navbar-collapse {
         border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
+
     .navbar-collapse.collapse {
-        display: none!important;
+        display: none !important;
     }
+
     .navbar-nav {
-        float: none!important;
+        float: none !important;
         margin: 7.5px -15px;
     }
-    .navbar-nav>li {
+
+    .navbar-nav > li {
         float: none;
     }
-    .navbar-nav>li>a {
+
+    .navbar-nav > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -588,7 +637,7 @@ div.form-group.prev-next-buttons {
         .glyphicon {
             display: inline;
             color: #ddd;
-    }
+        }
     }
 }
 
@@ -624,6 +673,7 @@ category-search span {
 .regions span, .cities span {
     width: 20%;
 }
+
 /* <-------------- Dropdown  END--------> */
 
 /* <-------------- File Upload --------> */
@@ -653,6 +703,7 @@ category-search span {
     max-width: 100px;
     max-height: 100px;
 }
+
 /* <-------------- File Upload END--------> */
 
 /* <-------------- Register page --------> */
@@ -669,4 +720,27 @@ category-search span {
 #register .ng-submitted .ng-invalid-required, #register .ng-submitted .ng-invalid-email {
     box-shadow: 0 -2px 0 red inset;
 }
+
 /* <-------------- Register page END--------> */
+
+/* <--------------edit-need.html START--------> */
+.error{
+    color: @red;
+    font-weight: bold;
+}
+.edit-need {
+    category-search {
+        margin-bottom: 0;
+    }
+    day-and-time {
+        .input-group {
+            line-height: 39px;
+            .input-group-btn {
+                float: right;
+                display: inline-flex;
+                position: absolute;
+            }
+        }
+    }
+}
+/* <---------------edit-need.html END--------> */

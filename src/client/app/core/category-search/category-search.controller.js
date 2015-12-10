@@ -49,5 +49,6 @@
             vm.categoryButton = vm.category;
             vm.dropdown.isOpened = false;
         }
+
     }
 })();

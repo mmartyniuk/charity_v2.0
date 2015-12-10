@@ -6,10 +6,10 @@
         .module('app.core')
         .controller('statusCtrl', statusCtrl);
 
-    statusCtrl.$inject = ['$filter', '$translate'];
+    statusCtrl.$inject = ['$filter', '$translate', '$rootScope'];
 
     /* @ngInject */
-    function statusCtrl($filter, $translate) {
+    function statusCtrl($filter, $translate, $rootScope) {
 
         var vm = this;
         var unknownStatus;

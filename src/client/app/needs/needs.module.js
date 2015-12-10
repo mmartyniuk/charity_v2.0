@@ -62,7 +62,8 @@
                 convenientTime: 'Зручний час',
                 edit: 'Редагувати',
                 save: 'Зберегти',
-                cancel: 'Відмінити'
+                cancel: 'Відмінити',
+                requiredField:'Обов\'язкове поле'
             },
             newNeedRegister: {
                 newNeed: 'Нова потреба',
@@ -157,7 +158,8 @@
                 convenientTime: 'Удобное время',
                 edit: 'Редактировать',
                 save: 'Cохранить',
-                cancel: 'Отменить'
+                cancel: 'Отменить',
+                requiredField:'Обязательное поле'
 
             },
             newNeedRegister: {
