@@ -32,7 +32,7 @@
                 phoneNumber: 'Телефон',
                 receive: 'Отримати',
                 confirmAssistance: 'Підтвердити отримання допомоги',
-                cancelGettingResponseFromUser: 'Відмінити підтримання допомоги від цього користувача',
+                cancelGettingResponseFromUser: ' Відмовитись від допомоги цього користувача',
                 offerIsClosed: 'Ця пропозиція закрита',
 
                 editingOfOffer: 'Редагування пропозиції',
@@ -116,7 +116,7 @@
                 display: 'Отображать',
                 firstPage: 'Первая',
                 lastPage: 'Последняя',
-                previousPage: 'Предидущая',
+                previousPage: 'Предыдущая',
                 nextPage: 'Следующая',
                 lookingFor: 'Что вы ищете',
 
