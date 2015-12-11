@@ -1,89 +1,87 @@
-<div>
+<div class="form-inline">
     <!-- Select days starts-->
-    <div class="input-group">
-        <div class="col-sm-2">
-            <select class="form-control"
-                    ng-model="vm.convenientTime.dayFrom"
-                    required>
-                <option value="monday" ng-selected="true">{{'core.days.monday' | translate}}</option>
-                <option value="tuesday">{{'core.days.tuesday' | translate}}</option>
-                <option value="wednesday">{{'core.days.wednesday' | translate}}</option>
-                <option value="thursday">{{'core.days.thursday' | translate}}</option>
-                <option value="friday">{{'core.days.friday' | translate}}</option>
-                <option value="saturday">{{'core.days.saturday' | translate}}</option>
-                <option value="sunday">{{'core.days.sunday' | translate}}</option>
-            </select>
-        </div>
+    <div class="form-group">
+        <select class="form-control"
+                ng-model="vm.convenientTime.dayFrom"
+                required>
+            <option value="monday" ng-selected="true">{{'core.days.monday' | translate}}</option>
+            <option value="tuesday">{{'core.days.tuesday' | translate}}</option>
+            <option value="wednesday">{{'core.days.wednesday' | translate}}</option>
+            <option value="thursday">{{'core.days.thursday' | translate}}</option>
+            <option value="friday">{{'core.days.friday' | translate}}</option>
+            <option value="saturday">{{'core.days.saturday' | translate}}</option>
+            <option value="sunday">{{'core.days.sunday' | translate}}</option>
+        </select>
+    </div>
 
-        <span class="col-sm-1 text-center">--</span>
+    <span>--</span>
 
-        <div class="col-sm-2">
-            <select class="form-control"
-                    ng-model="vm.convenientTime.dayTo"
-                    required>
-                <option value="monday">{{'core.days.monday' | translate}}</option>
-                <option value="tuesday">{{'core.days.tuesday' | translate}}</option>
-                <option value="wednesday">{{'core.days.wednesday' | translate}}</option>
-                <option value="thursday">{{'core.days.thursday' | translate}}</option>
-                <option value="friday">{{'core.days.friday' | translate}}</option>
-                <option value="saturday">{{'core.days.saturday' | translate}}</option>
-                <option value="sunday" ng-selected="true">{{'core.days.sunday' | translate}}</option>
-            </select>
-        </div>
+    <div class="form-group">
+        <select class="form-control"
+                ng-model="vm.convenientTime.dayTo"
+                required>
+            <option value="monday">{{'core.days.monday' | translate}}</option>
+            <option value="tuesday">{{'core.days.tuesday' | translate}}</option>
+            <option value="wednesday">{{'core.days.wednesday' | translate}}</option>
+            <option value="thursday">{{'core.days.thursday' | translate}}</option>
+            <option value="friday">{{'core.days.friday' | translate}}</option>
+            <option value="saturday">{{'core.days.saturday' | translate}}</option>
+            <option value="sunday" ng-selected="true">{{'core.days.sunday' | translate}}</option>
+        </select>
+    </div>
 
-        <!-- Select days ends-->
-        <!-- Time pickers start-->
+    <!-- Select days ends-->
+    <!-- Time pickers start-->
 
-        <span class="col-sm-1 text-center">{{'core.timeFrom' | translate}}</span>
+    <span>{{'core.timeFrom' | translate}}</span>
 
-        <div class="col-sm-2">
-            <input type="text"
-                   name="timeFrom"
-                   class="form-control"
-                   ng-model="vm.convenientTime.timeFrom"
-                   ng-readonly="true"
-                   ng-focus="vm.fromTimeOfFocus()"
-                   ng-blur="vm.toggleFromDate()"/>
+    <div class="btn-group">
+        <input type="text"
+               name="timeFrom"
+               class="form-control"
+               ng-model="vm.convenientTime.timeFrom"
+               ng-readonly="true"
+               ng-focus="vm.fromTimeOfFocus()"
+               ng-blur="vm.toggleFromDate()"/>
 
-            <div class="input-group-btn pull-right" ng-class="{open: vm.fromTimeBtnIsOpened}">
-                <button type="button"
-                        class="btn btn-default"
-                        ng-click="vm.toggleFromDate()"
-                        dropdown-toggle>
-                    <i class="glyphicon glyphicon-time"></i>
-                </button>
-                <div class="dropdown-menu">
-                    <timepicker ng-model="vm.timeFrom"
-                                show-meridian="false"
-                                ng-change=" vm.selectFromTime(vm.timeFrom)">
-                    </timepicker>
-                </div>
+        <div class="pull-right" ng-class="{open: vm.fromTimeBtnIsOpened}">
+            <button type="button"
+                    class="btn btn-default"
+                    ng-click="vm.toggleFromDate()"
+                    dropdown-toggle>
+                <i class="glyphicon glyphicon-time"></i>
+            </button>
+            <div class="dropdown-menu">
+                <timepicker ng-model="vm.timeFrom"
+                            show-meridian="false"
+                            ng-change=" vm.selectFromTime(vm.timeFrom)">
+                </timepicker>
             </div>
         </div>
+    </div>
 
-        <span class="col-sm-1 text-center">{{'core.timeTo' | translate}}</span>
+    <span>{{'core.timeTo' | translate}}</span>
 
-        <div class="col-sm-2">
-            <input type="text"
-                   class="form-control"
-                   ng-model="vm.convenientTime.timeTo"
-                   ng-readonly="true"
-                   ng-focus="vm.toTimeOfFocus()"
-                   ng-blur="vm.toggleToDate()"/>
+    <div class="btn-group">
+        <input type="text"
+               class="form-control "
+               ng-model="vm.convenientTime.timeTo"
+               ng-readonly="true"
+               ng-focus="vm.toTimeOfFocus()"
+               ng-blur="vm.toggleToDate()"/>
 
-            <div class="input-group-btn" ng-class="{open: vm.toTimeBtnIsOpened}">
-                <button type="button"
-                        class="btn btn-default"
-                        ng-click="vm.toggleToDate()"
-                        dropdown-toggle>
-                    <i class="glyphicon glyphicon-time"></i>
-                </button>
-                <div class="dropdown-menu">
-                    <timepicker ng-model="vm.timeTo"
-                                show-meridian="false"
-                                ng-change="vm.selectToTime(vm.timeTo)">
-                    </timepicker>
-                </div>
+        <div class="pull-right" ng-class="{open: vm.toTimeBtnIsOpened}">
+            <button type="button"
+                    class="btn btn-default"
+                    ng-click="vm.toggleToDate()"
+                    dropdown-toggle>
+                <i class="glyphicon glyphicon-time"></i>
+            </button>
+            <div class="dropdown-menu">
+                <timepicker ng-model="vm.timeTo"
+                            show-meridian="false"
+                            ng-change="vm.selectToTime(vm.timeTo)">
+                </timepicker>
             </div>
         </div>
     </div>

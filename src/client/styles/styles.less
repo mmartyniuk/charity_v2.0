@@ -724,23 +724,30 @@ category-search span {
 /* <-------------- Register page END--------> */
 
 /* <--------------edit-need.html START--------> */
-.error{
+.error {
     color: @red;
     font-weight: bold;
 }
+
 .edit-need {
     category-search {
         margin-bottom: 0;
     }
     day-and-time {
-        .input-group {
-            line-height: 39px;
-            .input-group-btn {
-                float: right;
-                display: inline-flex;
-                position: absolute;
+        .form-inline {
+            .form-group {
+                line-height: 39px;
+            }
+            span{
+                padding: 0 1.5rem;
+            }
+            .btn-group {
+                input {
+                    width: 8rem;
+                }
             }
         }
     }
 }
+
 /* <---------------edit-need.html END--------> */
