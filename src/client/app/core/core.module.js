@@ -29,6 +29,17 @@
                 uploadButton: 'Завантажити',
                 specifyCity: 'Вкажіть місто',
                 canTake: 'Зможу забрати',
+                days: {
+                    monday: 'Понеділок',
+                    tuesday: 'Вівторок',
+                    wednesday: 'Середа',
+                    thursday: 'Четвер',
+                    friday: 'П\'ятниця',
+                    saturday: 'Субота',
+                    sunday: 'Неділя'
+                },
+                timeFrom:'від',
+                timeTo: 'по',
                 before: 'до'
             }
         });
@@ -48,6 +59,17 @@
                 uploadButton: 'Загрузить',
                 specifyCity: 'Укажите город',
                 canTake: 'Смогу забрать',
+                days: {
+                    monday: 'Понедельник',
+                    tuesday: 'Вторник',
+                    wednesday: 'Среда',
+                    thursday: 'Четверг',
+                    friday: 'Пятница',
+                    saturday: 'Суббота',
+                    sunday: 'Воскресенье'
+                },
+                timeFrom:'c',
+                timeTo: 'до',
                 before: 'до'
             }
         });

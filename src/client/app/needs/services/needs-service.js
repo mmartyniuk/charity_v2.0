@@ -10,7 +10,7 @@
 
     function NeedsFactory($http, $q) {
         return {
-            getNeeds: function(pageNumber, itemsPerPage) {
+            getNeeds: function (pageNumber, itemsPerPage) {
                 return $q(function (resolve, reject) {
                     $http.get('/api/needs', {
                         params: {
@@ -28,7 +28,7 @@
                     }).error(reject);
                 });
             },
-            getSearchNeeds: function(pageNumber, itemsPerPage, query, region, city, categories) {
+            getSearchNeeds: function (pageNumber, itemsPerPage, query, region, city, categories) {
                 query = query || '';
                 region = region || '';
                 city = city || '';
@@ -62,24 +62,24 @@
                     }
                 }).success(success).error(error);
             },
-            respondToCurrentNeed: function(data, success, error) {
+            respondToCurrentNeed: function (data, success, error) {
                 $http.post('/api/needResponses', data).success(success).error(error);
             },
-            getReponsesForThisNeed: function(id, success, error) {
+            getReponsesForThisNeed: function (id, success, error) {
                 $http.get('/api/needs/' + id + '/needResponses').success(success).error(error);
             },
-            cancelUserResponse: function(link, success, error) {
+            cancelUserResponse: function (link, success, error) {
                 $http.delete(link).success(success).error(error);
             },
-            patchResponse: function(id, accept, success, error) {
+            patchResponse: function (id, accept, success, error) {
                 $http.patch('/api/needResponses/' + id,
                     {'status': accept}).success(success).error(error);
             },
-            getUserToContactWith: function(id, success, error) {
+            getUserToContactWith: function (id, success, error) {
                 return $http.get('api/needResponses/' +
                     id + '/user').success(success).error(error);
             },
-            deleteNeed: function(id, success, error) {
+            deleteNeed: function (id, success, error) {
                 $http.delete('/api/needs/' + id).success(success).error(error);
             }
         };
