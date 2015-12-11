@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row heading">
-            <h2 class="col-xs-12 col-md-2">Пропозиція</h2>
+            <h2 class="col-xs-12 col-md-2">{{ 'offers.offer' | translate }}</h2>
             <h2 class="col-xs-12 col-md-8 col-md-offset-2">{{vm.currentOffer.name}}</h2>
         </div>
         <div class="row">
@@ -34,13 +34,13 @@
             <div class="col-xs-12 col-sm-6 col-md-8">
 
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">Автор</dt>
+                    <dt class="col-xs-3">{{ 'offers.author' | translate }}</dt>
                     <dd><a ui-sref="profile.user({id: vm.currentOffer.userCreated.id})">{{vm.currentOffer.userCreated.name}}</a></dd>
 
-                    <dt class="col-xs-3">Опубліковано:</dt>
+                    <dt class="col-xs-3">{{ 'offers.published' | translate }}:</dt>
                     <dd>{{vm.currentOffer.dayCreated}}.{{vm.currentOffer.monthCreated}}.{{vm.currentOffer.yearCreated}}</dd>
 
-                    <dt class="col-xs-3">Категорія:</dt>
+                    <dt class="col-xs-3">{{ 'offers.category' | translate }}:</dt>
                     <dd>
                         <ol class="breadcrumb">
                             <li ng-show="vm.mainCategory !== 'root'">{{vm.mainCategory}}</li>
@@ -52,66 +52,67 @@
 
                 <hr>
 
-                <h3>Опис Пропозиції:</h3>
+                <h3>{{ 'offers.offerDescription' | translate }}:</h3>
 
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">Опис: </dt>
-                    <dd><span>{{vm.currentOffer.description}}<span></dd>
+                    <dt class="col-xs-3">{{ 'offers.description' | translate }}: </dt>
+                    <dd><span>{{vm.currentOffer.description}}</span></dd>
 
-                    <dt class="col-xs-3">Актуальність: </dt>
-                    <dd>до <strong>{{vm.currentOffer.formattedActualTo}}</strong></dd>
+                    <dt class="col-xs-3">{{ 'core.actuality' | translate }}: </dt>
+                    <dd>{{ 'core.before' | translate }} <strong>{{vm.currentOffer.formattedActualTo}}</strong></dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentOffer.address">Адреса:</dt>
+                    <dt class="col-xs-3" ng-show="vm.currentOffer.address">{{ 'offers.address' | translate }}:</dt>
                     <dd ng-show="vm.currentOffer.address">
                         <span class='street'>{{vm.currentOffer.address}}</span>
                     </dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentOffer.convenientTime">Зручний час:</dt>
+                    <dt class="col-xs-3" ng-show="vm.currentOffer.convenientTime">{{ 'offers.convenientTime' | translate }}:</dt>
                     <dd ng-show="vm.currentOffer.convenientTime">{{vm.currentOffer.convenientTime}}</dd>
 
-                    <dt class="col-xs-3">Зможу доставити:</dt>
-                    <dd>{{vm.currentOffer.pickup}}</dd>
+                    <dt class="col-xs-3">{{ 'offers.canTake' | translate }}:</dt>
+                    <dd ng-show="vm.currentOffer.pickup">{{ 'core.yesButton' | translate }}</dd>
+                    <dd ng-hide="vm.currentOffer.pickup">{{ 'core.noButton' | translate }}</dd>
                 </dl>
                 <hr>
                 <div ng-show="vm.currentOffer.open">
                     <div class="row pull-right marginBottom">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.authorizedUser.ifOwner">
-                            <a ui-sref="offers.edit({id: vm.currentOffer.id})" class="btn btn-primary">Редагувати</a>
-                            <a href="/" class="btn btn-default">Закрити</a>
-                            <a ng-click="vm.deleteCurrentOffer(vm.currentOffer.id)" class="btn btn-danger">Видалити</a>
+                            <a ui-sref="offers.edit({id: vm.currentOffer.id})" class="btn btn-primary">{{ 'offers.edit' | translate }}</a>
+                            <a href="/" class="btn btn-default">{{ 'offers.close' | translate }}</a>
+                            <a ng-click="vm.deleteCurrentOffer(vm.currentOffer.id)" class="btn btn-danger">{{ 'offers.delete' | translate}}</a>
                         </div>
                         <remove-offer-modal-directive></remove-offer-modal-directive>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
-                            <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Відгукнутись</button>
+                            <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">{{ 'offers.respond' | translate }}</button>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToOffer">
-                            <button class="btn btn-default" ng-click="vm.cancelResponce()">Відмінити відгук</button>
+                            <button class="btn btn-default" ng-click="vm.cancelResponce()">{{ 'offers.cancelResponse' | translate }}</button>
                         </div>
                     </div>
                     <div collapse="!isCollapsed" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <button type="button" class="close" aria-label="Close" ng-click="isCollapsed = !isCollapsed"><span aria-hidden="true" >&times;</span></button>
                         <form ng-submit="vm.respondToOffer()">
                             <div class="form-group">
-                                <label for="details">Деталі</label>
-                                <textarea class="form-control" id="details" placeholder="Введіть будь ласка деталі" ng-model="vm.respondData.description"></textarea>
+                                <label for="details">{{ 'offers.details' | translate }}</label>
+                                <textarea class="form-control" id="details" placeholder="{{ 'offers.typeDetailsPlaceholder' | translate }}" ng-model="vm.respondData.description"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">Підтвердити</button>
+                            <button type="submit" class="btn btn-primary text-left" ng-click="isCollapsed = !isCollapsed">{{ 'offers.submit' | translate }}</button>
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
                         <ul>
                             <li ng-repeat="response in vm.currentResponses">
                                 <div><b>Опис:</b> {{response.description}}</div>
-                                <div ng-show="vm.waitingForHelp"><b>Ім'я користувача:</b> {{vm.userInfo.name}}</div>
-                                <div ng-show="vm.waitingForHelp"><b>Телефон:</b> {{vm.userInfo.address}}</div>
-                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">Отримати</button>
-                                <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">Підтвердити отримання допомоги</button>
-                                <button class="btn btn-primary text-left" ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">Відмінити підтримання допомоги від цього користувача</button>
+                                <div ng-show="vm.waitingForHelp"><b>{{ 'offers.userName' | translate }}:</b> {{vm.userInfo.name}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>{{ 'offers.phoneNumber' | translate }}:</b> {{vm.userInfo.address}}</div>
+                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)" ng-show="!vm.waitingForHelp">{{ 'offers.receive' | translate }}</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">{{ 'offers.confirmAssistance' | translate }}</button>
+                                <button class="btn btn-primary text-left" ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">{{ 'offers.cancelGettingResponseFromUser' | translate }}</button>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div ng-show="!vm.currentOffer.open">Ця пропозиція закрита!!</div>
+                <div ng-show="!vm.currentOffer.open">{{ 'offers.offerIsClosed' | translate }}!</div>
             </div>
         </div>
     </div>

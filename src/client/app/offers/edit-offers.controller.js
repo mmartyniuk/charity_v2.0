@@ -7,9 +7,9 @@
         .controller('EditOffersController', EditOffersController);
 
     EditOffersController.$inject = [
-        '$http', '$stateParams', 'EditOfferFactory', '$state', '$rootScope'];
+        '$http', '$stateParams', 'EditOfferFactory', '$state', '$rootScope', '$translate'];
     /* @ngInject */
-    function EditOffersController($http, $stateParams, EditOfferFactory, $state, $rootScope) {
+    function EditOffersController($http, $stateParams, EditOfferFactory, $state, $rootScope, $translate) {
         var vm = this;
         vm.title = 'EditOffersController';
         vm.saveEditedOffer = saveEditedOffer;
@@ -32,6 +32,8 @@
         activate();
 
         function activate() {
+            translate();
+            $rootScope.$on('$translateChangeSuccess', translate);
             vm.getRegion();
             vm.currentOffer();
         }
@@ -70,6 +72,18 @@
 
         function cancel() {
             $state.go($rootScope.previousState, {id: vm.offerId});
+        }
+
+        function translate() {
+            $translate(['core.yesButton', 'core.noButton']).then(function(translations) {
+                vm.editedOfferStatuses = [{
+                    value: 1,
+                    text: translations['core.yesButton']
+                }, {
+                    value: 0,
+                    text: translations['core.noButton']
+                }];
+            });
         }
 
     }

@@ -107,11 +107,6 @@
             SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function() {
                 console.log('something wrong');
             });
-            if (vm.currentOffer.pickup) {
-                vm.currentOffer.pickup = 'Так';
-            } else {
-                vm.currentOffer.pickup = 'Ні';
-            }
         }
         // important, getting data from API about this offer
         function currentOffer() {
