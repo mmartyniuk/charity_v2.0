@@ -62,21 +62,6 @@
                 allOffers: 'Усі пропозиції',
                 offersFound: 'За Вашим запитом знайдено пропозицій: {{count}}',
                 nothingFound: 'На жаль за Вашим запитом нічого не знайдено.'
-            },
-            editOffer: {
-                editingOfOffer: 'Редагування пропозиції',
-                offerName: 'Назва',
-                category: 'Категорія',
-                offerDescription: 'Опис пропозиції',
-                photo: 'Фото',
-                selectRegion: 'Виберіть область',
-                selectCity: 'Виберіть місто',
-                address: 'Адреса',
-                convenientTime: 'Зручний час',
-                edit: 'Редагувати',
-                save: 'Зберегти',
-                cancel: 'Відмінити',
-                requiredField: 'Обов\'язкове поле'
             }
         });
         $translateProvider.translations('ru', {
@@ -136,21 +121,6 @@
                 allOffers: 'Все предложения',
                 offersFound: 'По Вашему запросу найдено предложений: {{count}}',
                 nothingFound: 'К сожалению по вашему запросу ничего не найдено.'
-            },
-            editOffer: {
-                editingOfOffer: 'Редактирование предложения',
-                offerName: 'Название',
-                category: 'Категория',
-                offerDescription: 'Описание предложения',
-                photo: 'Фото',
-                selectRegion: 'Выберите область',
-                selectCity: 'Выберите город',
-                address: 'Адрес',
-                convenientTime: 'Удобное время',
-                edit: 'Редактировать',
-                save: 'Cохранить',
-                cancel: 'Отменить',
-                requiredField: 'Обязательное поле'
             }
         })
     }
