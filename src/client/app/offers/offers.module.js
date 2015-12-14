@@ -35,6 +35,7 @@
                 editingOfOffer: 'Редагування пропозиції',
                 offerName: 'Назва',
                 save: 'Зберегти',
+                cancel: 'Відмінити',
 
                 newOffer: 'Нова пропозиція',
                 nameOfOfferPlaceholder: 'Назва потреби',
@@ -94,6 +95,7 @@
                 editingOfOffer: 'Редактирование предложения',
                 offerName: 'Название',
                 save: 'Сохранить',
+                cancel: 'Отменить',
 
                 newOffer: 'Новое предложение',
                 nameOfOfferPlaceholder: 'Название предложения',
