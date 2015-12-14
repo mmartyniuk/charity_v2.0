@@ -95,7 +95,7 @@
                             </a>
                             <a href="/" class="btn btn-default">{{ 'offers.close' | translate }}</a>
                             <a ng-click="vm.deleteCurrentOffer(vm.currentOffer.id)" class="btn btn-danger">
-                                {{'createdOffer.delete' | translate}}
+                                {{'offers.delete' | translate}}
                             </a>
                         </div>
                         <remove-offer-modal-directive></remove-offer-modal-directive>
@@ -158,7 +158,7 @@
                         </ul>
                     </div>
                 </div>
-                <div ng-show="!vm.currentOffer.open">{{ 'createdOffer.offerIsClosed' }}!!</div>
+                <div ng-show="!vm.currentOffer.open">{{ 'offers.offerIsClosed' | translate }}!!</div>
             </div>
         </div>
     </div>
