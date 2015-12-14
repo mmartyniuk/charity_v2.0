@@ -19,7 +19,33 @@
                 edit: 'Редагувати',
                 save: 'Зберегти',
                 cancel: 'Відмінити',
-                requiredField:'Обов\'язкове поле'
+                requiredField: 'Обов\'язкове поле'
+            },
+            createdOffer: {
+                offer: 'Пропозиція',
+                author: 'Автор',
+                published: 'Опубліковано',
+                category: 'Категорія',
+                offerDescription: 'Опис пропозиції',
+                description: 'Опис',
+                actuality: 'Актуальність',
+                address: 'Адреса',
+                convenientTime: 'Зручний час',
+                canTake: 'Зможу забрати',
+                edit: 'Редагувати',
+                close: 'Закрити',
+                delete: 'Видалити',
+                respond: 'Відгукнутись',
+                cancelResponse: 'Відмінити відгук',
+                details: 'Деталі',
+                typeDetailsPlaceholder: 'Введіть будь ласка деталі',
+                submit: 'Підтвердити',
+                userName: 'Ім\'я користувача',
+                phoneNumber: 'Телефон',
+                recieve: 'Отримати',
+                confirmAssistance: 'Підтвердити отримання допомоги',
+                cancelAssistanceFromUser: 'Відмовитися від допомоги цього користувача',
+                offerIsClosed: 'Ця пропозиція закрита'
             }
         });
         $translateProvider.translations('ru', {
@@ -37,6 +63,32 @@
                 save: 'Cохранить',
                 cancel: 'Отменить',
                 requiredField: 'Обязательное поле'
+            },
+            createdOffer: {
+                offer: 'Предложение',
+                author: 'Автор',
+                published: 'Опубликовано',
+                category: 'Категория',
+                offerDescription: 'Описание предложения',
+                description: 'Описание',
+                actuality: 'Актуальность',
+                address: 'Адрес',
+                convenientTime: 'Удобное время',
+                canTake: 'Смогу забрать',
+                edit: 'Редактировать',
+                close: 'Закрыть',
+                delete: 'Удалить',
+                respond: 'Откликнуться',
+                cancelResponse: 'Отменить отзыв',
+                details: 'Детали',
+                typeDetailsPlaceholder: 'Введите пожалуйста детали',
+                submit: 'Подтвердить',
+                userName: 'Имя пользователя',
+                phoneNumber: 'Телефон',
+                recieve: 'Получить',
+                confirmAssistance: 'Подтвердить получение помощи',
+                cancelAssistanceFromUser: 'Отказаться от помощи этого пользователя',
+                offerIsClosed: 'Это предложение закрытое'
             }
         })
     }

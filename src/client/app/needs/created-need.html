@@ -114,7 +114,8 @@
                                 <label for="details">{{'createdNeed.details' | translate}}</label>
                                 <textarea class="form-control" id="details"
                                           placeholder="{{'createdNeed.typeDetailsPlaceholder' | translate}}"
-                                          ng-model="vm.respondData.description"></textarea>
+                                          ng-model="vm.respondData.description">
+                                </textarea>
                             </div>
                             <button type="submit"
                                     class="btn btn-primary text-left"
@@ -132,15 +133,19 @@
                                 <div ng-show="vm.waitingForHelp"><b>{{'createdNeed.phoneNumber' | translate}}:</b>
                                     {{vm.userInfo.address}}
                                 </div>
-                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)"
-                                        ng-show="!vm.waitingForHelp">{{'createdNeed.recieve' | translate}}
+                                <button class="btn btn-primary text-left"
+                                        ng-click="vm.accept(response.id)"
+                                        ng-show="!vm.waitingForHelp">
+                                    {{'createdNeed.recieve' | translate}}
                                 </button>
                                 <button class="btn btn-primary text-left"
-                                        ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">
+                                        ng-click="vm.deleteCompletedResponse(response.id)"
+                                        ng-show="vm.waitingForHelp">
                                     {{'createdNeed.confirmAssistance' | translate}}
                                 </button>
                                 <button class="btn btn-primary text-left"
-                                        ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">
+                                        ng-click="vm.cancelGettingResponse(response.id)"
+                                        ng-show="vm.waitingForHelp">
                                     {{'createdNeed.cancelAssistanceFromUser' | translate}}
                                 </button>
                             </li>
