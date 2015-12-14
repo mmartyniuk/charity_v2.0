@@ -1,44 +1,45 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app.offers', [
-
-    ]).config(config);
-
+    angular.module('app.offers', []).config(config);
     config.$inject = ['$translateProvider'];
 
     function config($translateProvider) {
         $translateProvider.translations('ua', {
-            offers: {
-                offer: 'Пропозиція',
-                offers: 'Пропозиції',
-                author: 'Автор',
-                published: 'Опубліковано',
-                category: 'Категорія',
-                offerDescription: 'Опис пропозиції',
-                description: 'Опис',
-                address: 'Адреса',
-                convenientTime: 'Зручний час',
-                canTake: 'Зможу забрати',
-                edit: 'Редагувати',
-                close: 'Закрити',
-                delete: 'Видалити',
-                respond: 'Відгукнутись',
-                cancelResponse: 'Відмінити відгук',
-                details: 'Деталі',
-                typeDetailsPlaceholder: 'Введіть будь ласка деталі',
-                submit: 'Підтвердити',
-                userName: 'Ім\'я користувача',
-                phoneNumber: 'Телефон',
-                receive: 'Отримати',
-                confirmAssistance: 'Підтвердити отримання допомоги',
-                cancelGettingResponseFromUser: ' Відмовитись від допомоги цього користувача',
-                offerIsClosed: 'Ця пропозиція закрита',
-
+            editOffer: {
                 editingOfOffer: 'Редагування пропозиції',
                 offerName: 'Назва',
+                category: 'Категорія',
+                offerDescription: 'Опис пропозиції',
+                photo: 'Фото',
+                selectRegion: 'Виберіть область',
+                selectCity: 'Виберіть місто',
+                address: 'Адреса',
+                convenientTime: 'Зручний час',
+                edit: 'Редагувати',
                 save: 'Зберегти',
-
+                cancel: 'Відмінити',
+                requiredField:'Обов\'язкове поле'
+            }
+        });
+        $translateProvider.translations('ru', {
+            editOffer: {
+                editingOfOffer: 'Редактирование предложения',
+                offerName: 'Название',
+                category: 'Категория',
+                offerDescription: 'Описание предложения',
+                photo: 'Фото',
+                selectRegion: 'Выберите область',
+                selectCity: 'Выберите город',
+                address: 'Адрес',
+                convenientTime: 'Удобное время',
+                edit: 'Редактировать',
+                save: 'Cохранить',
+                cancel: 'Отменить',
+                requiredField: 'Обязательное поле'
+            }
+        })
+    }
                 newOffer: 'Нова пропозиція',
                 nameOfOfferPlaceholder: 'Назва потреби',
                 selectCategoryPlaceholder: 'Виберіть категорію',

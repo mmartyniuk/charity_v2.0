@@ -67,7 +67,14 @@
                     </dd>
 
                     <dt class="col-xs-3" ng-show="vm.currentOffer.convenientTime">{{ 'offers.convenientTime' | translate }}:</dt>
-                    <dd ng-show="vm.currentOffer.convenientTime">{{vm.currentOffer.convenientTime}}</dd>
+                    <dd ng-show="vm.currentOffer.convenientTime">
+                        {{'core.days.'+ vm.currentOffer.convenientTime.dayFrom | translate}}
+                        -
+                        {{'core.days.'+ vm.currentOffer.convenientTime.dayTo | translate}}
+                        {{vm.currentOffer.convenientTime.timeFrom }}
+                        :
+                        {{vm.currentOffer.convenientTime.timeTo }}
+                    </dd>
 
                     <dt class="col-xs-3">{{ 'offers.canTake' | translate }}:</dt>
                     <dd ng-show="vm.currentOffer.pickup">{{ 'core.yesButton' | translate }}</dd>
