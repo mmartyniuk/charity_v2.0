@@ -71,7 +71,8 @@
                     </dd>
 
                     <dt class="col-xs-3">{{'createdNeed.canTake' | translate}}:</dt>
-                    <dd>{{vm.currentNeed.pickup}}</dd>
+                    <dd ng-show="vm.currentOffer.pickup">{{ 'core.yesButton' | translate }}</dd>
+                    <dd ng-hide="vm.currentOffer.pickup">{{ 'core.noButton' | translate }}</dd>
                 </dl>
 
                 <hr>

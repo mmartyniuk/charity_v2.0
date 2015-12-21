@@ -88,11 +88,6 @@
             SharedFactory.getCategory(vm.tempAddressCategory, succeedGetCategory, function() {
                 console.log('something wrong');
             });
-            if (vm.currentNeed.pickup) {
-                vm.currentNeed.pickup = 'Так';
-            } else {
-                vm.currentNeed.pickup = 'Ні';
-            }
         }
         // important, getting data from API about this need
         vm.currentNeed = function () {
