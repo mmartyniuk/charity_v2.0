@@ -18,6 +18,11 @@
         vm.changeLanguage = changeLanguage;
         vm.loggedIn = !!$sessionStorage.token || false; // this value is impacting view, if user is logged in some
         // elements from nav menu will be displayed
+
+        $translate.onReady(function () {
+            vm.language = $translate.use();
+        });
+
         $rootScope.$on('$stateChangeStart',
             function() {
                 if ($sessionStorage.token) {
