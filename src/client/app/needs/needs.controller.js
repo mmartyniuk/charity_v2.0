@@ -5,31 +5,19 @@
         .module('app.needs')
         .controller('NeedsController', NeedsController);
 
-    NeedsController.$inject = ['$location', 'NeedsFactory', '$state'];
+    NeedsController.$inject = ['$location', 'NeedsFactory', '$state', '$rootScope', '$translate'];
 
-    function NeedsController($location,NeedsFactory, $state) {
+    function NeedsController($location,NeedsFactory, $state, $rootScope, $translate) {
         /* jshint validthis:true */
         var vm = this;
-        vm.contentType = 'Потреби';
         vm.title = 'NeedsController';
         vm.setSearch = setSearch;
         vm.setCategory = setCategory;
         vm.getSearchData = getSearchData;
         vm.setItemsPerPage = setItemsPerPage;
         vm.needs = {};
-        vm.perPageDropdownItems = [{ //list of values that will be shown in itemsPerPage dropdown
-            label: '5 потреб',
-            value: 5
-        },{
-            label: '10 потреб',
-            value: 10
-        },{
-            label: '25 потреб',
-            value: 25
-        },{
-            label: '50 потреб',
-            value: 50
-        }];
+        vm.searchResultState = 'initial';
+        vm.perPageDropdownItems = [];
 
         vm.itemsPerPage = 5;
         vm.searchLabel = 'Усі потреби:';
@@ -40,6 +28,8 @@
         activate();
 
         function activate() {
+            translate();
+            $rootScope.$on('$translateChangeSuccess', translate);
             setSearch();
         }
 
@@ -57,11 +47,11 @@
                 vm.itemsPerPage = data.itemsPerPage;
                 if ((vm.searchValue || vm.location || vm.category) &&
                     data.totalItems > 0) { //assigning appropriate value to search label
-                    vm.searchLabel = 'За Вашим запитом знайдено потреб: ' + data.totalItems;
+                    vm.searchResultState = 'found';
                 } else if (data.totalItems === 0) {
-                    vm.searchLabel = 'На жаль за Вашим запитом нічого не знайдено.';
+                    vm.searchResultState = 'nothing';
                 } else {
-                    vm.searchLabel = 'Усі потреби:';
+                    vm.searchResultState = 'initial';
                 }
             });
         }
@@ -78,6 +68,25 @@
             vm.currentPage = 0;
             vm.itemsPerPage = vm.perPageDropdownItems[index].value;
             getSearchData();
+        }
+
+        function translate() {
+            $translate(['needs.needsPaginationLabel']).then(function(translations) {
+                vm.perPageDropdownItems = [{
+                    //list of values that will be shown in itemsPerPage dropdown
+                    label: '5 ' + translations['needs.needsPaginationLabel'],
+                    value: 5
+                },{
+                    label: '10 ' + translations['needs.needsPaginationLabel'],
+                    value: 10
+                },{
+                    label: '25 ' + translations['needs.needsPaginationLabel'],
+                    value: 25
+                },{
+                    label: '50 ' + translations['needs.needsPaginationLabel'],
+                    value: 50
+                }];
+            });
         }
     }
 })();

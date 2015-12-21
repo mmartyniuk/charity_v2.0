@@ -17,7 +17,12 @@
                 firstPage: 'Перша',
                 lastPage: 'Остання',
                 previousPage: 'Попередня',
-                nextPage: 'Наступна'
+                nextPage: 'Наступна',
+
+                needsPaginationLabel: 'потреб',
+                allNeeds: 'Усі потреби',
+                needsFound: 'За Вашим запитом знайдено потреб: {{count}}',
+                nothingFound: 'На жаль за Вашим запитом нічого не знайдено.'
             },
             createdNeed: {
                 need: 'Потреба',
@@ -112,7 +117,12 @@
                 firstPage: 'Первая',
                 lastPage: 'Последняя',
                 previousPage: 'Предыдущая',
-                nextPage: 'Следующая'
+                nextPage: 'Следующая',
+
+                needsPaginationLabel: 'потребностей',
+                allNeeds: 'Все потребности',
+                needsFound: 'По Вашему запросу найдено потребностей: {{count}}',
+                nothingFound: 'К сожалению по вашему запросу ничего не найдено.'
             },
             createdNeed: {
                 need: 'Потребность',
