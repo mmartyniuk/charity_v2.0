@@ -2,17 +2,17 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="text-left">{{'newNeedRegister.newNeed' | translate}}</h2>
+            <h2 class="text-left">{{'needs.newNeed' | translate}}</h2>
             <hr>
         </div>
         <form class="form-horizontal" ng-submit="vm.submitNeed();">
             <div class="form-group row">
-                <label class="control-label col-sm-2 title-label">{{'newNeedRegister.name' | translate}}</label>
+                <label class="control-label col-sm-2 title-label">{{'needs.name' | translate}}</label>
                 <!-- here should be pre-filled data from newneedstep1.html -->
                 <h3 class="col-sm-10">{{vm.need.title}}</h3>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.category' | translate}}</label>
+                <label class="control-label col-sm-2">{{'needs.category' | translate}}</label>
 
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <!-- here should be pre-filled data from previous page -->
@@ -29,19 +29,19 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.newNeedDescription' | translate}}</label>
+                <label class="control-label col-sm-2">{{'needs.newNeedDescription' | translate}}</label>
 
                 <div class="col-sm-6">
                     <textarea class="form-control"
                               rows="4"
-                              placeholder="{{'newNeedRegister.describeNeedPlaceholder' | translate}}"
+                              placeholder="{{'needs.describeNeedPlaceholder' | translate}}"
                               ng-model="vm.need.description">
 
                     </textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.photo' | translate}}:</label>
+                <label class="control-label col-sm-2">{{'needs.photo' | translate}}:</label>
                 <file-upload-directive images="vm.images"></file-upload-directive>
             </div>
             <!-- <div class="form-group row">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.selectRegion' | translate}}:</label>
+                <label class="control-label col-sm-2">{{'needs.selectRegion' | translate}}:</label>
 
                 <div class="col-sm-3">
                     <select class="form-control"
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.selectCity' | translate}}:</label>
+                <label class="control-label col-sm-2">{{'needs.selectCity' | translate}}:</label>
 
                 <div class="col-sm-2">
                     <!-- here should be pre-filled data depending on previous select field -->
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.address' | translate}}:</label>
+                <label class="control-label col-sm-2">{{'needs.address' | translate}}:</label>
 
                 <div class="col-sm-2">
                     <input type="text"
@@ -104,18 +104,18 @@
                 <date-picker date="vm.dt"></date-picker>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.convenientTime' | translate}}</label>
+                <label class="control-label col-sm-2">{{'needs.convenientTime' | translate}}</label>
 
                 <div class="col-sm-3">
                     <input id="s_time"
                            class="form-control"
                            type="text"
                            ng-model="vm.need.suitableTime"
-                           placeholder="{{'newNeedRegister.dateTimePlaceholder' | translate}}">
+                           placeholder="{{'needs.dateTimePlaceholder' | translate}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-sm-2">{{'newNeedRegister.canTake' | translate}}:</label>
+                <label class="control-label col-sm-2">{{'core.canTake' | translate}}:</label>
 
                 <div class="col-sm-6">
                     <label class="radio-inline">
@@ -123,7 +123,7 @@
                                name="canGet"
                                value="option1"
                                ng-model="vm.getChecked"
-                               ng-value="true">{{'newNeedRegister.yesRButton' | translate}}
+                               ng-value="true">{{'core.yesButton' | translate}}
                     </label>
                     <label class="radio-inline">
                         <input type="radio"
@@ -131,7 +131,7 @@
                                value="option2"
                                ng-model="vm.getChecked"
                                ng-value="false"
-                               checked>{{'newNeedRegister.noRButton' | translate}}
+                               checked>{{'core.noButton' | translate}}
                     </label>
                 </div>
             </div>
@@ -139,11 +139,11 @@
                 <div class="col-sm-12 ">
                     <a ui-sref="newneed.home"
                        id="myButton0"
-                       class="btn btn-default">{{'newNeedRegister.cancel' | translate}}
+                       class="btn btn-default">{{'core.cancelButton' | translate}}
                     </a>
                     <input type="submit"
                            class="btn btn-primary"
-                           value="{{'newNeedRegister.publishButton' | translate}}">
+                           value="{{'needs.publishButton' | translate}}">
                 </div>
             </div>
         </form>

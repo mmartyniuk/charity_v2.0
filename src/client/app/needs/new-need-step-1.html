@@ -1,23 +1,23 @@
 <!-- New need, first step -->
 <section>
     <div class="container well top">
-        <h2 class="text-left text-heading">{{'newNeedRegister.newNeed' | translate}}</h2>
+        <h2 class="text-left text-heading">{{'needs.newNeed' | translate}}</h2>
         <hr>
         <form class="form-horizontal" name="NewNeed" ng-submit="vm.submitNeed()">
             <div class="form-group">
-                <label class="control-label col-md-1 col-sm-2">{{'newNeedRegister.name' | translate}}</label>
+                <label class="control-label col-md-1 col-sm-2">{{'needs.name' | translate}}</label>
 
                 <div class="col-sm-6">
                     <input type="text"
                            class="form-control"
                            name="needTitle"
                            ng-model="vm.need.title"
-                           placeholder="{{'newNeedRegister.nameOfNeedPlaceholder' | translate}}"
+                           placeholder="{{'needs.nameOfNeedPlaceholder' | translate}}"
                            required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-1 col-sm-2">{{'newNeedRegister.category' | translate}}</label>
+                <label class="control-label col-md-1 col-sm-2">{{'needs.category' | translate}}</label>
 
                 <div class="col-sm-6">
                     <category-search category-hierarchy="vm.need.categoryHierarchy"
@@ -28,10 +28,10 @@
             <div class="col-md-7 col-sm-8">
                 <div class="form-group pull-right prev-next-buttons">
                     <a type="button" ui-sref="needs.home" class="btn btn-default">
-                        {{'newNeedRegister.backButton' | translate}}
+                        {{'needs.backButton' | translate}}
                     </a>
                     <button type="submit" class="btn btn-primary">
-                        {{'newNeedRegister.furtherButton' | translate}}
+                        {{'needs.furtherButton' | translate}}
                     </button>
                 </div>
             </div>

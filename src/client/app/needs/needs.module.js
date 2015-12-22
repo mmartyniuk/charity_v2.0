@@ -22,20 +22,16 @@
                 needsPaginationLabel: 'потреб',
                 allNeeds: 'Усі потреби',
                 needsFound: 'За Вашим запитом знайдено потреб: {{count}}',
-                nothingFound: 'На жаль за Вашим запитом нічого не знайдено.'
-            },
-            createdNeed: {
+                nothingFound: 'На жаль за Вашим запитом нічого не знайдено.',
+
                 need: 'Потреба',
-                author: 'Автор',
                 published: 'Опубліковано',
-                category: 'Категорія',
                 needDescription: 'Опис потреби',
                 description: 'Опис',
                 actuality: 'Актуальність',
                 address: 'Адреса',
                 convenientTime: 'Зручний час',
                 canTake: 'Зможу забрати',
-                edit: 'Редагувати',
                 close: 'Закрити',
                 delete: 'Видалити',
                 respond: 'Відгукнутись',
@@ -45,65 +41,37 @@
                 submit: 'Підтвердити',
                 userName: 'Ім\'я користувача',
                 phoneNumber: 'Телефон',
-                recieve: 'Отримати',
+                receive: 'Отримати',
                 confirmAssistance: 'Підтвердити отримання допомоги',
                 cancelAssistanceFromUser: 'Відмовитися від допомоги цього користувача',
-                needIsClosed: 'Ця потреба закрита'
-            },
-            removeNeed: {
+                needIsClosed: 'Ця потреба закрита',
                 deleteNeed: 'Ви справді хочете видалити дану потребу?',
-                yesButton: 'Так',
-                cancelButton: 'Відмінити'
-            },
-            editNeed: {
                 editingOfNeed: 'Редагування потреби',
                 needName: 'Назва',
-                category: 'Категорія',
-                needDescription: 'Опис потреби',
-                photo: 'Фото',
                 selectRegion: 'Виберіть область',
                 selectCity: 'Виберіть місто',
-                address: 'Адреса',
-                convenientTime: 'Зручний час',
-                edit: 'Редагувати',
                 save: 'Зберегти',
                 cancel: 'Відмінити',
-                requiredField:'Обов\'язкове поле'
-            },
-            newNeedRegister: {
+                requiredField: 'Обов\'язкове поле',
                 newNeed: 'Нова потреба',
                 name: 'Назва',
                 nameOfNeedPlaceholder: 'Назва потреби',
                 selectCategoryPlaceholder: 'Виберіть категорію',
-                category: 'Категорія',
                 newNeedDescription: 'Опис потреби',
                 describeNeedPlaceholder: 'Опишіть вашу потребу',
                 photo: 'Фото',
-                selectRegion: 'Виберіть область',
-                selectCity: 'Виберіть місто',
-                address: 'Адреса',
-                convenientTime: 'Зручний час',
                 dateTimePlaceholder: 'Пн-Пт, 10:00 - 19:00;',
-                canTake: 'Зможу забрати',
                 yesRButton: 'Так',
                 noRButton: 'Ні',
-                cancel: 'Відмінити',
                 publishButton: 'Опублікувати',
                 backButton: 'Назад',
                 furtherButton: 'Далі',
                 selectImageButton: 'Вибрати зображення',
                 uploadButton: 'Завантажити',
-                actuality: 'Актуальність'
-            },
-            newProject: {
                 newProjectTitle: 'Новий проект',
-                name: 'Назва',
                 textPlaceholder: 'Благодійна акція на день святого Миколая',
                 projectDescription: 'Опис проекту',
-                describeProjectPlaceholder: 'Опишіть ваш проект',
-                photo: 'Фото',
-                backButton: 'Назад',
-                furtherButton: 'Далі'
+                describeProjectPlaceholder: 'Опишіть ваш проект'
             }
         });
         $translateProvider.translations('ru', {
@@ -122,20 +90,12 @@
                 needsPaginationLabel: 'потребностей',
                 allNeeds: 'Все потребности',
                 needsFound: 'По Вашему запросу найдено потребностей: {{count}}',
-                nothingFound: 'К сожалению по вашему запросу ничего не найдено.'
-            },
-            createdNeed: {
+                nothingFound: 'К сожалению по вашему запросу ничего не найдено.',
                 need: 'Потребность',
-                author: 'Автор',
                 published: 'Опубликовано',
-                category: 'Категория',
-                needDescription: 'Описание потребности',
                 description: 'Описание',
                 actuality: 'Актуальность',
-                address: 'Адрес',
-                convenientTime: 'Удобное время',
                 canTake: 'Смогу забрать',
-                edit: 'Редактировать',
                 close: 'Закрыть',
                 delete: 'Удалить',
                 respond: 'Откликнуться',
@@ -145,67 +105,40 @@
                 submit: 'Подтвердить',
                 userName: 'Имя пользователя',
                 phoneNumber: 'Телефон',
-                recieve: 'Получить',
+                receive: 'Получить',
                 confirmAssistance: 'Подтвердить получение помощи',
                 cancelAssistanceFromUser: 'Отказаться от помощи этого пользователя',
-                needIsClosed: 'Эта потребность закрыта'
-
-            },
-            removeNeed: {
+                needIsClosed: 'Эта потребность закрыта',
                 deleteNeed: 'Вы действительно хотите удалить данную потребность?',
-                yesButton: 'Да',
-                cancelButton: 'Отменить'
-            },
-            editNeed: {
                 editingOfNeed: 'Редактирование потребности',
                 needName: 'Название',
-                category: 'Категория',
                 needDescription: 'Описание потребности',
                 photo: 'Фото',
                 selectRegion: 'Выберите область',
                 selectCity: 'Выберите город',
                 address: 'Адрес',
                 convenientTime: 'Удобное время',
-                edit: 'Редактировать',
-                save: 'Cохранить',
+                save: 'Сохранить',
                 cancel: 'Отменить',
-                requiredField:'Обязательное поле'
-
-            },
-            newNeedRegister: {
+                requiredField:'Обязательное поле',
                 newNeed: 'Новая потребность',
                 name: 'Название',
                 nameOfNeedPlaceholder: 'Название потребности',
                 selectCategoryPlaceholder: 'Выберите категорию',
-                category: 'Категория',
                 newNeedDescription: 'Описание потребности',
                 describeNeedPlaceholder: 'Опишите вашу потребность',
-                photo: 'Фото',
-                selectRegion: 'Выберите область',
-                selectCity: 'Выберите город',
-                address: 'Адрес',
-                convenientTime: 'Удобное время',
                 dateTimePlaceholder: 'Пн-Пт, 10:00 - 19:00;',
-                canTake: 'Смогу забрать',
                 yesRButton: 'Да',
                 noRButton: 'Нет',
-                cancel: 'Отменить',
                 publishButton: 'Опубликовать',
                 backButton: 'Назад',
                 furtherButton: 'Далее',
                 selectImageButton: 'Выбрать изображение',
                 uploadButton: 'Загрузить',
-                actuality: 'Актуальность'
-            },
-            newProject: {
                 newProjectTitle: 'Новый проект',
-                name: 'Название',
                 textPlaceholder: 'Благотворительная акция в день святого Николая',
                 projectDescription: 'Описание проекта',
-                describeProjectPlaceholder: 'Опишите ваш проект',
-                photo: 'Фото',
-                backButton: 'Назад',
-                furtherButton: 'Далее'
+                describeProjectPlaceholder: 'Опишите ваш проект'
             }
         });
     }
