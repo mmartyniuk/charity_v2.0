@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row heading">
-            <h2 class="col-xs-12 col-md-2">{{'createdNeed.need' | translate}}:</h2>
+            <h2 class="col-xs-12 col-md-2">{{'needs.need' | translate}}:</h2>
 
             <h2 class="col-xs-12 col-md-8 col-md-offset-2">{{vm.currentNeed.name}}</h2>
         </div>
@@ -26,14 +26,14 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">{{'createdNeed.author' | translate}}</dt>
+                    <dt class="col-xs-3">{{'needs.author' | translate}}</dt>
                     <dd><a ui-sref="profile.user({id: vm.currentNeed.userCreated.id})">{{vm.currentNeed.userCreated.name}}</a></dd>
 
-                    <dt class="col-xs-3">{{'createdNeed.published' | translate}}:</dt>
+                    <dt class="col-xs-3">{{'needs.published' | translate}}:</dt>
                     <dd>{{vm.currentNeed.dayCreated}}.{{vm.currentNeed.monthCreated}}.{{vm.currentNeed.yearCreated}}
                     </dd>
 
-                    <dt class="col-xs-3">{{'createdNeed.category' | translate}}:</dt>
+                    <dt class="col-xs-3">{{'needs.category' | translate}}:</dt>
                     <dd>
                         <ol class="breadcrumb">
                             <li ng-show="vm.mainCategory !== 'root'">{{vm.mainCategory}}</li>
@@ -44,21 +44,21 @@
                 </dl>
 
                 <hr>
-                <h3>{{'createdNeed.needDescription' | translate}}:</h3>
+                <h3>{{'needs.needDescription' | translate}}:</h3>
 
                 <dl class="dl-horizontal">
-                    <dt class="col-xs-3">{{'createdNeed.description' | translate}}:</dt>
+                    <dt class="col-xs-3">{{'needs.description' | translate}}:</dt>
                     <dd><span>{{vm.currentNeed.description}}</span></dd>
 
-                    <dt class="col-xs-3">{{'createdNeed.actuality' | translate}}:</dt>
+                    <dt class="col-xs-3">{{'needs.actuality' | translate}}:</dt>
                     <dd>до <strong>{{vm.currentNeed.formattedActualTo}}</strong></dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">{{'createdNeed.address' | translate}}:</dt>
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.address">{{'needs.address' | translate}}:</dt>
                     <dd ng-show="vm.currentNeed.address">
                         <span class='street'>{{vm.currentNeed.address}}</span>
                     </dd>
 
-                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">{{'createdNeed.convenientTime' |
+                    <dt class="col-xs-3" ng-show="vm.currentNeed.convenientTime">{{'needs.convenientTime' |
                         translate}}:
                     </dt>
                     <dd ng-show="vm.currentNeed.convenientTime">
@@ -70,8 +70,9 @@
                         {{vm.currentNeed.convenientTime.timeTo }}
                     </dd>
 
-                    <dt class="col-xs-3">{{'createdNeed.canTake' | translate}}:</dt>
-                    <dd>{{vm.currentNeed.pickup}}</dd>
+                    <dt class="col-xs-3">{{'core.canTake' | translate}}:</dt>
+                    <dd ng-show="vm.currentOffer.pickup">{{ 'core.yesButton' | translate }}</dd>
+                    <dd ng-hide="vm.currentOffer.pickup">{{ 'core.noButton' | translate }}</dd>
                 </dl>
 
                 <hr>
@@ -80,25 +81,25 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
                              ng-show="vm.authorizedUser.ifOwner">
                             <a ui-sref="needs.edit({id: vm.currentNeed.id})"
-                               class="btn btn-primary">{{'createdNeed.edit' | translate}}
+                               class="btn btn-primary">{{'needs.edit' | translate}}
                             </a>
                             <a href="/"
-                               class="btn btn-default">{{'createdNeed.close' | translate}}
+                               class="btn btn-default">{{'core.close' | translate}}
                             </a>
                             <a ng-click="vm.deleteCurrentNeed(vm.currentNeed.id)"
-                               class="btn btn-danger">{{'createdNeed.delete' | translate}}
+                               class="btn btn-danger">{{'core.delete' | translate}}
                             </a>
                         </div>
                         <remove-need-modal-directive></remove-need-modal-directive>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.allowResponse()">
                             <button class="btn btn-primary"
                                     ng-click="isCollapsed = !isCollapsed">
-                                {{'createdNeed.respond' | translate}}
+                                {{'needs.respond' | translate}}
                             </button>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.userRespondedToNeed">
                             <button class="btn btn-default" ng-click="vm.cancelResponce()">
-                                {{'createdNeed.cancelResponse' | translate}}
+                                {{'needs.cancelResponse' | translate}}
                             </button>
                         </div>
                     </div>
@@ -111,48 +112,43 @@
                         </button>
                         <form ng-submit="vm.respondToNeed()">
                             <div class="form-group">
-                                <label for="details">{{'createdNeed.details' | translate}}</label>
+                                <label for="details">{{'needs.details' | translate}}</label>
                                 <textarea class="form-control" id="details"
-                                          placeholder="{{'createdNeed.typeDetailsPlaceholder' | translate}}"
-                                          ng-model="vm.respondData.description">
-                                </textarea>
+                                          placeholder="{{'needs.typeDetailsPlaceholder' | translate}}"
+                                          ng-model="vm.respondData.description"></textarea>
                             </div>
                             <button type="submit"
                                     class="btn btn-primary text-left"
-                                    ng-click="isCollapsed = !isCollapsed">{{'createdNeed.submit' | translate}}
+                                    ng-click="isCollapsed = !isCollapsed">{{'needs.submit' | translate}}
                             </button>
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="vm.showResponsesToOwner">
                         <ul>
                             <li ng-repeat="response in vm.currentResponses">
-                                <div><b>{{'createdNeed.description' | translate}}:</b> {{response.description}}</div>
-                                <div ng-show="vm.waitingForHelp"><b>{{'createdNeed.userName' | translate}}:</b>
+                                <div><b>{{'needs.description' | translate}}:</b> {{response.description}}</div>
+                                <div ng-show="vm.waitingForHelp"><b>{{'needs.userName' | translate}}:</b>
                                     {{vm.userInfo.name}}
                                 </div>
-                                <div ng-show="vm.waitingForHelp"><b>{{'createdNeed.phoneNumber' | translate}}:</b>
+                                <div ng-show="vm.waitingForHelp"><b>{{'needs.phoneNumber' | translate}}:</b>
                                     {{vm.userInfo.address}}
                                 </div>
-                                <button class="btn btn-primary text-left"
-                                        ng-click="vm.accept(response.id)"
-                                        ng-show="!vm.waitingForHelp">
-                                    {{'createdNeed.recieve' | translate}}
+                                <button class="btn btn-primary text-left" ng-click="vm.accept(response.id)"
+                                        ng-show="!vm.waitingForHelp">{{'needs.receive' | translate}}
                                 </button>
                                 <button class="btn btn-primary text-left"
-                                        ng-click="vm.deleteCompletedResponse(response.id)"
-                                        ng-show="vm.waitingForHelp">
-                                    {{'createdNeed.confirmAssistance' | translate}}
+                                        ng-click="vm.deleteCompletedResponse(response.id)" ng-show="vm.waitingForHelp">
+                                    {{'needs.confirmAssistance' | translate}}
                                 </button>
                                 <button class="btn btn-primary text-left"
-                                        ng-click="vm.cancelGettingResponse(response.id)"
-                                        ng-show="vm.waitingForHelp">
-                                    {{'createdNeed.cancelAssistanceFromUser' | translate}}
+                                        ng-click="vm.cancelGettingResponse(response.id)" ng-show="vm.waitingForHelp">
+                                    {{'needs.cancelAssistanceFromUser' | translate}}
                                 </button>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div ng-show="!vm.currentNeed.open">{{'createdNeed.needIsClosed' | translate}}!!</div>
+                <div ng-show="!vm.currentNeed.open">{{'needs.needIsClosed' | translate}}!!</div>
             </div>
         </div>
     </div>

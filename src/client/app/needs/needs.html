@@ -26,12 +26,12 @@
                            dropdown-toggle
                            ng-model="vm.contentType"
                            ng-disabled="disabled"
-                           placeholder="{{'needs.needs' | translate}}"
+                           placeholder="{{'needs.needsTitle' | translate}}"
                            readonly/>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
                         <li role="menuitem">
                             <span class="glyphicon glyphicon-chevron-right"></span>
-                            <a href="#" ng-click="vm.setContentType('Потреби')">{{'needs.needsTitle' | translate}}</a>
+                            <a href="#" >{{'needs.needsTitle' | translate}}</a>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +43,9 @@
         </div>
     </section>
     <div class="container search-result well top">
-        <h2>{{vm.searchLabel}}</h2>
+        <h2 ng-show="vm.searchResultState === 'initial'">{{ 'needs.allNeeds' | translate }}</h2>
+        <h2 ng-show="vm.searchResultState === 'found'">{{ 'needs.needsFound' | translate:{count: vm.totalItems} }}</h2>
+        <h2 ng-show="vm.searchResultState === 'nothing'">{{ 'needs.nothingFound' | translate }}</h2>
         <hr>
         <div ng-repeat="need in vm.needs">
             <div class="row">
