@@ -1,10 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app.offers', [
-
-    ]).config(config);
-
+    angular.module('app.offers', []).config(config);
     config.$inject = ['$translateProvider'];
 
     function config($translateProvider) {
@@ -38,6 +35,7 @@
                 editingOfOffer: 'Редагування пропозиції',
                 offerName: 'Назва',
                 save: 'Зберегти',
+                cancel: 'Відмінити',
 
                 newOffer: 'Нова пропозиція',
                 nameOfOfferPlaceholder: 'Назва потреби',
@@ -97,6 +95,7 @@
                 editingOfOffer: 'Редактирование предложения',
                 offerName: 'Название',
                 save: 'Сохранить',
+                cancel: 'Отменить',
 
                 newOffer: 'Новое предложение',
                 nameOfOfferPlaceholder: 'Название предложения',

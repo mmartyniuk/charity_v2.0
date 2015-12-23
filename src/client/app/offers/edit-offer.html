@@ -22,8 +22,14 @@
 
                         <div class="col-sm-10 col-md-6 col-lg-4">
                             <category-search class="col-xs-12 no-gutter margin-bottom-20"
-                                             main-category="vm.mainCategory" subcategory="vm.subcategory"
-                                             category="vm.category"></category-search>
+                                             name="categories"
+                                             category="vm.category"
+                                             category-hierarchy="vm.categoryHierarchy"
+                                             ng-model="vm.categoryHierarchy"
+                                             required>
+                            </category-search>
+                            <span ng-if="editOfferForm.categories.$invalid" class="error">
+                                {{ 'offers.requiredField' | translate }}</span>
                         </div>
                     </div>
                     <hr>
@@ -46,11 +52,14 @@
                         <label class="control-label col-sm-2">{{ 'offers.selectRegion' | translate }}:</label>
 
                         <div class="col-sm-3">
-                            <span editable-select="vm.region" e-name="region"
-                                  e-ng-options="region.name for region in vm.regions track by region.id"
-                                  e-ng-change="vm.setRegion($data);">
-                                {{ vm.region.name }}
-                            </span>
+                            <select name="region" class="form-control"
+                                    ng-options="region.name for region in vm.regions track by region.id"
+                                    ng-model="vm.editedOffer.region"
+                                    ng-change="vm.setRegion(vm.editedOffer.region,editOfferForm)"
+                                    required>
+                            </select>
+                            <span ng-if="editOfferForm.region.$invalid" class="error">
+                                {{ 'offers.requiredField' | translate }}</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,10 +67,14 @@
 
                         <div class="col-sm-2">
                             <!-- here should be pre-filled data depending on previous select field -->
-                            <span editable-select="vm.city" e-name="city" e-ng-options="city.name for city in vm.cities"
-                                  e-ng-disabled="!editOfferForm.region.$modelValue">
-                                {{ vm.city.name }}
-                            </span>
+                            <select name="city" class="form-control"
+                                    ng-options="city.name for city in vm.cities track by city.name"
+                                    ng-model="vm.editedOffer.city"
+                                    required>
+                            </select>
+                            <span
+                                ng-if="editOfferForm.region.$valid && editOfferForm.city.$invalid"
+                                class="error">{{ 'offers.requiredField' | translate }}</span>
                         </div>
                     </div>
                     <hr>
@@ -73,14 +86,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <date-picker date="vm.dt">{{vm.editedNeed.date}}</date-picker>
+                        <date-picker date="vm.dt">{{vm.editedOffer.date}}</date-picker>
                     </div>
                     <div class="form-group row">
                         <label class="control-label col-sm-2">{{ 'offers.convenientTime' | translate }}:</label>
-
-                        <div class="col-sm-3">
-                            <span editable-text="vm.editedOffer.convenientTime" e-name="time">{{ vm.editedOffer.convenientTime }}</span>
-                        </div>
+                        <day-and-time convenient-time="vm.convenientDate"
+                                      ng-model="vm.convenientDate">
+                        </day-and-time>
                     </div>
                     <status status="vm.editedOffer.status" statuses="vm.editedOfferStatuses"></status>
                     <!-- button to show form -->
@@ -92,10 +104,11 @@
                             </button>
                             <!-- buttons to submit / cancel form -->
                     <span ng-show="editOfferForm.$visible">
-                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$waiting">
+                       <button type="submit" class="btn btn-primary" ng-disabled="editOfferForm.$invalid">
                            {{ 'offers.save' | translate }}
                        </button>
-                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">{{ 'core.cancelButton' | translate }}</a>
+                      <a ng-click="vm.cancel()" class="btn btn-default" id="myButton0">
+                          {{ 'offers.cancel' | translate }}</a>
                         <!--<button type="button" class="btn btn-default" ng-disabled="editOfferForm.$waiting"
                                 ng-click="editOfferForm.$cancel()">
                             Скасувати

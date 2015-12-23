@@ -91,7 +91,7 @@
             vm.currentOffer.dayCreated = vm.currentOffer.dateCreated.getDate();
             vm.currentOffer.monthCreated = vm.currentOffer.dateCreated.getMonth() + 1;
             vm.currentOffer.yearCreated = vm.currentOffer.dateCreated.getFullYear();
-
+            vm.currentOffer.convenientTime = JSON.parse(vm.currentOffer.convenientTime);
             vm.tempAddressUser = SharedFactory.sliceLink(vm.currentOffer._links.userCreated.href);
             vm.tempAddressCategory = SharedFactory.sliceLink(vm.currentOffer._links.category.href);
             // making here next call to api, to get user

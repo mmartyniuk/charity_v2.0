@@ -40,31 +40,42 @@
 
         function currentOffer() {
             EditOfferFactory.getConcreteOffer($stateParams.id).then(function (response) {
+                //TODO: categories of edited need should be provided be backend
                 vm.editedOffer.title = response.data.name;
                 vm.editedOffer.offerText = response.data.description;
+                vm.editedOffer.region = response.data._embedded.city.region;
+                vm.editedOffer.city = response.data._embedded.city;
                 vm.editedOffer.address = response.data.address;
                 vm.editedOffer.convenientTime = response.data.convenientTime;
                 vm.editedOffer.date = response.data.formattedActualTo;
-
+                vm.convenientDate = (JSON.parse(response.data.convenientTime) instanceof Object) ?
+                    JSON.parse(response.data.convenientTime) : vm.convenientDate;
             }).catch(function () {
                 console.log('something wrong');
             });
-
         }
 
         function getRegion() {
             EditOfferFactory.getRegions().then(function (regions) {
                 vm.regions = regions;
+                if (vm.editedOffer.region) {
+                    var cities = _.findWhere(vm.regions, vm.editedOffer.region);
+                    vm.cities = cities._embedded.cities;
+                }
             });
         }
 
-        function setRegion(region) {
+        function setRegion(region, editOfferForm) {
             vm.cities = region._embedded.cities;
+            editOfferForm.city.$invalid = true;
+            editOfferForm.$invalid = true;
         }
 
         function saveEditedOffer() {
             vm.editedOffer.date = vm.dt;
             vm.editedOffer.offerId = vm.offerId;
+            vm.editedOffer.cagories = vm.categoryHierarchy;
+            vm.editedOffer.convenientTime = JSON.stringify(vm.convenientDate);
             return EditOfferFactory.updateCurrentOffer(vm.editedOffer).then(function () {
                 $state.go('offers.created', {id: vm.offerId});
             });
