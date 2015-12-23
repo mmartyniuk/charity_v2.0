@@ -68,6 +68,7 @@
         function setRegion(region, editNeedForm) {
             vm.cities = region._embedded.cities;
             editNeedForm.city.$invalid = true;
+            editNeedForm.$invalid = true;
         }
 
         function saveEditedNeed() {
