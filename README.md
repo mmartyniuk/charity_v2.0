@@ -1,4 +1,4 @@
-# charityOrg
+# CharityOrg (Spectacular Charity Project)
 
 **Generated from HotTowel Angular**
 
